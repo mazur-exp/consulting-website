@@ -49,7 +49,7 @@ export const VideoSection = () => {
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="text-2xl">💡</span>
             <h2 className="text-3xl sm:text-4xl font-bold" data-testid="text-video-title">
-              {t("Что вы узнаете из видео:", "What you'll learn from the video:")}
+              {t("Платформы доставки еды Gojek и Grab на Бали. Как подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali. How to connect and profit from it.")}
             </h2>
           </div>
         </motion.div>
@@ -68,8 +68,8 @@ export const VideoSection = () => {
             >
               <div className="aspect-video rounded-2xl glass-card overflow-hidden relative">
                 <img 
-                  src="/Cases/magic lamp/Снимок экрана 2024-04-19 в 20.40.12.png"
-                  alt="Video thumbnail showing delivery analytics"
+                  src="/2025-08-18 21.17.17_1755717966951.jpg"
+                  alt="Video thumbnail about Gojek and Grab delivery platforms"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -81,8 +81,8 @@ export const VideoSection = () => {
                   <div className="glass-card p-3 rounded-lg">
                     <p className="text-sm font-medium text-brand-text">
                       {t(
-                        "Полное руководство по доставке на Бали",
-                        "Complete guide to delivery in Bali"
+                        "Платформы доставки еды Gojek и Grab на Бали",
+                        "Gojek and Grab food delivery platforms in Bali"
                       )}
                     </p>
                     <p className="text-xs text-brand-muted mt-1">
