@@ -23,12 +23,15 @@ export const CTASection = () => {
               "Get a free profile audit and learn how to increase revenue by 40-200%"
             )}
           </p>
-          <button 
+          <a 
+            href="https://t.me/DeliveryBoosterBali"
+            target="_blank"
+            rel="noopener noreferrer"
             data-testid="button-cta-main"
-            className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg"
+            className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"
           >
             {t("Заказать аудит бесплатно", "Book Free Audit")}
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

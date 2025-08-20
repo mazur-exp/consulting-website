@@ -39,18 +39,24 @@ export const FounderSection = () => {
               )}
             </p>
             <div className="flex flex-wrap gap-4">
-              <button 
+              <a 
+                href="https://t.me/DeliveryBoosterBali"
+                target="_blank"
+                rel="noopener noreferrer"
                 data-testid="button-founder-audit"
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300"
               >
                 {t("Записаться на аудит", "Book a free audit")}
-              </button>
-              <button 
+              </a>
+              <a 
+                href="https://t.me/DeliveryBoosterBot"
+                target="_blank"
+                rel="noopener noreferrer"
                 data-testid="button-founder-bot"
                 className="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300"
               >
-                {t("Открыть бота", "Open bot")}
-              </button>
+                {t("Чат-бот", "Chat-bot")}
+              </a>
             </div>
           </motion.div>
         </div>

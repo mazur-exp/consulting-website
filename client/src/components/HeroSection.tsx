@@ -36,7 +36,10 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <button 
+              <a 
+                href="https://t.me/DeliveryBoosterBali"
+                target="_blank"
+                rel="noopener noreferrer"
                 data-testid="button-primary-cta"
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               >
@@ -44,19 +47,25 @@ export const HeroSection = () => {
                   "Получить бесплатный аудит",
                   "Book a free audit"
                 )}
-              </button>
+              </a>
               
-              <button 
+              <a 
+                href="https://t.me/DeliveryBoosterBot"
+                target="_blank"
+                rel="noopener noreferrer"
                 data-testid="button-open-bot"
                 className="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300"
               >
                 {t(
-                  "Открыть бота",
-                  "Open bot"
+                  "Чат-бот",
+                  "Chat-bot"
                 )}
-              </button>
+              </a>
               
-              <button 
+              <a 
+                href="https://t.me/DeliveryBoosterBali"
+                target="_blank"
+                rel="noopener noreferrer"
                 data-testid="button-telegram-channel"
                 className="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300"
               >
@@ -64,7 +73,7 @@ export const HeroSection = () => {
                   "Канал в Telegram",
                   "Telegram channel"
                 )}
-              </button>
+              </a>
             </div>
             
 
