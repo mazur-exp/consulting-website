@@ -24,7 +24,7 @@ export const CTASection = () => {
             )}
           </p>
           <a 
-            href="https://t.me/DeliveryBoosterBali"
+            href="https://t.me/delivery_booster"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-cta-main"

@@ -40,7 +40,7 @@ export const FounderSection = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
-                href="https://t.me/DeliveryBoosterBali"
+                href="https://t.me/delivery_booster"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="button-founder-audit"
