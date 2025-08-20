@@ -74,19 +74,19 @@ export const HeroSection = () => {
             <div className="glass-card p-4 rounded-2xl">
               <div className="grid grid-cols-2 gap-3">
                 <img 
-                  src="/attached_assets/2025-08-18 21.17.30_1755717966950.jpg"
+                  src="/2025-08-18 21.17.30_1755717966950.jpg"
                   alt="Food delivery app interface showcasing menu items"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-1"
                 />
                 <img 
-                  src="/attached_assets/2025-08-18 21.17.17_1755717966951.jpg"
+                  src="/2025-08-18 21.17.17_1755717966951.jpg"
                   alt="Grab delivery driver with mobile app"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-2"
                 />
                 <img 
-                  src="/attached_assets/2025-08-18 21.17.24_1755717966951.jpg"
+                  src="/2025-08-18 21.17.24_1755717966951.jpg"
                   alt="Sushi restaurant showcase"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-3"

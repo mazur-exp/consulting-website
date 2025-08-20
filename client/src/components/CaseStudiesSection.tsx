@@ -24,20 +24,20 @@ export const CaseStudiesSection = () => {
 
   const caseImages = [
     {
-      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      alt: "Restaurant analytics dashboard showing growth"
+      src: "/Cases/magic lamp/Снимок экрана 2024-04-19 в 20.40.12.png",
+      alt: "Magic Lamp restaurant delivery analytics"
     },
     {
-      src: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      alt: "Delivery optimization results"
+      src: "/Cases/soul/Снимок экрана 2024-04-19 в 13.01.41.png",
+      alt: "Soul restaurant growth metrics"
     },
     {
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      alt: "Mobile app performance metrics"
+      src: "/Cases/mamu/Снимок экрана 2024-04-19 в 20.49.43.png",
+      alt: "Mamu restaurant optimization results"
     },
     {
-      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      alt: "Successful restaurant case study"
+      src: "/Cases/huge/Снимок экрана 2024-04-19 в 21.27.49.png",
+      alt: "Huge restaurant delivery performance"
     }
   ];
 

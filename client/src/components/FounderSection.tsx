@@ -15,7 +15,7 @@ export const FounderSection = () => {
             viewport={{ once: true }}
           >
             <img 
-              src="/attached_assets/Снимок экрана 2025-08-18 в 17.31.06_1755718191972.png"
+              src="/Снимок экрана 2025-08-18 в 17.31.06_1755718191972.png"
               alt="Алексей Мазур - основатель Delivery Booster"
               className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
               data-testid="img-founder"
