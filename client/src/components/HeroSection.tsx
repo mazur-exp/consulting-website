@@ -23,8 +23,8 @@ export const HeroSection = () => {
           <motion.div className="space-y-8" {...fadeInUp}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" data-testid="text-hero-title">
               {t(
-                "Рост заказов на Grab/Go без удара по марже",
-                "Grow Grab/Go orders without killing your margin"
+                "Рост заказов на Grab/Gojek без удара по марже",
+                "Grow Grab/Gojek orders without killing your margin"
               )}
             </h1>
             
@@ -67,32 +67,27 @@ export const HeroSection = () => {
               </button>
             </div>
             
-            <p className="text-sm text-brand-muted" data-testid="text-bot-notice">
-              {t(
-                "Материалы в боте доступны после подписки на канал.",
-                "Bot materials unlock after channel subscription."
-              )}
-            </p>
+
           </motion.div>
           
           <motion.div {...fadeInUpDelayed}>
             <div className="glass-card p-4 rounded-2xl">
               <div className="grid grid-cols-2 gap-3">
                 <img 
-                  src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                  alt="Professional food photography"
+                  src="/attached_assets/2025-08-18 21.17.30_1755717966950.jpg"
+                  alt="Food delivery app interface showcasing menu items"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-1"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                  alt="Mobile food delivery app"
+                  src="/attached_assets/2025-08-18 21.17.17_1755717966951.jpg"
+                  alt="Grab delivery driver with mobile app"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-2"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                  alt="Restaurant kitchen preparation"
+                  src="/attached_assets/2025-08-18 21.17.24_1755717966951.jpg"
+                  alt="Sushi restaurant showcase"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-3"
                 />

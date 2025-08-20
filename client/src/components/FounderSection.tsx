@@ -15,8 +15,8 @@ export const FounderSection = () => {
             viewport={{ once: true }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600"
-              alt="Founder of Delivery Booster"
+              src="/attached_assets/Снимок экрана 2025-08-18 в 17.31.06_1755718191972.png"
+              alt="Алексей Мазур - основатель Delivery Booster"
               className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
               data-testid="img-founder"
             />
@@ -30,12 +30,12 @@ export const FounderSection = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold" data-testid="text-founder-title">
-              {t("Кто будет вести проект", "Who runs your project")}
+              {t("Алексей Мазур @mazur_exp", "Alexey Mazur @mazur_exp")}
             </h2>
             <p className="text-brand-muted text-lg leading-relaxed" data-testid="text-founder-description">
               {t(
-                "Опыт работы с ресторанами в ЮВА и платформами Grab/Gojek. Работаем на RU/EN, при необходимости привлекаем ID/TH ассистентов.",
-                "Experience with SEA restaurants and Grab/Gojek. Work in RU/EN; ID/TH assistants on request."
+                "Совладелец IKA Sushi (3 точки на Бали, оборот более 1млрд рупий в месяц), отвечает за маркетинг, продажи и доставку. Опыт работы с маркетплейсами - 8 лет команда делала Android приложения (более 700 приложений было сделано), знания в маркетинге и построении бизнесов - за 13 лет было создано 9 успешных бизнесов в разных сферах. Основатель Delivery Booster, сервиса по увеличению продаж на Gojek и Grab: более 100 клиентов, рост продаж в 2-6 раз за счет настройки и оптимизации услуг доставки.",
+                "Co-owner of IKA Sushi (3 locations in Bali, revenue over 1 billion rupees per month), responsible for marketing, sales and delivery. Experience with marketplaces - 8 years the team made Android applications (more than 700 applications were made), knowledge in marketing and business building - over 13 years, 9 successful businesses were created in various fields. Founder of Delivery Booster, a service to increase sales on Gojek and Grab: more than 100 clients, sales growth of 2-6 times through setup and optimization of delivery services."
               )}
             </p>
             <div className="flex flex-wrap gap-4">

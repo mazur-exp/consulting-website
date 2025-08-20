@@ -25,19 +25,19 @@ export const CaseStudiesSection = () => {
   const caseImages = [
     {
       src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      alt: "Analytics dashboard showing growth metrics"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      alt: "Professional food presentation"
+      alt: "Restaurant analytics dashboard showing growth"
     },
     {
       src: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      alt: "Five-star restaurant rating display"
+      alt: "Delivery optimization results"
     },
     {
       src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
-      alt: "Successful food delivery completion"
+      alt: "Mobile app performance metrics"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+      alt: "Successful restaurant case study"
     }
   ];
 

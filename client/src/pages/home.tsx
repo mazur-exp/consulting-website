@@ -7,6 +7,7 @@ import { WorkProcessSection } from '../components/WorkProcessSection';
 import { CaseStudiesSection } from '../components/CaseStudiesSection';
 import { FounderSection } from '../components/FounderSection';
 import { CTASection } from '../components/CTASection';
+import { VideoSection } from '../components/VideoSection';
 import { Footer } from '../components/Footer';
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <CaseStudiesSection />
         <FounderSection />
         <CTASection />
+        <VideoSection />
       </main>
       
       <Footer />
