@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delivery Booster — рост заказов на Grab/Go</title>
+  <meta name="description" content="Помогаем ресторанам на Бали и в Таиланде расти в доставке через GrabFood/GoFood. Аудит, карточки, меню, промо/Ads, рейтинг, SLA, отчётность.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; src: local('Arial'); }
+    :root {
+      --green:#1f9e4b;
+      --green-2:#29c267;
+      --bg:#0a0f0c;
+      --text:#eaf6ee;
+      --muted:#cfe8d6;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.45}
+    a{color:var(--text);text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:10;background:rgba(10,15,12,.6);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand img{height:36px;width:auto;border-radius:6px}
+    .lang{display:flex;gap:8px}
+    .lang button{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.18);padding:6px 10px;border-radius:8px;cursor:pointer}
+    .lang button.active, .btn.primary{background:linear-gradient(90deg,var(--green),var(--green-2));color:#fff;border:0;box-shadow:0 0 24px rgba(41,194,103,.35)}
+    .hero{position:relative;overflow:hidden}
+    .blob{position:absolute;inset:-20%;background:radial-gradient(closest-side, rgba(41,194,103,.28), transparent 65%);filter:blur(30px);animation:float 12s ease-in-out infinite}
+    @keyframes float{0% {transform:translate(-10%,0)} 50% {transform:translate(10%,10%)} 100% {transform:translate(-10%,0)}}
+    .grid2{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:58px 0}
+    .hero h1{font-size:40px;margin:10px 0 16px}
+    .lead{color:var(--muted);font-size:18px;margin-bottom:24px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18)}
+    .btn.secondary{border-color:rgba(255,255,255,.28)}
+    .hero-card{display:grid;gap:12px;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.03);padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.08)}
+    .hero-card img{width:100%;height:160px;object-fit:cover;border-radius:12px}
+    section{padding:56px 0;border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-size:28px;margin:0 0 14px}
+    .muted{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:rgba(255,255,255,.03);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.08)}
+    .case-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .case-gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px}
+    .founder{display:grid;grid-template-columns:160px 1fr;gap:16px;align-items:center}
+    .founder img{width:160px;height:160px;object-fit:cover;border-radius:14px;border:1px solid rgba(255,255,255,.14)}
+    footer{padding:28px 0;color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(41,194,103,.14);border:1px solid rgba(41,194,103,.36);color:#eafff1;font-size:12px;margin-right:6px}
+    .fade{opacity:0;transform:translateY(14px);transition:.6s ease}
+    .fade.show{opacity:1;transform:none}
+    @media(max-width:900px){
+      .grid2{grid-template-columns:1fr}
+      .case-gallery{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="blob"></div>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <img src="assets/Снимок экрана 2025-08-20 в 10.08.18.png" alt="Delivery Booster logo"/>
+        <span>Delivery Booster</span>
+      </div>
+      <div class="lang">
+        <button id="ruBtn" class="active">RU</button>
+        <button id="enBtn">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap grid2">
+        <div>
+          <h1 data-ru="Рост заказов на Grab/Go без удара по марже"
+              data-en="Grow Grab/Go orders without killing your margin">Рост заказов на Grab/Go без удара по марже</h1>
+          <p class="lead" data-ru="Прокачиваем карточки, меню, промо/Ads и рейтинг. Бали и Таиланд."
+             data-en="We fix cards, menu, promos/Ads and ratings. Bali & Thailand.">Прокачиваем карточки, меню, промо/Ads и рейтинг. Бали и Таиланд.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#" data-ru="Получить бесплатный аудит" data-en="Book a free audit">Получить бесплатный аудит</a>
+            <a class="btn secondary" href="#" data-ru="Открыть бота" data-en="Open bot">Открыть бота</a>
+            <a class="btn secondary" href="#" data-ru="Канал в Telegram" data-en="Telegram channel">Канал в Telegram</a>
+            <a class="btn secondary" href="#" data-ru="YouTube" data-en="YouTube">YouTube</a>
+          </div>
+          <p class="muted" style="margin-top:8px" data-ru="Материалы в боте доступны после подписки на канал." data-en="Bot materials unlock after channel subscription.">Материалы в боте доступны после подписки на канал.</p>
+        </div>
+        <div class="hero-card fade">
+          <img src="assets/Снимок экрана 2025-08-20 в 10.08.18.png" alt="case"/><img src="assets/461DD1BC-A87E-4FB2-8F33-038FCAF510BB.jpeg" alt="case"/><img src="assets/4CD03365-37FF-43FA-9E7A-AE4D3B939CD8.jpeg" alt="case"/><img src="assets/6F7D7609-C8F3-4E5B-B4EF-3139383E9632.jpeg" alt="case"/>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 data-ru="Кому мы помогаем" data-en="Who we help">Кому мы помогаем</h2>
+        <p class="muted" data-ru="Чёткие роли и задачи — чтобы говорить на одном языке." data-en="Clear roles and needs – so we speak the same language.">Чёткие роли и задачи — чтобы говорить на одном языке.</p>
+        <div class="cards fade">
+          <div class="card"><span class="pill">Owner / Оператор</span>
+            <p data-ru="Нужно быстро поднять заказы и рейтинг без вечных скидок."
+               data-en="Needs quick order and rating lift without endless discounts.">Нужно быстро поднять заказы и рейтинг без вечных скидок.</p></div>
+          <div class="card"><span class="pill">General Manager</span>
+            <p data-ru="Сократить отмены/задержки, навести порядок в SLA и упаковке."
+               data-en="Reduce cancellations/delays, fix SLA and packaging.">Сократить отмены/задержки, навести порядок в SLA и упаковке.</p></div>
+          <div class="card"><span class="pill">Marketing Lead</span>
+            <p data-ru="Прогнозируемые промо и Ads, прозрачная отчётность и A/B-тесты."
+               data-en="Predictable promos and Ads with transparent reporting & A/B tests.">Прогнозируемые промо и Ads, прозрачная отчётность и A/B-тесты.</p></div>
+          <div class="card"><span class="pill">Cloud/Ghost Kitchen</span>
+            <p data-ru="Видимость в приложении и повторы без зала."
+               data-en="App visibility and repeat orders without dining room.">Видимость в приложении и повторы без зала.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 data-ru="Что именно мы делаем" data-en="What we do">Что именно мы делаем</h2>
+        <div class="cards fade">
+          <div class="card">
+            <h3>Profile & Cards</h3>
+            <p class="muted" data-ru="Фото, тексты, теги, «герои» меню; факторы видимости под вашим контролем."
+               data-en="Photos, copy, tags, hero items; visibility factors you can control.">Фото, тексты, теги, «герои» меню; факторы видимости под вашим контролем.</p>
+          </div>
+          <div class="card">
+            <h3>Menu & Pricing</h3>
+            <p class="muted" data-ru="Хиты, комбо/бандлы, AOV с учётом комиссий."
+               data-en="Hits, bundles, AOV with platform fees in mind.">Хиты, комбо/бандлы, AOV с учётом комиссий.</p>
+          </div>
+          <div class="card">
+            <h3>Promos & Ads</h3>
+            <p class="muted" data-ru="Календарь промо, правила стопа, безопасный тест слотов и гео."
+               data-en="Promo calendar, stop rules, safe slotting & geo tests.">Календарь промо, правила стопа, безопасный тест слотов и гео.</p>
+          </div>
+          <div class="card">
+            <h3>Ratings & Reviews</h3>
+            <p class="muted" data-ru="Сценарии запросов, ответы на 1★, цель — рейтинг 4.6+."
+               data-en="Ethical review asks, 1★ de-escalation; target 4.6+.">Сценарии запросов, ответы на 1★, цель — рейтинг 4.6+.</p>
+          </div>
+          <div class="card">
+            <h3>Ops & SLA</h3>
+            <p class="muted" data-ru="Честный prep-time, упаковка, контроль отмен и задержек."
+               data-en="Honest prep-time, packaging, cancellations/delays control.">Честный prep-time, упаковка, контроль отмен и задержек.</p>
+          </div>
+          <div class="card">
+            <h3>Analytics</h3>
+            <p class="muted" data-ru="KPI-дашборд, недельные спринты, план экспериментов."
+               data-en="KPI dashboard, weekly sprints, test plan.">KPI-дашборд, недельные спринты, план экспериментов.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 data-ru="Как мы работаем" data-en="How we work">Как мы работаем</h2>
+        <div class="cards fade">
+          <div class="card"><h3 data-ru="Вводная консультация" data-en="Intro call">Вводная консультация</h3>
+            <p class="muted" data-ru="Экспресс-диагностика профиля Grab/Go и приоритеты на 30 дней."
+               data-en="Quick Grab/Go profile check and 30-day priorities.">Экспресс-диагностика профиля Grab/Go и приоритеты на 30 дней.</p></div>
+          <div class="card"><h3 data-ru="Индивидуальный план" data-en="Plan">Индивидуальный план</h3>
+            <p class="muted" data-ru="Согласуем цели и объём работ — без типовых «пакетов»."
+               data-en="Agree on goals and scope — no generic packages.">Согласуем цели и объём работ — без типовых «пакетов».</p></div>
+          <div class="card"><h3 data-ru="Запуск и спринты" data-en="Sprints">Запуск и спринты</h3>
+            <p class="muted" data-ru="Еженедельные итерации с отчётами и гипотезами."
+               data-en="Weekly iterations with reports and hypotheses.">Еженедельные итерации с отчётами и гипотезами.</p></div>
+        </div>
+        <p class="muted" style="margin-top:10px" data-ru="Стоимость и формат работы определяются по итогам консультации." data-en="Pricing and format are set after the intro call.">Стоимость и формат работы определяются по итогам консультации.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 data-ru="Снимки кейсов" data-en="Case snapshots">Снимки кейсов</h2>
+        <div class="case-gallery fade">
+          <img src="assets/Снимок экрана 2025-08-20 в 10.08.18.png" alt="case"/><img src="assets/461DD1BC-A87E-4FB2-8F33-038FCAF510BB.jpeg" alt="case"/><img src="assets/4CD03365-37FF-43FA-9E7A-AE4D3B939CD8.jpeg" alt="case"/><img src="assets/6F7D7609-C8F3-4E5B-B4EF-3139383E9632.jpeg" alt="case"/><img src="assets/FA3A8287-E17E-4467-B2E7-04A3A232028A.jpeg" alt="case"/><img src="assets/4BB26B1F-8E64-46E8-9807-FACAA302E614.jpeg" alt="case"/><img src="assets/7E760E7C-6F8C-45CA-B2AC-F4E4C991F8DC.jpeg" alt="case"/><img src="assets/1936EB57-9A59-4AA2-980B-ACF765628A75.jpeg" alt="case"/><img src="assets/BA6312F2-225E-4590-8F2A-225E6FBEBCCC.jpeg" alt="case"/><img src="assets/1574D783-D289-48A8-99FA-0A1C551A9722.jpeg" alt="case"/>
+        </div>
+        <p class="muted" style="margin-top:8px" data-ru="Детали и цифры показываем на консультации. Данные анонимизируем." data-en="We share details on the call; data anonymized.">Детали и цифры показываем на консультации. Данные анонимизируем.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap founder">
+        <img src="assets/1574D783-D289-48A8-99FA-0A1C551A9722.jpeg" alt="Founder"/>
+        <div>
+          <h2 data-ru="Кто будет вести проект" data-en="Who runs your project">Кто будет вести проект</h2>
+          <p class="muted" data-ru="Опыт работы с ресторанами в ЮВА и платформами Grab/Gojek. Работаем на RU/EN, при необходимости привлекаем ID/TH ассистентов."
+             data-en="Experience with SEA restaurants and Grab/Gojek. Work in RU/EN; ID/TH assistants on request.">Опыт работы с ресторанами в ЮВА и платформами Grab/Gojek. Работаем на RU/EN, при необходимости привлекаем ID/TH ассистентов.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#" data-ru="Записаться на аудит" data-en="Book a free audit">Записаться на аудит</a>
+            <a class="btn secondary" href="#" data-ru="Открыть бота" data-en="Open bot">Открыть бота</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="muted">© Delivery Booster. Bali & Thailand.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Language toggle
+    const ruBtn = document.getElementById('ruBtn'); const enBtn = document.getElementById('enBtn');
+    function setLang(lang) {
+      document.querySelectorAll('[data-ru]').forEach(el=>{
+        el.textContent = el.getAttribute(lang==='ru'?'data-ru':'data-en');
+      });
+      ruBtn.classList.toggle('active', lang==='ru'); enBtn.classList.toggle('active', lang==='en');
+      document.documentElement.lang = lang;
+    }
+    ruBtn.addEventListener('click',()=>setLang('ru'));
+    enBtn.addEventListener('click',()=>setLang('en'));
+    // On-scroll reveal
+    const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); }) },{threshold:.15});
+    document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
