@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useState } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const CaseStudiesSection = () => {
   const { t } = useLanguage();
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const containerVariants = {
     hidden: {},
@@ -41,6 +44,22 @@ export const CaseStudiesSection = () => {
     }
   ];
 
+  const handleImageClick = (index: number) => {
+    setSelectedImage(index);
+  };
+
+  const handlePrevious = () => {
+    setSelectedImage((prev) => prev === null ? null : prev === 0 ? caseImages.length - 1 : prev - 1);
+  };
+
+  const handleNext = () => {
+    setSelectedImage((prev) => prev === null ? null : prev === caseImages.length - 1 ? 0 : prev + 1);
+  };
+
+  const handleClose = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <section className="py-16 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,13 +86,14 @@ export const CaseStudiesSection = () => {
             <motion.div 
               key={index}
               variants={itemVariants}
-              className="glass-card p-4 rounded-xl"
+              className="glass-card p-4 rounded-xl cursor-pointer hover:bg-white/10 transition-all duration-300"
               data-testid={`card-case-${index}`}
+              onClick={() => handleImageClick(index)}
             >
               <img 
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-32 object-cover rounded-lg"
+                className="w-full h-32 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
               />
             </motion.div>
           ))}
@@ -92,6 +112,50 @@ export const CaseStudiesSection = () => {
             "We share details on the call; data anonymized."
           )}
         </motion.p>
+        
+        {/* Lightbox Modal */}
+        {selectedImage !== null && (
+          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+            <div className="relative max-w-4xl max-h-full">
+              <button
+                onClick={handleClose}
+                className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
+                data-testid="button-close-lightbox"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              
+              <button
+                onClick={handlePrevious}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
+                data-testid="button-prev-image"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              
+              <button
+                onClick={handleNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
+                data-testid="button-next-image"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+              
+              <img
+                src={caseImages[selectedImage].src}
+                alt={caseImages[selectedImage].alt}
+                className="max-w-full max-h-full object-contain rounded-lg"
+                data-testid="img-lightbox"
+              />
+              
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center">
+                <p className="text-sm bg-black/50 px-4 py-2 rounded-full">
+                  {selectedImage + 1} / {caseImages.length}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

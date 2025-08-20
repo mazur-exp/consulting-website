@@ -66,8 +66,13 @@ export const VideoSection = () => {
               onClick={handleVideoClick}
               data-testid="button-video-play"
             >
-              <div className="aspect-video bg-gradient-to-br from-brand-green/20 to-brand-green-light/20 rounded-2xl glass-card overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
+              <div className="aspect-video rounded-2xl glass-card overflow-hidden relative">
+                <img 
+                  src="/Cases/magic lamp/Снимок экрана 2024-04-19 в 20.40.12.png"
+                  alt="Video thumbnail showing delivery analytics"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                   <div className="w-20 h-20 brand-gradient rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
                   </div>
