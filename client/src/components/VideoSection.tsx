@@ -46,12 +46,9 @@ export const VideoSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-2xl">💡</span>
-            <h2 className="text-3xl sm:text-4xl font-bold" data-testid="text-video-title">
-              {t("Платформы доставки еды Gojek и Grab на Бали. Как подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali. How to connect and profit from it.")}
-            </h2>
-          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4" data-testid="text-video-title">
+            {t("Платформы доставки еды Gojek и Grab на Бали. Как подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali. How to connect and profit from it.")}
+          </h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -68,8 +65,8 @@ export const VideoSection = () => {
             >
               <div className="aspect-video rounded-2xl glass-card overflow-hidden relative">
                 <img 
-                  src="/2025-08-18 21.17.17_1755717966951.jpg"
-                  alt="Video thumbnail about Gojek and Grab delivery platforms"
+                  src="/Снимок экрана 2025-08-20 в 22.51.23_1755719498450.png"
+                  alt="Video thumbnail showing presentation about delivery orders"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
