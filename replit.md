@@ -70,3 +70,33 @@ Preferred communication style: Simple, everyday language.
 ### External Assets
 - **Unsplash**: Professional stock photography for marketing content
 - **Google Fonts**: Web fonts for typography (Inter font family)
+
+## Deployment Configuration
+
+### Production Build Process
+The application uses a multi-step build process optimized for cloud deployment:
+
+1. **Client Build**: Vite builds the React frontend to `dist/public` directory
+2. **Server Build**: ESBuild compiles the Express server to `dist/index.js`
+3. **Static File Setup**: Built client files are copied to `server/public` for production serving
+
+### Cloud Run Compatibility
+The server configuration has been optimized for Google Cloud Run deployment:
+
+- **Host Binding**: Server listens on `0.0.0.0:PORT` for external access in containerized environments
+- **Static File Serving**: Production mode serves built static files from the correct directory structure
+- **Environment Variables**: Uses `PORT` environment variable with fallback to 5000
+
+### Build Scripts
+- **Development**: `npm run dev` - Starts development server with hot reload
+- **Production Build**: `npm run build` - Builds both client and server for production
+- **Production Start**: `npm run start` - Runs the built production server
+- **Manual Build**: Use `./build-production.sh` for deployment preparation
+
+### Deployment Requirements
+1. Run `npm run build` to create production artifacts
+2. Copy `dist/public` to `server/public` for static file serving compatibility  
+3. Set `NODE_ENV=production` environment variable
+4. Use `node dist/index.js` to start the production server
+
+Date: August 21, 2025
