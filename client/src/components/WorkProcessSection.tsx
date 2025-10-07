@@ -52,8 +52,8 @@ export const WorkProcessSection = () => {
         en: "Sprints"
       },
       description: {
-        ru: "Еженедельные итерации с отчётами и гипотезами.",
-        en: "Weekly iterations with reports and hypotheses."
+        ru: "Еженедельные итерации с отчётами и рекомендациями.",
+        en: "Weekly iterations with reports and recommendations."
       }
     }
   ];
