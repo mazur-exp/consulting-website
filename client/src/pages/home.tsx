@@ -5,6 +5,7 @@ import { TargetAudienceSection } from '../components/TargetAudienceSection';
 import { ServicesSection } from '../components/ServicesSection';
 import { WorkProcessSection } from '../components/WorkProcessSection';
 import { CaseStudiesSection } from '../components/CaseStudiesSection';
+import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FounderSection } from '../components/FounderSection';
 import { CTASection } from '../components/CTASection';
 import { VideoSection } from '../components/VideoSection';
@@ -22,6 +23,7 @@ export default function Home() {
         <ServicesSection />
         <WorkProcessSection />
         <CaseStudiesSection />
+        <TestimonialsSection />
         <FounderSection />
         <CTASection />
         <VideoSection />
