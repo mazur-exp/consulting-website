@@ -97,8 +97,8 @@ export const HeroSection = () => {
                   data-testid="img-hero-gallery-2"
                 />
                 <img 
-                  src="/2025-08-18 21.17.24_1755717966951.jpg"
-                  alt="Sushi restaurant showcase"
+                  src="/photo_2025-10-18_17-12-17_1760800401840.jpg"
+                  alt="Grab app interface"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-3"
                 />
