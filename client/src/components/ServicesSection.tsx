@@ -52,7 +52,11 @@ export const ServicesSection = () => {
       }
     },
     {
-      title: "Consulting & Team Training",
+      title: (
+        <>
+          Consulting & Team<br />Training
+        </>
+      ),
       description: {
         ru: "Видео-тренинг, тест и гайд для сотрудников ресторана",
         en: "Video training, test and guide for restaurant staff"
