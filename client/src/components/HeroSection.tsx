@@ -103,8 +103,8 @@ export const HeroSection = () => {
                   data-testid="img-hero-gallery-3"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
-                  alt="Food packaging for delivery"
+                  src="/photo_2025-10-18_17-15-51_1760800597028.jpg"
+                  alt="Delicious pizzas for delivery"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-4"
                 />
