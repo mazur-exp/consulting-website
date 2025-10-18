@@ -30,7 +30,7 @@ export const FounderSection = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold" data-testid="text-founder-title">
-              {t("Алексей Мазур @mazur_exp", "Alexey Mazur @mazur_exp")}
+              {t("Алексей Мазур", "Alexey Mazur")}
             </h2>
             <p className="text-brand-muted text-lg leading-relaxed" data-testid="text-founder-description">
               {t(
