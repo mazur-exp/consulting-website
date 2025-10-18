@@ -100,7 +100,7 @@ export const ServicesSection = () => {
               className="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300"
               data-testid={`card-service-${index}`}
             >
-              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+              <h3 className={`text-xl font-semibold mb-3 ${index === 4 ? 'text-center' : ''}`}>{service.title}</h3>
               <p className="text-brand-muted">
                 {t(service.description.ru, service.description.en)}
               </p>
