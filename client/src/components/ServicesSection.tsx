@@ -52,10 +52,10 @@ export const ServicesSection = () => {
       }
     },
     {
-      title: "Ops & SLA",
+      title: "Consulting & Team Training",
       description: {
-        ru: "Честный prep-time, упаковка, контроль отмен и задержек.",
-        en: "Honest prep-time, packaging, cancellations/delays control."
+        ru: "Видео-тренинг, тест и гайд для сотрудников ресторана",
+        en: "Video training, test and guide for restaurant staff"
       }
     },
     {
