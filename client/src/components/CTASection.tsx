@@ -19,7 +19,7 @@ export const CTASection = () => {
           </h2>
           <p className="text-brand-muted text-lg mb-8 max-w-2xl mx-auto" data-testid="text-cta-description">
             {t(
-              "Получите бесплатный аудит вашего профиля и узнайте, как увеличить доходы на 40-200%",
+              "Получите бесплатную диагностику вашего профиля и узнайте, как увеличить доходы на 40-200%",
               "Get a free profile audit and learn how to increase revenue by 40-200%"
             )}
           </p>
