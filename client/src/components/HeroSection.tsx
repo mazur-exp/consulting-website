@@ -30,9 +30,11 @@ export const HeroSection = () => {
             
             <p className="text-xl text-brand-muted leading-relaxed" data-testid="text-hero-subtitle">
               {t(
-                "Прокачиваем карточки, меню, промо/рекламу и рейтинг в сервисах доставки. Бали и Таиланд.",
-                "We fix cards, menu, promos/ads and ratings in delivery services. Bali & Thailand."
+                "Прокачиваем карточки, меню, промо/рекламу и рейтинг в сервисах доставки.",
+                "We fix cards, menu, promos/ads and ratings in delivery services."
               )}
+              <br />
+              {t("Бали и Таиланд.", "Bali & Thailand.")}
             </p>
             
             <div className="flex flex-wrap gap-4">
