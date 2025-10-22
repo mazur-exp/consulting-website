@@ -31,16 +31,16 @@ export const TestimonialsSection = () => {
     },
     {
       name: {
-        ru: "Мария К.",
-        en: "Maria K."
+        ru: "Алексей",
+        en: "Alexey"
       },
       restaurant: {
-        ru: "Кафе здорового питания",
-        en: "Healthy Food Cafe"
+        ru: "Prana Kitchen",
+        en: "Prana Kitchen"
       },
       text: {
-        ru: "Профессиональный подход и быстрые результаты. Теперь понимаем, как правильно работать с GrabFood и увеличивать прибыль.",
-        en: "Professional approach and quick results. Now we understand how to work with GrabFood properly and increase profits."
+        ru: "Профессиональный подход и быстрые результаты. Теперь понимаем, как правильно работать с Gojek и Grab и увеличивать прибыль. Сняли большую головную боль по работе с платформами — наконец появилось время заниматься развитием бизнеса.",
+        en: "Professional approach and quick results. Now we understand how to work with Gojek and Grab properly and increase profits. Removed a huge headache from working with platforms — finally have time to focus on business development."
       },
       rating: 5
     },
