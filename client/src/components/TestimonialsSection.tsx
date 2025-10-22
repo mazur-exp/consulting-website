@@ -16,12 +16,12 @@ export const TestimonialsSection = () => {
   const testimonials = [
     {
       name: {
-        ru: "Александр М.",
-        en: "Alexander M."
+        ru: "Арина",
+        en: "Arina"
       },
       restaurant: {
-        ru: "Ресторан азиатской кухни",
-        en: "Asian Restaurant"
+        ru: "Only Eggs",
+        en: "Only Eggs"
       },
       text: {
         ru: "За первый месяц работы количество заказов выросло на 40%. Особенно впечатлила работа с меню и позиционированием.",
