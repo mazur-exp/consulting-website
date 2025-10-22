@@ -33,8 +33,8 @@ export const TargetAudienceSection = () => {
     {
       title: "General Manager", 
       description: {
-        ru: "Сократить отмены/задержки, навести порядок в SLA и упаковке.",
-        en: "Reduce cancellations/delays, fix SLA and packaging."
+        ru: "Сократить отмены и задержки, улучшить SLA и качество выполнения заказов.",
+        en: "Reduce cancellations and delays, improve SLA and order fulfillment quality."
       }
     },
     {
