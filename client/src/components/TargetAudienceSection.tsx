@@ -26,8 +26,8 @@ export const TargetAudienceSection = () => {
     {
       title: "Owner / Оператор",
       description: {
-        ru: "Нужно быстро поднять заказы и рейтинг без вечных скидок.",
-        en: "Needs quick order and rating lift without endless discounts."
+        ru: "Быстрое поднятие заказов и рейтинга без вечных скидок.",
+        en: "Quick order and rating lift without endless discounts."
       }
     },
     {
