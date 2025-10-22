@@ -24,10 +24,10 @@ export const TargetAudienceSection = () => {
 
   const audiences = [
     {
-      title: "Owner / Оператор",
+      title: "Owner",
       description: {
-        ru: "Быстрое поднятие заказов и рейтинга без вечных скидок.",
-        en: "Quick order and rating lift without endless discounts."
+        ru: "Быстрое повышение заказов и рейтинга без бесконечных скидок. Снимаем операционную нагрузку: работа с платформами полностью на нашей стороне.",
+        en: "Fast increase in orders and rating without endless discounts. We remove operational burden: platform management is entirely on our side."
       }
     },
     {
