@@ -47,8 +47,8 @@ export const TargetAudienceSection = () => {
     {
       title: "Cloud/Ghost Kitchen",
       description: {
-        ru: "Видимость в приложении и повторы без зала.",
-        en: "App visibility and repeat orders without dining room."
+        ru: "Больше заказов и узнаваемости в приложениях доставки — без необходимости открывать зал.",
+        en: "More orders and visibility in delivery apps – without needing a dining room."
       }
     }
   ];
