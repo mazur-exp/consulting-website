@@ -65,8 +65,8 @@ export const ServicesSection = () => {
     {
       title: "Analytics",
       description: {
-        ru: "KPI-дашборд, недельные спринты, план экспериментов.",
-        en: "KPI dashboard, weekly sprints, test plan."
+        ru: "Автоматический сбор данных, еженедельная отчетность, план экспериментов.",
+        en: "Automated data collection, weekly reporting, test plan."
       }
     }
   ];
