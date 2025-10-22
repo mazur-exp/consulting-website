@@ -47,8 +47,8 @@ export const ServicesSection = () => {
     {
       title: "Ratings & Reviews",
       description: {
-        ru: "Сценарии запросов, ответы на 1★, цель — рейтинг 4.6+.",
-        en: "Ethical review asks, 1★ de-escalation; target 4.6+."
+        ru: "Сценарии запросов, ответы на 1★, цель — рейтинг 4.8+.",
+        en: "Ethical review asks, 1★ de-escalation; target 4.8+."
       }
     },
     {
