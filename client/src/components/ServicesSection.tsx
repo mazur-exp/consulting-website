@@ -40,8 +40,8 @@ export const ServicesSection = () => {
     {
       title: "Promos & Ads",
       description: {
-        ru: "Календарь промо, правила стопа, безопасный тест слотов и гео.",
-        en: "Promo calendar, stop rules, safe slotting & geo tests."
+        ru: "Управляем рекламой с фокусом на прибыль и прозрачные результаты.",
+        en: "We manage ads with focus on profit and transparent results."
       }
     },
     {
