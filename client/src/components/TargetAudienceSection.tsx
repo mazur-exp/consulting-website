@@ -40,8 +40,8 @@ export const TargetAudienceSection = () => {
     {
       title: "Marketing Lead",
       description: {
-        ru: "Прогнозируемые промо и Ads, прозрачная отчётность и A/B-тесты.",
-        en: "Predictable promos and Ads with transparent reporting & A/B tests."
+        ru: "Только эффективные Ads с прозрачной отчетностью и высоким ROAS.",
+        en: "Only effective Ads with transparent reporting and high ROAS."
       }
     },
     {
