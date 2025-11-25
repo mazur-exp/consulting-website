@@ -26,8 +26,8 @@ export const TargetAudienceSection = () => {
     {
       title: "Owner",
       description: {
-        ru: "Быстрое повышение заказов и рейтинга без бесконечных скидок. Снимаем операционную нагрузку: работа с платформами полностью на нашей стороне.",
-        en: "Fast increase in orders and rating without endless discounts. We remove operational burden: platform management is entirely on our side."
+        ru: "Быстрое повышение заказов, рейтинга и дохода, без бесконечных скидок. Снимаем операционную нагрузку: работа с платформами полностью на нашей стороне.",
+        en: "Fast increase in orders, rating and income, without endless discounts. We remove operational burden: platform management is entirely on our side."
       }
     },
     {
@@ -66,12 +66,6 @@ export const TargetAudienceSection = () => {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-audience-title">
             {t("Кому мы помогаем", "Who we help")}
           </h2>
-          <p className="text-brand-muted text-lg max-w-3xl mx-auto" data-testid="text-audience-subtitle">
-            {t(
-              "Чёткие роли и задачи — чтобы говорить на одном языке.",
-              "Clear roles and needs – so we speak the same language."
-            )}
-          </p>
         </motion.div>
         
         <motion.div 

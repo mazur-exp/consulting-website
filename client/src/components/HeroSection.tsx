@@ -23,22 +23,27 @@ export const HeroSection = () => {
           <motion.div className="space-y-8" {...fadeInUp}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" data-testid="text-hero-title">
               {t(
-                "Рост заказов на Grab/Gojek без удара по марже",
-                "Grow Grab/Gojek orders without killing your margin"
+                "Увеличение продаж в 2-6 раз в Gojek и Grab",
+                "2-6x sales increase in Gojek and Grab"
               )}
             </h1>
-            
+
+            <p className="text-lg text-brand-muted text-center lg:text-left" data-testid="text-hero-social-proof">
+              {t(
+                "90+ ресторанов на Бали и в Таиланде растут с нами",
+                "90+ restaurants in Bali & Thailand grow with us"
+              )}
+            </p>
+
             <p className="text-xl text-brand-muted leading-relaxed" data-testid="text-hero-subtitle">
               {t(
-                "Прокачиваем карточки, меню, промо/рекламу и рейтинг в сервисах доставки.",
-                "We fix cards, menu, promos/ads and ratings in delivery services."
+                "Управление вашей доставкой «под ключ» (меню, реклама, обучение команды, статистика, отчеты и многое другое)",
+                "Turnkey delivery management (menu, ads, team training, analytics, reports and more)"
               )}
-              <br />
-              {t("Бали и Таиланд.", "Bali & Thailand.")}
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <a 
+              <a
                 href="https://t.me/delivery_booster"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -48,32 +53,6 @@ export const HeroSection = () => {
                 {t(
                   "Получить бесплатную диагностику",
                   "Book a free audit"
-                )}
-              </a>
-              
-              <a 
-                href="https://t.me/DeliveryBoosterBot"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="button-open-bot"
-                className="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300"
-              >
-                {t(
-                  "Чат-бот",
-                  "Chat-bot"
-                )}
-              </a>
-              
-              <a 
-                href="https://t.me/DeliveryBoosterBali"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="button-telegram-channel"
-                className="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300"
-              >
-                {t(
-                  "Канал в Telegram",
-                  "Telegram channel"
                 )}
               </a>
             </div>

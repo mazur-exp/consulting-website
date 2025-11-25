@@ -4,9 +4,11 @@ import { HeroSection } from '../components/HeroSection';
 import { TargetAudienceSection } from '../components/TargetAudienceSection';
 import { ServicesSection } from '../components/ServicesSection';
 import { WorkProcessSection } from '../components/WorkProcessSection';
+import { PricingSection } from '../components/PricingSection';
 import { CaseStudiesSection } from '../components/CaseStudiesSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FounderSection } from '../components/FounderSection';
+import { FAQSection } from '../components/FAQSection';
 import { CTASection } from '../components/CTASection';
 import { VideoSection } from '../components/VideoSection';
 import { Footer } from '../components/Footer';
@@ -22,9 +24,11 @@ export default function Home() {
         <TargetAudienceSection />
         <ServicesSection />
         <WorkProcessSection />
+        <PricingSection />
         <CaseStudiesSection />
         <TestimonialsSection />
         <FounderSection />
+        <FAQSection />
         <CTASection />
         <VideoSection />
       </main>

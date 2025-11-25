@@ -99,20 +99,6 @@ export const WorkProcessSection = () => {
             </motion.div>
           ))}
         </motion.div>
-        
-        <motion.p 
-          className="text-brand-muted text-center mt-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          data-testid="text-pricing-note"
-        >
-          {t(
-            "Стоимость и формат работы определяются по итогам консультации.",
-            "Pricing and format are set after the intro call."
-          )}
-        </motion.p>
       </div>
     </section>
   );

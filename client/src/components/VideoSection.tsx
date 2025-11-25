@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
 import { Play } from 'lucide-react';
+import { useState } from 'react';
 
 export const VideoSection = () => {
   const { t } = useLanguage();
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleVideoClick = () => {
-    window.open('https://www.youtube.com/watch?v=oXg8VAd1gQw&feature=youtu.be', '_blank');
+    setIsPlaying(true);
   };
 
   const videoPoints = [
@@ -46,8 +48,8 @@ export const VideoSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4" data-testid="text-video-title">
-            {t("Платформы доставки еды Gojek и Grab на Бали. Как подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali. How to connect and profit from it.")}
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 whitespace-pre-line" data-testid="text-video-title">
+            {t("Платформы доставки еды Gojek и Grab на Бали.\nКак подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali.\nHow to connect and profit from it.")}
           </h2>
         </motion.div>
 
@@ -58,37 +60,49 @@ export const VideoSection = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div 
-              className="relative group cursor-pointer"
-              onClick={handleVideoClick}
-              data-testid="button-video-play"
-            >
-              <div className="aspect-video rounded-2xl glass-card overflow-hidden relative">
-                <img 
-                  src="/Снимок экрана 2025-08-20 в 22.51.23_1755719498450.png"
-                  alt="Video thumbnail showing presentation about delivery orders"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <div className="w-20 h-20 brand-gradient rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+            {!isPlaying ? (
+              <div
+                className="relative group cursor-pointer"
+                onClick={handleVideoClick}
+                data-testid="button-video-play"
+              >
+                <div className="aspect-video rounded-2xl glass-card overflow-hidden relative">
+                  <img
+                    src="/Снимок экрана 2025-08-20 в 22.51.23_1755719498450.png"
+                    alt="Video thumbnail showing presentation about delivery orders"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div className="w-20 h-20 brand-gradient rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+                    </div>
                   </div>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="glass-card p-3 rounded-lg">
-                    <p className="text-sm font-medium text-brand-text">
-                      {t(
-                        "Платформы доставки еды Gojek и Grab на Бали",
-                        "Gojek and Grab food delivery platforms in Bali"
-                      )}
-                    </p>
-                    <p className="text-xs text-brand-muted mt-1">
-                      {t("Смотреть на YouTube", "Watch on YouTube")}
-                    </p>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="glass-card p-3 rounded-lg">
+                      <p className="text-sm font-medium text-brand-text">
+                        {t(
+                          "Платформы доставки еды Gojek и Grab на Бали",
+                          "Gojek and Grab food delivery platforms in Bali"
+                        )}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className="aspect-video rounded-2xl overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/oXg8VAd1gQw?autoplay=1"
+                  title="Gojek and Grab food delivery platforms in Bali"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+            )}
           </motion.div>
 
           <motion.div
@@ -116,22 +130,6 @@ export const VideoSection = () => {
                 </p>
               </motion.div>
             ))}
-            
-            <motion.div 
-              className="pt-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <button 
-                onClick={handleVideoClick}
-                className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
-                data-testid="button-video-cta"
-              >
-                {t("Смотреть видео", "Watch Video")}
-              </button>
-            </motion.div>
           </motion.div>
         </div>
       </div>

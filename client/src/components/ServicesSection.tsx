@@ -24,46 +24,60 @@ export const ServicesSection = () => {
 
   const services = [
     {
-      title: "Profile & Cards",
+      title: {
+        ru: "Профиль и карточки",
+        en: "Profile & Cards"
+      },
       description: {
         ru: "Фото, тексты, теги, «герои» меню; факторы видимости под вашим контролем.",
         en: "Photos, copy, tags, hero items; visibility factors you can control."
       }
     },
     {
-      title: "Menu & Pricing",
+      title: {
+        ru: "Меню и цены",
+        en: "Menu & Pricing"
+      },
       description: {
         ru: "Хиты, комбо/бандлы, AOV с учётом комиссий.",
         en: "Hits, bundles, AOV with platform fees in mind."
       }
     },
     {
-      title: "Promos & Ads",
+      title: {
+        ru: "Промо и реклама",
+        en: "Promos & Ads"
+      },
       description: {
         ru: "Управляем рекламой с фокусом на прибыль и прозрачные результаты.",
         en: "We manage ads with focus on profit and transparent results."
       }
     },
     {
-      title: "Ratings & Reviews",
+      title: {
+        ru: "Рейтинги и отзывы",
+        en: "Ratings & Reviews"
+      },
       description: {
-        ru: "Сценарии запросов, ответы на 1★, цель — рейтинг 4.8+.",
-        en: "Ethical review asks, 1★ de-escalation; target 4.8+."
+        ru: "Сценарии запросов, ответы на 1★, цель — рейтинг 4.8+. Технология поднятия рейтинга!",
+        en: "Ethical review asks, 1★ de-escalation; target 4.8+. Rating increase technology!"
       }
     },
     {
-      title: (
-        <>
-          Consulting & Team<br />Training
-        </>
-      ),
+      title: {
+        ru: "Консалтинг и обучение команды",
+        en: "Consulting & Team Training"
+      },
       description: {
         ru: "Видео-тренинг, тест и гайд для сотрудников ресторана",
         en: "Video training, test and guide for restaurant staff"
       }
     },
     {
-      title: "Analytics",
+      title: {
+        ru: "Аналитика",
+        en: "Analytics"
+      },
       description: {
         ru: "Автоматический сбор данных, еженедельная отчетность, план экспериментов.",
         en: "Automated data collection, weekly reporting, test plan."
@@ -94,13 +108,15 @@ export const ServicesSection = () => {
           viewport={{ once: true }}
         >
           {services.map((service, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               variants={itemVariants}
               className="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300"
               data-testid={`card-service-${index}`}
             >
-              <h3 className="text-xl font-semibold mb-3 text-center">{service.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-center">
+                {t(service.title.ru, service.title.en)}
+              </h3>
               <p className="text-brand-muted">
                 {t(service.description.ru, service.description.en)}
               </p>

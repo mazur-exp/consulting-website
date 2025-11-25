@@ -16,14 +16,14 @@ export const Header = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-            <a 
-              href="https://t.me/DeliveryBoosterBot"
+            <a
+              href="https://t.me/delivery_booster"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/10 transition-all duration-300"
-              data-testid="link-header-bot"
+              className="brand-gradient text-white px-4 py-2 rounded-lg text-sm font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
+              data-testid="link-header-audit"
             >
-              {t("Чат-бот Delivery Booster", "Delivery Booster Chat-bot")}
+              {t("Бесплатный аудит", "Free audit")}
             </a>
             <LanguageToggle />
           </div>
