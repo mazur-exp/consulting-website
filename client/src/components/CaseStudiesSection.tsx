@@ -86,7 +86,7 @@ export const CaseStudiesSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-cases-title">
-            {t("Снимки кейсов", "Case snapshots")}
+            {t("Кейсы", "Case studies")}
           </h2>
         </motion.div>
 

@@ -1,0 +1,718 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Booster — рост заказов на Grab/Go</title>
+    <meta name="description" content="Помогаем ресторанам на Бали и в Таиланде расти в доставке через GrabFood/GoFood. Аудит, карточки, меню, промо/Ads, рейтинг, SLA, отчётность.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#1f9e4b',
+                        'brand-green-light': '#29c267',
+                        'brand-bg': '#0a0f0c',
+                        'brand-bg-light': '#121212',
+                        'brand-text': '#eaf6ee',
+                        'brand-muted': '#cfe8d6',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 12s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%': { transform: 'translate(-10%, 0)' },
+                            '50%': { transform: 'translate(10%, 10%)' },
+                            '100%': { transform: 'translate(-10%, 0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    backgroundImage: {
+                        'brand-gradient': 'linear-gradient(90deg, #1f9e4b, #29c267)',
+                        'glass-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))',
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+        
+        .glass-nav {
+            background: rgba(10, 15, 12, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+        }
+        
+        .animate-blob {
+            position: absolute;
+            background: radial-gradient(closest-side, rgba(41, 194, 103, 0.28), transparent 65%);
+            filter: blur(40px);
+            animation: float 12s ease-in-out infinite;
+        }
+        
+        .fade-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .fade-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-brand-bg text-brand-text font-inter overflow-x-hidden">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="animate-blob w-96 h-96 -top-20 -left-20"></div>
+        <div class="animate-blob w-80 h-80 top-1/3 right-0" style="animation-delay: -4s;"></div>
+        <div class="animate-blob w-72 h-72 bottom-0 left-1/3" style="animation-delay: -8s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <!-- Business logo placeholder - replace with actual logo -->
+                    <div class="w-9 h-9 bg-brand-gradient rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">DB</span>
+                    </div>
+                    <span class="text-xl font-bold text-brand-text">Delivery Booster</span>
+                </div>
+                
+                <!-- Language Toggle -->
+                <div class="flex space-x-2">
+                    <button 
+                        id="lang-ru" 
+                        class="px-3 py-1.5 text-sm border border-white/20 rounded-lg transition-all duration-300 lang-btn active"
+                        onclick="switchLanguage('ru')"
+                    >
+                        RU
+                    </button>
+                    <button 
+                        id="lang-en" 
+                        class="px-3 py-1.5 text-sm border border-white/20 rounded-lg transition-all duration-300 lang-btn"
+                        onclick="switchLanguage('en')"
+                    >
+                        EN
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative pt-16">
+        <!-- Hero Section -->
+        <section class="relative py-16 sm:py-24 lg:py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8 fade-element">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                            <span 
+                                data-ru="Рост заказов на Grab/Go без удара по марже"
+                                data-en="Grow Grab/Go orders without killing your margin"
+                            >
+                                Рост заказов на Grab/Go без удара по марже
+                            </span>
+                        </h1>
+                        
+                        <p class="text-xl text-brand-muted leading-relaxed">
+                            <span 
+                                data-ru="Прокачиваем карточки, меню, промо/Ads и рейтинг. Бали и Таиланд."
+                                data-en="We fix cards, menu, promos/Ads and ratings. Bali & Thailand."
+                            >
+                                Прокачиваем карточки, меню, промо/Ads и рейтинг. Бали и Таиланд.
+                            </span>
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <button class="bg-brand-gradient text-white px-6 py-3 rounded-xl font-medium shadow-lg shadow-brand-green/30 hover:shadow-brand-green/50 transition-all duration-300 transform hover:scale-105">
+                                <span 
+                                    data-ru="Получить бесплатный аудит"
+                                    data-en="Book a free audit"
+                                >
+                                    Получить бесплатный аудит
+                                </span>
+                            </button>
+                            
+                            <button class="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300">
+                                <span 
+                                    data-ru="Открыть бота"
+                                    data-en="Open bot"
+                                >
+                                    Открыть бота
+                                </span>
+                            </button>
+                            
+                            <button class="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300">
+                                <span 
+                                    data-ru="Канал в Telegram"
+                                    data-en="Telegram channel"
+                                >
+                                    Канал в Telegram
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <p class="text-sm text-brand-muted">
+                            <span 
+                                data-ru="Материалы в боте доступны после подписки на канал."
+                                data-en="Bot materials unlock after channel subscription."
+                            >
+                                Материалы в боте доступны после подписки на канал.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <!-- Hero Image Gallery -->
+                    <div class="fade-element">
+                        <div class="glass-card p-4 rounded-2xl">
+                            <div class="grid grid-cols-2 gap-3">
+                                <!-- Restaurant/food delivery related images -->
+                                <!-- Professional food photography showing restaurant dishes -->
+                                <img 
+                                    src="https://pixabay.com/get/g65214f7900c6f63fd81a7d396eed17bc7a4a4bd3f43e016210a061d84d3a02fc97c3ba4bf174b84167a2a66b8d250663ceb840aa25e30bbf38390a0ab581d131_1280.jpg"
+                                    alt="Professional food photography"
+                                    class="w-full h-40 object-cover rounded-lg"
+                                />
+                                <!-- Food delivery app interface mockup -->
+                                <img 
+                                    src="https://pixabay.com/get/g578c6e5bba9b0b273fc6dfd89c17238be60aa304f76d35e6c105bcf062e0942ac838441488461e00c4bcedad27d04d2f45bc885f58a6fe270cf5f8b4ac68ae92_1280.jpg"
+                                    alt="Mobile food delivery app"
+                                    class="w-full h-40 object-cover rounded-lg"
+                                />
+                                <!-- Restaurant kitchen preparation -->
+                                <img 
+                                    src="https://pixabay.com/get/ge7a2877376db1b2a2959584f7327b7d4d1be5322bb277c6c87757c27df45eb9445226bb909f905424c3404b7e00501e55245eb5c3fd6a2354e2c3a51f0fe91fd_1280.jpg"
+                                    alt="Restaurant kitchen preparation"
+                                    class="w-full h-40 object-cover rounded-lg"
+                                />
+                                <!-- Food packaging for delivery -->
+                                <img 
+                                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                                    alt="Food packaging for delivery"
+                                    class="w-full h-40 object-cover rounded-lg"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience Section -->
+        <section class="py-16 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-element">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                        <span 
+                            data-ru="Кому мы помогаем"
+                            data-en="Who we help"
+                        >
+                            Кому мы помогаем
+                        </span>
+                    </h2>
+                    <p class="text-brand-muted text-lg max-w-3xl mx-auto">
+                        <span 
+                            data-ru="Чёткие роли и задачи — чтобы говорить на одном языке."
+                            data-en="Clear roles and needs – so we speak the same language."
+                        >
+                            Чёткие роли и задачи — чтобы говорить на одном языке.
+                        </span>
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <div class="inline-block px-3 py-1 bg-brand-green/20 border border-brand-green/40 text-brand-green text-xs rounded-full mb-4 font-medium">
+                            Owner / Оператор
+                        </div>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Нужно быстро поднять заказы и рейтинг без вечных скидок."
+                                data-en="Needs quick order and rating lift without endless discounts."
+                            >
+                                Нужно быстро поднять заказы и рейтинг без вечных скидок.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <div class="inline-block px-3 py-1 bg-brand-green/20 border border-brand-green/40 text-brand-green text-xs rounded-full mb-4 font-medium">
+                            General Manager
+                        </div>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Сократить отмены/задержки, навести порядок в SLA и упаковке."
+                                data-en="Reduce cancellations/delays, fix SLA and packaging."
+                            >
+                                Сократить отмены/задержки, навести порядок в SLA и упаковке.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <div class="inline-block px-3 py-1 bg-brand-green/20 border border-brand-green/40 text-brand-green text-xs rounded-full mb-4 font-medium">
+                            Marketing Lead
+                        </div>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Прогнозируемые промо и Ads, прозрачная отчётность и A/B-тесты."
+                                data-en="Predictable promos and Ads with transparent reporting & A/B tests."
+                            >
+                                Прогнозируемые промо и Ads, прозрачная отчётность и A/B-тесты.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <div class="inline-block px-3 py-1 bg-brand-green/20 border border-brand-green/40 text-brand-green text-xs rounded-full mb-4 font-medium">
+                            Cloud/Ghost Kitchen
+                        </div>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Видимость в приложении и повторы без зала."
+                                data-en="App visibility and repeat orders without dining room."
+                            >
+                                Видимость в приложении и повторы без зала.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-16 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-element">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                        <span 
+                            data-ru="Что именно мы делаем"
+                            data-en="What we do"
+                        >
+                            Что именно мы делаем
+                        </span>
+                    </h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <h3 class="text-xl font-semibold mb-3">Profile & Cards</h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Фото, тексты, теги, «герои» меню; факторы видимости под вашим контролем."
+                                data-en="Photos, copy, tags, hero items; visibility factors you can control."
+                            >
+                                Фото, тексты, теги, «герои» меню; факторы видимости под вашим контролем.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <h3 class="text-xl font-semibold mb-3">Menu & Pricing</h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Хиты, комбо/бандлы, AOV с учётом комиссий."
+                                data-en="Hits, bundles, AOV with platform fees in mind."
+                            >
+                                Хиты, комбо/бандлы, AOV с учётом комиссий.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <h3 class="text-xl font-semibold mb-3">Promos & Ads</h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Календарь промо, правила стопа, безопасный тест слотов и гео."
+                                data-en="Promo calendar, stop rules, safe slotting & geo tests."
+                            >
+                                Календарь промо, правила стопа, безопасный тест слотов и гео.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <h3 class="text-xl font-semibold mb-3">Ratings & Reviews</h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Сценарии запросов, ответы на 1★, цель — рейтинг 4.6+."
+                                data-en="Ethical review asks, 1★ de-escalation; target 4.6+."
+                            >
+                                Сценарии запросов, ответы на 1★, цель — рейтинг 4.6+.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <h3 class="text-xl font-semibold mb-3">Ops & SLA</h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Честный prep-time, упаковка, контроль отмен и задержек."
+                                data-en="Honest prep-time, packaging, cancellations/delays control."
+                            >
+                                Честный prep-time, упаковка, контроль отмен и задержек.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 fade-element">
+                        <h3 class="text-xl font-semibold mb-3">Analytics</h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="KPI-дашборд, недельные спринты, план экспериментов."
+                                data-en="KPI dashboard, weekly sprints, test plan."
+                            >
+                                KPI-дашборд, недельные спринты, план экспериментов.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How We Work Section -->
+        <section class="py-16 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-element">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                        <span 
+                            data-ru="Как мы работаем"
+                            data-en="How we work"
+                        >
+                            Как мы работаем
+                        </span>
+                    </h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center fade-element">
+                        <div class="w-16 h-16 bg-brand-gradient rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6">
+                            1
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span 
+                                data-ru="Вводная консультация"
+                                data-en="Intro call"
+                            >
+                                Вводная консультация
+                            </span>
+                        </h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Экспресс-диагностика профиля Grab/Go и приоритеты на 30 дней."
+                                data-en="Quick Grab/Go profile check and 30-day priorities."
+                            >
+                                Экспресс-диагностика профиля Grab/Go и приоритеты на 30 дней.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="text-center fade-element">
+                        <div class="w-16 h-16 bg-brand-gradient rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6">
+                            2
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span 
+                                data-ru="Индивидуальный план"
+                                data-en="Plan"
+                            >
+                                Индивидуальный план
+                            </span>
+                        </h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Согласуем цели и объём работ — без типовых «пакетов»."
+                                data-en="Agree on goals and scope — no generic packages."
+                            >
+                                Согласуем цели и объём работ — без типовых «пакетов».
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="text-center fade-element">
+                        <div class="w-16 h-16 bg-brand-gradient rounded-full flex items-center justify-center text-2xl font-bold text-white mx-auto mb-6">
+                            3
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span 
+                                data-ru="Запуск и спринты"
+                                data-en="Sprints"
+                            >
+                                Запуск и спринты
+                            </span>
+                        </h3>
+                        <p class="text-brand-muted">
+                            <span 
+                                data-ru="Еженедельные итерации с отчётами и гипотезами."
+                                data-en="Weekly iterations with reports and hypotheses."
+                            >
+                                Еженедельные итерации с отчётами и гипотезами.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Gallery -->
+        <section class="py-16 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-element">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                        <span 
+                            data-ru="Результаты клиентов"
+                            data-en="Client Results"
+                        >
+                            Результаты клиентов
+                        </span>
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-element">
+                    <!-- Success stories visualization through restaurant/delivery metrics -->
+                    <div class="glass-card p-4 rounded-xl">
+                        <!-- Restaurant analytics dashboard mockup -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                            alt="Analytics dashboard showing growth metrics"
+                            class="w-full h-32 object-cover rounded-lg"
+                        />
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <!-- High-quality food presentation -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300"
+                            alt="Professional food presentation"
+                            class="w-full h-32 object-cover rounded-lg"
+                        />
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <!-- Restaurant rating display -->
+                        <img 
+                            src="https://pixabay.com/get/g4c7604f55a4a425b4e6dcf9c2b3ece36df9b2a999070b1a19e578c02d38f2dd6cf50be3832e5ae303eb87c3ab736058ae5d2f67303634148daf3bfebf1405143_1280.jpg"
+                            alt="Five-star restaurant rating display"
+                            class="w-full h-32 object-cover rounded-lg"
+                        />
+                    </div>
+                    <div class="glass-card p-4 rounded-xl">
+                        <!-- Delivery success metrics -->
+                        <img 
+                            src="https://pixabay.com/get/gaccb2e5adbdaca701ee2cc5894d81d0ce8af5837b8de3e4267cabc940f4aa1eaec5e9000c21bf64a97a32fd7183dc771a4d80d23d3c7a32aeb3ca27cebda8626_1280.jpg"
+                            alt="Successful food delivery completion"
+                            class="w-full h-32 object-cover rounded-lg"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder Section -->
+        <section class="py-16 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="fade-element">
+                        <!-- Professional founder portrait -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600"
+                            alt="Founder of Delivery Booster"
+                            class="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
+                        />
+                    </div>
+                    
+                    <div class="fade-element space-y-6">
+                        <h2 class="text-3xl font-bold">
+                            <span 
+                                data-ru="О создателе"
+                                data-en="About the Founder"
+                            >
+                                О создателе
+                            </span>
+                        </h2>
+                        <p class="text-brand-muted text-lg leading-relaxed">
+                            <span 
+                                data-ru="Эксперт по доставке с 8+ лет опыта в ресторанном бизнесе. Помог более 100 ресторанам в Азии увеличить заказы на 40-200% без роста операционных расходов."
+                                data-en="Delivery expert with 8+ years in restaurant business. Helped 100+ restaurants in Asia increase orders by 40-200% without raising operational costs."
+                            >
+                                Эксперт по доставке с 8+ лет опыта в ресторанном бизнесе. Помог более 100 ресторанам в Азии увеличить заказы на 40-200% без роста операционных расходов.
+                            </span>
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300">
+                                <span 
+                                    data-ru="LinkedIn"
+                                    data-en="LinkedIn"
+                                >
+                                    LinkedIn
+                                </span>
+                            </button>
+                            <button class="glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/10 transition-all duration-300">
+                                <span 
+                                    data-ru="Instagram"
+                                    data-en="Instagram"
+                                >
+                                    Instagram
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 border-t border-white/10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="glass-card p-8 md:p-12 rounded-3xl fade-element">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+                        <span 
+                            data-ru="Готовы увеличить заказы?"
+                            data-en="Ready to increase orders?"
+                        >
+                            Готовы увеличить заказы?
+                        </span>
+                    </h2>
+                    <p class="text-brand-muted text-lg mb-8 max-w-2xl mx-auto">
+                        <span 
+                            data-ru="Получите бесплатный аудит вашего профиля и узнайте, как увеличить доходы на 40-200%"
+                            data-en="Get a free profile audit and learn how to increase revenue by 40-200%"
+                        >
+                            Получите бесплатный аудит вашего профиля и узнайте, как увеличить доходы на 40-200%
+                        </span>
+                    </p>
+                    <button class="bg-brand-gradient text-white px-8 py-4 rounded-xl font-medium shadow-lg shadow-brand-green/30 hover:shadow-brand-green/50 transition-all duration-300 transform hover:scale-105 text-lg">
+                        <span 
+                            data-ru="Заказать аудит бесплатно"
+                            data-en="Book Free Audit"
+                        >
+                            Заказать аудит бесплатно
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="w-8 h-8 bg-brand-gradient rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xs">DB</span>
+                    </div>
+                    <span class="text-lg font-semibold">Delivery Booster</span>
+                </div>
+                <p class="text-brand-muted text-center md:text-right">
+                    <span 
+                        data-ru="© 2024 Delivery Booster. Все права защищены."
+                        data-en="© 2024 Delivery Booster. All rights reserved."
+                    >
+                        © 2024 Delivery Booster. Все права защищены.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        (function() {
+            let currentLang = 'ru';
+            
+            function switchLanguage(lang) {
+                if (lang === currentLang) return;
+                
+                currentLang = lang;
+                document.documentElement.lang = lang;
+                
+                // Update language buttons
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.getElementById(`lang-${lang}`).classList.add('active');
+                
+                // Update content
+                document.querySelectorAll('[data-ru][data-en]').forEach(element => {
+                    const text = element.getAttribute(`data-${lang}`);
+                    if (text) {
+                        element.textContent = text;
+                    }
+                });
+            }
+            
+            // Make switchLanguage globally available
+            window.switchLanguage = switchLanguage;
+            
+            // Scroll animation observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all fade elements
+            document.querySelectorAll('.fade-element').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Active language button styling
+            const style = document.createElement('style');
+            style.textContent = `
+                .lang-btn.active {
+                    background: linear-gradient(90deg, #1f9e4b, #29c267);
+                    color: white;
+                    box-shadow: 0 0 20px rgba(41, 194, 103, 0.4);
+                    border-color: transparent;
+                }
+            `;
+            document.head.appendChild(style);
+        })();
+        
+        // TODO: Implement form submission logic for audit booking
+        // TODO: Add analytics tracking for button clicks and conversions
+        // TODO: Integrate with actual bot and social media links
+    </script>
+</body>
+</html>

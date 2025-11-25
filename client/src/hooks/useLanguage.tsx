@@ -10,15 +10,46 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const detectBrowserLanguage = (): Language => {
+  // Check if running in browser
+  if (typeof window === 'undefined') {
+    return 'ru'; // Default for SSR
+  }
+
+  // Check saved language preference
+  const savedLang = localStorage.getItem('preferredLanguage');
+  if (savedLang === 'ru' || savedLang === 'en') {
+    return savedLang;
+  }
+
+  // Detect browser language
+  const browserLang = navigator.language.toLowerCase();
+
+  // If starts with 'ru' → Russian
+  if (browserLang.startsWith('ru')) {
+    return 'ru';
+  }
+
+  // Otherwise → English
+  return 'en';
+};
+
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('ru');
+  const [language, setLanguage] = useState<Language>(() => detectBrowserLanguage());
+
+  const setLanguageWithSave = (lang: Language) => {
+    setLanguage(lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferredLanguage', lang);
+    }
+  };
 
   const t = (ru: string, en: string): string => {
     return language === 'ru' ? ru : en;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: setLanguageWithSave, t }}>
       {children}
     </LanguageContext.Provider>
   );

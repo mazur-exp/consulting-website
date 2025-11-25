@@ -52,8 +52,8 @@ export const FAQSection = () => {
     {
       q: { ru: "Почему не делать самому?", en: "Why not do it yourself?" },
       a: {
-        ru: "Можете! Обучение 3-6 мес, ошибки $5-10k. Или платите $600/мес, результат за 3 мес.",
-        en: "You can! Learning 3-6 months, mistakes $5-10k. Or pay $600/month, results in 3 months."
+        ru: "Можете! Самостоятельное обучение займёт 3-6 месяцев, а ошибки в процессе обойдутся в $5-10k упущенной прибыли и времени.",
+        en: "You can! Self-learning will take 3-6 months, and mistakes along the way will cost you $5-10k in lost profits and time."
       }
     }
   ];
