@@ -28,11 +28,11 @@ export const CaseStudiesSection = () => {
       alt: "Delivery platform insights"
     },
     {
-      src: "/case-4.png",
+      src: "/case-4.jpg",
       alt: "Merchant analytics overview"
     },
     {
-      src: "/case-5.png",
+      src: "/case-5.jpg",
       alt: "Soul restaurant growth metrics"
     }
   ];

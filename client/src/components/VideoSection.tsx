@@ -68,7 +68,7 @@ export const VideoSection = () => {
               >
                 <div className="aspect-video rounded-2xl glass-card overflow-hidden relative">
                   <img
-                    src="/Снимок экрана 2025-08-20 в 22.51.23_1755719498450.png"
+                    src="/video-preview.jpg"
                     alt="Video thumbnail showing presentation about delivery orders"
                     className="w-full h-full object-cover"
                   />
