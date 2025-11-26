@@ -23,8 +23,8 @@ export const CTASection = () => {
               "Get a free profile audit and learn how to increase revenue by 50-600%"
             )}
           </p>
-          <a 
-            href="https://t.me/delivery_booster"
+          <a
+            href="https://t.me/ai_delivery_tech_assistent_bot"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-cta-main"

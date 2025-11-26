@@ -30,8 +30,8 @@ export const WorkProcessSection = () => {
         en: "Intro call"
       },
       description: {
-        ru: "Экспресс-диагностика профиля Grab/Go и приоритеты на 30 дней.",
-        en: "Quick Grab/Go profile check and 30-day priorities."
+        ru: "Экспресс-диагностика профиля Grab/Gojek и приоритеты на 30 дней.",
+        en: "Quick Grab/Gojek profile check and 30-day priorities."
       }
     },
     {

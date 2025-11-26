@@ -25,22 +25,12 @@ export const ServicesSection = () => {
   const services = [
     {
       title: {
-        ru: "Профиль и карточки",
-        en: "Profile & Cards"
+        ru: "Рейтинги и отзывы",
+        en: "Ratings & Reviews"
       },
       description: {
-        ru: "Фото, тексты, теги, «герои» меню; факторы видимости под вашим контролем.",
-        en: "Photos, copy, tags, hero items; visibility factors you can control."
-      }
-    },
-    {
-      title: {
-        ru: "Меню и цены",
-        en: "Menu & Pricing"
-      },
-      description: {
-        ru: "Хиты, комбо/бандлы, AOV с учётом комиссий.",
-        en: "Hits, bundles, AOV with platform fees in mind."
+        ru: "Сценарии запросов, ответы на 1★, цель — рейтинг 4.8+. Технология поднятия рейтинга!",
+        en: "Ethical review asks, 1★ de-escalation; target 4.8+. Rating increase technology!"
       }
     },
     {
@@ -55,12 +45,22 @@ export const ServicesSection = () => {
     },
     {
       title: {
-        ru: "Рейтинги и отзывы",
-        en: "Ratings & Reviews"
+        ru: "Меню и цены",
+        en: "Menu & Pricing"
       },
       description: {
-        ru: "Сценарии запросов, ответы на 1★, цель — рейтинг 4.8+. Технология поднятия рейтинга!",
-        en: "Ethical review asks, 1★ de-escalation; target 4.8+. Rating increase technology!"
+        ru: "Хиты, комбо/бандлы, AOV с учётом комиссий.",
+        en: "Hits, bundles, AOV with platform fees in mind."
+      }
+    },
+    {
+      title: {
+        ru: "Профиль и карточки",
+        en: "Profile & Cards"
+      },
+      description: {
+        ru: "Фото, тексты, теги, «герои» меню; факторы видимости под вашим контролем.",
+        en: "Photos, copy, tags, hero items; visibility factors you can control."
       }
     },
     {
