@@ -19,6 +19,7 @@ The project uses comprehensive AI documentation in the `ai_docs/` folder. **All 
 @ai_docs/business/SALES_DECK_EXPECTATIONS.md
 
 ### Development
+@ai_docs/development/DEPLOYMENT.md
 @ai_docs/development/LANDING_PAGE_IMPROVEMENTS.md
 
 ### UI/UX Design System
@@ -45,6 +46,11 @@ The project uses comprehensive AI documentation in the `ai_docs/` folder. **All 
 - Check `ai_docs/development/LANDING_PAGE_IMPROVEMENTS.md` for planned improvements
 - Document new features in `ai_docs/development/`
 - Update relevant UI documentation if UI/UX is affected
+
+**Before deploying to production:**
+- Read `ai_docs/development/DEPLOYMENT.md` for complete deployment guide
+- Server: Hetzner VPS (46.62.195.19)
+- Process: SSH + git pull + npm run build + pm2 restart
 
 ---
 
@@ -385,11 +391,12 @@ See `ai_docs/development/LANDING_PAGE_IMPROVEMENTS.md` for planned improvements 
 4. **Build for production**: `npm run build`
 5. **Test production**: `npm run start`
 
-### Deployment (Replit)
-- Configured in `.replit` file
-- Port mapping: 5000 → 80
-- PostgreSQL 16 module enabled
-- Auto-deploys on push to main branch
+### Deployment (Hetzner VPS)
+- **Server:** 46.62.195.19 (Hetzner Cloud)
+- **Location:** `/var/www/booster.delivery`
+- **SSH:** `ssh -p 2222 root@46.62.195.19`
+- **Process:** Manual deploy via SSH (git pull + npm run build + pm2 restart)
+- **Full Guide:** See `ai_docs/development/DEPLOYMENT.md`
 
 ---
 
