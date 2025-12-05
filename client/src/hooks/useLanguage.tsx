@@ -16,13 +16,22 @@ const detectBrowserLanguage = (): Language => {
     return 'ru'; // Default for SSR
   }
 
-  // Check saved language preference
+  // Priority 1: Check URL parameter (?lang=en or ?lang=ru)
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlLang = urlParams.get('lang');
+  if (urlLang === 'ru' || urlLang === 'en') {
+    // Save to localStorage and return
+    localStorage.setItem('preferredLanguage', urlLang);
+    return urlLang;
+  }
+
+  // Priority 2: Check saved language preference
   const savedLang = localStorage.getItem('preferredLanguage');
   if (savedLang === 'ru' || savedLang === 'en') {
     return savedLang;
   }
 
-  // Detect browser language
+  // Priority 3: Detect browser language
   const browserLang = navigator.language.toLowerCase();
 
   // If starts with 'ru' → Russian
