@@ -47,7 +47,7 @@ export const PricingSection = () => {
             viewport={{ once: true }}
           >
             <a
-              href="https://t.me/ai_delivery_tech_assistent_bot"
+              href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
               target="_blank"
               rel="noopener noreferrer"
               className="brand-gradient text-white px-8 py-4 rounded-xl font-semibold text-lg brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"

@@ -24,13 +24,13 @@ export const CTASection = () => {
             )}
           </p>
           <a
-            href="https://t.me/ai_delivery_tech_assistent_bot"
+            href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-cta-main"
             className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"
           >
-            {t("Заказать аудит бесплатно", "Book Free Audit")}
+            {t("Написать", "Contact us")}
           </a>
         </motion.div>
       </div>

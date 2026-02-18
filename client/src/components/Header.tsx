@@ -17,13 +17,13 @@ export const Header = () => {
           
           <div className="flex items-center space-x-4">
             <a
-              href="https://t.me/ai_delivery_tech_assistent_bot"
+              href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
               target="_blank"
               rel="noopener noreferrer"
               className="brand-gradient text-white px-4 py-2 rounded-lg text-sm font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               data-testid="link-header-audit"
             >
-              {t("Бесплатный аудит", "Free audit")}
+              {t("Написать", "Contact us")}
             </a>
             <LanguageToggle />
           </div>

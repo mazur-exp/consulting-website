@@ -44,15 +44,15 @@ export const HeroSection = () => {
             
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://t.me/ai_delivery_tech_assistent_bot"
+                href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="button-primary-cta"
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               >
                 {t(
-                  "Получить бесплатную диагностику",
-                  "Book a free audit"
+                  "Написать",
+                  "Contact us"
                 )}
               </a>
             </div>
