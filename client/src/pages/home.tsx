@@ -12,10 +12,12 @@ import { FAQSection } from '../components/FAQSection';
 import { CTASection } from '../components/CTASection';
 import { VideoSection } from '../components/VideoSection';
 import { Footer } from '../components/Footer';
+import { SEOSchema } from '../components/SEOSchema';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-brand-bg text-brand-text overflow-x-hidden">
+      <SEOSchema />
       <AnimatedBackground />
       <Header />
       

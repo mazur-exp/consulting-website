@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'ru' | 'en';
 
@@ -52,6 +52,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       localStorage.setItem('preferredLanguage', lang);
     }
   };
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.title = language === 'ru'
+      ? 'Delivery Booster — Рост продаж на GoJek и Grab для ресторанов на Бали и в Таиланде'
+      : 'Delivery Booster — GoJek & Grab Optimization for Restaurants in Bali & Thailand';
+  }, [language]);
 
   const t = (ru: string, en: string): string => {
     return language === 'ru' ? ru : en;
