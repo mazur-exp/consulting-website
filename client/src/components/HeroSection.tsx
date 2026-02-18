@@ -51,8 +51,8 @@ export const HeroSection = () => {
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               >
                 {t(
-                  "Написать",
-                  "Contact us"
+                  "Получить бесплатную диагностику",
+                  "Book a free audit"
                 )}
               </a>
             </div>

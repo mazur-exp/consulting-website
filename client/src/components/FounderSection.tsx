@@ -46,7 +46,7 @@ export const FounderSection = () => {
                 data-testid="button-founder-audit"
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300"
               >
-                {t("Написать", "Contact us")}
+                {t("Записаться на бесплатный аудит", "Book a free audit")}
               </a>
             </div>
           </motion.div>
