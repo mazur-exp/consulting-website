@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delivery Booster — Live Revenue Counter</title>
+<meta name="description" content="Real-time revenue tracker for restaurants managed by Delivery Booster on GoJek & Grab platforms.">
+<meta property="og:title" content="Delivery Booster — Live Revenue Counter">
+<meta property="og:description" content="Watch real-time revenue growth for 85+ restaurants on GoJek & Grab.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://counter.booster.delivery">
+<link rel="icon" type="image/png" href="https://booster.delivery/favicon.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-card: rgba(255,255,255,0.03);
+    --border: rgba(255,255,255,0.06);
+    --text-primary: #f0f0f5;
+    --text-secondary: rgba(255,255,255,0.5);
+    --accent: #6ee7b7;
+    --accent-dim: rgba(110,231,183,0.15);
+    --glow: rgba(110,231,183,0.3);
+    --pulse-green: #34d399;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(110,231,183,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(59,130,246,0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(168,85,247,0.02) 0%, transparent 50%);
+    animation: ambientShift 20s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes ambientShift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-3%, 2%) rotate(3deg); }
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    text-align: center; padding: 2rem;
+    max-width: 900px; width: 100%;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(110,231,183,0.2);
+    border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .badge .dot {
+    width: 6px; height: 6px;
+    background: var(--pulse-green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52,211,153,0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(52,211,153,0); }
+  }
+
+  .heading {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 400; color: var(--text-secondary);
+    margin-bottom: 1rem; line-height: 1.5;
+  }
+  .heading strong { color: var(--text-primary); font-weight: 600; }
+
+  .counter-wrap {
+    position: relative; padding: 2.5rem 1rem; margin: 1.5rem 0;
+  }
+
+  .currency-label {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-weight: 500; color: var(--text-secondary);
+    letter-spacing: 0.1em; margin-bottom: 0.5rem;
+  }
+
+  .counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-weight: 700; color: var(--text-primary);
+    letter-spacing: -0.02em; line-height: 1.1;
+    transition: color 0.3s; position: relative;
+  }
+  .counter.bump { color: var(--accent); }
+
+  .counter-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%; height: 80%;
+    background: radial-gradient(ellipse, var(--glow), transparent 70%);
+    opacity: 0; transition: opacity 0.4s;
+    pointer-events: none; filter: blur(40px);
+  }
+  .counter-glow.active { opacity: 1; }
+
+  .ticker {
+    margin-top: 0.5rem; height: 2rem;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+
+  .ticker-text {
+    font-size: 0.9rem; font-weight: 500; color: var(--accent);
+    opacity: 0; transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .ticker-text.show { opacity: 1; transform: translateY(0); }
+
+  .ticker-arrow {
+    font-size: 0.8rem; color: var(--accent);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .ticker-arrow.show { opacity: 0.7; }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; margin-top: 3rem;
+  }
+
+  .stat {
+    background: var(--bg-card); padding: 1.5rem 1rem;
+    backdrop-filter: blur(20px);
+  }
+
+  .stat-label {
+    font-size: 0.7rem; font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.85rem, 2vw, 1.15rem);
+    font-weight: 600; color: var(--text-primary);
+  }
+
+  .stat-sub {
+    font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.25rem;
+  }
+
+  .footer {
+    margin-top: 2.5rem; font-size: 0.75rem;
+    color: var(--text-secondary); letter-spacing: 0.03em;
+  }
+  .footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .footer a:hover { text-decoration: underline; }
+
+  .particle {
+    position: fixed; pointer-events: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--accent); opacity: 0; z-index: 10;
+    animation: floatUp 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes floatUp {
+    0% { opacity: 0; transform: translateY(0) scale(0.8); }
+    15% { opacity: 0.9; transform: translateY(-20px) scale(1); }
+    100% { opacity: 0; transform: translateY(-120px) scale(0.7); }
+  }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: 1fr; }
+    .container { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="badge"><span class="dot"></span>Live Revenue Tracker</div>
+  <p class="heading">We helped our clients earn</p>
+  <div class="counter-wrap">
+    <div class="counter-glow" id="glow"></div>
+    <div class="currency-label">IDR</div>
+    <div class="counter" id="counter">124,729,485,025</div>
+    <div class="ticker">
+      <span class="ticker-arrow" id="tickerArrow">▲</span>
+      <span class="ticker-text" id="tickerText"></span>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">Last 30 Days</div>
+      <div class="stat-value" id="monthly">IDR 0</div>
+      <div class="stat-sub">and counting</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Orders Tracked</div>
+      <div class="stat-value" id="orders">0</div>
+      <div class="stat-sub">since Sep 2023</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Since</div>
+      <div class="stat-value">Sep 1, 2023</div>
+      <div class="stat-sub" id="daysRunning"></div>
+    </div>
+  </div>
+  <div class="footer">Powered by <a href="https://booster.delivery">Delivery Booster</a> — GoJek &amp; Grab Optimization</div>
+</div>
+<script>
+(function() {
+  var BASE_TOTAL     = 124729485025;
+  var MIN_ORDER      = 199751;
+  var MAX_ORDER      = 260470;
+  var MONTHLY_TARGET = 6231438518;
+  var AVG_ORDER      = (MIN_ORDER + MAX_ORDER) / 2;
+  var ORDERS_30D     = Math.round(MONTHLY_TARGET / AVG_ORDER);
+  var SEC_30D        = 30 * 24 * 60 * 60;
+  var AVG_INT_S      = SEC_30D / ORDERS_30D;
+  var MIN_INT        = AVG_INT_S * 0.4 * 1000;
+  var MAX_INT        = AVG_INT_S * 1.6 * 1000;
+
+  var currentTotal = BASE_TOTAL;
+  var monthlyAccum = 0;
+  var startDate    = new Date('2023-09-01');
+  var now          = new Date();
+  var totalDays    = Math.floor((now - startDate) / (1000*60*60*24));
+  var orderCount   = Math.round(BASE_TOTAL / AVG_ORDER);
+
+  var counterEl   = document.getElementById('counter');
+  var glowEl      = document.getElementById('glow');
+  var tickerText  = document.getElementById('tickerText');
+  var tickerArrow = document.getElementById('tickerArrow');
+  var monthlyEl   = document.getElementById('monthly');
+  var ordersEl    = document.getElementById('orders');
+  var daysEl      = document.getElementById('daysRunning');
+
+  function fmtIDR(n) { return Math.floor(n).toLocaleString('en-US'); }
+
+  function fmtCompact(n) {
+    if (n >= 1e12) return (n/1e12).toFixed(2) + 'T';
+    if (n >= 1e9)  return (n/1e9).toFixed(2) + 'B';
+    if (n >= 1e6)  return (n/1e6).toFixed(1) + 'M';
+    if (n >= 1e3)  return (n/1e3).toFixed(0) + 'K';
+    return n.toString();
+  }
+
+  function render() {
+    counterEl.textContent = fmtIDR(currentTotal);
+    monthlyEl.textContent = 'IDR ' + fmtCompact(monthlyAccum);
+    ordersEl.textContent  = fmtIDR(orderCount);
+    daysEl.textContent    = totalDays + ' days running';
+  }
+
+  function spawnParticle(amount) {
+    var el = document.createElement('div');
+    el.className = 'particle';
+    el.textContent = '+' + fmtIDR(amount);
+    var rect = counterEl.getBoundingClientRect();
+    el.style.left = (rect.left + Math.random() * rect.width * 0.6 + rect.width * 0.2) + 'px';
+    el.style.top  = (rect.top + rect.height * 0.3) + 'px';
+    document.body.appendChild(el);
+    setTimeout(function(){ el.remove(); }, 2600);
+  }
+
+  function addOrder() {
+    var amount = Math.floor(MIN_ORDER + Math.random() * (MAX_ORDER - MIN_ORDER));
+    currentTotal += amount;
+    monthlyAccum += amount;
+    orderCount   += 1;
+
+    counterEl.classList.add('bump');
+    glowEl.classList.add('active');
+    spawnParticle(amount);
+
+    tickerText.textContent = '+IDR ' + fmtIDR(amount);
+    tickerText.classList.add('show');
+    tickerArrow.classList.add('show');
+
+    render();
+
+    setTimeout(function(){
+      counterEl.classList.remove('bump');
+      glowEl.classList.remove('active');
+    }, 600);
+
+    setTimeout(function(){
+      tickerText.classList.remove('show');
+      tickerArrow.classList.remove('show');
+    }, 3000);
+
+    scheduleNext();
+  }
+
+  function scheduleNext() {
+    var delay = MIN_INT + Math.random() * (MAX_INT - MIN_INT);
+    setTimeout(addOrder, delay);
+  }
+
+  render();
+  setTimeout(addOrder, 2000 + Math.random() * 4000);
+})();
+</script>
+</body>
+</html>
