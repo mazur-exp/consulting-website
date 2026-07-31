@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useCountry } from '../hooks/useCountry';
 
 export const WorkProcessSection = () => {
   const { t } = useLanguage();
+  const isTh = useCountry() === 'th';
 
   const containerVariants = {
     hidden: {},
@@ -30,8 +32,12 @@ export const WorkProcessSection = () => {
         en: "Intro call"
       },
       description: {
-        ru: "Экспресс-диагностика профиля Grab/Gojek и приоритеты на 30 дней.",
-        en: "Quick Grab/Gojek profile check and 30-day priorities."
+        ru: isTh
+          ? "Экспресс-диагностика профиля Grab и приоритеты на 30 дней."
+          : "Экспресс-диагностика профиля Grab/Gojek и приоритеты на 30 дней.",
+        en: isTh
+          ? "Quick Grab profile check and 30-day priorities."
+          : "Quick Grab/Gojek profile check and 30-day priorities."
       }
     },
     {

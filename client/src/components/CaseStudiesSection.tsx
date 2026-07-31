@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useCountry } from '../hooks/useCountry';
 import { useState, useCallback, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -7,6 +8,7 @@ import Autoplay from 'embla-carousel-autoplay';
 
 export const CaseStudiesSection = () => {
   const { t } = useLanguage();
+  const isTh = useCountry() === 'th';
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: 'center' },
@@ -14,28 +16,51 @@ export const CaseStudiesSection = () => {
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const caseImages = [
-    {
-      src: "/case-1.jpg",
-      alt: "Grab merchant dashboard analytics"
-    },
-    {
-      src: "/case-2.jpg",
-      alt: "Gojek merchant performance metrics"
-    },
-    {
-      src: "/case-3.jpg",
-      alt: "Delivery platform insights"
-    },
-    {
-      src: "/case-4.jpg",
-      alt: "Merchant analytics overview"
-    },
-    {
-      src: "/case-5.jpg",
-      alt: "Soul restaurant growth metrics"
-    }
-  ];
+  const caseImages = isTh
+    ? [
+        {
+          src: "/th-assets/ussr-grab-dashboard.jpg",
+          alt: "USSR Phuket — GrabFood analytics dashboard"
+        },
+        {
+          src: "/th-assets/ehf-revenue-chart.jpg",
+          alt: "Enjoy Healthy Food — revenue growth chart"
+        },
+        {
+          src: "/th-assets/grab-insights-ehf-sales.jpg",
+          alt: "Enjoy Healthy Food — GrabFood sales insights"
+        },
+        {
+          src: "/th-assets/grab-insights-ussr-sales.jpg",
+          alt: "USSR Phuket — GrabFood sales insights"
+        },
+        {
+          src: "/th-assets/grab-insights-ehf-customers.jpg",
+          alt: "Enjoy Healthy Food — GrabFood customer growth"
+        }
+      ]
+    : [
+        {
+          src: "/case-1.jpg",
+          alt: "Grab merchant dashboard analytics"
+        },
+        {
+          src: "/case-2.jpg",
+          alt: "Gojek merchant performance metrics"
+        },
+        {
+          src: "/case-3.jpg",
+          alt: "Delivery platform insights"
+        },
+        {
+          src: "/case-4.jpg",
+          alt: "Merchant analytics overview"
+        },
+        {
+          src: "/case-5.jpg",
+          alt: "Soul restaurant growth metrics"
+        }
+      ];
 
   const handleImageClick = (index: number) => {
     setSelectedImage(index);
@@ -92,29 +117,56 @@ export const CaseStudiesSection = () => {
 
         {/* Results preview - above images */}
         {/* Results preview cards */}
-        <motion.div
-          className="grid md:grid-cols-3 gap-6 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="glass-card p-6 rounded-xl text-center">
-            <p className="text-3xl font-bold text-brand-green mb-2">x6</p>
-            <p className="text-brand-muted">{t("продаж", "sales")}</p>
-            <p className="text-sm text-brand-muted mt-2">To The Moon</p>
-          </div>
-          <div className="glass-card p-6 rounded-xl text-center">
-            <p className="text-3xl font-bold text-brand-green mb-2">300 {t("млн", "M")} IDR</p>
-            <p className="text-brand-muted">{t("в месяц", "per month")}</p>
-            <p className="text-sm text-brand-muted mt-2">Only Eggs</p>
-          </div>
-          <div className="glass-card p-6 rounded-xl text-center">
-            <p className="text-3xl font-bold text-brand-green mb-2">x3</p>
-            <p className="text-brand-muted">{t("продаж", "sales")}</p>
-            <p className="text-sm text-brand-muted mt-2">Lit Pizza</p>
-          </div>
-        </motion.div>
+        {isTh ? (
+          <motion.div
+            className="grid md:grid-cols-2 gap-6 mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="glass-card p-6 rounded-xl text-center" data-testid="card-case-th-ussr">
+              <p className="text-3xl font-bold text-brand-green mb-2">x3.9</p>
+              <p className="text-brand-muted">{t("выручки на Grab", "Grab revenue")}</p>
+              <p className="text-sm text-brand-muted mt-2">USSR Phuket ({t("Патонг", "Patong")})</p>
+              <p className="text-xs text-brand-muted mt-1">
+                {t("заказы x7.4 · ROAS 24x · за 2 месяца", "orders x7.4 · ROAS 24x · in 2 months")}
+              </p>
+            </div>
+            <div className="glass-card p-6 rounded-xl text-center" data-testid="card-case-th-ehf">
+              <p className="text-3xl font-bold text-brand-green mb-2">x9.4</p>
+              <p className="text-brand-muted">{t("выручки на Grab", "Grab revenue")}</p>
+              <p className="text-sm text-brand-muted mt-2">Enjoy Healthy Food ({t("Пхукет", "Phuket")})</p>
+              <p className="text-xs text-brand-muted mt-1">
+                {t("заказы x4.6 · ROAS 27.5x · за 14 месяцев", "orders x4.6 · ROAS 27.5x · in 14 months")}
+              </p>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            className="grid md:grid-cols-3 gap-6 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="glass-card p-6 rounded-xl text-center">
+              <p className="text-3xl font-bold text-brand-green mb-2">x6</p>
+              <p className="text-brand-muted">{t("продаж", "sales")}</p>
+              <p className="text-sm text-brand-muted mt-2">To The Moon</p>
+            </div>
+            <div className="glass-card p-6 rounded-xl text-center">
+              <p className="text-3xl font-bold text-brand-green mb-2">300 {t("млн", "M")} IDR</p>
+              <p className="text-brand-muted">{t("в месяц", "per month")}</p>
+              <p className="text-sm text-brand-muted mt-2">Only Eggs</p>
+            </div>
+            <div className="glass-card p-6 rounded-xl text-center">
+              <p className="text-3xl font-bold text-brand-green mb-2">x3</p>
+              <p className="text-brand-muted">{t("продаж", "sales")}</p>
+              <p className="text-sm text-brand-muted mt-2">Lit Pizza</p>
+            </div>
+          </motion.div>
+        )}
 
         {/* Carousel with screenshots */}
         <div className="relative">

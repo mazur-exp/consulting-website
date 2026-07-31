@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useCountry } from '../hooks/useCountry';
 
 export const FounderSection = () => {
   const { t } = useLanguage();
+  const isTh = useCountry() === 'th';
+  const platformsRu = isTh ? 'Grab' : 'Gojek и Grab';
+  const platformsEn = isTh ? 'Grab' : 'Gojek and Grab';
 
   return (
     <section className="py-16 border-t border-white/10">
@@ -34,8 +38,8 @@ export const FounderSection = () => {
             </h2>
             <p className="text-brand-muted text-lg leading-relaxed whitespace-pre-line" data-testid="text-founder-description">
               {t(
-                "Основатель Delivery Booster.\n\nСооснователь IKA Sushi (4 точки на Бали, оборот более 1,5 млрд рупий в месяц), FoodLab (8 брендов, 2 локации на Бали).\n\nОпыт работы с маркетплейсами - 8 лет команда делала Android приложения (более 3000 приложений было создано), знания в маркетинге и построении бизнесов - за 15 лет было создано 11 успешных бизнесов в разных сферах.\n\nОснователь Delivery Booster, сервиса по увеличению продаж на Gojek и Grab: более 100 клиентов, рост продаж в 2-6 раз за счет настройки и оптимизации услуг доставки.",
-                "Founder of Delivery Booster.\n\nCo-founder of IKA Sushi (4 locations in Bali, revenue over 1.5 billion rupees per month), FoodLab (8 brands, 2 locations in Bali).\n\nExperience with marketplaces - 8 years the team made Android applications (more than 3000 applications were created), knowledge in marketing and business building - over 15 years, 11 successful businesses were created in various fields.\n\nFounder of Delivery Booster, a service to increase sales on Gojek and Grab: more than 100 clients, sales growth of 2-6 times through setup and optimization of delivery services."
+                `Основатель Delivery Booster.\n\nСооснователь IKA Sushi (4 точки на Бали, оборот более 1,5 млрд рупий в месяц), FoodLab (8 брендов, 2 локации на Бали).\n\nОпыт работы с маркетплейсами - 8 лет команда делала Android приложения (более 3000 приложений было создано), знания в маркетинге и построении бизнесов - за 15 лет было создано 11 успешных бизнесов в разных сферах.\n\nОснователь Delivery Booster, сервиса по увеличению продаж на ${platformsRu}: более 100 клиентов, рост продаж в 2-6 раз за счет настройки и оптимизации услуг доставки.`,
+                `Founder of Delivery Booster.\n\nCo-founder of IKA Sushi (4 locations in Bali, revenue over 1.5 billion rupees per month), FoodLab (8 brands, 2 locations in Bali).\n\nExperience with marketplaces - 8 years the team made Android applications (more than 3000 applications were created), knowledge in marketing and business building - over 15 years, 11 successful businesses were created in various fields.\n\nFounder of Delivery Booster, a service to increase sales on ${platformsEn}: more than 100 clients, sales growth of 2-6 times through setup and optimization of delivery services.`
               )}
             </p>
             <div className="flex flex-wrap gap-4">

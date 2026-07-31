@@ -13,11 +13,24 @@ import { CTASection } from '../components/CTASection';
 import { VideoSection } from '../components/VideoSection';
 import { Footer } from '../components/Footer';
 import { SEOSchema } from '../components/SEOSchema';
+import { CountryGate } from '../components/CountryGate';
+import { useLanguage } from '../hooks/useLanguage';
+import { useEffect } from 'react';
 
 export default function Home() {
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    document.title =
+      language === 'ru'
+        ? 'Delivery Booster — Рост продаж на GoJek и Grab для ресторанов на Бали и в Таиланде'
+        : 'Delivery Booster — GoJek & Grab Optimization for Restaurants in Bali & Thailand';
+  }, [language]);
+
   return (
     <div className="min-h-screen bg-brand-bg text-brand-text overflow-x-hidden">
       <SEOSchema />
+      <CountryGate />
       <AnimatedBackground />
       <Header />
       

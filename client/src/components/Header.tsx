@@ -1,4 +1,5 @@
 import { LanguageToggle } from './LanguageToggle';
+import { CountryToggle } from './CountryToggle';
 import { useLanguage } from '../hooks/useLanguage';
 
 export const Header = () => {
@@ -15,7 +16,7 @@ export const Header = () => {
             <span className="text-xl font-bold text-brand-text">Delivery Booster</span>
           </div>
           
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <a
               href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
               target="_blank"
@@ -25,6 +26,7 @@ export const Header = () => {
             >
               {t("Написать", "Contact us")}
             </a>
+            <CountryToggle />
             <LanguageToggle />
           </div>
         </nav>

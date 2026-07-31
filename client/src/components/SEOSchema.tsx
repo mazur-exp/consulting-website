@@ -1,24 +1,36 @@
 import { useLanguage } from '../hooks/useLanguage';
+import { useCountry } from '../hooks/useCountry';
 
 export const SEOSchema = () => {
   const { language } = useLanguage();
   const isRu = language === 'ru';
+  const isTh = useCountry() === 'th';
+  const platforms = isTh ? 'Grab' : 'GoJek/Grab';
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Delivery Booster",
-    "url": "https://booster.delivery",
+    "url": isTh ? "https://booster.delivery/th" : "https://booster.delivery",
     "logo": "https://booster.delivery/favicon.svg",
-    "description": isRu
-      ? "Сервис по увеличению продаж на GoJek и Grab для ресторанов на Бали и в Таиланде. Более 90 клиентов, рост продаж в 2-6 раз."
-      : "Delivery platform optimization service for restaurants in Bali & Thailand. 90+ clients, 2-6x sales growth on GoJek and Grab.",
-    "areaServed": [
-      { "@type": "Place", "name": "Bali, Indonesia" },
-      { "@type": "Place", "name": "Thailand" }
-    ],
+    "description": isTh
+      ? (isRu
+          ? "Сервис по увеличению продаж на Grab для ресторанов на Пхукете и в Таиланде. Рост продаж в 2-6 раз."
+          : "Grab delivery optimization service for restaurants in Phuket & Thailand. 2-6x sales growth on Grab.")
+      : (isRu
+          ? "Сервис по увеличению продаж на GoJek и Grab для ресторанов на Бали и в Таиланде. Более 90 клиентов, рост продаж в 2-6 раз."
+          : "Delivery platform optimization service for restaurants in Bali & Thailand. 90+ clients, 2-6x sales growth on GoJek and Grab."),
+    "areaServed": isTh
+      ? [
+          { "@type": "Place", "name": "Phuket, Thailand" },
+          { "@type": "Place", "name": "Thailand" }
+        ]
+      : [
+          { "@type": "Place", "name": "Bali, Indonesia" },
+          { "@type": "Place", "name": "Thailand" }
+        ],
     "serviceType": [
-      "GoJek restaurant optimization",
+      ...(isTh ? [] : ["GoJek restaurant optimization"]),
       "Grab delivery optimization",
       "Restaurant delivery consulting",
       "Menu optimization",
@@ -26,7 +38,7 @@ export const SEOSchema = () => {
       "Rating management"
     ],
     "knowsAbout": [
-      "GoJek optimization",
+      ...(isTh ? [] : ["GoJek optimization"]),
       "Grab delivery",
       "Dark kitchen",
       "Restaurant analytics",
@@ -77,12 +89,14 @@ export const SEOSchema = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": isRu ? "Сколько стоит оптимизация доставки на GoJek и Grab?" : "How much does GoJek and Grab delivery optimization cost?",
+        "name": isTh
+          ? (isRu ? "Сколько стоит оптимизация доставки на Grab?" : "How much does Grab delivery optimization cost?")
+          : (isRu ? "Сколько стоит оптимизация доставки на GoJek и Grab?" : "How much does GoJek and Grab delivery optimization cost?"),
         "acceptedAnswer": {
           "@type": "Answer",
           "text": isRu
-            ? "10% от выручки GoJek/Grab. Среднее $400-800/мес. Нет рисков, нет предоплаты."
-            : "10% of GoJek/Grab revenue. Average $400-800/month. No risk, no upfront payment."
+            ? `10% от выручки ${platforms}. Среднее $400-800/мес. Нет рисков, нет предоплаты.`
+            : `10% of ${platforms} revenue. Average $400-800/month. No risk, no upfront payment.`
         }
       },
       {
@@ -111,8 +125,8 @@ export const SEOSchema = () => {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": isRu
-            ? "Полное управление GoJek/Grab: меню, реклама, рейтинги, аналитика, обучение команды. Вы тратите 0 часов, получаете еженедельные отчеты."
-            : "Full GoJek/Grab management: menu, ads, ratings, analytics, team training. You spend 0 hours, get weekly reports."
+            ? `Полное управление ${platforms}: меню, реклама, рейтинги, аналитика, обучение команды. Вы тратите 0 часов, получаете еженедельные отчеты.`
+            : `Full ${platforms} management: menu, ads, ratings, analytics, team training. You spend 0 hours, get weekly reports.`
         }
       },
       {

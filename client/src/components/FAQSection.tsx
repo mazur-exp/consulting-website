@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useCountry } from '../hooks/useCountry';
 import {
   Accordion,
   AccordionContent,
@@ -9,6 +10,8 @@ import {
 
 export const FAQSection = () => {
   const { t, language } = useLanguage();
+  const isTh = useCountry() === 'th';
+  const platforms = isTh ? 'Grab' : 'GoJek/Grab';
 
   const faqs = [
     {
@@ -17,13 +20,13 @@ export const FAQSection = () => {
         ru: (
           <>
             Условно бесплатно - узнай в <a href="https://t.me/delivery_booster" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">чате</a> как.
-            {'\n'}10% от выручки GoJek/Grab. Среднее $400-800/мес. Нет рисков, нет предоплаты.
+            {'\n'}10% от выручки {platforms}. Среднее $400-800/мес. Нет рисков, нет предоплаты.
           </>
         ),
         en: (
           <>
             Conditionally free - find out how in the <a href="https://wa.me/79520029077" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
-            {'\n'}10% of GoJek/Grab revenue. Average $400-800/month. No risk, no upfront payment.
+            {'\n'}10% of {platforms} revenue. Average $400-800/month. No risk, no upfront payment.
           </>
         )
       }
@@ -45,8 +48,8 @@ export const FAQSection = () => {
     {
       q: { ru: "Что входит?", en: "What's included?" },
       a: {
-        ru: "Полное управление GoJek/Grab. Вы тратите 0 часов, получаете отчеты.",
-        en: "Full GoJek/Grab management. You spend 0 hours, get reports."
+        ru: `Полное управление ${platforms}. Вы тратите 0 часов, получаете отчеты.`,
+        en: `Full ${platforms} management. You spend 0 hours, get reports.`
       }
     },
     {

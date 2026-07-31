@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useCountry } from '../hooks/useCountry';
 
 export const HeroSection = () => {
   const { t } = useLanguage();
+  const country = useCountry();
+  const isTh = country === 'th';
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -22,17 +25,27 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div className="space-y-8" {...fadeInUp}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" data-testid="text-hero-title">
-              {t(
-                "Увеличение продаж в 2-6 раз в Gojek и Grab",
-                "2-6x sales increase in Gojek and Grab"
-              )}
+              {isTh
+                ? t(
+                    "Увеличение продаж в 2-6 раз в Grab",
+                    "2-6x sales increase in Grab"
+                  )
+                : t(
+                    "Увеличение продаж в 2-6 раз в Gojek и Grab",
+                    "2-6x sales increase in Gojek and Grab"
+                  )}
             </h1>
 
             <p className="text-lg text-brand-muted text-center lg:text-left" data-testid="text-hero-social-proof">
-              {t(
-                "90+ ресторанов на Бали и в Таиланде растут с нами",
-                "90+ restaurants in Bali & Thailand grow with us"
-              )}
+              {isTh
+                ? t(
+                    "15+ ресторанов в Таиланде растут с нами",
+                    "15+ restaurants in Thailand grow with us"
+                  )
+                : t(
+                    "90+ ресторанов на Бали и в Таиланде растут с нами",
+                    "90+ restaurants in Bali & Thailand grow with us"
+                  )}
             </p>
 
             <p className="text-xl text-brand-muted leading-relaxed" data-testid="text-hero-subtitle">
@@ -69,9 +82,9 @@ export const HeroSection = () => {
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-1"
                 />
-                <img 
-                  src="/2025-08-18 21.17.17_1755717966951.jpg"
-                  alt="Grab delivery driver with mobile app"
+                <img
+                  src={isTh ? "/th-assets/grab-insights-ehf-sales.jpg" : "/2025-08-18 21.17.17_1755717966951.jpg"}
+                  alt={isTh ? "GrabFood sales growth analytics" : "Grab delivery driver with mobile app"}
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-2"
                 />
