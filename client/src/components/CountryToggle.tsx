@@ -8,7 +8,7 @@ export const CountryToggle = () => {
   const switchTo = (target: Country) => {
     if (target === country) return;
     saveCountryPreference(target);
-    setLocation(target === 'th' ? '/th' : '/');
+    setLocation(target === 'th' ? '/th' : '/id');
     window.scrollTo(0, 0);
   };
 
