@@ -3,13 +3,14 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { AnimatedBackground } from '../components/AnimatedBackground';
 import { LanguageToggle } from '../components/LanguageToggle';
-import { getSavedCountry, saveCountryPreference, Country } from '../hooks/useCountry';
+import { getSavedCountry, saveCountryPreference } from '../hooks/useCountry';
 import { useLanguage } from '../hooks/useLanguage';
+import { COUNTRY_LIST, CountryCode, countryFromGeo, pathForCountry } from '../config/countries';
 
 /**
  * Landing gate at "/".
- * 1. Saved preference → instant redirect to /id or /th.
- * 2. Geo-IP detection: TH → /th, ID → /id.
+ * 1. Saved preference → instant redirect to that country page.
+ * 2. Geo-IP: known Grab market → its page.
  * 3. Unknown / failed → country picker.
  */
 export default function Gate() {
@@ -20,13 +21,13 @@ export default function Gate() {
   useEffect(() => {
     document.title =
       language === 'ru'
-        ? 'Delivery Booster — Рост продаж ресторанов на платформах доставки'
-        : 'Delivery Booster — Delivery Sales Growth for Restaurants';
+        ? 'Delivery Booster — Рост продаж ресторанов на Grab и Gojek в Юго-Восточной Азии'
+        : 'Delivery Booster — Grab & Gojek Sales Growth for Restaurants in Southeast Asia';
   }, [language]);
 
   useEffect(() => {
-    const go = (country: Country) => {
-      setLocation(country === 'th' ? '/th' : '/id', { replace: true });
+    const go = (country: CountryCode) => {
+      setLocation(pathForCountry(country), { replace: true });
     };
 
     const saved = getSavedCountry();
@@ -36,7 +37,6 @@ export default function Gate() {
     }
 
     let cancelled = false;
-    // If geo API hangs — show the picker
     const fallbackTimer = setTimeout(() => {
       if (!cancelled) setShowPicker(true);
     }, 2500);
@@ -47,13 +47,10 @@ export default function Gate() {
         const data = await res.json();
         if (cancelled) return;
         clearTimeout(fallbackTimer);
-        const cc = String(data?.country || '').toUpperCase();
-        if (cc === 'TH') {
-          saveCountryPreference('th');
-          go('th');
-        } else if (cc === 'ID') {
-          saveCountryPreference('id');
-          go('id');
+        const match = countryFromGeo(String(data?.country || ''));
+        if (match) {
+          saveCountryPreference(match);
+          go(match);
         } else {
           setShowPicker(true);
         }
@@ -72,9 +69,9 @@ export default function Gate() {
     };
   }, [setLocation]);
 
-  const choose = (country: Country) => {
+  const choose = (country: CountryCode) => {
     saveCountryPreference(country);
-    setLocation(country === 'th' ? '/th' : '/id');
+    setLocation(pathForCountry(country));
     window.scrollTo(0, 0);
   };
 
@@ -86,7 +83,7 @@ export default function Gate() {
         <LanguageToggle />
       </div>
 
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
+      <div className="relative z-10 min-h-screen flex items-center justify-center p-4 py-12">
         {!showPicker ? (
           <motion.div
             className="text-center"
@@ -103,17 +100,17 @@ export default function Gate() {
           </motion.div>
         ) : (
           <motion.div
-            className="glass-card rounded-3xl p-8 sm:p-12 max-w-lg w-full text-center border border-white/15"
+            className="glass-card rounded-3xl p-6 sm:p-10 max-w-3xl w-full text-center border border-white/15"
             initial={{ opacity: 0, y: 24, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
             data-testid="gate-picker"
           >
-            <div className="w-14 h-14 brand-gradient rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <div className="w-14 h-14 brand-gradient rounded-2xl flex items-center justify-center mx-auto mb-5">
               <span className="text-white font-bold text-xl">DB</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold mb-2">Delivery Booster</h1>
-            <p className="text-brand-muted mb-2 text-lg">
+            <p className="text-brand-muted mb-1.5 text-lg">
               {t('Где находится ваш ресторан?', 'Where is your restaurant located?')}
             </p>
             <p className="text-brand-muted mb-8 text-sm">
@@ -122,29 +119,27 @@ export default function Gate() {
                 "We'll show case studies and terms for your region"
               )}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <button
-                onClick={() => choose('id')}
-                data-testid="button-choose-indonesia"
-                className="glass-card border border-white/20 rounded-2xl p-6 hover:bg-white/10 hover:border-brand-green/50 transition-all duration-300 group"
-              >
-                <span className="block text-5xl mb-3">🇮🇩</span>
-                <span className="block font-semibold text-lg group-hover:text-brand-green transition-colors">
-                  {t('Бали, Индонезия', 'Bali, Indonesia')}
-                </span>
-                <span className="block text-sm text-brand-muted mt-1">Gojek · Grab</span>
-              </button>
-              <button
-                onClick={() => choose('th')}
-                data-testid="button-choose-thailand"
-                className="glass-card border border-white/20 rounded-2xl p-6 hover:bg-white/10 hover:border-brand-green/50 transition-all duration-300 group"
-              >
-                <span className="block text-5xl mb-3">🇹🇭</span>
-                <span className="block font-semibold text-lg group-hover:text-brand-green transition-colors">
-                  {t('Пхукет, Таиланд', 'Phuket, Thailand')}
-                </span>
-                <span className="block text-sm text-brand-muted mt-1">Grab</span>
-              </button>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+              {COUNTRY_LIST.map((c, index) => (
+                <motion.button
+                  key={c.code}
+                  onClick={() => choose(c.code)}
+                  data-testid={`button-choose-${c.code}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.05 * index }}
+                  className="glass-card border border-white/20 rounded-2xl p-4 sm:p-5 hover:bg-white/10 hover:border-brand-green/50 transition-all duration-300 group"
+                >
+                  <span className="block text-3xl sm:text-4xl mb-2">{c.flag}</span>
+                  <span className="block font-semibold text-sm sm:text-base group-hover:text-brand-green transition-colors leading-tight">
+                    {t(c.nameRu, c.nameEn)}
+                  </span>
+                  <span className="block text-xs text-brand-muted mt-1">
+                    {c.platformsShort.replace('/', ' · ')}
+                  </span>
+                </motion.button>
+              ))}
             </div>
           </motion.div>
         )}

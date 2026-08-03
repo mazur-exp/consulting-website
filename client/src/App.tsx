@@ -5,16 +5,19 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./hooks/useLanguage";
 import Gate from "./pages/gate";
-import Home from "./pages/home";
-import Thailand from "./pages/thailand";
+import CountryPage from "./pages/country";
 import NotFound from "@/pages/not-found";
+import { COUNTRY_ORDER, pathForCountry } from "./config/countries";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Gate} />
-      <Route path="/id" component={Home} />
-      <Route path="/th" component={Thailand} />
+      {COUNTRY_ORDER.map((code) => (
+        <Route key={code} path={pathForCountry(code)}>
+          <CountryPage code={code} />
+        </Route>
+      ))}
       <Route component={NotFound} />
     </Switch>
   );

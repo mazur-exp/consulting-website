@@ -4,9 +4,9 @@ import { useCountry } from '../hooks/useCountry';
 
 export const FounderSection = () => {
   const { t } = useLanguage();
-  const isTh = useCountry() === 'th';
-  const platformsRu = isTh ? 'Grab' : 'Gojek и Grab';
-  const platformsEn = isTh ? 'Grab' : 'Gojek and Grab';
+  const country = useCountry();
+  const platformsRu = country.platformsRu;
+  const platformsEn = country.platformsEn;
 
   return (
     <section className="py-16 border-t border-white/10">

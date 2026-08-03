@@ -4,7 +4,7 @@ import { useCountry } from '../hooks/useCountry';
 
 export const PricingSection = () => {
   const { t } = useLanguage();
-  const isTh = useCountry() === 'th';
+  const country = useCountry();
 
   return (
     <section className="py-16 border-t border-white/10">
@@ -21,15 +21,10 @@ export const PricingSection = () => {
           </h2>
 
           <p className="text-xl text-brand-text mb-4" data-testid="text-pricing-main">
-            {isTh
-              ? t(
-                  "10% от выручки Grab (среднее $400-800/мес).",
-                  "10% of Grab revenue (average $400-800/month)."
-                )
-              : t(
-                  "10% от выручки GoJek/Grab (среднее $400-800/мес).",
-                  "10% of GoJek/Grab revenue (average $400-800/month)."
-                )}
+            {t(
+              `10% от выручки ${country.platformsShort} (среднее $400-800/мес).`,
+              `10% of ${country.platformsShort} revenue (average $400-800/month).`
+            )}
           </p>
 
           <p className="text-lg text-brand-muted mb-4" data-testid="text-pricing-benefits">

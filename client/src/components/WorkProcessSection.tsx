@@ -4,7 +4,7 @@ import { useCountry } from '../hooks/useCountry';
 
 export const WorkProcessSection = () => {
   const { t } = useLanguage();
-  const isTh = useCountry() === 'th';
+  const country = useCountry();
 
   const containerVariants = {
     hidden: {},
@@ -32,12 +32,8 @@ export const WorkProcessSection = () => {
         en: "Intro call"
       },
       description: {
-        ru: isTh
-          ? "Экспресс-диагностика профиля Grab и приоритеты на 30 дней."
-          : "Экспресс-диагностика профиля Grab/Gojek и приоритеты на 30 дней.",
-        en: isTh
-          ? "Quick Grab profile check and 30-day priorities."
-          : "Quick Grab/Gojek profile check and 30-day priorities."
+        ru: `Экспресс-диагностика профиля ${country.platformsShort} и приоритеты на 30 дней.`,
+        en: `Quick ${country.platformsShort} profile check and 30-day priorities.`
       }
     },
     {

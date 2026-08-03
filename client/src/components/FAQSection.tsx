@@ -10,8 +10,7 @@ import {
 
 export const FAQSection = () => {
   const { t, language } = useLanguage();
-  const isTh = useCountry() === 'th';
-  const platforms = isTh ? 'Grab' : 'GoJek/Grab';
+  const platforms = useCountry().platformsShort;
 
   const faqs = [
     {

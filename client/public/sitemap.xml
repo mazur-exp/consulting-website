@@ -6,8 +6,80 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/?lang=en" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/?lang=ru" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/" />
-    <lastmod>2026-02-18</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/id</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/id?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/id?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/id" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/th</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/th?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/th?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/th" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/sg</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/sg?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/sg?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/sg" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/my</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/my?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/my?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/my" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/vn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/vn?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/vn?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/vn" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/ph</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/ph?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/ph?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/ph" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/kh</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/kh?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/kh?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/kh" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/mm</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/mm?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/mm?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/mm" />
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

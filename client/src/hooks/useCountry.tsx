@@ -1,18 +1,24 @@
 import { createContext, useContext, ReactNode } from 'react';
+import { COUNTRIES, CountryCode, CountryConfig, isCountryCode } from '../config/countries';
 
-export type Country = 'id' | 'th';
+const CountryContext = createContext<CountryConfig>(COUNTRIES.id);
 
-const CountryContext = createContext<Country>('id');
-
-export const CountryProvider = ({ country, children }: { country: Country; children: ReactNode }) => (
-  <CountryContext.Provider value={country}>{children}</CountryContext.Provider>
+export const CountryProvider = ({
+  country,
+  children,
+}: {
+  country: CountryCode;
+  children: ReactNode;
+}) => (
+  <CountryContext.Provider value={COUNTRIES[country]}>{children}</CountryContext.Provider>
 );
 
+/** Config of the country whose page is currently rendered. */
 export const useCountry = () => useContext(CountryContext);
 
 const COUNTRY_STORAGE_KEY = 'preferredCountry';
 
-export const saveCountryPreference = (country: Country) => {
+export const saveCountryPreference = (country: CountryCode) => {
   try {
     localStorage.setItem(COUNTRY_STORAGE_KEY, country);
   } catch {
@@ -20,11 +26,13 @@ export const saveCountryPreference = (country: Country) => {
   }
 };
 
-export const getSavedCountry = (): Country | null => {
+export const getSavedCountry = (): CountryCode | null => {
   try {
     const value = localStorage.getItem(COUNTRY_STORAGE_KEY);
-    return value === 'id' || value === 'th' ? value : null;
+    return isCountryCode(value) ? value : null;
   } catch {
     return null;
   }
 };
+
+export type { CountryCode, CountryConfig };

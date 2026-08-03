@@ -5,7 +5,6 @@ import { useCountry } from '../hooks/useCountry';
 export const HeroSection = () => {
   const { t } = useLanguage();
   const country = useCountry();
-  const isTh = country === 'th';
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -25,27 +24,14 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div className="space-y-8" {...fadeInUp}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" data-testid="text-hero-title">
-              {isTh
-                ? t(
-                    "Увеличение продаж в 2-6 раз в Grab",
-                    "2-6x sales increase in Grab"
-                  )
-                : t(
-                    "Увеличение продаж в 2-6 раз в Gojek и Grab",
-                    "2-6x sales increase in Gojek and Grab"
-                  )}
+              {t(
+                `Увеличение продаж в 2-6 раз в ${country.platformsRu}`,
+                `2-6x sales increase in ${country.platformsEn}`
+              )}
             </h1>
 
             <p className="text-lg text-brand-muted text-center lg:text-left" data-testid="text-hero-social-proof">
-              {isTh
-                ? t(
-                    "15+ ресторанов в Таиланде растут с нами",
-                    "15+ restaurants in Thailand grow with us"
-                  )
-                : t(
-                    "90+ ресторанов на Бали и в Таиланде растут с нами",
-                    "90+ restaurants in Bali & Thailand grow with us"
-                  )}
+              {t(country.socialProofRu, country.socialProofEn)}
             </p>
 
             <p className="text-xl text-brand-muted leading-relaxed" data-testid="text-hero-subtitle">
@@ -54,7 +40,7 @@ export const HeroSection = () => {
                 "Turnkey delivery management (menu, ads, team training, analytics, reports and more)"
               )}
             </p>
-            
+
             <div className="flex flex-wrap gap-4">
               <a
                 href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
@@ -69,32 +55,32 @@ export const HeroSection = () => {
                 )}
               </a>
             </div>
-            
+
 
           </motion.div>
-          
+
           <motion.div {...fadeInUpDelayed}>
             <div className="glass-card p-4 rounded-2xl">
               <div className="grid grid-cols-2 gap-3">
-                <img 
+                <img
                   src="/2025-08-18 21.17.30_1755717966950.jpg"
                   alt="Food delivery app interface showcasing menu items"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-1"
                 />
                 <img
-                  src={isTh ? "/th-assets/grab-insights-ehf-sales.jpg" : "/2025-08-18 21.17.17_1755717966951.jpg"}
-                  alt={isTh ? "GrabFood sales growth analytics" : "Grab delivery driver with mobile app"}
+                  src={country.heroImage}
+                  alt={country.heroImageAlt}
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-2"
                 />
-                <img 
+                <img
                   src="/photo_2025-10-18_17-12-17_1760800401840.jpg"
                   alt="Grab app interface"
                   className="w-full h-40 object-cover rounded-lg"
                   data-testid="img-hero-gallery-3"
                 />
-                <img 
+                <img
                   src="/photo_2025-10-18_17-15-51_1760800597028.jpg"
                   alt="Delicious pizzas for delivery"
                   className="w-full h-40 object-cover rounded-lg"

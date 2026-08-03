@@ -1,26 +1,13 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { useCountry } from '../hooks/useCountry';
 
-const THAI_CLIENTS = [
-  'Enjoy Healthy Food',
-  'Enjoy Healthy Food (Boat Avenue)',
-  'USSR Phuket',
-  'Meat Point',
-  'Alma-Ata',
-  'Etna',
-  'Island KIDS',
-  'Island (Bang Tao)',
-  'Lavash & Grill (Karon)',
-  'Ab House',
-  'Swag Food',
-  'Sensorica',
-  'Yuuhi',
-  'LeGourmet',
-  'Surf Point',
-];
-
-export const ThaiClientsSection = () => {
+/** Named clients for the current market. Rendered only when the country has a client list. */
+export const ClientsSection = () => {
   const { t } = useLanguage();
+  const country = useCountry();
+
+  if (!country.clients || country.clients.length === 0) return null;
 
   return (
     <section className="py-16 border-t border-white/10">
@@ -32,8 +19,8 @@ export const ThaiClientsSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-thai-clients-title">
-            {t('Нам доверяют 15+ ресторанов в Таиланде', 'Trusted by 15+ restaurants in Thailand')}
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-clients-title">
+            {t(country.clientsTitleRu, country.clientsTitleEn)}
           </h2>
         </motion.div>
 
@@ -44,11 +31,11 @@ export const ThaiClientsSection = () => {
           transition={{ duration: 0.6, delay: 0.15 }}
           viewport={{ once: true }}
         >
-          {THAI_CLIENTS.map((name, index) => (
+          {country.clients.map((name, index) => (
             <span
               key={index}
               className="px-4 py-2 glass-card border border-white/15 rounded-full text-brand-text text-sm sm:text-base hover:border-brand-green/50 transition-colors duration-300"
-              data-testid={`chip-thai-client-${index}`}
+              data-testid={`chip-client-${index}`}
             >
               {name}
             </span>
