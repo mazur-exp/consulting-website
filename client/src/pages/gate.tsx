@@ -100,7 +100,7 @@ export default function Gate() {
           </motion.div>
         ) : (
           <motion.div
-            className="glass-card rounded-3xl p-6 sm:p-10 max-w-3xl w-full text-center border border-white/15"
+            className="solid-panel rounded-3xl p-6 sm:p-10 max-w-3xl w-full text-center shadow-2xl"
             initial={{ opacity: 0, y: 24, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}

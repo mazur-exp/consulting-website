@@ -54,7 +54,7 @@ export const CountryToggle = () => {
         <div
           role="listbox"
           data-testid="menu-country-list"
-          className="absolute right-0 mt-2 w-56 glass-card border border-white/15 rounded-xl p-1.5 shadow-2xl bg-brand-bg/95 backdrop-blur-lg z-50"
+          className="absolute right-0 mt-2 w-56 solid-panel rounded-xl p-1.5 shadow-2xl z-50"
         >
           {COUNTRY_LIST.map((c) => (
             <button

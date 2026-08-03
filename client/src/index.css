@@ -132,7 +132,14 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(12px);
   }
-  
+
+  /* Opaque panel for overlays (dropdown, picker) — page content must never show through */
+  .solid-panel {
+    background: hsl(135 28% 9%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+  }
+
   .brand-gradient {
     background: linear-gradient(90deg, var(--brand-green), var(--brand-green-light));
   }
