@@ -122,9 +122,13 @@ export default function Gate() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               {COUNTRY_LIST.map((c, index) => (
-                <motion.button
+                <motion.a
                   key={c.code}
-                  onClick={() => choose(c.code)}
+                  href={pathForCountry(c.code)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    choose(c.code);
+                  }}
                   data-testid={`button-choose-${c.code}`}
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -138,12 +142,37 @@ export default function Gate() {
                   <span className="block text-xs text-brand-muted mt-1">
                     {c.platformsShort.replace('/', ' · ')}
                   </span>
-                </motion.button>
+                </motion.a>
               ))}
             </div>
           </motion.div>
         )}
       </div>
+
+      {/* Crawler-visible content: the gate must never be a dead end for search/AI bots.
+          Real <a href> links so engines can reach cases and markets from "/". */}
+      <section className="relative z-10 max-w-3xl mx-auto px-4 pb-12 text-sm">
+        <h2 className="text-brand-muted font-semibold mb-3 text-center">
+          {t('Кейсы с реальными цифрами мерчант-кабинетов', 'Case studies with real merchant-dashboard numbers')}
+        </h2>
+        <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-brand-muted">
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/love-u-pizza">Love U Pizza (Bali) — x21</a></li>
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/enjoy-healthy-food">Enjoy Healthy Food (Phuket) — x9.4</a></li>
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/ussr-phuket">USSR Phuket — x3.9</a></li>
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/zaytun-ubud">Zaytun (Ubud) — x2.6</a></li>
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/etna-phuket">Etna (Phuket) — +87%</a></li>
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/meat-point-phuket">Meat Point (Phuket) — +46%</a></li>
+        </ul>
+        <p className="text-brand-muted text-center mt-4 max-w-2xl mx-auto">
+          {t(
+            'Delivery Booster — агентство управления доставкой: ведём GrabFood и GoFood за ресторан — меню, реклама GrabAds, рейтинг, еженедельная аналитика. 90+ ресторанов в Юго-Восточной Азии с 2023 года.',
+            'Delivery Booster is a delivery management agency: we run GrabFood and GoFood for restaurants — menu, GrabAds, rating, weekly analytics. 90+ restaurants across Southeast Asia since 2023.'
+          )}{' '}
+          <a className="text-brand-green hover:underline" href="/about">
+            {t('О компании', 'About the company')}
+          </a>
+        </p>
+      </section>
     </div>
   );
 }
