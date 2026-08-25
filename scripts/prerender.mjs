@@ -20,7 +20,7 @@ const BASE = `http://localhost:${PORT}`;
 const DIST = path.resolve('dist/public');
 
 const COUNTRIES = ['id', 'th', 'sg', 'my', 'vn', 'ph', 'kh', 'mm'];
-const CASES = ['ussr-phuket', 'enjoy-healthy-food'];
+const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket'];
 
 const routes = [
   { url: '/', out: 'index.html', pickCountry: null }, // gate with the 8-country picker

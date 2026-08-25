@@ -40,6 +40,14 @@ WhatsApp +7 952 002 90 77.
 - [USSR Phuket, Patong: revenue x3.9 in 2 months, orders x7.4, ROAS 24x](https://booster.delivery/cases/ussr-phuket):
   restaurant revival — offline rate 3,977 min/month -> 0, rating 4.5 -> 4.8,
   search impressions 0 -> 7,481/month, first ad order on day 3.
+- [Etna Phuket, Bang Tao: orders x2.2 and revenue +87% in 2 months — on falling traffic](https://booster.delivery/cases/etna-phuket):
+  through-conversion 0.5% -> 1.9% (x3.8), ads ROAS 14.75x -> 34.57x, CTR 2.8% -> 5.59%,
+  cost per order 42 -> 29 THB, rating 4.6 -> 4.8, achieved in the low season with
+  reach down 46%.
+- [Meat Point Phuket, Rawai: revenue +46% in the low season](https://booster.delivery/cases/meat-point-phuket):
+  average order value +22.4% (785 -> 961 THB), customer reach x2.4, ads ROAS 30x,
+  rating 4.6 -> 4.8 with zero incidents — while typical Phuket restaurants lose
+  20-40% of revenue into July.
 
 ## Services
 

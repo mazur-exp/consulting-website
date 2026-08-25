@@ -72,6 +72,26 @@ const THAI_CASES: CaseCard[] = [
     detailEn: 'orders x4.6 · ROAS 27.5x · in 14 months',
     caseSlug: 'enjoy-healthy-food',
   },
+  {
+    value: '+87%',
+    labelRu: 'выручки на Grab',
+    labelEn: 'Grab revenue',
+    nameRu: 'Etna Phuket (Банг Тао)',
+    nameEn: 'Etna Phuket (Bang Tao)',
+    detailRu: 'заказы x2.2 · ROAS 34.6x · за 2 месяца в низкий сезон',
+    detailEn: 'orders x2.2 · ROAS 34.6x · in 2 months, low season',
+    caseSlug: 'etna-phuket',
+  },
+  {
+    value: '+46%',
+    labelRu: 'выручки на Grab',
+    labelEn: 'Grab revenue',
+    nameRu: 'Meat Point Phuket (Раваи)',
+    nameEn: 'Meat Point Phuket (Rawai)',
+    detailRu: 'чек +22% · ROAS 30x · рост в низкий сезон',
+    detailEn: 'AOV +22% · ROAS 30x · growth in the low season',
+    caseSlug: 'meat-point-phuket',
+  },
 ];
 
 const THAI_CASE_IMAGES = [
@@ -80,6 +100,8 @@ const THAI_CASE_IMAGES = [
   { src: '/th-assets/grab-insights-ehf-sales.jpg', alt: 'Enjoy Healthy Food — GrabFood sales insights' },
   { src: '/th-assets/grab-insights-ussr-sales.jpg', alt: 'USSR Phuket — GrabFood sales insights' },
   { src: '/th-assets/grab-insights-ehf-customers.jpg', alt: 'Enjoy Healthy Food — GrabFood customer growth' },
+  { src: '/th-assets/etna-grab-dashboard.jpg', alt: 'Etna Phuket — GrabFood sales chart, orders x2.2' },
+  { src: '/th-assets/meatpoint-grab-dashboard.jpg', alt: 'Meat Point Phuket — GrabFood revenue +46% chart' },
 ];
 
 /** Cases for markets we have not launched in yet — same Grab cases, credited to Thailand. */

@@ -109,4 +109,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<url>
+    <loc>https://booster.delivery/cases/meat-point-phuket</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/cases/meat-point-phuket?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/cases/meat-point-phuket?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/cases/meat-point-phuket" />
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://booster.delivery/cases/etna-phuket</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/cases/etna-phuket?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/cases/etna-phuket?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/cases/etna-phuket" />
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
