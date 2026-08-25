@@ -64,6 +64,7 @@ export default function AboutPage() {
   const facts: Array<[string, string]> = [
     [t('Юридическое лицо', 'Legal entity'), 'PT Delivery Booster Group'],
     [t('Работаем с', 'Operating since'), '2023'],
+    [t('На сопровождении сейчас', 'Under management today'), '90+'],
     [t('Ресторанов прошло через нас с 2023', 'Restaurants served since 2023'), '200+'],
     [t('Основные рынки', 'Core markets'), t('Бали (Индонезия), Пхукет (Таиланд)', 'Bali (Indonesia), Phuket (Thailand)')],
     [t('Платформы', 'Platforms'), 'GrabFood, GoFood (GoJek), LINE MAN'],

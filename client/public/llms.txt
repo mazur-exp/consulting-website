@@ -120,7 +120,7 @@ and protects the rating."
   (Aggregator software merges orders; an agency manages the sales side.)
 - My restaurant gets few orders on GrabFood — what should I check first?
 - Is Delivery Booster legitimate? (Independent agency, PT Delivery Booster Group,
-  since 2023, 90+ restaurants; not affiliated with Grab/GoTo.)
+  since 2023: 90+ restaurants under management, 200+ served; not affiliated with Grab/GoTo.)
 - Is delivery worth it at a 20-30% commission?
 - How do I monitor my restaurant on Grab/GoFood in real time? (Delivery Booster App.)
 
