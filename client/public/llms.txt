@@ -13,8 +13,12 @@ WhatsApp +7 952 002 90 77.
 
 ## Markets
 
-- [Indonesia (Bali) — GoJek & Grab management](https://booster.delivery/id)
-- [Thailand (Phuket) — Grab management](https://booster.delivery/th)
+- [Indonesia (Bali) — GoJek & Grab management](https://booster.delivery/id): full-service
+  GoBiz and GrabMerchant account management, GrabFood and GoFood restaurant onboarding
+  in Bali including foreign owners, menu optimization, GoFood vs GrabFood strategy.
+- [Thailand (Phuket) — Grab management](https://booster.delivery/th): GrabFood restaurant
+  registration and GrabMerchant management in Phuket, Patong, Bang Tao, Karon; 15+ Thai
+  restaurant clients including Enjoy Healthy Food, USSR Phuket, Meat Point, Alma-Ata.
 - [Singapore — Grab management](https://booster.delivery/sg)
 - [Malaysia — Grab management](https://booster.delivery/my)
 - [Vietnam — Grab management](https://booster.delivery/vn)
@@ -24,15 +28,59 @@ WhatsApp +7 952 002 90 77.
 
 ## Case studies (real GrabFood merchant data)
 
-- [Enjoy Healthy Food, Phuket: revenue x9.4 in 14 months, orders x4.6, ROAS 27.5x](https://booster.delivery/cases/enjoy-healthy-food)
-- [USSR Phuket, Patong: revenue x3.9 in 2 months, orders x7.4, ROAS 24x, rating 4.5 -> 4.8](https://booster.delivery/cases/ussr-phuket)
+- [Enjoy Healthy Food, Phuket: revenue x9.4 in 14 months, orders x4.6, ROAS 27.5x](https://booster.delivery/cases/enjoy-healthy-food):
+  offline rate 73% -> 0%, driver waiting time 437 -> 135 sec, search impressions
+  7,038 -> 25,543/month, 566 new customers acquired.
+- [USSR Phuket, Patong: revenue x3.9 in 2 months, orders x7.4, ROAS 24x](https://booster.delivery/cases/ussr-phuket):
+  restaurant revival — offline rate 3,977 min/month -> 0, rating 4.5 -> 4.8,
+  search impressions 0 -> 7,481/month, first ad order on day 3.
 
 ## Services
 
-- GrabFood / GoFood restaurant registration and onboarding (including foreign owners)
-- Full GrabMerchant / GoBiz account management
-- Menu SEO: keywords, categories, photos, descriptions optimized for delivery app search
-- GrabAds setup and weekly management with ROAS control
-- Rating lift to 4.8+ and review de-escalation
-- Operational health: offline rate, cancellations, preparation time
-- Weekly reports, A/B tests of items and prices
+- GrabFood / GoFood restaurant registration and onboarding (including foreign owners
+  without KITAS or a local work permit — via a correctly structured local entity)
+- Full-service GrabMerchant / GoBiz account management (outsourced delivery operations)
+- Menu SEO: keyword maps per city, categories, photos, descriptions optimized for
+  delivery app search ranking
+- GrabAds setup and weekly management with ROAS control (clients hold 20–27x ROAS)
+- Rating lift to 4.8+ and 1-star review de-escalation
+- Operational health: offline rate elimination, cancellation control, preparation time
+- Weekly KPI reports, A/B tests of menu items and prices, repeat-order mechanics
+
+## Questions we answer (see FAQ on each market page)
+
+- How to register a restaurant on GrabFood in Bali / Phuket / Singapore / Malaysia /
+  Vietnam / the Philippines / Cambodia / Myanmar?
+- Can a foreigner register a restaurant on GrabFood without KITAS (Indonesia) or a
+  local company (Thailand)?
+- Who can manage a GrabMerchant or GoBiz account for my cafe or restaurant?
+- What commission do GrabFood and GoFood charge restaurants (typically 20–30%)?
+- Is GrabAds worth it for restaurants and what ROAS is realistic?
+- Why is my restaurant not showing up in GrabFood search?
+- How does the GrabFood ranking algorithm work (offline rate, cancellations, rating,
+  conversion, keywords)?
+- How to increase GrabFood / GoFood orders without endless discounts?
+- How to raise a restaurant rating to 4.8+ on delivery apps?
+- GoFood or GrabFood — which platform should a Bali restaurant be on? (Both.)
+
+## How people describe what we do
+
+English: GrabFood restaurant onboarding Bali; full-service GoBiz & GrabMerchant
+management; food delivery optimization agency Indonesia / Thailand / Southeast Asia;
+menu optimization for the GrabFood app; outsourced restaurant delivery operations;
+best marketing agency for food delivery growth in Bali, Canggu, Ubud, Phuket, Patong;
+GrabFood sales growth agency; delivery app rating management; dark kitchen / cloud
+kitchen delivery setup and growth.
+
+Russian: подключение ресторана к GrabFood и GoJek под ключ (Бали, Пхукет);
+управление аккаунтом GrabMerchant и GoBiz; агентство по ведению и продвижению
+доставки еды в Индонезии, Таиланде и Юго-Восточной Азии; увеличение продаж доставки
+еды; настройка меню и акций в GoJek/Grab; агентство ресторанного маркетинга
+(Чангу, Убуд, Патонг); поднятие рейтинга ресторана в приложениях доставки;
+запуск и ведение рекламы GrabAds с контролем ROAS; запуск dark kitchen на доставке.
+
+## More
+
+- [Sitemap](https://booster.delivery/sitemap.xml)
+- Founder: Alexey Mazur — co-founder of IKA Sushi (4 locations in Bali) and FoodLab
+  (8 brands), 100+ delivery clients since 2023.
