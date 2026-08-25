@@ -48,6 +48,15 @@ WhatsApp +7 952 002 90 77.
   average order value +22.4% (785 -> 961 THB), customer reach x2.4, ads ROAS 30x,
   rating 4.6 -> 4.8 with zero incidents — while typical Phuket restaurants lose
   20-40% of revenue into July.
+- [Love U Pizza, Bali: revenue x21 in 9 months on GrabFood + GoFood](https://booster.delivery/cases/love-u-pizza):
+  orders x14.1 (194 -> 2,733/month), average check +49.5% (Rp 217,397 -> 324,999),
+  GoFood revenue x24 from a near-idle account, through-conversion 1.3% vs 0.9%
+  fleet average, rating 4.8 held through 14x order growth; Rp 4.51bn total
+  delivery revenue over 9 months.
+- [Zaytun Ubud, Bali: revenue x2.6 on an already-running restaurant](https://booster.delivery/cases/zaytun-ubud):
+  the client already made Rp 166.6M/month before us — we rebuilt, not launched.
+  Orders x2.1, average check +24.5%, GoFood ads fixed from loss-making ROAS 0.25x
+  to 15.52x (payback x62), GrabAds ROAS 14.02x -> 21.19x, rating 4.67 -> 4.8.
 
 ## Services
 

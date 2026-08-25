@@ -146,6 +146,26 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     socialProofEn: '90+ restaurants in Bali & Thailand grow with us',
     cases: [
       {
+        value: 'x21',
+        labelRu: 'выручки за 9 месяцев',
+        labelEn: 'revenue in 9 months',
+        nameRu: 'Love U Pizza (Бали)',
+        nameEn: 'Love U Pizza (Bali)',
+        detailRu: 'заказы x14 · чек +50% · Grab + GoJek',
+        detailEn: 'orders x14 · check +50% · Grab + GoJek',
+        caseSlug: 'love-u-pizza',
+      },
+      {
+        value: 'x2.6',
+        labelRu: 'выручки',
+        labelEn: 'revenue',
+        nameRu: 'Zaytun (Убуд)',
+        nameEn: 'Zaytun (Ubud)',
+        detailRu: 'заказы x2.1 · GoJek-реклама из убытка в ROAS 15.5x',
+        detailEn: 'orders x2.1 · GoJek ads from loss to 15.5x ROAS',
+        caseSlug: 'zaytun-ubud',
+      },
+      {
         value: 'x6',
         labelRu: 'продаж',
         labelEn: 'sales',
@@ -174,6 +194,8 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
       },
     ],
     caseImages: [
+      { src: '/id-assets/loveu-growth.jpg', alt: 'Love U Pizza — x21 revenue growth over 9 months' },
+      { src: '/id-assets/zaytun-growth.jpg', alt: 'Zaytun Ubud — x2.6 revenue growth chart' },
       { src: '/case-1.jpg', alt: 'Grab merchant dashboard analytics' },
       { src: '/case-2.jpg', alt: 'Gojek merchant performance metrics' },
       { src: '/case-3.jpg', alt: 'Delivery platform insights' },

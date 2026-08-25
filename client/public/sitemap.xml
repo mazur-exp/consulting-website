@@ -127,4 +127,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<url>
+    <loc>https://booster.delivery/cases/love-u-pizza</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/cases/love-u-pizza?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/cases/love-u-pizza?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/cases/love-u-pizza" />
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://booster.delivery/cases/zaytun-ubud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/cases/zaytun-ubud?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/cases/zaytun-ubud?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/cases/zaytun-ubud" />
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
