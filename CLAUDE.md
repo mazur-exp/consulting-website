@@ -4,7 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # Delivery Booster — Consulting Website
 
-Restaurant delivery optimization consulting service for foreign restaurant owners in Bali & Thailand. Landing page with bilingual support (RU/EN) showcasing services, case studies, and testimonials.
+Restaurant delivery growth agency for restaurant owners across Southeast Asia
+(8 market pages: ID, TH, SG, MY, VN, PH, KH, MM). Bilingual (RU/EN) site with
+geo-IP country gate, per-country FAQ, case study pages, and prerendered HTML
+for AI crawlers.
+
+---
+
+## ОНГОИНГ-ПРОЕКТ: AI Visibility (читать в начале каждой сессии по теме сайта)
+
+Постоянная работа над видимостью в ИИ-чатах. Правила сессии, карта кодовой базы,
+стратегия, бэклог и журнал:
+
+@ai_docs/ai-visibility/README.md
+@ai_docs/ai-visibility/BACKLOG.md
+@ai_docs/ai-visibility/SESSION_LOG.md
+
+**В конце каждой сессии по сайту:** дописать запись в SESSION_LOG.md и обновить
+BACKLOG.md — иначе следующая сессия потеряет контекст.
 
 ---
 
@@ -21,6 +38,9 @@ The project uses comprehensive AI documentation in the `ai_docs/` folder. **All 
 ### Development
 @ai_docs/development/DEPLOYMENT.md
 @ai_docs/development/LANDING_PAGE_IMPROVEMENTS.md
+
+### AI Visibility (GEO)
+@ai_docs/ai-visibility/STRATEGY.md
 
 ### UI/UX Design System
 @ai_docs/UI/01-design-system.md
