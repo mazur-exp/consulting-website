@@ -40,8 +40,8 @@ export const FAQSection = () => {
     {
       q: { ru: "Как быстро результат?", en: "How fast are results?" },
       a: {
-        ru: "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 85+ клиентами.",
-        en: "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 85+ clients."
+        ru: "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении.",
+        en: "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management."
       }
     },
     {

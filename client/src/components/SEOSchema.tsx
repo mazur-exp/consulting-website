@@ -63,8 +63,8 @@ export const SEOSchema = () => {
       "name": "Delivery Booster"
     },
     "description": isRu
-      ? "Основатель Delivery Booster. Сооснователь IKA Sushi (4 точки на Бали), FoodLab (8 брендов). Более 100 клиентов, 15 лет опыта в бизнесе."
-      : "Founder of Delivery Booster. Co-founder of IKA Sushi (4 locations in Bali), FoodLab (8 brands). 100+ clients, 15 years of business experience.",
+      ? "Основатель Delivery Booster. Сооснователь IKA Sushi (4 точки на Бали), FoodLab (8 брендов). 200+ клиентов с 2023 года, 15 лет опыта в бизнесе."
+      : "Founder of Delivery Booster. Co-founder of IKA Sushi (4 locations in Bali), FoodLab (8 brands). 200+ clients since 2023, 15 years of business experience.",
     "knowsAbout": [
       "GoJek optimization",
       "Grab delivery optimization",
@@ -99,8 +99,8 @@ export const SEOSchema = () => {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": isRu
-            ? "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 85+ клиентами."
-            : "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 85+ clients."
+            ? "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении."
+            : "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management."
         }
       },
       {
