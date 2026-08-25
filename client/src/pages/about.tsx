@@ -39,16 +39,32 @@ export default function AboutPage() {
     founder: { '@type': 'Person', name: 'Alexey Mazur' },
     areaServed: ['Indonesia', 'Thailand', 'Singapore', 'Malaysia', 'Vietnam', 'Philippines', 'Cambodia', 'Myanmar'],
     description:
-      'Restaurant delivery growth agency in Southeast Asia: turnkey management of GrabFood and GoFood merchant accounts, menu optimization, GrabAds, rating management and weekly analytics. 90+ restaurants since 2023.',
+      'Restaurant delivery growth agency in Southeast Asia: turnkey management of GrabFood and GoFood merchant accounts, menu optimization, GrabAds, rating management and weekly analytics. 90+ restaurants under management, 200+ served since 2023.',
     sameAs: ['https://t.me/delivery_booster', 'https://app.booster.delivery'],
     disambiguatingDescription:
       'Delivery Booster (booster.delivery) is a restaurant delivery growth agency. Not the in-app "booster" ad tool inside Grab, not Arvida "Software Delivery Booster" (CI/CD), and not parcel-logistics software.',
   };
 
+  const appSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Delivery Booster App',
+    url: 'https://app.booster.delivery',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    publisher: { '@type': 'Organization', name: 'Delivery Booster', legalName: 'PT Delivery Booster Group' },
+    review: {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Evgeniy P.' },
+      reviewBody:
+        'Полезный бот, который подсветил важные моменты: оперативное информирование о стоп-листе ресторана — включая позиции, которых там быть не должно; ключевая ценность — скорость реакции; алгоритм работы с негативными отзывами (получили отзыв — написали возражение — дали ответ гостю) увеличивает шанс удаления отзывов и сохранения рейтинга.',
+    },
+  };
+
   const facts: Array<[string, string]> = [
     [t('Юридическое лицо', 'Legal entity'), 'PT Delivery Booster Group'],
     [t('Работаем с', 'Operating since'), '2023'],
-    [t('Ресторанов на сопровождении', 'Restaurants served'), '90+'],
+    [t('Ресторанов прошло через нас с 2023', 'Restaurants served since 2023'), '200+'],
     [t('Основные рынки', 'Core markets'), t('Бали (Индонезия), Пхукет (Таиланд)', 'Bali (Indonesia), Phuket (Thailand)')],
     [t('Платформы', 'Platforms'), 'GrabFood, GoFood (GoJek), LINE MAN'],
     [t('Модель оплаты', 'Pricing model'), t('10% от выручки доставки, без предоплаты', '10% of delivery revenue, no upfront payment')],
@@ -58,6 +74,7 @@ export default function AboutPage() {
     <CountryProvider country="id">
       <div className="min-h-screen bg-brand-bg text-brand-text overflow-x-hidden">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
         <AnimatedBackground />
         <Header />
 
@@ -116,8 +133,8 @@ export default function AboutPage() {
                 <h2 className="text-2xl font-bold mb-4">{t('Основатель', 'Founder')}</h2>
                 <p className="text-brand-muted max-w-3xl">
                   {t(
-                    'Алексей Мазур — сооснователь IKA Sushi (4 точки на Бали) и FoodLab (8 брендов). Delivery Booster вырос из собственной практики: сначала мы научились растить продажи доставки в своих ресторанах, потом стали делать это для клиентов. С 2023 года через агентство прошло 100+ проектов доставки.',
-                    'Alexey Mazur is a co-founder of IKA Sushi (4 locations in Bali) and FoodLab (8 brands). Delivery Booster grew out of our own operations: we first learned to grow delivery sales in our own restaurants, then started doing it for clients. 100+ delivery projects since 2023.'
+                    'Алексей Мазур — сооснователь IKA Sushi (4 точки на Бали) и FoodLab (8 брендов). Delivery Booster вырос из собственной практики: сначала мы научились растить продажи доставки в своих ресторанах, потом стали делать это для клиентов. С 2023 года через агентство прошло 200+ проектов доставки.',
+                    'Alexey Mazur is a co-founder of IKA Sushi (4 locations in Bali) and FoodLab (8 brands). Delivery Booster grew out of our own operations: we first learned to grow delivery sales in our own restaurants, then started doing it for clients. 200+ delivery projects since 2023.'
                   )}
                 </p>
               </motion.div>
@@ -158,6 +175,48 @@ export default function AboutPage() {
                 </a>
                 <p className="text-sm text-brand-muted mt-3">
                   {t('Первый месяц — все функции бесплатно; подключение по ссылке на ваш ресторан в Grab или GoFood.', 'First month free with all features; connect by pasting your restaurant link from Grab or GoFood.')}
+                </p>
+              </motion.div>
+
+              {/* Software testimonial — real client review */}
+              <motion.div {...fadeIn} className="glass-card p-6 sm:p-8 rounded-2xl mt-8">
+                <p className="text-sm uppercase tracking-wide text-brand-muted mb-5">
+                  {t('Отзыв пользователя Delivery Booster App', 'What a Delivery Booster App user says')}
+                </p>
+                <blockquote className="space-y-4 text-brand-text border-l-2 border-brand-green pl-5">
+                  <p>
+                    {t(
+                      'Хочу поблагодарить Алексея и его команду за то, что расширили границы видения операционных рисков работы доставки. Полезный бот, который подсветил важные моменты:',
+                      'I want to thank Alexey and his team for widening our view of the operational risks in delivery. A genuinely useful bot that highlighted what matters:'
+                    )}
+                  </p>
+                  <p>
+                    {t(
+                      '1. Оперативное информирование о существующем стоп-листе ресторана. Важно, что теперь видно не только то, что попало в стоп-лист, но и те позиции, которых там быть не должно — ведь продукты по факту есть.',
+                      '1. Real-time alerts about the restaurant stop list. What matters is that you now see not only what ended up in the stop list, but also the items that should not be there — because the products are actually in stock.'
+                    )}
+                  </p>
+                  <p>
+                    {t(
+                      '2. Ключевая ценность — скорость реакции. Выводит на уровень решений, где начинаем размышлять над оптимизацией закупок и заготовок.',
+                      '2. The key value is reaction speed. It lifts you to the level of decisions where you start rethinking purchasing and prep optimization.'
+                    )}
+                  </p>
+                  <p>
+                    {t(
+                      '3. Отзывы гостей — инсайтом стало то, что при получении негативного отзыва нужно соблюсти алгоритм: получили отзыв — написали возражение — по результату дали ответ гостю. Это увеличивает шанс удаления отзыва и сохранения рейтинга.',
+                      '3. Guest reviews — the insight was that a negative review needs a proper sequence: receive the review, file an objection, then answer the guest based on the outcome. This increases the chance of removal and protects the rating.'
+                    )}
+                  </p>
+                  <p>
+                    {t(
+                      '4. Лично для меня этот кейс подтвердил: конкуренция между проектами лежит уже не только в плоскости вкуса продукта и системы менеджмента, но и в плоскости технологий, которые активно осваиваем. Спасибо, Алексей!',
+                      '4. For me personally this confirmed that competition between projects is no longer only about taste and management systems — it is also about technology, which we are actively adopting. Thank you, Alexey!'
+                    )}
+                  </p>
+                </blockquote>
+                <p className="text-brand-muted mt-4 font-medium">
+                  {t('— Евгений П., владелец ресторана', '— Evgeniy P., restaurant owner')}
                 </p>
               </motion.div>
 

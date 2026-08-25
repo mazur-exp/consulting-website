@@ -62,6 +62,11 @@ appeals, control of switched-off menu items, daily Telegram reports, AI-generate
 review replies. First month free; connect by pasting a restaurant link from Grab
 or GoFood.
 
+Client review (Evgeniy P., restaurant owner): "Real-time stop-list alerts -
+including items that should not be there; the key value is reaction speed; the
+review-objection-reply sequence increases the chance of unfair review removal
+and protects the rating."
+
 ## Questions we answer (see FAQ on each market page)
 
 - How to register a restaurant on GrabFood in Bali / Phuket / Singapore / Malaysia /
@@ -108,4 +113,4 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 - [About the company (legal entity, founder, software)](https://booster.delivery/about)
 - [Sitemap](https://booster.delivery/sitemap.xml)
 - Founder: Alexey Mazur — co-founder of IKA Sushi (4 locations in Bali) and FoodLab
-  (8 brands), 100+ delivery clients since 2023.
+  (8 brands), 200+ delivery clients since 2023.
