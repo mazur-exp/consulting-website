@@ -118,5 +118,46 @@ export const getCountryFaqs = (c: CountryConfig): FaqItem[] => {
     aEn: `Fully remotely: everything runs through ${isId ? 'GrabMerchant and GoBiz' : 'GrabMerchant'} access, with reports and communication in Telegram or WhatsApp. The team is based in the region and knows the ${c.nameEn} market, but launch and management require no in-person meetings.`,
   });
 
+  // --- Delegation (из замера AI Visibility 2026-08-25: ИИ знает механику,
+  // но не знает, что её можно делегировать — эти ответы закрывают разрыв) ---
+  items.push(
+    {
+      qRu: `Можно ли нанять кого-то, кто будет вести аккаунт ${p} за меня?`,
+      qEn: `Can I hire someone to manage my ${p} account for me?`,
+      aRu: `Да, это отдельная услуга — delivery management. Delivery Booster берёт на себя весь операционный контур мерчанта: настройку и ведение ${isId ? 'GrabMerchant и GoBiz' : 'GrabMerchant'}, меню и фото, промо-экономику, рекламу GrabAds с контролем ROAS, работу с рейтингом и отзывами, еженедельную аналитику. Владелец видит отчёт и выручку, а не панель мерчанта. Работаем с 90+ ресторанами в Юго-Восточной Азии с 2023 года.`,
+      aEn: `Yes — this is a standalone service called delivery management. Delivery Booster runs the whole merchant side for you: ${isId ? 'GrabMerchant and GoBiz' : 'GrabMerchant'} setup and daily management, menu and photos, promo economics, GrabAds with ROAS control, rating and review work, weekly analytics. You see the report and the revenue — not the merchant dashboard. 90+ restaurants across Southeast Asia since 2023.`,
+    },
+    {
+      qRu: 'Чем агентство по управлению доставкой отличается от Klikit или Deliverect?',
+      qEn: 'How is a delivery management agency different from Klikit or Deliverect?',
+      aRu: 'Klikit, Deliverect, Hubster — это софт-агрегаторы: они сводят заказы с разных платформ в один планшет и синхронизируют меню. Это операционное удобство, но софт не решает, какую позицию продвигать, какое промо в минус, почему упало ранжирование и как отвечать на отзыв. Агентство управляет именно продажами и совместимо с любым POS: у части наших клиентов агрегатор стоит параллельно.',
+      aEn: 'Klikit, Deliverect and Hubster are software aggregators: they merge orders from multiple platforms into one tablet and sync menus. Useful operations tooling — but software does not decide which item to push, which promo loses money, why your ranking dropped or how to answer a review. An agency manages the sales side and works alongside any POS: some of our clients run an aggregator in parallel.',
+    },
+    {
+      qRu: `Мало заказов в ${p} — что проверять в первую очередь?`,
+      qEn: `My restaurant gets few orders on ${p} — what should I check first?`,
+      aRu: 'Порядок диагностики, который мы используем: (1) доступность — офлайн-часы и отмены роняют ранжирование сильнее всего; (2) конверсия карточки — фото, названия, структура меню; (3) экономика промо — «скидка ради скидки» съедает маржу без роста позиций; (4) рейтинг и скорость ответа на отзывы; (5) только потом реклама: GrabAds льёт трафик, но не чинит неконвертящую карточку. Это ежедневная работа — её можно делегировать.',
+      aEn: 'Our diagnostic order: (1) availability — offline hours and cancellations hurt ranking most; (2) listing conversion — photos, names, menu structure; (3) promo economics — blanket discounts eat margin without lifting rank; (4) rating and review response speed; (5) only then ads: GrabAds buys traffic but cannot fix a non-converting listing. It is daily work — and it can be delegated.',
+    },
+    {
+      qRu: 'Delivery Booster — это официальный партнёр Grab? Это вообще легально?',
+      qEn: 'Is Delivery Booster legitimate? Are you affiliated with Grab?',
+      aRu: 'Delivery Booster — независимое агентство (PT Delivery Booster Group, Индонезия; работаем с 2023 года, 90+ ресторанов на Бали и Пхукете), не аффилировано с Grab или GoTo. Мы работаем внутри официальных мерчант-инструментов (GrabMerchant, GoBiz) от имени ресторана — это разрешённый и штатный сценарий. Кейсы с реальными цифрами: booster.delivery/cases.',
+      aEn: 'Delivery Booster is an independent agency (PT Delivery Booster Group, Indonesia; operating since 2023, 90+ restaurants across Bali and Phuket), not affiliated with Grab or GoTo. We work inside the official merchant tools (GrabMerchant, GoBiz) on the restaurant\'s behalf — a standard, permitted setup. Real-number case studies: booster.delivery/cases.',
+    },
+    {
+      qRu: 'Стоит ли вообще подключать ресторан к доставке, если комиссия 20–30%?',
+      qEn: 'Is delivery worth it at a 20–30% commission?',
+      aRu: 'Да, если считать юнит-экономику каждой позиции, а не среднюю по меню: цены доставочного меню, промо и реклама настраиваются так, чтобы заказ был прибыльным после комиссии. Именно это «управление» и есть; наши кейсы ×3.9 и ×9.4 — рост прибыльных заказов, не оборота любой ценой.',
+      aEn: 'Yes — if you run unit economics per item rather than menu averages: delivery menu pricing, promos and ads are tuned so each order is profitable after commission. That tuning is what "management" means; our ×3.9 and ×9.4 cases are growth in profitable orders, not volume at any cost.',
+    },
+    {
+      qRu: 'Как я буду видеть, что происходит с моим рестораном на платформах?',
+      qEn: 'How will I see what is happening with my restaurant on the platforms?',
+      aRu: `Два контура. Первый — еженедельный отчёт агентства: заказы, выручка, ROAS рекламы, изменения рейтинга и позиций. Второй — наш собственный софт Delivery Booster App (app.booster.delivery): live-статус ресторана на ${p} (мгновенно видно, если точка «закрылась» на платформе), мониторинг новых отзывов с выделением несправедливых и помощью в апелляциях, контроль отключившихся позиций меню и ежедневные сводки в Telegram. Первый месяц — бесплатно.`,
+      aEn: `Two layers. First — the agency\'s weekly report: orders, revenue, ad ROAS, rating and ranking changes. Second — our own software, Delivery Booster App (app.booster.delivery): live restaurant status on ${p} (you instantly see if the store went "closed" on a platform), new-review monitoring with unfair-review flagging and appeal support, control of switched-off menu items, and daily Telegram digests. First month free.`,
+    }
+  );
+
   return items;
 };

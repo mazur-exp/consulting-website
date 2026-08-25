@@ -6,10 +6,9 @@
 
 ## P0 — сейчас
 
-- [ ] **Доверие / верификация бренда** (чинит «unverified» у Perplexity, см.
-  VISIBILITY_TRACKING.md): Clutch + Sortlist + GoodFirms с кейсами и отзывами;
-  страница About с юрлицом (PT), годом, командой, основателем; LinkedIn-страница
-  компании; дисамбигуация имени в llms.txt и About (черновик в CONTENT_PLAN_GEO §4).
+- [ ] **Доверие / верификация бренда** (чинит «unverified» у Perplexity):
+  Clutch + Sortlist + GoodFirms с кейсами и отзывами; LinkedIn-страница компании.
+  (About + дисамбигуация — сделаны 2026-08-25.)
 - [ ] **Google Business Profile: Бали + Пхукет.** Название строго «Delivery Booster»
   (без ключевиков!), ключевики — в описание, услуги, посты. Категория: Marketing
   agency / Consultant. Фото, ссылки на booster.delivery/id и /th.
@@ -29,9 +28,6 @@
   «сколько часов занимает самостоятельное ведение», сравнение «агентство vs
   Klikit/Deliverect» (POS-агрегаторы заняли наш consideration set — 21 vs 0
   упоминаний). Темы и структура — CONTENT_PLAN_GEO.md §2.
-- [ ] **FAQ из замера 0 → faqs.ts + llms.txt** после утверждения Алексом:
-  5 черновиков RU/EN в CONTENT_PLAN_GEO.md §3 (делегирование, vs Klikit,
-  диагностика «мало заказов», легитимность, комиссия). Потом build + деплой.
 - [ ] **Ответить в живом треде canggucommunity** («searching for grab and gojek
   wizard… not sure if such thing exist») — лид + индексируемое упоминание.
 - [ ] **Замер 1** (~через месяц): `audit/audit.py` по AUDIT_METHOD.md, сравнение
@@ -56,6 +52,9 @@
 
 ## Done
 
+- [x] 2026-08-25 — Страница /about (PT, основатель, софт, дисамбигуация,
+  Organization-схема) + 6 FAQ «делегирование» на всех страницах + llms.txt
+  (юрлицо, софт-секция, +7 вопросов) + REVIEW_TEMPLATES.md (10 шаблонов).
 - [x] 2026-08-25 — Замер видимости, месяц 0: 223 ответа, 4 движка, 5 языков;
   базовая линия в VISIBILITY_TRACKING.md, методика в AUDIT_METHOD.md, скрипт
   повторного замера audit/audit.py, сырые данные audit/baseline-2026-08-25/.

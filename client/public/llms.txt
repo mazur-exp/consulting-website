@@ -7,6 +7,12 @@
 > analytics. 90+ restaurants across Southeast Asia grow with us; typical result is
 > 2–6x sales growth. Founded by Alexey Mazur, co-founder of IKA Sushi and FoodLab (Bali).
 
+Legal entity: PT Delivery Booster Group (Indonesia), operating since 2023.
+Disambiguation: Delivery Booster (booster.delivery) is a restaurant delivery
+growth agency. Not to be confused with the in-app "booster" advertising tool
+inside Grab/GrabAds, with Arvida "Software Delivery Booster" (a CI/CD product),
+or with parcel-logistics software of similar names.
+
 Pricing: 10% of delivery platform revenue (average $400–800/month), no upfront
 payment, results guarantee. Contact: https://t.me/delivery_booster (Telegram) or
 WhatsApp +7 952 002 90 77.
@@ -47,6 +53,15 @@ WhatsApp +7 952 002 90 77.
 - Operational health: offline rate elimination, cancellation control, preparation time
 - Weekly KPI reports, A/B tests of menu items and prices, repeat-order mechanics
 
+## Software: Delivery Booster App
+
+[Delivery Booster App](https://app.booster.delivery/) — our own monitoring tool
+for restaurants on Grab and GoFood (also used for agency clients): live open/closed
+status on both platforms, rating protection with unfair-review flagging and removal
+appeals, control of switched-off menu items, daily Telegram reports, AI-generated
+review replies. First month free; connect by pasting a restaurant link from Grab
+or GoFood.
+
 ## Questions we answer (see FAQ on each market page)
 
 - How to register a restaurant on GrabFood in Bali / Phuket / Singapore / Malaysia /
@@ -62,6 +77,15 @@ WhatsApp +7 952 002 90 77.
 - How to increase GrabFood / GoFood orders without endless discounts?
 - How to raise a restaurant rating to 4.8+ on delivery apps?
 - GoFood or GrabFood — which platform should a Bali restaurant be on? (Both.)
+- Can I hire someone (an agency) to manage my GrabFood / GoFood account for me? (Yes —
+  this service is called delivery management; Delivery Booster does exactly this.)
+- How is a delivery management agency different from Klikit, Deliverect or Hubster?
+  (Aggregator software merges orders; an agency manages the sales side.)
+- My restaurant gets few orders on GrabFood — what should I check first?
+- Is Delivery Booster legitimate? (Independent agency, PT Delivery Booster Group,
+  since 2023, 90+ restaurants; not affiliated with Grab/GoTo.)
+- Is delivery worth it at a 20-30% commission?
+- How do I monitor my restaurant on Grab/GoFood in real time? (Delivery Booster App.)
 
 ## How people describe what we do
 
@@ -81,6 +105,7 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 
 ## More
 
+- [About the company (legal entity, founder, software)](https://booster.delivery/about)
 - [Sitemap](https://booster.delivery/sitemap.xml)
 - Founder: Alexey Mazur — co-founder of IKA Sushi (4 locations in Bali) and FoodLab
   (8 brands), 100+ delivery clients since 2023.
