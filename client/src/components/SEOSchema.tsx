@@ -1,5 +1,6 @@
 import { useLanguage } from '../hooks/useLanguage';
 import { useCountry } from '../hooks/useCountry';
+import { getCountryFaqs } from '../config/faqs';
 
 export const SEOSchema = () => {
   const { language } = useLanguage();
@@ -131,7 +132,15 @@ export const SEOSchema = () => {
             ? "Можете! Самостоятельное обучение займёт 3-6 месяцев, а ошибки обойдутся в $5-10k упущенной прибыли."
             : "You can! Self-learning takes 3-6 months, and mistakes cost $5-10k in lost profits and time."
         }
-      }
+      },
+      ...getCountryFaqs(country).map((f) => ({
+        "@type": "Question",
+        "name": isRu ? f.qRu : f.qEn,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": isRu ? f.aRu : f.aEn
+        }
+      }))
     ]
   };
 

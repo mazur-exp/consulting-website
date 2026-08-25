@@ -82,4 +82,22 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://booster.delivery/cases/ussr-phuket</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/cases/ussr-phuket?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/cases/ussr-phuket?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/cases/ussr-phuket" />
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://booster.delivery/cases/enjoy-healthy-food</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/cases/enjoy-healthy-food?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/cases/enjoy-healthy-food?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/cases/enjoy-healthy-food" />
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

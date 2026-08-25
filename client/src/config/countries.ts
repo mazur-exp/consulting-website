@@ -13,6 +13,8 @@ export interface CaseCard {
   nameEn: string;
   detailRu: string;
   detailEn: string;
+  /** Slug of a full case study page under /cases/<slug> */
+  caseSlug?: string;
 }
 
 export interface CountryConfig {
@@ -58,6 +60,7 @@ const THAI_CASES: CaseCard[] = [
     nameEn: 'USSR Phuket (Patong)',
     detailRu: 'заказы x7.4 · ROAS 24x · за 2 месяца',
     detailEn: 'orders x7.4 · ROAS 24x · in 2 months',
+    caseSlug: 'ussr-phuket',
   },
   {
     value: 'x9.4',
@@ -67,6 +70,7 @@ const THAI_CASES: CaseCard[] = [
     nameEn: 'Enjoy Healthy Food (Phuket)',
     detailRu: 'заказы x4.6 · ROAS 27.5x · за 14 месяцев',
     detailEn: 'orders x4.6 · ROAS 27.5x · in 14 months',
+    caseSlug: 'enjoy-healthy-food',
   },
 ];
 

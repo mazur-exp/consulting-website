@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
 import { useCountry } from '../hooks/useCountry';
+import { getCountryFaqs } from '../config/faqs';
 import {
   Accordion,
   AccordionContent,
@@ -10,7 +11,13 @@ import {
 
 export const FAQSection = () => {
   const { t, language } = useLanguage();
-  const platforms = useCountry().platformsShort;
+  const country = useCountry();
+  const platforms = country.platformsShort;
+
+  const extendedFaqs = getCountryFaqs(country).map((f) => ({
+    q: { ru: f.qRu, en: f.qEn },
+    a: { ru: f.aRu, en: f.aEn },
+  }));
 
   const faqs = [
     {
@@ -57,7 +64,8 @@ export const FAQSection = () => {
         ru: "Можете! Самостоятельное обучение займёт 3-6 месяцев, а ошибки в процессе обойдутся в $5-10k упущенной прибыли и времени.",
         en: "You can! Self-learning will take 3-6 months, and mistakes along the way will cost you $5-10k in lost profits and time."
       }
-    }
+    },
+    ...extendedFaqs
   ];
 
   return (
@@ -80,7 +88,7 @@ export const FAQSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="multiple" className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}

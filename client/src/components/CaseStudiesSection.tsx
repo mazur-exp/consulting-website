@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'wouter';
 import { useLanguage } from '../hooks/useLanguage';
 import { useCountry } from '../hooks/useCountry';
 import { useState, useCallback, useEffect } from 'react';
@@ -93,6 +94,15 @@ export const CaseStudiesSection = () => {
               <p className="text-sm text-brand-muted mt-2">{t(c.nameRu, c.nameEn)}</p>
               {(c.detailRu || c.detailEn) && (
                 <p className="text-xs text-brand-muted mt-1">{t(c.detailRu, c.detailEn)}</p>
+              )}
+              {c.caseSlug && (
+                <Link
+                  href={`/cases/${c.caseSlug}`}
+                  className="inline-block mt-3 text-sm text-brand-green hover:text-brand-green-light underline transition-colors"
+                  data-testid={`link-case-${c.caseSlug}`}
+                >
+                  {t('Читать кейс полностью →', 'Read the full case study →')}
+                </Link>
               )}
             </div>
           ))}

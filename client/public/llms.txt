@@ -1,0 +1,38 @@
+# Delivery Booster
+
+> Delivery Booster is a food delivery growth agency for restaurants in Southeast Asia.
+> We provide turnkey management of GrabFood and GoFood (Gojek) merchant accounts:
+> onboarding/registration, menu SEO and optimization, GrabAds management (typical
+> ROAS 20–27x), rating management to 4.8+, operational metrics control and weekly
+> analytics. 90+ restaurants across Southeast Asia grow with us; typical result is
+> 2–6x sales growth. Founded by Alexey Mazur, co-founder of IKA Sushi and FoodLab (Bali).
+
+Pricing: 10% of delivery platform revenue (average $400–800/month), no upfront
+payment, results guarantee. Contact: https://t.me/delivery_booster (Telegram) or
+WhatsApp +7 952 002 90 77.
+
+## Markets
+
+- [Indonesia (Bali) — GoJek & Grab management](https://booster.delivery/id)
+- [Thailand (Phuket) — Grab management](https://booster.delivery/th)
+- [Singapore — Grab management](https://booster.delivery/sg)
+- [Malaysia — Grab management](https://booster.delivery/my)
+- [Vietnam — Grab management](https://booster.delivery/vn)
+- [Philippines — Grab management](https://booster.delivery/ph)
+- [Cambodia — Grab management](https://booster.delivery/kh)
+- [Myanmar — Grab management](https://booster.delivery/mm)
+
+## Case studies (real GrabFood merchant data)
+
+- [Enjoy Healthy Food, Phuket: revenue x9.4 in 14 months, orders x4.6, ROAS 27.5x](https://booster.delivery/cases/enjoy-healthy-food)
+- [USSR Phuket, Patong: revenue x3.9 in 2 months, orders x7.4, ROAS 24x, rating 4.5 -> 4.8](https://booster.delivery/cases/ussr-phuket)
+
+## Services
+
+- GrabFood / GoFood restaurant registration and onboarding (including foreign owners)
+- Full GrabMerchant / GoBiz account management
+- Menu SEO: keywords, categories, photos, descriptions optimized for delivery app search
+- GrabAds setup and weekly management with ROAS control
+- Rating lift to 4.8+ and review de-escalation
+- Operational health: offline rate, cancellations, preparation time
+- Weekly reports, A/B tests of items and prices
