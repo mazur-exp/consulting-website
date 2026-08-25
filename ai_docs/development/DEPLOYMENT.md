@@ -48,12 +48,40 @@ ssh myserver "cd /root/consulting-website \
 ## Проверка после деплоя
 
 ```bash
-for p in / /id /th /sg /my /vn /ph /kh /mm /cases/ussr-phuket /cases/enjoy-healthy-food; do
-  curl -s -o /dev/null -w "$p %{http_code}\n" https://booster.delivery$p; done
+# Все роуты из sitemap должны отдавать 200 (список берём из самого sitemap):
+for p in $(curl -s https://booster.delivery/sitemap.xml | grep -o '<loc>[^<]*' | sed 's|<loc>https://booster.delivery||'); do
+  curl -s -o /dev/null -w "$p %{http_code}\n" "https://booster.delivery$p"; done
 curl -s https://booster.delivery/llms.txt | head -3
 # Что видит бот без JS (должно быть 1000+ слов, а не пустой div):
 curl -sA "GPTBot" https://booster.delivery/th | wc -w
+# ПУТЬ бота с главной (урок 2026-08-25: главная была тупиком — 0 ссылок).
+# Внутренних <a href="/..."> на корне должно быть 15+ (8 стран + кейсы + /about):
+curl -sA "GPTBot" https://booster.delivery/ | grep -c 'href="/'
 ```
+
+⚠️ Пререндер каждой страницы — не гарантия связности: боту нужен ПУТЬ между
+страницами через настоящие `<a href>`. Кнопки с onClick для краулера не
+существуют. Любой новый интерактивный переход (гейт, табы, «показать ещё»)
+проверять этим grep'ом.
+
+## Google Search Console — переиндексация
+
+Свойство: sc-domain:booster.delivery (доступ у Алекса; Claude может через Chrome).
+
+**Обязательно** после деплоя, который добавляет НОВЫЕ страницы или существенно
+меняет ключевые (/, /id, /th, кейсы):
+1. Sitemaps → переотправить `https://booster.delivery/sitemap.xml`.
+2. Проверка URL → «Запросить индексирование» для каждой новой/изменённой
+   страницы (лимит ~10/день; в первую очередь страницы рынков и кейсы).
+   Это сокращает попадание в индекс с недель до 1–3 дней.
+
+**Не обязательно** при мелких правках текста — Google дойдёт сам по sitemap.
+
+Контекст (2026-08-25): до включения пререндера в индексе были ТОЛЬКО 2 страницы
+(/ и /?lang=ru) — сайт-SPA был для Google пустым. После пререндера кейсы попали
+в индекс за часы через sitemap, но /id и /th пришлось запрашивать вручную —
+на них не было ссылок. Отчёт «Страницы» в GSC отстаёт на несколько дней;
+реальный статус смотреть через «Проверка URL».
 
 ## Деплой только статики (llms.txt, robots, sitemap — без пересборки)
 
