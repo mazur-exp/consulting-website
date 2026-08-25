@@ -6,6 +6,10 @@
 
 ## P0 — сейчас
 
+- [ ] **Доверие / верификация бренда** (чинит «unverified» у Perplexity, см.
+  VISIBILITY_TRACKING.md): Clutch + Sortlist + GoodFirms с кейсами и отзывами;
+  страница About с юрлицом (PT), годом, командой, основателем; LinkedIn-страница
+  компании; дисамбигуация имени в llms.txt и About (черновик в CONTENT_PLAN_GEO §4).
 - [ ] **Google Business Profile: Бали + Пхукет.** Название строго «Delivery Booster»
   (без ключевиков!), ключевики — в описание, услуги, посты. Категория: Marketing
   agency / Consultant. Фото, ссылки на booster.delivery/id и /th.
@@ -20,10 +24,18 @@
 
 ## P1 — следующие
 
-- [ ] **Замер видимости, месяц 0.** Составить список 20 вопросов (RU/EN из STRATEGY),
-  прогнать по ChatGPT/Perplexity/Gemini/Claude, зафиксировать базовую линию в
-  `VISIBILITY_TRACKING.md` (создать). Повторять ежемесячно.
-- [ ] **Clutch + Sortlist + GoodFirms** — профили агентства с кейсами и отзывами.
+- [ ] **Контент «делегирование»** (главный вывод замера 0, разрыв 97→16→2%):
+  страница-ответ «Can I hire someone to manage my GrabFood account», статья
+  «сколько часов занимает самостоятельное ведение», сравнение «агентство vs
+  Klikit/Deliverect» (POS-агрегаторы заняли наш consideration set — 21 vs 0
+  упоминаний). Темы и структура — CONTENT_PLAN_GEO.md §2.
+- [ ] **FAQ из замера 0 → faqs.ts + llms.txt** после утверждения Алексом:
+  5 черновиков RU/EN в CONTENT_PLAN_GEO.md §3 (делегирование, vs Klikit,
+  диагностика «мало заказов», легитимность, комиссия). Потом build + деплой.
+- [ ] **Ответить в живом треде canggucommunity** («searching for grab and gojek
+  wizard… not sure if such thing exist») — лид + индексируемое упоминание.
+- [ ] **Замер 1** (~через месяц): `audit/audit.py` по AUDIT_METHOD.md, сравнение
+  с baseline-2026-08-25, строка в VISIBILITY_TRACKING.md.
 - [ ] **VC.ru: статья-кейс** «Как устроен ресторанный бизнес на Бали: изнанка работы
   с Grab и GoJek» + кейс ×9.4. Нативная ссылка на booster.delivery.
 - [ ] **baliforum.ru: гайд** «Как открыть доставку еды на Бали: GrabFood, GoFood»
@@ -44,6 +56,9 @@
 
 ## Done
 
+- [x] 2026-08-25 — Замер видимости, месяц 0: 223 ответа, 4 движка, 5 языков;
+  базовая линия в VISIBILITY_TRACKING.md, методика в AUDIT_METHOD.md, скрипт
+  повторного замера audit/audit.py, сырые данные audit/baseline-2026-08-25/.
 - [x] 2026-08-25 — Пререндер всех 11 роутов в статический HTML при билде
   (боты видят ~1000+ слов вместо пустого div) + chromium на сервере.
 - [x] 2026-08-25 — llms.txt: рынки, кейсы с метриками, вопросы, формулировки EN/RU.
