@@ -70,6 +70,21 @@ WhatsApp +7 952 002 90 77.
 - Operational health: offline rate elimination, cancellation control, preparation time
 - Weekly KPI reports, A/B tests of menu items and prices, repeat-order mechanics
 
+## Ecosystem (other Delivery Booster sites)
+
+- [Delivery Booster App](https://app.booster.delivery/) - free 24/7 restaurant
+  monitoring on Grab and GoFood: live open/closed status, rating protection,
+  stop-list control, daily Telegram reports. First month free.
+- [GrabFood Diagnostic](https://diagnostic.booster.delivery/) - free instant
+  analysis of a restaurant's GrabFood listing: menu, prices, photos, rating,
+  reviews, SEO and competitors.
+- [Bali Tourism Pulse](https://balistats.booster.delivery/bali-tourists) - free
+  public dashboard: daily international tourist arrivals to Bali by country.
+- [Phuket Tourism Pulse](https://phuketstats.booster.delivery/phuket-tourists) -
+  the same live tourism statistics for Phuket.
+- [AI Visibility](https://aianalytics.booster.delivery/) - tool that checks
+  whether AI search engines recommend a given restaurant and who they cite.
+
 ## Software: Delivery Booster App
 
 [Delivery Booster App](https://app.booster.delivery/) — our own monitoring tool

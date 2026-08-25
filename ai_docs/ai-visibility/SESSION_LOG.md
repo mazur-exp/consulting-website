@@ -4,6 +4,38 @@
 
 ---
 
+## 2026-08-25 — Экосистема поддоменов: аудит и GEO-прокачка всех сайтов
+
+**Аудит всех поддоменов booster.delivery** (карта из kamal-proxy на myserver):
+app (лендинг софта), balistats/phuketstats (Tourism Pulse дашборды), diagnostic
+(бесплатная диагностика GrabFood), aianalytics (AI Visibility, aivis-сервер),
+counter, menu (FoodLab — не наш бренд, не трогаем), tracker (API), analytics
+(umami, уже Disallow: /).
+
+**Сделано (везде: schema.org + llms.txt + sitemap + robots + кросс-ссылки
+на booster.delivery/about и кейсы):**
+- app.booster.delivery: SoftwareApplication-схема с publisher PT Delivery
+  Booster Group и отзывом Евгения П., canonical, кредит агентства в футере.
+  Деплой через bin/deploy (kamal). Репо: ~/Delivery Tracker 2.0/repos/delivery-monitor.
+- balistats + phuketstats: корень 301 → контентная страница (был пустой
+  index/302 — бот видел 0 слов), description/canonical, Dataset-схема,
+  футер с кредитом агентства. Правки прямо на myserver (/root/bali-stats,
+  /root/phuket-stats), tsc build + pm2 restart. Патч: /root/stats_patch.py.
+- diagnostic: WebApplication-схема, SSR-блок «что проверяет диагностика»
+  (141 → 302 слова), кредит агентства. Деплой kamal из ~/Developments/GrabDiagnostic
+  (registry-токен: gh auth token).
+- aianalytics: description RU+EN, WebApplication-схема, футер с ссылками
+  на агентство/кейсы/app, /llms.txt /robots.txt /sitemap.xml роуты в FastAPI.
+- counter.html: ссылка на booster.delivery.
+- llms.txt основного сайта: секция «Ecosystem» со всеми 5 живыми поддоменами.
+
+**Зачем:** 5 перекрёстно связанных доменов с единым publisher
+(PT Delivery Booster Group) = граф сущности вместо набора сайтов; чинит
+«unverified» Perplexity. Tourism Pulse — цитируемые данные (как thegrabmethod
+у конкурента). GSC-свойство sc-domain покрывает все поддомены автоматически.
+
+---
+
 ## 2026-08-25 — Фикс: главная была тупиком для краулеров
 
 **Проблема (нашёл ChatGPT в диалоге у Алекса, подтвердил curl'ом):** корень «/»
