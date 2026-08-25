@@ -124,8 +124,8 @@ const GRAB_ONLY = {
   showVideo: false,
   heroImage: '/th-assets/grab-insights-ehf-sales.jpg',
   heroImageAlt: 'GrabFood sales growth analytics',
-  socialProofRu: '90+ ресторанов в Юго-Восточной Азии растут с нами',
-  socialProofEn: '90+ restaurants across Southeast Asia grow with us',
+  socialProofRu: '110+ ресторанов в Юго-Восточной Азии растут с нами',
+  socialProofEn: '110+ restaurants across Southeast Asia grow with us',
 } as const;
 
 export const COUNTRIES: Record<CountryCode, CountryConfig> = {
@@ -142,8 +142,8 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     platformsRu: 'Gojek и Grab',
     platformsEn: 'Gojek and Grab',
     platformsShort: 'GoJek/Grab',
-    socialProofRu: '90+ ресторанов на Бали и в Таиланде растут с нами',
-    socialProofEn: '90+ restaurants in Bali & Thailand grow with us',
+    socialProofRu: '110+ ресторанов на Бали и в Таиланде растут с нами',
+    socialProofEn: '110+ restaurants in Bali & Thailand grow with us',
     cases: [
       {
         value: 'x21',

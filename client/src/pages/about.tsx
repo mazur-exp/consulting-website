@@ -39,7 +39,7 @@ export default function AboutPage() {
     founder: { '@type': 'Person', name: 'Alexey Mazur' },
     areaServed: ['Indonesia', 'Thailand', 'Singapore', 'Malaysia', 'Vietnam', 'Philippines', 'Cambodia', 'Myanmar'],
     description:
-      'Restaurant delivery growth agency in Southeast Asia: turnkey management of GrabFood and GoFood merchant accounts, menu optimization, GrabAds, rating management and weekly analytics. 90+ restaurants under management, 200+ served since 2023.',
+      'Restaurant delivery growth agency in Southeast Asia: turnkey management of GrabFood and GoFood merchant accounts, menu optimization, GrabAds, rating management and weekly analytics. 110+ restaurants under management, 200+ served since 2023.',
     sameAs: ['https://t.me/delivery_booster', 'https://app.booster.delivery'],
     disambiguatingDescription:
       'Delivery Booster (booster.delivery) is a restaurant delivery growth agency. Not the in-app "booster" ad tool inside Grab, not Arvida "Software Delivery Booster" (CI/CD), and not parcel-logistics software.',
@@ -64,7 +64,7 @@ export default function AboutPage() {
   const facts: Array<[string, string]> = [
     [t('Юридическое лицо', 'Legal entity'), 'PT Delivery Booster Group'],
     [t('Работаем с', 'Operating since'), '2023'],
-    [t('На сопровождении сейчас', 'Under management today'), '90+'],
+    [t('На сопровождении сейчас', 'Under management today'), '110+'],
     [t('Ресторанов прошло через нас с 2023', 'Restaurants served since 2023'), '200+'],
     [t('Основные рынки', 'Core markets'), t('Бали (Индонезия), Пхукет (Таиланд)', 'Bali (Indonesia), Phuket (Thailand)')],
     [t('Платформы', 'Platforms'), 'GrabFood, GoFood (GoJek), LINE MAN'],

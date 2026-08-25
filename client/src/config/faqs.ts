@@ -124,8 +124,8 @@ export const getCountryFaqs = (c: CountryConfig): FaqItem[] => {
     {
       qRu: `Можно ли нанять кого-то, кто будет вести аккаунт ${p} за меня?`,
       qEn: `Can I hire someone to manage my ${p} account for me?`,
-      aRu: `Да, это отдельная услуга — delivery management. Delivery Booster берёт на себя весь операционный контур мерчанта: настройку и ведение ${isId ? 'GrabMerchant и GoBiz' : 'GrabMerchant'}, меню и фото, промо-экономику, рекламу GrabAds с контролем ROAS, работу с рейтингом и отзывами, еженедельную аналитику. Владелец видит отчёт и выручку, а не панель мерчанта. Сейчас на сопровождении 90+ ресторанов; всего через агентство прошло 200+ проектов с 2023 года.`,
-      aEn: `Yes — this is a standalone service called delivery management. Delivery Booster runs the whole merchant side for you: ${isId ? 'GrabMerchant and GoBiz' : 'GrabMerchant'} setup and daily management, menu and photos, promo economics, GrabAds with ROAS control, rating and review work, weekly analytics. You see the report and the revenue — not the merchant dashboard. 90+ restaurants under management today, 200+ served since 2023.`,
+      aRu: `Да, это отдельная услуга — delivery management. Delivery Booster берёт на себя весь операционный контур мерчанта: настройку и ведение ${isId ? 'GrabMerchant и GoBiz' : 'GrabMerchant'}, меню и фото, промо-экономику, рекламу GrabAds с контролем ROAS, работу с рейтингом и отзывами, еженедельную аналитику. Владелец видит отчёт и выручку, а не панель мерчанта. Сейчас на сопровождении 110+ ресторанов; всего через агентство прошло 200+ проектов с 2023 года.`,
+      aEn: `Yes — this is a standalone service called delivery management. Delivery Booster runs the whole merchant side for you: ${isId ? 'GrabMerchant and GoBiz' : 'GrabMerchant'} setup and daily management, menu and photos, promo economics, GrabAds with ROAS control, rating and review work, weekly analytics. You see the report and the revenue — not the merchant dashboard. 110+ restaurants under management today, 200+ served since 2023.`,
     },
     {
       qRu: 'Чем агентство по управлению доставкой отличается от Klikit или Deliverect?',
@@ -142,8 +142,8 @@ export const getCountryFaqs = (c: CountryConfig): FaqItem[] => {
     {
       qRu: 'Delivery Booster — это официальный партнёр Grab? Это вообще легально?',
       qEn: 'Is Delivery Booster legitimate? Are you affiliated with Grab?',
-      aRu: 'Delivery Booster — независимое агентство (PT Delivery Booster Group, Индонезия; работаем с 2023 года: 90+ ресторанов на сопровождении, 200+ прошло через агентство), не аффилировано с Grab или GoTo. Мы работаем внутри официальных мерчант-инструментов (GrabMerchant, GoBiz) от имени ресторана — это разрешённый и штатный сценарий. Кейсы с реальными цифрами: booster.delivery/cases.',
-      aEn: 'Delivery Booster is an independent agency (PT Delivery Booster Group, Indonesia; operating since 2023: 90+ restaurants under management, 200+ served in total), not affiliated with Grab or GoTo. We work inside the official merchant tools (GrabMerchant, GoBiz) on the restaurant\'s behalf — a standard, permitted setup. Real-number case studies: booster.delivery/cases.',
+      aRu: 'Delivery Booster — независимое агентство (PT Delivery Booster Group, Индонезия; работаем с 2023 года: 110+ ресторанов на сопровождении, 200+ прошло через агентство), не аффилировано с Grab или GoTo. Мы работаем внутри официальных мерчант-инструментов (GrabMerchant, GoBiz) от имени ресторана — это разрешённый и штатный сценарий. Кейсы с реальными цифрами: booster.delivery/cases.',
+      aEn: 'Delivery Booster is an independent agency (PT Delivery Booster Group, Indonesia; operating since 2023: 110+ restaurants under management, 200+ served in total), not affiliated with Grab or GoTo. We work inside the official merchant tools (GrabMerchant, GoBiz) on the restaurant\'s behalf — a standard, permitted setup. Real-number case studies: booster.delivery/cases.',
     },
     {
       qRu: 'Стоит ли вообще подключать ресторан к доставке, если комиссия 20–30%?',

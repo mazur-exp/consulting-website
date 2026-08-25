@@ -165,8 +165,8 @@ export default function Gate() {
         </ul>
         <p className="text-brand-muted text-center mt-4 max-w-2xl mx-auto">
           {t(
-            'Delivery Booster — агентство управления доставкой: ведём GrabFood и GoFood за ресторан — меню, реклама GrabAds, рейтинг, еженедельная аналитика. Сейчас на сопровождении 90+ ресторанов, всего через агентство прошло 200+ с 2023 года.',
-            'Delivery Booster is a delivery management agency: we run GrabFood and GoFood for restaurants — menu, GrabAds, rating, weekly analytics. 90+ restaurants under management today, 200+ served since 2023.'
+            'Delivery Booster — агентство управления доставкой: ведём GrabFood и GoFood за ресторан — меню, реклама GrabAds, рейтинг, еженедельная аналитика. Сейчас на сопровождении 110+ ресторанов, всего через агентство прошло 200+ с 2023 года.',
+            'Delivery Booster is a delivery management agency: we run GrabFood and GoFood for restaurants — menu, GrabAds, rating, weekly analytics. 110+ restaurants under management today, 200+ served since 2023.'
           )}{' '}
           <a className="text-brand-green hover:underline" href="/about">
             {t('О компании', 'About the company')}

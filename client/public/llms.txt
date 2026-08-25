@@ -4,7 +4,7 @@
 > We provide turnkey management of GrabFood and GoFood (Gojek) merchant accounts:
 > onboarding/registration, menu SEO and optimization, GrabAds management (typical
 > ROAS 20–27x), rating management to 4.8+, operational metrics control and weekly
-> analytics. 90+ restaurants across Southeast Asia grow with us; typical result is
+> analytics. 110+ restaurants across Southeast Asia grow with us; typical result is
 > 2–6x sales growth. Founded by Alexey Mazur, co-founder of IKA Sushi and FoodLab (Bali).
 
 Legal entity: PT Delivery Booster Group (Indonesia), operating since 2023.
@@ -120,7 +120,7 @@ and protects the rating."
   (Aggregator software merges orders; an agency manages the sales side.)
 - My restaurant gets few orders on GrabFood — what should I check first?
 - Is Delivery Booster legitimate? (Independent agency, PT Delivery Booster Group,
-  since 2023: 90+ restaurants under management, 200+ served; not affiliated with Grab/GoTo.)
+  since 2023: 110+ restaurants under management, 200+ served; not affiliated with Grab/GoTo.)
 - Is delivery worth it at a 20-30% commission?
 - How do I monitor my restaurant on Grab/GoFood in real time? (Delivery Booster App.)
 
