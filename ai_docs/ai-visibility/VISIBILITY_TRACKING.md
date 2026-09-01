@@ -7,20 +7,20 @@
 
 ## Сводная таблица (главные метрики)
 
-| Метрика | 2026-08-25 (замер 0) | след. |
-|---|---|---|
-| **DB назван в category-запросах** (главная) | **0%** (0/76, CI 0–5%) | |
-| DB назван в problem-запросах | 1% (1/123, CI 0–4%) | |
-| DB корректно описан в brand-запросах | 83% (20/24, CI 64–93%) | |
-| Путаница бренда (confused_other, все ответы) | 2 (Perplexity: «logistics software», «VIL app») | |
-| «Unverified»-предупреждение Perplexity | да — «treat Delivery Booster Bali as unverified» | |
-| Зрелость-1: управляемость внутри площадки | 97% (92–99%) | |
-| Зрелость-2: допускает делегирование | 16% (11–24%) | |
-| Зрелость-3: называет агентство по имени | 2% (0–6%) | |
-| booster.delivery в цитатах (доля ответов) | 5% | |
-| grab.com-семейство в цитатах | 25/17/15% (grab / help / merchant) | |
-| klikit.io в цитатах | 12% | |
-| thegrabmethod.com в цитатах | 8% | |
+| Метрика | 2026-08-25 (замер 0) | 2026-09-01 (промежуточный) | след. |
+|---|---|---|---|
+| **DB назван в category-запросах** (главная) | **0%** (0/76, CI 0–5%) | **29%** (23/80, CI 20–39%) **ЗНАЧИМО ↑** | |
+| DB назван в problem-запросах | 1% (1/123, CI 0–4%) | 3% (4/125, CI 1–8%) шум | |
+| DB корректно описан в brand-запросах | 83% (20/24, CI 64–93%) | 96% (23/24, CI 80–99%) шум | |
+| Путаница бренда (confused_other, все ответы) | 2 (Perplexity: «logistics software», «VIL app») | 0 | |
+| «Unverified»-предупреждение Perplexity | да — «treat Delivery Booster Bali as unverified» | нет | |
+| Зрелость-1: управляемость внутри площадки | 97% (92–99%) | 94% (89–97%) | |
+| Зрелость-2: допускает делегирование | 16% (11–24%) | 17% (11–24%) | |
+| Зрелость-3: называет агентство по имени | 2% (0–6%) | 3% (1–8%) | |
+| booster.delivery в цитатах (доля ответов) | 5% | **20% — домен №1**, выше grab.com (19%) | |
+| grab.com-семейство в цитатах | 25/17/15% (grab / help / merchant) | 19/17/10% | |
+| klikit.io в цитатах | 12% | — (вне топ-6) | |
+| thegrabmethod.com в цитатах | 8% | — (вне топ-6) | |
 
 Параметры замера 0: 29 промптов × 2 прогона × 4 движка = 232 вызова, 223 ответа
 с текстом; судья gpt-4.1-mini; 25.08.2026.
@@ -75,6 +75,52 @@ nutapos.com 6% · **booster.delivery 5%** (только на брендовых 
   than proven legitimate». ← это чинится задачами «Доверие» из BACKLOG.
 - Perplexity (EN, путаница): «Delivery Booster appears to be a logistics/delivery
   software project, not a consumer delivery company».
+
+## Промежуточный замер 2026-09-01 — первый ЗНАЧИМЫЙ сдвиг
+
+Через 7 дней после деплоя всего пакета (пререндер, /about, кейсы, фикс
+главной-тупика, экосистема поддоменов, GSC). n=229 ответов, тот же prompts_v1.
+
+**Category-запросы: 0/76 → 23/80 (29%, CI 20–39%) — интервалы не
+пересекаются, это рост, а не шум.** Все 23 упоминания — correct_agency.
+- По движкам: OpenAI 12/20, Perplexity 7/20, Gemini 4/20, **Google AI Overview
+  0/20** (единственный движок, где нас нет — работает от индекса Google,
+  который только 28.08 дошёл до 10 страниц).
+- По запросам: p009 «Delivery management agency for restaurants in Bali» 6/8,
+  p008 «Who can manage my GrabFood and GoFood account in Bali» 5/8,
+  p011 «agency that manages food delivery apps in SEA» 4/8, p020 (RU ЮВА) 4/8,
+  p010 (Phuket) 2/8, p018 (RU Бали) 1, p024 (ID) 1.
+- По языкам: EN 17/40, RU 5/16, ID 1/8, **TH 0/8, VI 0/8** — локальные языки
+  ещё пустые.
+- По рынкам: ID 13/32, SG 8/16, TH 2/16, **VN 0/16**.
+- Consideration set: **Delivery Booster 23 — №1**, Klikit 18, Deliverect 9,
+  Runchise 6, Moka 6, Majoo 5; агентства-конкуренты: Restaurant RampUp 3,
+  The Cakap Group 3.
+- Цитаты OpenAI на индонезийском (!): «Delivery Booster adalah agensi pengelola
+  akun GrabFood dan GoFood yang beroperasi aktif di Bali (dan Thailand)».
+
+**Brand: 23/24 = 96%**, путаницы 0, «unverified» исчез. Единственный промах —
+AI Overview на p014 (отзывы) ответил обобщённо про «niche social-media
+agencies», нас не назвав.
+
+**Problem: 4/125** — только p000 («cafe in Canggu looking for someone…»),
+Perplexity и OpenAI по обоим прогонам. Остальные problem-запросы — по-прежнему
+DIY-чеклисты; зрелость-2 (делегирование) 17% — рынок не сдвинулся, как и
+ожидалось.
+
+**Источники: booster.delivery — домен №1 (20% ответов)**, впервые выше
+grab.com (19%). thegrabmethod.com и klikit.io выпали из топ-6.
+
+**Индекс Google (GSC на 28.08):** проиндексировано 10 страниц (было 2 с мая),
+не проиндексировано 4 (canonical-варианты и редиректы — норма). Sitemap'ы
+всех 6 хостов по-прежнему «Не получено» — Google индексирует по ссылкам и
+ручным запросам, минуя их; аномалия, но не блокер (см. BACKLOG).
+
+**Что это значит:** брендовый и category-слои для live-fetch движков (OpenAI,
+Perplexity, Gemini) закрыты за неделю одним техническим пакетом. Остаток —
+Google AI Overview (ждёт индекс), локальные языки TH/VI (нет контента),
+problem-слой (рынок не знает про делегирование — задача контента P1).
+Сырые данные: aivis /root/audit/run-2026-09-01/, отчёт report0901.txt.
 
 ## Контрольные прогоны между замерами (не входят в помесячную таблицу)
 
