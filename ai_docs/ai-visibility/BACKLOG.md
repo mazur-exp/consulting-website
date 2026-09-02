@@ -9,9 +9,10 @@
 - [ ] **Доверие / верификация бренда** (чинит «unverified» у Perplexity):
   Clutch + Sortlist + GoodFirms с кейсами и отзывами; LinkedIn-страница компании.
   (About + дисамбигуация — сделаны 2026-08-25.)
-- [ ] **Google Business Profile: Бали + Пхукет.** Название строго «Delivery Booster»
-  (без ключевиков!), ключевики — в описание, услуги, посты. Категория: Marketing
-  agency / Consultant. Фото, ссылки на booster.delivery/id и /th.
+- [ ] **Google Business Profile: Пхукет.** (Бали — создан и подтверждён 2026-09-02.)
+  Ждёт тайский адрес. Название строго «Delivery Booster» (без ключевиков!),
+  ключевики — в описание, услуги, посты. Категория: Marketing agency. Фото,
+  ссылка на booster.delivery/th.
 - [ ] **Отзывы с маркерами: первые 10.** Попросить лояльных клиентов (список 15 TH —
   в countries.ts; Бали — Only Eggs, Prana Kitchen…) оставить отзывы на GBP c
   формулировками: «взяли на себя управление GrabMerchant», «подключили GoBiz под
@@ -44,6 +45,10 @@
   с нативным упоминанием.
 - [ ] **OG-image 1200x630** брендированная (сейчас — фото hero) для шеринга в
   Telegram/WhatsApp.
+- [ ] **YouTube + Instagram в `sameAs`** на сайте (`SEOSchema.tsx`, `about.tsx`) +
+  `llms.txt`, пересобрать и задеплоить (см. README «Внешние профили → sameAs»).
+- [ ] **Баннер YouTube-канала** 2048×1152 (фирменный, логотип + дескриптор).
+- [ ] **Первые GBP-посты** (3) со ссылками на кейсы `/cases/*`.
 
 ## P2 — потом
 
@@ -58,6 +63,14 @@
 
 ## Done
 
+- [x] 2026-09-02 — YouTube (@DeliveryBooster): канал под GEO (описание EN+RU,
+  keywords, ссылки Website/app/Telegram, логотип, подтверждён по телефону) +
+  ВСЕ 11 видео (Video/Title-language = RU, теги EN+RU, блок ссылок сайт/приложение/
+  кейсы + дескриптор в описания, свои EN и ID заголовки+описания). Права:
+  mazur.a@booster.delivery = Manager. Инструкция — `YOUTUBE_PLAYBOOK.md`.
+- [x] 2026-09-02 — GBP Бали: профиль «Delivery Booster» создан и подтверждён,
+  логотип/обложка(1080×608)/фото кейсов залиты. Обложка + медиа-набор —
+  `/Users/mzr/dev/GBP_DeliveryBooster/`.
 - [x] 2026-08-25 — Страница /about (PT, основатель, софт, дисамбигуация,
   Organization-схема) + 6 FAQ «делегирование» на всех страницах + llms.txt
   (юрлицо, софт-секция, +7 вопросов) + REVIEW_TEMPLATES.md (10 шаблонов).
