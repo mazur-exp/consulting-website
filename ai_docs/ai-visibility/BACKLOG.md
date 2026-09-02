@@ -6,6 +6,10 @@
 
 ## P0 — сейчас
 
+- [ ] **Починить GitHub-креденшал на сервере** — `git pull` на проде падает 401
+  (remote-URL `https://mazur-exp:@github.com/...` с пустым токеном, репо приватный).
+  Обычный деплой из DEPLOYMENT.md не работает; 02.09 деплоили обходом (scp файлов).
+  Прописать валидный PAT в remote-URL или credential-helper на сервере.
 - [ ] **Доверие / верификация бренда** (чинит «unverified» у Perplexity):
   Clutch + Sortlist + GoodFirms с кейсами и отзывами; LinkedIn-страница компании.
   (About + дисамбигуация — сделаны 2026-08-25.)
@@ -45,8 +49,12 @@
   с нативным упоминанием.
 - [ ] **OG-image 1200x630** брендированная (сейчас — фото hero) для шеринга в
   Telegram/WhatsApp.
-- [ ] **YouTube + Instagram в `sameAs`** на сайте (`SEOSchema.tsx`, `about.tsx`) +
-  `llms.txt`, пересобрать и задеплоить (см. README «Внешние профили → sameAs»).
+- [ ] **Telegram-канал в `sameAs`** — после переименования `bali_horeca` (под всю
+  ЮВА) добавить новый хендл в `SEOSchema.tsx`/`about.tsx` + `llms.txt` + футер.
+  (YouTube + Instagram `@delivery.booster` уже добавлены 02.09.) См. `SOCIAL_LINKING.md`.
+- [ ] **Профили (сторона Алекса):** единый логотип (новый вордмарк) в IG
+  `@delivery.booster`; синхрон цифр 110+/200+; взаимные ссылки; переименование
+  Telegram-канала; тайский IG `@deliverybooster` — на паузе. Инструкция — `SOCIAL_LINKING.md`.
 - [ ] **Баннер YouTube-канала** 2048×1152 (фирменный, логотип + дескриптор).
 - [ ] **Первые GBP-посты** (3) со ссылками на кейсы `/cases/*`.
 
@@ -63,6 +71,11 @@
 
 ## Done
 
+- [x] 2026-09-02 — Соцсети в граф сущности: `sameAs` (SEOSchema+about) += YouTube +
+  Instagram `@delivery.booster`; убраны старые DeliveryBoosterBali/Bot; llms.txt
+  «Social profiles»; футер со ссылками (rel=me). YouTube: чистка старых TG во всех
+  11 видео + канале. Карта и инструкция по профилям — `SOCIAL_LINKING.md`.
+  (Деплой обходом — см. P0 про креденшал сервера.)
 - [x] 2026-09-02 — YouTube (@DeliveryBooster): канал под GEO (описание EN+RU,
   keywords, ссылки Website/app/Telegram, логотип, подтверждён по телефону) +
   ВСЕ 11 видео (Video/Title-language = RU, теги EN+RU, блок ссылок сайт/приложение/
