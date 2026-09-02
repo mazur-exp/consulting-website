@@ -1,0 +1,31 @@
+=== СОЦ-СПОТ-ЧЕК 2026-09-02 · срез 'ДО' · n=53 ответов (движки live-fetch) ===
+
+Ответов, где ИИ вообще заговорил о соцсетях/каналах: 53/53
+Ответов, где назван ХОТЯ БЫ ОДИН наш реальный профиль: 11/53
+
+Наши профили — сколько ответов их назвали правильно:
+  YouTube @DeliveryBooster                   8/53
+  Instagram delivery.booster                 3/53
+  Telegram канал deliverybooster_asia        0/53
+  Telegram контакт delivery_booster          0/53
+
+По движкам (наш профиль назван / всего):
+  gemini       6/18
+  openai       0/18
+  perplexity   5/17
+
+По языкам:
+  en   6/29
+  id   2/6
+  ru   3/18
+
+ВСЕ соц-ссылки, которые ИИ назвал в тексте (distinct, с частотой) —
+правильные = youtube.com/@DeliveryBooster, instagram.com/delivery.booster, t.me/deliverybooster_asia, t.me/delivery_booster:
+  4×  https://www.youtube.com/@deliverybooster
+  3×  https://t.me/deliveryboosterbali
+  2×  https://t.me/deliveryboosterbot
+  1×  https://www.instagram.com/delivery.booster/[2
+  1×  https://t.me/deliveryboosterbali[1
+  1×  https://www.youtube.com/@deliverybooster`
+  1×  t.me/deliveryboosterbali
+  1×  t.me/deliveryboosterbot
