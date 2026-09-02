@@ -42,8 +42,8 @@ export const SEOSchema = () => {
       "Delivery app rating management"
     ],
     "sameAs": [
-      "https://t.me/DeliveryBoosterBali",
-      "https://t.me/DeliveryBoosterBot"
+      "https://www.youtube.com/@DeliveryBooster",
+      "https://www.instagram.com/delivery.booster/"
     ],
     "contactPoint": {
       "@type": "ContactPoint",

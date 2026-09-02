@@ -41,7 +41,12 @@ export default function AboutPage() {
     areaServed: ['Indonesia', 'Thailand', 'Singapore', 'Malaysia', 'Vietnam', 'Philippines', 'Cambodia', 'Myanmar'],
     description:
       'Restaurant delivery growth agency in Southeast Asia: turnkey management of GrabFood and GoFood merchant accounts, menu optimization, GrabAds, rating management and weekly analytics. 110+ restaurants under management, 200+ served since 2023.',
-    sameAs: ['https://t.me/delivery_booster', 'https://app.booster.delivery'],
+    sameAs: [
+      'https://www.youtube.com/@DeliveryBooster',
+      'https://www.instagram.com/delivery.booster/',
+      'https://t.me/delivery_booster',
+      'https://app.booster.delivery',
+    ],
     disambiguatingDescription:
       'Delivery Booster (booster.delivery) is a restaurant delivery growth agency. Not the in-app "booster" ad tool inside Grab, not Arvida "Software Delivery Booster" (CI/CD), and not parcel-logistics software.',
   };
