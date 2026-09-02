@@ -240,7 +240,9 @@ const { t } = useLanguage();
 
 ### CTAs and Integrations
 - All CTAs lead to Telegram (not email, not forms on site)
-- Telegram links: `@delivery_booster`, `@DeliveryBoosterBot`, `@DeliveryBoosterBali`
+- Telegram links: `@delivery_booster` (контакт/менеджер), `@deliverybooster_asia` (контент-канал).
+  СТАРЫЕ хендлы `@DeliveryBoosterBot` и `@DeliveryBoosterBali` выведены из оборота 09.2026 —
+  не использовать (ИИ ещё тянет их из кэша; не переиспользовать в контенте/схемах).
 - YouTube video embed for social proof
 
 ### Page Structure (client/src/pages/home.tsx)

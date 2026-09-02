@@ -150,7 +150,7 @@ export const Header = () => {
 
           {/* Действия */}
           <div className="flex items-center space-x-4">
-            <a href="https://t.me/DeliveryBoosterBot" className="glass-card ...">
+            <a href="https://t.me/delivery_booster" className="glass-card ...">
               {t("Чат-бот Delivery Booster", "Delivery Booster Chat-bot")}
             </a>
             <LanguageToggle />
@@ -256,10 +256,10 @@ export const HeroSection = () => {
               <a href="https://t.me/delivery_booster" className="brand-gradient ...">
                 {t("Получить бесплатную диагностику", "Book a free audit")}
               </a>
-              <a href="https://t.me/DeliveryBoosterBot" className="glass-card ...">
+              <a href="https://t.me/delivery_booster" className="glass-card ...">
                 {t("Чат-бот", "Chat-bot")}
               </a>
-              <a href="https://t.me/DeliveryBoosterBali" className="glass-card ...">
+              <a href="https://t.me/deliverybooster_asia" className="glass-card ...">
                 {t("Канал в Telegram", "Telegram channel")}
               </a>
             </div>
