@@ -5,11 +5,6 @@
 сделанные переносить в Done с датой.
 
 ## P0 — сейчас
-
-- [ ] **Починить GitHub-креденшал на сервере** — `git pull` на проде падает 401
-  (remote-URL `https://mazur-exp:@github.com/...` с пустым токеном, репо приватный).
-  Обычный деплой из DEPLOYMENT.md не работает; 02.09 деплоили обходом (scp файлов).
-  Прописать валидный PAT в remote-URL или credential-helper на сервере.
 - [ ] **Доверие / верификация бренда** (чинит «unverified» у Perplexity):
   Clutch + Sortlist + GoodFirms с кейсами и отзывами; LinkedIn-страница компании.
   (About + дисамбигуация — сделаны 2026-08-25.)
@@ -49,9 +44,6 @@
   с нативным упоминанием.
 - [ ] **OG-image 1200x630** брендированная (сейчас — фото hero) для шеринга в
   Telegram/WhatsApp.
-- [ ] **Telegram-канал в `sameAs`** — после переименования `bali_horeca` (под всю
-  ЮВА) добавить новый хендл в `SEOSchema.tsx`/`about.tsx` + `llms.txt` + футер.
-  (YouTube + Instagram `@delivery.booster` уже добавлены 02.09.) См. `SOCIAL_LINKING.md`.
 - [ ] **Профили (сторона Алекса):** единый логотип (новый вордмарк) в IG
   `@delivery.booster`; синхрон цифр 110+/200+; взаимные ссылки; переименование
   Telegram-канала; тайский IG `@deliverybooster` — на паузе. Инструкция — `SOCIAL_LINKING.md`.
@@ -71,6 +63,12 @@
 
 ## Done
 
+- [x] 2026-09-02 — Доступ сервера к GitHub починен: remote переключён с битого
+  HTTPS-URL (пустой токен) на SSH (`git@github.com:...`) — ключ сервера уже был
+  в GitHub. Обычный `git pull`-деплой из DEPLOYMENT.md снова работает (проверено).
+- [x] 2026-09-02 — Telegram-канал переименован в @deliverybooster_asia (вся ЮВА) и
+  добавлен в `sameAs` (SEOSchema+about) + `llms.txt` + футер. Граф сущности полный:
+  сайт + YouTube + Instagram + Telegram-канал + контакт.
 - [x] 2026-09-02 — Соцсети в граф сущности: `sameAs` (SEOSchema+about) += YouTube +
   Instagram `@delivery.booster`; убраны старые DeliveryBoosterBali/Bot; llms.txt
   «Social profiles»; футер со ссылками (rel=me). YouTube: чистка старых TG во всех
