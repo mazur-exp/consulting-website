@@ -44,6 +44,7 @@ export default function AboutPage() {
     sameAs: [
       'https://www.youtube.com/@DeliveryBooster',
       'https://www.instagram.com/delivery.booster/',
+      'https://t.me/deliverybooster_asia',
       'https://t.me/delivery_booster',
       'https://app.booster.delivery',
     ],

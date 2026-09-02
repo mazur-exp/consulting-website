@@ -43,7 +43,8 @@ export const SEOSchema = () => {
     ],
     "sameAs": [
       "https://www.youtube.com/@DeliveryBooster",
-      "https://www.instagram.com/delivery.booster/"
+      "https://www.instagram.com/delivery.booster/",
+      "https://t.me/deliverybooster_asia"
     ],
     "contactPoint": {
       "@type": "ContactPoint",

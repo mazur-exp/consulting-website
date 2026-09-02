@@ -3,7 +3,7 @@ import { useLanguage } from '../hooks/useLanguage';
 const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/delivery.booster/' },
   { label: 'YouTube', href: 'https://www.youtube.com/@DeliveryBooster' },
-  { label: 'Telegram', href: 'https://t.me/delivery_booster' },
+  { label: 'Telegram', href: 'https://t.me/deliverybooster_asia' },
 ];
 
 export const Footer = () => {
