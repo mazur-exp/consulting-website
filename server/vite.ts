@@ -86,6 +86,10 @@ export function serveStatic(app: Express) {
       if (filePath.endsWith('.html')) {
         // HTML snapshots must revalidate on every deploy (hashed assets change)
         res.setHeader('Cache-Control', 'no-cache');
+      } else if (/\.(xml|txt)$/.test(filePath)) {
+        // SEO files (sitemap.xml, robots.txt, llms.txt) must stay fresh so
+        // Google/crawlers re-fetch them — never cache a sitemap for a year.
+        res.setHeader('Cache-Control', 'public, max-age=3600, must-revalidate');
       }
     }
   }));
