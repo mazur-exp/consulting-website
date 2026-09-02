@@ -1,0 +1,94 @@
+=== ЗАМЕР run-2026-09-02 (n=227) vs базовая baseline-2026-08-25 ===
+
+Шкала зрелости (problem):
+  1. управляемость внутри площадки                   95% (90%-98%)  119/125   было 97%  (шум)
+  2. допускает делегирование                         24% (17%-32%)  30/125   было 16%  (шум)
+  3. называет агентство по имени                      4% (2%-9%)  5/125   было 2%  (шум)
+
+Delivery Booster:
+  в category-запросах (ГЛАВНАЯ)                      28% (19%-39%)  22/78   было 0%  ← ЗНАЧИМО
+  в problem-запросах                                  3% (1%-8%)  4/125   было 1%  (шум)
+  в brand-запросах (корректно)                      100% (86%-100%)  24/24   было 83%  (шум)
+
+Советы ИИ (problem):
+  platform_promos          87%
+  menu_photos              86%
+  ops_speed                80%
+  rating_reviews           74%
+  platform_ads             68%
+  pricing_commission       54%
+  own_channel              42%
+  social_media             37%
+  data_analytics           31%
+  platform_contact         24%
+  hire_agency              10%
+  other                     8%
+  pos_software              2%
+
+Названные сервисы (топ):
+  100  platform     GrabFood
+   50  agency       Delivery Booster
+   44  platform     GoFood
+   40  platform     GrabMerchant
+   36  platform     LINE MAN
+   29  platform     Grab
+   26  platform     ShopeeFood
+   25  platform     GrabAds
+   16  software_pos Klikit
+   16  platform     GoBiz
+   11  software_pos Deliverect
+    9  platform     Gojek
+    8  software_pos Hubster
+    7  software_pos Moka POS
+    7  media_blog   Facebook
+    7  media_blog   Instagram
+    6  platform     foodpanda
+    6  media_blog   TikTok
+    5  software_pos Runchise
+    5  agency       Sribu
+    5  platform     Wongnai Merchant App
+    4  agency       The Cakap Group
+    4  platform     LINE MAN Wongnai
+    4  software_pos GrabMerchant
+    4  platform     GrabUnlimited
+    4  software_pos Pawoon
+    4  software_pos ESB
+    4  media_blog   Zalo
+    4  platform     Ressto
+    3  platform     Wongnai
+
+Наши профили в ответах (источники+текст, все слои):
+  сайт booster.delivery                              22% (17%-27%)  49/227   было 7%  ← ЗНАЧИМО
+  YouTube @DeliveryBooster                            0% (0%-2%)  0/227   было 0%  (шум)
+  Instagram delivery.booster                          0% (0%-2%)  0/227   было 0%  (шум)
+  Telegram-канал @deliverybooster_asia                0% (0%-2%)  0/227   было 0%  (шум)
+  Telegram-контакт @delivery_booster                  0% (0%-2%)  0/227   было 0%  (шум)
+
+Цитируемые домены:
+    24%  grab.com
+    20%  booster.delivery  ★
+    16%  help.grab.com
+    14%  merchant.grab.com
+    11%  klikit.io
+    11%  vertexaisearch.cloud.google.com
+     9%  play.google.com
+     9%  linkedin.com
+     7%  reddit.com
+     6%  thegrabmethod.com
+     6%  apps.apple.com
+     5%  nutapos.com
+     5%  posapp.vn
+     5%  food.grab.com
+     4%  runchise.com
+     4%  gojek.com
+     4%  daftarmenu.id
+     4%  id.scribd.com
+     4%  sapo.vn
+     4%  tripadvisor.com
+     4%  gofoodmerchant.co.id
+     4%  merchant.shopeefood.vn
+     4%  today.line.me
+     4%  balipedia.com
+     4%  vc.ru
+
+Напоминание: в VISIBILITY_TRACKING.md записывать рост/падение только по строкам с пометкой ЗНАЧИМО.
