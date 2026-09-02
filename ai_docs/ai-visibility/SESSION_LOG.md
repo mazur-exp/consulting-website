@@ -4,6 +4,25 @@
 
 ---
 
+## 2026-09-02 (4) — GSC: переотправка sitemap + запрос переиндексации
+
+**Повод:** sitemap в Search Console всё ещё «Не получен»; после обновления схемы
+(sameAs соцсетей) Алекс попросил переотправить sitemap и запросить переиндексацию.
+
+- **Sitemap** `https://booster.delivery/sitemap.xml` переотправлен в GSC (property
+  `sc-domain:booster.delivery`) — статус «Файл Sitemap отправлен». Проверено curl'ом:
+  отдаётся HTTP 200, `application/xml`, 16 URL, указан в robots.txt — т.е. «Не
+  получен» это статус на стороне Google, не проблема отдачи.
+- **Запрошена переиндексация** через «Проверка URL» → «Запросить индексирование»:
+  главная `https://booster.delivery/` и `https://booster.delivery/about` (обе уже
+  в индексе) добавлены в приоритетную очередь сканирования.
+- **ИИ-движки (ChatGPT/Perplexity/Gemini)** тянут страницы вживую — им действие в
+  GSC не нужно, обновлённый sameAs подхватится при следующем краулинге.
+- **Осталось (BACKLOG P1):** sitemap'ы поддоменов (app/aianalytics/diagnostic/
+  balistats/phuketstats) тоже «Не получено» — отдельное расследование.
+
+---
+
 ## 2026-09-02 (3) — Telegram-канал в граф + починка деплоя сервера
 
 - Алекс переименовал Telegram-канал → **@deliverybooster_asia** (вся ЮВА, новый
