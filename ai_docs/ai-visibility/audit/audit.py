@@ -256,6 +256,20 @@ def metrics(rows):
             if h and "." in h: ds.add(h)
         for d in ds: dom[d] += 1
     m["domains"] = {d: (n, len(rows)) for d, n in dom.most_common(25)}
+    # НАШИ соцсети/сайт в ответах (источники+текст) — результат соц-перелинковки.
+    # Домены выше схлопнуты до eTLD+1 (youtube.com), поэтому НАШ канал там не виден;
+    # здесь ищем конкретные профили. Не влияет на промпты/судью.
+    OURS = {"soc_site": ["booster.delivery"],
+            "soc_yt": ["youtube.com/@deliverybooster"],
+            "soc_ig": ["instagram.com/delivery.booster"],
+            "soc_tg_ch": ["t.me/deliverybooster_asia", "deliverybooster_asia"],
+            "soc_tg_c": ["t.me/delivery_booster", "@delivery_booster"]}
+    def _hit(r, needles):
+        blob = (" ".join(s.get("url", "") for s in (r.get("sources") or []))
+                + " " + (r.get("text") or "")).lower()
+        return any(x in blob for x in needles)
+    for k, needles in OURS.items():
+        m[k] = (sum(1 for r in rows if _hit(r, needles)), len(rows))
     return m
 
 def cmd_report(a):
@@ -290,6 +304,12 @@ def cmd_report(a):
     print("\nНазванные сервисы (топ):")
     for (nm, kind), n in cur["entities"]:
         print(f"  {n:3d}  {kind:12s} {nm[:55]}")
+    print("\nНаши профили в ответах (источники+текст, все слои):")
+    line("сайт booster.delivery", "soc_site")
+    line("YouTube @DeliveryBooster", "soc_yt")
+    line("Instagram delivery.booster", "soc_ig")
+    line("Telegram-канал @deliverybooster_asia", "soc_tg_ch")
+    line("Telegram-контакт @delivery_booster", "soc_tg_c")
     print("\nЦитируемые домены:")
     for d, (n, tot) in cur["domains"].items():
         star = "  ★" if "booster.delivery" in d else ""
