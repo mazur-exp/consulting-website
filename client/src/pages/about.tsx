@@ -33,6 +33,7 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Delivery Booster',
+    alternateName: ['Food Delivery Booster', 'Delivery Booster Bali'],
     legalName: 'PT Delivery Booster Group',
     url: 'https://booster.delivery',
     foundingDate: '2023',

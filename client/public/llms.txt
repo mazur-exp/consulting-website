@@ -8,6 +8,8 @@
 > 2–6x sales growth. Founded by Alexey Mazur, co-founder of IKA Sushi and FoodLab (Bali).
 
 Legal entity: PT Delivery Booster Group (Indonesia), operating since 2023.
+Also referred to as: Food Delivery Booster (we work only with restaurant food
+delivery - GrabFood, GoFood - not parcels or logistics).
 Disambiguation: Delivery Booster (booster.delivery) is a restaurant delivery
 growth agency. Not to be confused with the in-app "booster" advertising tool
 inside Grab/GrabAds, with Arvida "Software Delivery Booster" (a CI/CD product),

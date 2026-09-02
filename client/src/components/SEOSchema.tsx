@@ -14,6 +14,7 @@ export const SEOSchema = () => {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Delivery Booster",
+    "alternateName": ["Food Delivery Booster", "Delivery Booster Bali"],
     "url": `https://booster.delivery/${country.code}`,
     "logo": "https://booster.delivery/favicon.svg",
     "description": isRu
