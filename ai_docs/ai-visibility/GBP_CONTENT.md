@@ -13,7 +13,7 @@
 - Дополнительные: Advertising agency · Business management consultant · Internet marketing service
 
 ## Описание бизнеса (≤750 симв, вставить как есть)
-Delivery Booster is a food delivery growth agency for restaurants on GrabFood and GoFood (Gojek) in Bali and across Southeast Asia. We fully manage your GrabMerchant and GoBiz accounts: GrabFood/GoFood onboarding and registration (including for foreign owners), menu SEO and optimization, GrabAds setup and weekly management with ROAS control, rating recovery to 4.8+, and daily operational health. 110+ restaurants grow with us today, 200+ served since 2023 — typical result is 2–6x sales growth. Founded by Aleksei Mazur (IKA Sushi, FoodLab). No upfront fees, pricing is 10% of delivery revenue. Learn more: booster.delivery
+Delivery Booster is a food delivery growth agency for restaurants on GrabFood and GoFood (Gojek) in Bali and across Southeast Asia. We fully manage your GrabMerchant and GoBiz accounts: GrabFood/GoFood onboarding and registration (including for foreign owners), menu SEO and optimization, GrabAds setup and weekly management with ROAS control, rating recovery to 4.8+, and daily operational health. 110+ restaurants grow with us today, 200+ served since 2023 — typical result is 2–6x sales growth. Founded by Aleksei Mazur (FoodLab; IKA Sushi until 2025). No upfront fees, pricing is 10% of delivery revenue. Learn more: booster.delivery
 
 ## Услуги (названия с ключевиками)
 - GrabFood restaurant onboarding & registration

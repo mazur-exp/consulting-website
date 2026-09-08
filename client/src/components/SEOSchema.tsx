@@ -80,9 +80,9 @@ export const SEOSchema = () => {
       "name": "Delivery Booster"
     },
     "description": pick(
-      "Основатель Delivery Booster. Сооснователь IKA Sushi (4 точки на Бали), FoodLab (8 брендов). 200+ клиентов с 2023 года, 15 лет опыта в бизнесе.",
-      "Founder of Delivery Booster. Co-founder of IKA Sushi (4 locations in Bali), FoodLab (8 brands). 200+ clients since 2023, 15 years of business experience.",
-      "Pendiri Delivery Booster. Co-founder IKA Sushi (4 gerai di Bali), FoodLab (8 merek). 200+ klien sejak 2023, 15 tahun pengalaman di bisnis."
+      "Основатель Delivery Booster. Сооснователь FoodLab (8 брендов), до 2025 года — сооснователь IKA Sushi (4 точки на Бали). 200+ клиентов с 2023 года, 15 лет опыта в бизнесе.",
+      "Founder of Delivery Booster. Co-founder of FoodLab (8 brands); until 2025 co-founder of IKA Sushi (4 locations in Bali). 200+ clients since 2023, 15 years of business experience.",
+      "Pendiri Delivery Booster. Co-founder FoodLab (8 merek); hingga 2025 co-founder IKA Sushi (4 gerai di Bali). 200+ klien sejak 2023, 15 tahun pengalaman di bisnis."
     ),
     "knowsAbout": [
       "GoJek optimization",

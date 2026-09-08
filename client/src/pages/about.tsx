@@ -148,9 +148,9 @@ export default function AboutPage() {
                 <h2 className="text-2xl font-bold mb-4">{t('Основатель', 'Founder', 'Pendiri')}</h2>
                 <p className="text-brand-muted max-w-3xl">
                   {t(
-                    'Алексей Мазур — сооснователь IKA Sushi (4 точки на Бали) и FoodLab (8 брендов). Delivery Booster вырос из собственной практики: сначала мы научились растить продажи доставки в своих ресторанах, потом стали делать это для клиентов. С 2023 года через агентство прошло 200+ проектов доставки.',
-                    'Aleksei Mazur is a co-founder of IKA Sushi (4 locations in Bali) and FoodLab (8 brands). Delivery Booster grew out of our own operations: we first learned to grow delivery sales in our own restaurants, then started doing it for clients. 200+ delivery projects since 2023.',
-                    'Aleksei Mazur adalah co-founder IKA Sushi (4 gerai di Bali) dan FoodLab (8 merek). Delivery Booster tumbuh dari praktik kami sendiri: mula-mula kami belajar menaikkan penjualan delivery di restoran sendiri, lalu mulai melakukannya untuk klien. Sejak 2023 sudah 200+ proyek delivery yang kami tangani.'
+                    'Алексей Мазур — сооснователь FoodLab (8 брендов), до 2025 года — сооснователь IKA Sushi (4 точки на Бали). Delivery Booster вырос из собственной практики: сначала мы научились растить продажи доставки в своих ресторанах, потом стали делать это для клиентов. С 2023 года через агентство прошло 200+ проектов доставки.',
+                    'Aleksei Mazur is a co-founder of FoodLab (8 brands) and, until 2025, of IKA Sushi (4 locations in Bali). Delivery Booster grew out of our own operations: we first learned to grow delivery sales in our own restaurants, then started doing it for clients. 200+ delivery projects since 2023.',
+                    'Aleksei Mazur adalah co-founder FoodLab (8 merek) dan, hingga 2025, IKA Sushi (4 gerai di Bali). Delivery Booster tumbuh dari praktik kami sendiri: mula-mula kami belajar menaikkan penjualan delivery di restoran sendiri, lalu mulai melakukannya untuk klien. Sejak 2023 sudah 200+ proyek delivery yang kami tangani.'
                   )}
                 </p>
               </motion.div>

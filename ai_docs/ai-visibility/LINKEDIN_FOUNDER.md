@@ -37,7 +37,7 @@ Founder, Delivery Booster — GrabFood & GoFood account management for restauran
 
 **Альтернатива, если хочется сильнее личный операторский угол:**
 ```
-I run GrabFood & GoFood for 110+ restaurants in Bali and Phuket | Founder, Delivery Booster | Co-founder, IKA Sushi & FoodLab | GrabMerchant, GoBiz, GrabAds, menu SEO, ROAS, rating management
+I run GrabFood & GoFood for 110+ restaurants in Bali and Phuket | Founder, Delivery Booster | Co-founder, FoodLab | GrabMerchant, GoBiz, GrabAds, menu SEO, ROAS, rating management
 ```
 
 Оба содержат все ключевые имена собственные. Не менять на что-то «красивее» —
@@ -57,7 +57,7 @@ pricing, promo economics, GrabAds and GoFood Ads with ROAS control, rating and r
 management, offline-rate and stop-list control, weekly analytics. The owner sees the
 report and the revenue, not the merchant dashboard.
 
-I came to this from the other side of the counter. I co-founded IKA Sushi (4 locations
+I came to this from the other side of the counter. I co-founded IKA Sushi in 2022 (4 locations
 in Bali) and FoodLab (8 brands, dark kitchens in Canggu and Uluwatu), and learned delivery
 because our own restaurants depended on it. Before food I spent 8 years building Android
 apps — my team shipped over 3,000 of them — which is why we run delivery as a data problem
@@ -127,7 +127,7 @@ Menu development, unit economics, delivery-first brand design, kitchen operation
 volume. Our own kitchens are where delivery methods get tested before they reach clients.
 ```
 
-**IKA Sushi — Co-founder**
+**IKA Sushi — Co-founder (2022–2025)**
 `Bali, Indonesia`
 ```
 4 locations in Bali. Built and scaled the restaurant group; delivery on GrabFood and

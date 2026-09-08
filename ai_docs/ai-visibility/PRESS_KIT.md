@@ -51,8 +51,8 @@ in Bali, a 22.8x return on ad spend against 10.4x, and 2.9% of revenue spent on 
 against 5.5%.
 
 "Everyone assumes the money leaks while the restaurant is closed," says Aleksei Mazur,
-founder of Delivery Booster and co-founder of the Bali restaurant groups IKA Sushi and
-FoodLab. "It leaks while the restaurant is open with half the menu switched off. Nobody is
+founder of Delivery Booster and co-founder of the Bali dark-kitchen group FoodLab, and
+until 2025 co-founder of the restaurant group IKA Sushi. "It leaks while the restaurant is open with half the menu switched off. Nobody is
 auditing a 120-item menu across two platforms every morning, so items stay off for weeks."
 
 Delivery Booster states one caveat directly in the report: the sample consists of

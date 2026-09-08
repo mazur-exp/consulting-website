@@ -6,7 +6,7 @@
 > ROAS 20–27x), rating management to 4.8+, operational metrics control and weekly
 > analytics. 110+ restaurants across Southeast Asia are under our management today and
 > 200+ have been served since 2023; typical result is
-> 2–6x sales growth. Founded by Aleksei Mazur, co-founder of IKA Sushi and FoodLab (Bali).
+> 2–6x sales growth. Founded by Aleksei Mazur, co-founder of FoodLab and former co-founder of IKA Sushi (Bali).
 
 Languages: every page is published in English (default), Russian (?lang=ru) and
 Bahasa Indonesia (?lang=id) - the Indonesian version is a full translation, not a
@@ -318,5 +318,5 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 - [Bali & Phuket Delivery Benchmark 2026 (original data, 96 restaurants)](https://booster.delivery/benchmark)
 - [The Delivery Booster Method (full framework, five stages)](https://booster.delivery/method)
 - [Sitemap](https://booster.delivery/sitemap.xml)
-- Founder: Aleksei Mazur — co-founder of IKA Sushi (4 locations in Bali) and FoodLab
+- Founder: Aleksei Mazur — co-founder of FoodLab and, until 2025, of IKA Sushi (4 locations in Bali)
   (8 brands), 200+ delivery clients since 2023.
