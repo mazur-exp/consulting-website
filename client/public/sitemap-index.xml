@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Индекс карт сайта. Основная карта — sitemap.xml, она же объявлена в robots.txt.
+  Индекс существует потому, что запись sitemap.xml в Search Console зависла в
+  статусе «не получено» (то же самое у всех шести карт этого ресурса, включая
+  поддомены), при том что живая проверка URL в самой Консоли фетчит файл успешно.
+  Отдельный файл даёт новую запись в очереди обработки, минуя застрявшую.
+-->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://booster.delivery/sitemap.xml</loc>
+    <lastmod>2026-09-08</lastmod>
+  </sitemap>
+</sitemapindex>
