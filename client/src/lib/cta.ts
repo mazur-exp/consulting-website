@@ -25,7 +25,9 @@ export const diagnosticUrl = (slot: string, lang?: string) => {
     utm_campaign: 'free_audit',
     utm_content: slot,
   });
-  if (lang) params.set('lang', lang);
+  // Диагностика — отдельное Rails-приложение, язык у неё в `locale`, а не в
+  // `lang`, как на основном сайте. Проверено: `?lang=id` там молча игнорируется.
+  if (lang) params.set('locale', lang);
   return `${DIAGNOSTIC_URL}?${params.toString()}`;
 };
 
