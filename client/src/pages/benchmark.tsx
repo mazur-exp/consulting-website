@@ -182,6 +182,7 @@ export default function BenchmarkPage() {
         'We took the GrabMerchant and GoBiz dashboard numbers of the 96 restaurants we manage in Bali and Phuket, anonymised them, and publish them as market norms. Sample: 84 venues in Bali and 12 in Phuket, 270,568 orders, Rp 64.7bn and 8.8M baht of revenue, January–August 2026. What follows are medians rather than averages: one large venue distorts a fleet average, while the median shows what an ordinary restaurant looks like. Nobody publishes data like this for Southeast Asia — the platforms included.',
         'Kami mengambil angka dari dasbor GrabMerchant dan GoBiz milik 96 restoran yang kami kelola di Bali dan Phuket, menganonimkannya, dan menerbitkannya sebagai norma pasar. Sampel: 84 tempat di Bali dan 12 di Phuket, 270,568 pesanan, omzet Rp 64.7 miliar dan 8.8 juta baht, Januari–Agustus 2026. Yang tersaji di bawah adalah median, bukan rata-rata: satu tempat besar membuat rata-rata armada melenceng, sedangkan median menunjukkan seperti apa restoran biasa. Data seperti ini tidak dipublikasikan siapa pun untuk Asia Tenggara — termasuk oleh platformnya sendiri.'
       )}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-08', minutes: 10 }}
       schemas={[faqPageSchema(faq), articleSchema, datasetSchema]}
     >
       <Block card>

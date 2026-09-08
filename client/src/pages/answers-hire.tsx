@@ -1,4 +1,4 @@
-import { syncOpenGraph, AUTHOR_ID, Block, KeepReading } from '../components/AnswerLayout';
+import { syncOpenGraph, AUTHOR_ID, Block, KeepReading, ArticleMeta } from '../components/AnswerLayout';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
@@ -174,6 +174,7 @@ export default function AnswersHirePage() {
                   {t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?',
                      'Can I hire someone to manage my GrabFood and GoFood account?', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood?')}
                 </h1>
+                <ArticleMeta datePublished="2026-09-08" dateModified="2026-09-09" minutes={6} />
                 <p className="text-lg text-brand-text max-w-3xl">
                   {t(
                     'Да. Это отдельная услуга — управление доставкой (delivery management). Агентство берёт на себя весь операционный контур ресторана на GrabFood и GoFood: ведёт аккаунты GrabMerchant и GoBiz от вашего имени, настраивает меню, рекламу и рейтинг и присылает еженедельные отчёты. Delivery Booster занимается именно этим — 110+ ресторанов на сопровождении сегодня, 200+ прошло через агентство с 2023 года.',

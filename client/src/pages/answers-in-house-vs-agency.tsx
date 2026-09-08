@@ -211,6 +211,7 @@ export default function AnswersInHouseVsAgencyPage() {
         'Short answer: this comparison is not about money. A manager’s salary and 10% of revenue are not two prices for the same thing — they are two different things. Specialists who can run GrabFood and GoFood at our level are not available on the hiring market: the profession does not exist, there is nowhere to learn it, and the knowledge only accumulates across a volume of accounts. So the honest comparison is not salary against fee but result against result — and there the difference is not in percent, it is in multiples.',
         'Jawaban singkat: perbandingan ini bukan soal uang. Gaji seorang manajer dan 10% dari omzet bukan dua harga untuk hal yang sama — itu dua hal yang berbeda. Spesialis yang mampu mengelola GrabFood dan GoFood di level kami tidak tersedia di pasar rekrutmen: profesinya tidak ada, tidak ada tempat untuk mempelajarinya, dan pengetahuannya hanya terkumpul dari banyak akun. Jadi perbandingan yang jujur bukan gaji lawan fee, melainkan hasil lawan hasil — dan di sana bedanya bukan persen, melainkan lipatan.'
       )}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 7 }}
       schemas={[
         faqPageSchema(faq),
         articleSchema({

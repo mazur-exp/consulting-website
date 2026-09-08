@@ -163,6 +163,7 @@ export default function AnswersDoingItYourselfPage() {
         'Short answer: it is not "a couple of hours a week on analytics" but a full-time function — if you do the whole job rather than just read reports. But there is an earlier part of the question that usually gets skipped: before counting hours, you have to answer whether the knowledge is there. Setup and ads on these platforms cannot be done without specialist knowledge at all — not done worse, not done.',
         'Jawaban singkat: ini bukan "beberapa jam seminggu untuk analitik", melainkan fungsi penuh waktu — kalau Anda mengerjakan seluruh pekerjaannya, bukan sekadar membaca laporan. Tapi ada bagian yang lebih awal dan biasanya dilewati: sebelum menghitung jam, jawab dulu apakah pengetahuannya ada. Setup awal dan iklan di platform ini tidak bisa dikerjakan tanpa pengetahuan khusus — bukan jadi lebih buruk, melainkan tidak jadi sama sekali.'
       )}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 8 }}
       schemas={[
         faqPageSchema(faq),
         articleSchema({

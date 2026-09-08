@@ -33,6 +33,59 @@ export const Block = ({
 );
 
 /**
+ * Видимая подпись под заголовком: автор, даты, время чтения.
+ *
+ * Те же значения уходят в Article-схему. Дублирование намеренное: разметку
+ * читает машина, подпись — человек, и Google прямо ожидает, что видимая дата
+ * совпадает с датой в разметке. Дата только в разметке — это заявка без
+ * подтверждения на странице.
+ */
+export const ArticleMeta = ({
+  datePublished,
+  dateModified,
+  minutes,
+}: {
+  datePublished: string;
+  dateModified?: string;
+  minutes?: number;
+}) => {
+  const { t, language } = useLanguage();
+  const locale = language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : 'en-GB';
+  const fmt = (d: string) =>
+    new Date(d + 'T00:00:00Z').toLocaleDateString(locale, {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    });
+  const updated = dateModified && dateModified !== datePublished;
+
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-brand-muted mb-6">
+      <span>
+        {t('Автор: ', 'By ', 'Oleh ')}
+        <a href="/about" className="text-brand-text hover:text-brand-green transition-colors">
+          Aleksei Mazur
+        </a>
+        {t(', основатель Delivery Booster', ', founder of Delivery Booster', ', pendiri Delivery Booster')}
+      </span>
+      <span aria-hidden="true">·</span>
+      <time dateTime={updated ? dateModified : datePublished}>
+        {updated
+          ? t(`Обновлено ${fmt(dateModified!)}`, `Updated ${fmt(dateModified!)}`, `Diperbarui ${fmt(dateModified!)}`)
+          : t(`Опубликовано ${fmt(datePublished)}`, `Published ${fmt(datePublished)}`, `Dipublikasikan ${fmt(datePublished)}`)}
+      </time>
+      {minutes ? (
+        <>
+          <span aria-hidden="true">·</span>
+          <span>{minutes} {t('мин чтения', 'min read', 'menit baca')}</span>
+        </>
+      ) : null}
+    </div>
+  );
+};
+
+/**
  * Shared shell for answer pages (/answers/*, /method): background, header,
  * footer, back link, h1 + lead, and the JSON-LD blocks. Pages supply only
  * their content, so every answer page stays structurally identical — the same
@@ -42,11 +95,14 @@ export const AnswerLayout = ({
   h1,
   lead,
   schemas,
+  meta,
   children,
 }: {
   h1: string;
   lead: ReactNode;
   schemas: object[];
+  /** Те же даты, что уходят в Article-схему. Показываются под заголовком. */
+  meta?: { datePublished: string; dateModified?: string; minutes?: number };
   children: ReactNode;
 }) => {
   const { t } = useLanguage();
@@ -77,7 +133,8 @@ export const AnswerLayout = ({
               </Link>
 
               <motion.div {...fadeIn}>
-                <h1 className="text-3xl sm:text-5xl font-bold mb-6">{h1}</h1>
+                <h1 className="text-3xl sm:text-5xl font-bold mb-4">{h1}</h1>
+                {meta ? <ArticleMeta {...meta} /> : null}
                 <div className="text-lg text-brand-text max-w-3xl">{lead}</div>
               </motion.div>
 

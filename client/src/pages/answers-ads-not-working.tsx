@@ -166,6 +166,7 @@ export default function AnswersAdsNotWorkingPage() {
         'Because ads buy impressions, not orders. If your listing does not convert, your restaurant is often offline, or your rating is below 4.8, ads simply bring people faster to a place where they do not order. Below is the order we work through with clients: availability first, then listing conversion, promos and rating — and bidding only fifth. In that sequence ads almost always start working; in the reverse one, almost never.',
         'Karena iklan membeli tayangan, bukan pesanan. Kalau listing Anda tidak berkonversi, restoran sering offline, atau rating di bawah 4.8, iklan hanya membawa orang lebih cepat ke tempat yang tidak membuat mereka memesan. Berikut urutan yang kami jalankan bersama klien: ketersediaan dulu, lalu konversi listing, promo dan rating — dan bid baru di urutan kelima. Dengan urutan itu iklan hampir selalu mulai bekerja; dengan urutan sebaliknya, hampir tidak pernah.'
       )}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 7 }}
       schemas={[
         faqPageSchema(faq),
         articleSchema({

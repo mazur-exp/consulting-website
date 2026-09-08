@@ -67,6 +67,7 @@ export default function AnswersHubPage() {
         'Each of these is one question worked through in full, not a paragraph on a landing page. Alongside them sit two things nobody else in Southeast Asia publishes: market norms from the 96 restaurants we manage, and the method we work by — in full, including the parts usually kept private.',
         'Setiap materi di sini membahas satu pertanyaan sampai tuntas, bukan sekadar paragraf di landing page. Di sini juga ada dua hal yang tidak dipublikasikan siapa pun di Asia Tenggara: norma pasar dari 96 restoran yang kami kelola, dan metode kerja kami — lengkap, termasuk bagian yang biasanya tidak dibagikan.'
       )}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 2 }}
       schemas={[collectionSchema, itemListSchema]}
     >
       <Block title={t('Открытые данные и метод', 'Open data and the method', 'Data terbuka dan metode')}>
