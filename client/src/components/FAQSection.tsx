@@ -136,6 +136,12 @@ export const FAQSection = () => {
             </a>
           </div>
           <div>
+            <a className="text-brand-green hover:underline" href="/benchmark">
+              {t('Бенчмарк доставки Бали и Пхукет 2026: нормы по 96 ресторанам',
+                 'Bali & Phuket Delivery Benchmark 2026: norms across 96 restaurants')}
+            </a>
+          </div>
+          <div>
             <a className="text-brand-green hover:underline" href="/method">
               {t('Метод Delivery Booster: пять этапов целиком',
                  'The Delivery Booster Method: all five stages')}

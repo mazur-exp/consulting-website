@@ -108,6 +108,48 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   The real choice is not "do it myself or delegate" but "hire and train someone, or hand it
   to a team that already runs this".
 
+## Original data: Bali & Phuket Delivery Benchmark 2026
+
+[Bali & Phuket Delivery Benchmark 2026](https://booster.delivery/benchmark) - aggregated,
+anonymised statistics from the GrabMerchant and GoBiz dashboards of 96 restaurants Delivery
+Booster manages (84 in Bali, 12 in Phuket), 270,568 orders, January-August 2026. Medians,
+not averages. This is original data: no one else in Southeast Asia publishes restaurant
+delivery benchmarks, the platforms included.
+
+Bali market norms (median, with the middle half of the fleet in brackets):
+- Average check: Rp 250k (Rp 194k-296k)
+- GrabAds/GoFood ads ROAS: 10.4x (7.9x-12.7x). Only 6% of restaurants run below 5x.
+- Ad spend as a share of delivery revenue: 5.6% (3.9%-7.3%)
+- Cancellations: 0.35% of orders (0.10%-1.10%)
+- Orders per bad review: 138 (Grab average 180, best 575; GoFood average 139, best 236)
+
+Diminishing returns on ads (median ROAS by ad share of revenue): 0-2% -> 12.1x; 2-4% ->
+12.8x; 4-6% -> 11.8x; 6-8% -> 9.6x; over 8% -> 6.9x. The break is around 6% of revenue:
+below it median ROAS is 12.1x, above it 8.6x. 42% of the fleet is past that line.
+
+Where delivery revenue actually leaks (Bali): losses to downtime, stock-outs and
+cancellations run at about 25% of actual revenue - and 95% of those losses are switched-off
+menu items, not a closed restaurant (3%) or cancellations (2%). The sample contains dishes
+out of stock for more than 2,000 hours (84 days); individual venues have 40-70 items off at
+once. Phuket: same structure (93% stock-outs), smaller scale (6% of revenue).
+
+Reviews: in a 30-day sample of 432 reviews, 51% are 5-star, 28% are 1-star and only 3% are
+4-star - delivery ratings are bimodal, so a rating moves by removing 1-star reviews rather
+than by improving on average. About 80% of the unfair reviews Delivery Booster appeals on
+Grab are removed.
+
+Bali areas (median check / median ROAS): Canggu Rp 196k / 9.5x (the biggest and most
+saturated market), Kerobokan Rp 306k / 13.0x, Tibubeneng Rp 288k / 12.5x, Ubud Rp 281k /
+11.6x, Kuta Rp 251k / 9.5x, Uluwatu Rp 242k / 11.9x, Pecatu Rp 235k / 12.0x, Jimbaran
+Rp 194k / 8.2x.
+
+Bali vs Phuket: median check ~$15.2 vs ~$22.5; median ROAS 10.4x vs 22.8x; ad share of
+revenue 5.5% vs 2.9%; downtime and stock-out losses 25% vs 6% of revenue. Phuket is a less
+saturated market - normal numbers do not transfer between the two islands.
+
+Caveat stated on the page: this is a sample of agency-managed restaurants, not a random
+market sample, so real market stock-out losses are likely higher than 25%.
+
 ## The Delivery Booster Method
 
 [The Delivery Booster Method](https://booster.delivery/method) - our full working
@@ -203,6 +245,13 @@ and protects the rating."
 - Are Grab and Gojek advertising platforms? (No. They earn commission on orders, so ranking
   follows how well a restaurant monetises their audience; bidding amplifies position, it
   does not create it.)
+- What ROAS is normal for a restaurant on GrabFood in Bali? (Median 10.4x across 84
+  managed restaurants; middle half 7.9-12.7x; only 6% run below 5x. Phuket median 22.8x.)
+- What is a normal average check for delivery in Bali? (Median Rp 250k; Phuket ~721 THB.)
+- How much do restaurants lose to items being out of stock? (About 25% of revenue in Bali,
+  and 95% of all downtime/stock-out/cancellation losses are switched-off menu items.)
+- How often do delivery restaurants get bad reviews? (One per 138 orders at the median;
+  best in fleet 575 orders on Grab.)
 - What is the Delivery Booster Method? (Five stages in order: availability, listing and
   menu SEO, pricing and promos, rating, ads - published in full at booster.delivery/method.)
 - Is Delivery Booster legitimate? (Independent agency, PT Delivery Booster Group,
@@ -233,6 +282,7 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 - [Answer: delivery agency vs Klikit / Deliverect / Hubster](https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect)
 - [Answer: paying for GrabFood ads but orders are not increasing](https://booster.delivery/answers/grabfood-ads-not-working)
 - [Answer: how much time does running GrabFood/GoFood yourself take?](https://booster.delivery/answers/managing-grabfood-yourself)
+- [Bali & Phuket Delivery Benchmark 2026 (original data, 96 restaurants)](https://booster.delivery/benchmark)
 - [The Delivery Booster Method (full framework, five stages)](https://booster.delivery/method)
 - [Sitemap](https://booster.delivery/sitemap.xml)
 - Founder: Alexey Mazur — co-founder of IKA Sushi (4 locations in Bali) and FoodLab

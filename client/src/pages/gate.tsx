@@ -175,6 +175,10 @@ export default function Gate() {
           <a className="text-brand-green hover:underline" href="/method">
             {t('Метод Delivery Booster', 'The Delivery Booster Method')}
           </a>
+          {' · '}
+          <a className="text-brand-green hover:underline" href="/benchmark">
+            {t('Бенчмарк рынка 2026', 'Market Benchmark 2026')}
+          </a>
         </p>
         <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-brand-muted mt-4">
           <li>
