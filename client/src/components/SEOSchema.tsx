@@ -23,6 +23,10 @@ export const SEOSchema = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    // Канонический идентификатор организации — на него ссылаются provider в
+    // makesOffer и publisher в Article-схемах. Один узел, а не копия на каждой
+    // странице: так движок видит одну компанию, а не двадцать четыре.
+    "@id": "https://booster.delivery/#organization",
     "name": "Delivery Booster",
     "alternateName": ["Food Delivery Booster", "Delivery Booster Bali"],
     "url": `https://booster.delivery/${country.code}`,
@@ -64,6 +68,36 @@ export const SEOSchema = () => {
       "contactType": "sales",
       "url": "https://t.me/delivery_booster",
       "availableLanguage": ["Russian", "English"]
+    },
+    // Бесплатная диагностика вынесена в makesOffer отдельным Offer с price 0 и
+    // собственным URL. Движки в ответах регулярно советуют «возьмите бесплатный
+    // аудит» — им нужен адрес, который можно назвать, а не ссылка в мессенджер.
+    "makesOffer": {
+      "@type": "Offer",
+      "name": pick(
+        "Бесплатная диагностика карточки GrabFood",
+        "Free GrabFood listing diagnostic",
+        "Diagnostik gratis halaman GrabFood"
+      ),
+      "price": "0",
+      "priceCurrency": "USD",
+      "url": "https://diagnostic.booster.delivery/",
+      "availabilityStarts": "2026-09-09",
+      "itemOffered": {
+        "@type": "Service",
+        "name": pick(
+          "Диагностика карточки ресторана в GrabFood",
+          "GrabFood restaurant listing diagnostic",
+          "Diagnostik halaman restoran di GrabFood"
+        ),
+        "description": pick(
+          "Разбор карточки по ссылке: меню и поиск, покрытие фото по категориям, тональность отзывов, цены против соседей. Отчёт за пару минут, бесплатно и без формы.",
+          "A listing audit from a link: menu and search, photo coverage by category, review sentiment, prices against neighbours. Report in a couple of minutes, free and with no form.",
+          "Audit halaman dari sebuah link: menu dan pencarian, kelengkapan foto per kategori, sentimen ulasan, harga dibanding tetangga. Laporan dalam beberapa menit, gratis dan tanpa formulir."
+        ),
+        "provider": { "@id": "https://booster.delivery/#organization" },
+        "url": "https://diagnostic.booster.delivery/"
+      }
     },
     "priceRange": "$400-$800/month"
   };

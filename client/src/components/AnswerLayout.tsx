@@ -7,6 +7,7 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { CountryProvider } from '../hooks/useCountry';
 import { useLanguage } from '../hooks/useLanguage';
+import { diagnosticUrl, messengerUrl } from '../lib/cta';
 import { ANSWER_MATERIALS, ASSET_MATERIALS } from './AnswersIndex';
 
 export const fadeIn = {
@@ -221,7 +222,7 @@ export const articleSchema = ({
  * и бесплатно, и это же работает на доверие ко второй дорожке.
  */
 export const AnswerCta = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   return (
     <Block card>
       <h2 className="text-2xl font-bold mb-2 text-center">
@@ -271,19 +272,28 @@ export const AnswerCta = () => {
           </h3>
           <p className="text-sm text-brand-muted mb-5 flex-1">
             {t(
-              'Пришлите ссылку на ресторан в Grab — покажем, где именно вы теряете заказы. Бесплатно, без обязательств; дальше 10% от выручки доставки и без предоплаты.',
-              'Send your restaurant’s Grab link and we will show where exactly you lose orders. Free, no strings; after that it is 10% of delivery revenue with no upfront payment.',
-              'Kirim link restoran Anda di Grab dan kami tunjukkan di mana persisnya pesanan hilang. Gratis, tanpa ikatan; setelahnya 10% dari omzet delivery tanpa pembayaran di muka.'
+              'Вставьте ссылку на ресторан в Grab — отчёт придёт за пару минут: меню и поиск, фото по категориям, отзывы, цены против соседей. Бесплатно и без обязательств; дальше 10% от выручки доставки и без предоплаты.',
+              'Paste your restaurant’s Grab link and the report comes back in a couple of minutes: menu and search, photo coverage, reviews, prices against the neighbours. Free, no strings; after that it is 10% of delivery revenue with no upfront payment.',
+              'Tempel link restoran Anda di Grab dan laporannya datang dalam beberapa menit: menu dan pencarian, kelengkapan foto, ulasan, harga dibanding tetangga. Gratis, tanpa ikatan; setelahnya 10% dari omzet delivery tanpa pembayaran di muka.'
             )}
           </p>
           <a
-            href={t('https://t.me/delivery_booster', 'https://wa.me/79520029077', 'https://wa.me/79520029077')}
+            href={diagnosticUrl('answer-cta', language)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block brand-gradient px-6 py-3 rounded-lg font-semibold text-center"
-            data-testid="cta-telegram"
+            data-testid="cta-diagnostic"
           >
-            {t('Получить бесплатный разбор', 'Get a free audit', 'Minta audit gratis')}
+            {t('Разобрать мою карточку', 'Diagnose my listing', 'Analisa halaman saya')}
+          </a>
+          <a
+            href={messengerUrl(language)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-brand-muted hover:text-brand-green mt-3 text-center"
+            data-testid="cta-messenger"
+          >
+            {t('или напишите нам напрямую', 'or message us directly', 'atau hubungi kami langsung')} →
           </a>
         </div>
       </div>

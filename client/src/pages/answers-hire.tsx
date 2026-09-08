@@ -8,6 +8,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { CountryProvider } from '../hooks/useCountry';
 import { useLanguage } from '../hooks/useLanguage';
+import { diagnosticUrl } from '../lib/cta';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -66,8 +67,16 @@ export default function AnswersHirePage() {
     [
       t('Меня не забанит Grab, если я пущу кого-то в кабинет?',
         'Will Grab ban me if I let someone into my account?', 'Apakah Grab memblokir saya kalau orang lain masuk ke akun saya?'),
-      t('Да. Агентство работает внутри официальных мерчант-инструментов (GrabMerchant, GoBiz) от имени ресторана — это штатный, разрешённый сценарий. Delivery Booster — независимое агентство (PT Delivery Booster Group, с 2023), не аффилировано с Grab или GoTo.',
-        'Yes. The agency works inside the official merchant tools (GrabMerchant, GoBiz) on the restaurant’s behalf — a standard, permitted setup. Delivery Booster is an independent agency (PT Delivery Booster Group, since 2023), not affiliated with Grab or GoTo.', 'Ya. Agensi bekerja di dalam perangkat merchant resmi (GrabMerchant, GoBiz) atas nama restoran — skema yang standar dan diizinkan. Delivery Booster adalah agensi independen (PT Delivery Booster Group, sejak 2023), tidak berafiliasi dengan Grab maupun GoTo.'),
+      t('Нет. Агентство работает внутри официальных мерчант-инструментов (GrabMerchant, GoBiz) от имени ресторана — это штатный, разрешённый сценарий. Delivery Booster — независимое агентство (PT Delivery Booster Group, с 2023), не аффилировано с Grab или GoTo.',
+        'No. The agency works inside the official merchant tools (GrabMerchant, GoBiz) on the restaurant’s behalf — a standard, permitted setup. Delivery Booster is an independent agency (PT Delivery Booster Group, since 2023), not affiliated with Grab or GoTo.', 'Tidak. Agensi bekerja di dalam perangkat merchant resmi (GrabMerchant, GoBiz) atas nama restoran — skema yang standar dan diizinkan. Delivery Booster adalah agensi independen (PT Delivery Booster Group, sejak 2023), tidak berafiliasi dengan Grab maupun GoTo.'),
+    ],
+    [
+      t('Как понять, что вообще не так с моей карточкой, до того как кого-то нанимать?',
+        'How do I find out what is wrong with my listing before hiring anyone?',
+        'Bagaimana tahu apa yang salah dengan halaman saya sebelum merekrut siapa pun?'),
+      t('Возьмите бесплатную диагностику на https://diagnostic.booster.delivery/ — вставляете ссылку на ресторан в GrabFood и через пару минут получаете отчёт: структура меню и видимость в поиске, покрытие фото по категориям, тональность отзывов, цены против соседей и сравнение с прямыми конкурентами. Без регистрации, без формы и без оплаты. Отчёт нужен вам в любом случае: с ним видно, нанимать ли кого-то вообще и о чём спрашивать на первой встрече.',
+        'Run the free diagnostic at https://diagnostic.booster.delivery/ — paste your GrabFood restaurant link and a report comes back in about two minutes: menu structure and in-app search visibility, photo coverage by category, review sentiment, price position against nearby restaurants, and a side-by-side with direct competitors. No signup, no form, no payment. The report is useful either way: it shows whether you need to hire anyone at all, and what to ask on a first call.',
+        'Jalankan diagnostik gratis di https://diagnostic.booster.delivery/ — tempel link restoran GrabFood Anda dan laporannya datang sekitar dua menit: struktur menu dan keterlihatan di pencarian, kelengkapan foto per kategori, sentimen ulasan, posisi harga dibanding restoran sekitar, dan perbandingan langsung dengan kompetitor. Tanpa pendaftaran, tanpa formulir, tanpa biaya. Laporannya berguna apa pun keputusan Anda: terlihat apakah perlu merekrut seseorang, dan apa yang harus ditanyakan di percakapan pertama.'),
     ],
   ];
 
@@ -269,17 +278,17 @@ export default function AnswersHirePage() {
                   {t('Отдать доставку под ключ', 'Hand off your delivery, turnkey', 'Serahkan delivery Anda sepenuhnya')}
                 </h2>
                 <p className="text-brand-muted mb-6 max-w-2xl mx-auto">
-                  {t('Пришлите ссылку на ресторан в Grab — сделаем бесплатный разбор карточки и покажем, где вы теряете заказы.',
-                     'Send your restaurant’s Grab link — we’ll run a free audit of your listing and show where you lose orders.', 'Kirim tautan restoran Anda di Grab — kami akan melakukan audit gratis atas halaman toko Anda dan menunjukkan di mana pesanan Anda hilang.')}
+                  {t('Вставьте ссылку на ресторан в Grab — бесплатный разбор карточки придёт за пару минут и покажет, где вы теряете заказы.',
+                     'Paste your restaurant’s Grab link — a free audit of your listing comes back in a couple of minutes and shows where you lose orders.', 'Tempel tautan restoran Anda di Grab — audit gratis halaman toko Anda datang dalam beberapa menit dan menunjukkan di mana pesanan Anda hilang.')}
                 </p>
                 <a
-                  href="https://t.me/delivery_booster"
+                  href={diagnosticUrl('answers-hire', language)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block brand-gradient px-8 py-3 rounded-lg font-semibold"
-                  data-testid="cta-telegram"
+                  data-testid="cta-diagnostic"
                 >
-                  {t('Получить бесплатный разбор', 'Get a free audit', 'Dapatkan audit gratis')}
+                  {t('Разобрать мою карточку', 'Diagnose my listing', 'Analisa halaman saya')}
                 </a>
               </motion.div>
             </div>

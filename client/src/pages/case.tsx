@@ -8,6 +8,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { CountryProvider } from '../hooks/useCountry';
 import { useLanguage } from '../hooks/useLanguage';
+import { diagnosticUrl } from '../lib/cta';
 import { CaseStudy } from '../config/case-studies';
 import NotFound from '@/pages/not-found';
 
@@ -211,7 +212,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                   )}
                 </p>
                 <a
-                  href={t('https://t.me/delivery_booster', 'https://wa.me/79520029077', 'https://wa.me/79520029077')}
+                  href={diagnosticUrl('case', language)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"

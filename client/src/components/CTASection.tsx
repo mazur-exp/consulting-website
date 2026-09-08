@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { diagnosticUrl } from '../lib/cta';
 
 export const CTASection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section className="py-16 border-t border-white/10">
@@ -25,13 +26,13 @@ export const CTASection = () => {
             )}
           </p>
           <a
-            href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
+            href={diagnosticUrl('landing-bottom', language)}
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-cta-main"
             className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"
           >
-            {t("Написать", "Contact us", "Hubungi kami")}
+            {t("Получить бесплатную диагностику", "Get a free audit", "Dapatkan audit gratis")}
           </a>
         </motion.div>
       </div>

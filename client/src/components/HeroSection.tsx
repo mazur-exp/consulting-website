@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
+import { diagnosticUrl } from '../lib/cta';
 import { useCountry } from '../hooks/useCountry';
 
 export const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const country = useCountry();
 
   const fadeInUp = {
@@ -45,7 +46,7 @@ export const HeroSection = () => {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
+                href={diagnosticUrl('hero', language)}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="button-primary-cta"
