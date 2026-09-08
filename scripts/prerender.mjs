@@ -94,6 +94,10 @@ try {
       try {
         localStorage.clear();
         localStorage.setItem('preferredLanguage', l);
+        // Иначе полоса согласия попадёт в снимок и её текст станет частью
+        // страницы для краулеров — на всех 48 снимках сразу. Ботам согласие
+        // не нужно, ставим «отказ» и баннер не рендерится.
+        localStorage.setItem('db_consent', 'denied');
       } catch {}
     }, lang);
 
