@@ -49,10 +49,10 @@
 - [ ] **Опубликовать посты по бенчмарку** (тексты готовы — `BENCHMARK_POSTS.md`):
   Telegram, LinkedIn (от лица основателя), Instagram-карусель, ответ в Reddit-тред.
   Блокировано аккаунтами: LinkedIn-страница компании не создана, Reddit-аккаунта нет.
-- [~] **LinkedIn: личная страница Алексея Мазура.** Контент готов целиком —
-  `LINKEDIN_FOUNDER.md`: headline, About, 4 записи Experience, список skills, Featured,
-  чеклист настроек, баннер, первые 3 поста. Осталось: Алексу заполнить профиль, затем
-  добавить URL в `sameAs` (SEOSchema + about + llms.txt + футер).
+- [~] **LinkedIn: личная страница** — заполнена 2026-09-08 (`linkedin.com/in/alekseimazur`),
+  в `sameAs` добавлена. Осталось за Алексом: **три года начала** для FoodLab, IKA Sushi
+  и мобильной разработки (без них записи не добавить — даты не выдумываем), фото профиля,
+  баннер 1584×396, публикация первых трёх постов из `LINKEDIN_FOUNDER.md`.
 - [ ] **LinkedIn: страница компании Delivery Booster** — после личной, связать через
   Experience; затем в `sameAs`. "Bali & Phuket GrabFood/GoFood
   Benchmark 2026": оригинальная статистика по 110+ ресторанам (ROAS, офлайн-часы -> ранжирование,
@@ -113,6 +113,14 @@
 - [ ] **Wikidata** (порог ниже, чем у Wikipedia; кормит Google Knowledge Graph и распознавание сущностей ИИ) — элемент компании + основателя, как появятся 2-3 независимых упоминания (VC.ru/каталог/LinkedIn). Wikipedia — позже.
 
 ## Done
+
+- [x] 2026-09-08 — **Личная страница LinkedIn заполнена** (`linkedin.com/in/alekseimazur`):
+  заголовок, About, должность, 7 навыков, 4 карточки Featured, сайт в контактах,
+  персональный URL; профиль добавлен в sameAs Organization и Person, в llms.txt и футер.
+- [x] 2026-09-08 — **Починен per-page Open Graph**: og:url на всех страницах вёл на
+  главную, из-за чего LinkedIn/Slack/WhatsApp/Telegram показывали неверное превью или
+  не строили его вовсе. `syncOpenGraph()` зеркалит title/description/canonical в og: и
+  twitter:-теги на всех 22 роутах.
 
 - [x] 2026-09-08 — **Контент-плейбук `CONTENT_PLAYBOOK.md`**: правило «один актив → пакет
   из пяти каналов», языки по каналам, правила текста и цифр, эмодзи (Telegram да, LinkedIn
