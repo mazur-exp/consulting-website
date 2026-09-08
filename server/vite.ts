@@ -96,6 +96,11 @@ export function serveStatic(app: Express) {
     maxAge: '1y',
     etag: true,
     lastModified: true,
+    // A prerendered snapshot can share a name with a directory: /answers is both
+    // answers.html and the answers/ folder holding the individual answer pages.
+    // With the default redirect:true express sends 301 /answers -> /answers/ and
+    // the snapshot is never reached, so the hub page 404s for bots and users.
+    redirect: false,
     // Serve prerendered snapshots: /th -> th.html, /cases/x -> cases/x.html
     extensions: ['html'],
     setHeaders: (res, filePath) => {
