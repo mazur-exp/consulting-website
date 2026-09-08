@@ -1,0 +1,96 @@
+=== ЗАМЕР run-2026-09-08 (n=231) vs базовая baseline-2026-08-25 ===
+
+Шкала зрелости (problem):
+  1. управляемость внутри площадки                   95% (89%-97%)  121/128   было 97%  (шум)
+  2. допускает делегирование                         20% (14%-28%)  26/128   было 16%  (шум)
+  3. называет агентство по имени                      5% (2%-10%)  6/128   было 2%  (шум)
+
+Delivery Booster:
+  в category-запросах (ГЛАВНАЯ)                      30% (21%-41%)  24/79   было 0%  ← ЗНАЧИМО
+  в problem-запросах                                  3% (1%-8%)  4/128   было 1%  (шум)
+  в brand-запросах (корректно)                       96% (80%-99%)  23/24   было 83%  (шум)
+  путаница бренда:
+   • Delivery Booster is a niche growth marketing operation targeting restaurants on Grab and Gojek in Asia
+
+Советы ИИ (problem):
+  menu_photos              88%
+  platform_promos          86%
+  ops_speed                74%
+  rating_reviews           70%
+  platform_ads             65%
+  pricing_commission       50%
+  own_channel              36%
+  social_media             32%
+  data_analytics           30%
+  platform_contact         18%
+  other                    12%
+  hire_agency               6%
+  pos_software              1%
+
+Названные сервисы (топ):
+   98  platform     GrabFood
+   53  platform     GoFood
+   48  agency       Delivery Booster
+   44  platform     GrabMerchant
+   33  platform     LINE MAN
+   30  platform     Grab
+   30  platform     ShopeeFood
+   20  platform     GoBiz
+   18  software_pos Klikit
+   15  platform     Gojek
+   13  platform     GrabAds
+   10  software_pos Runchise
+    7  platform     foodpanda
+    6  media_blog   Facebook
+    6  software_pos Deliverect
+    6  media_blog   Instagram
+    5  software_pos klikit
+    5  platform     LINE MAN Wongnai
+    5  platform     Foodpanda
+    4  agency       The Cakap Group
+    4  platform     Shopee Partner
+    4  platform     GoFood Merchant
+    4  software_pos Wongnai Merchant App
+    4  other        Fastwork.id
+    4  platform     Fastwork.id
+    4  software_pos ESB
+    4  software_pos Hubster
+    4  agency       Restaurant RampUp
+    4  software_pos iPOS.vn
+    4  platform     Ressto
+
+Наши профили в ответах (источники+текст, все слои):
+  сайт booster.delivery                              22% (17%-27%)  50/231   было 7%  ← ЗНАЧИМО
+  YouTube @DeliveryBooster                            0% (0%-2%)  0/231   было 0%  (шум)
+  Instagram delivery.booster                          2% (1%-4%)  4/231   было 0%  (шум)
+  Telegram-канал @deliverybooster_asia                0% (0%-2%)  0/231   было 0%  (шум)
+  Telegram-контакт @delivery_booster                  0% (0%-2%)  0/231   было 0%  (шум)
+
+Цитируемые домены:
+    25%  grab.com
+    20%  booster.delivery  ★
+    17%  help.grab.com
+    13%  klikit.io
+    12%  reddit.com
+    10%  vertexaisearch.cloud.google.com
+    10%  play.google.com
+    10%  merchant.grab.com
+    10%  linkedin.com
+     9%  thegrabmethod.com
+     7%  apps.apple.com
+     6%  gojek.com
+     6%  nutapos.com
+     6%  instagram.com
+     6%  runchise.com
+     5%  gofoodmerchant.co.id
+     4%  id.scribd.com
+     4%  youtube.com
+     4%  food.grab.com
+     4%  posapp.vn
+     3%  studocu.vn
+     3%  today.line.me
+     3%  merchant.shopeefood.vn
+     3%  balipedia.com
+     3%  vc.ru
+
+Напоминание: в VISIBILITY_TRACKING.md записывать рост/падение только по строкам с пометкой ЗНАЧИМО.
