@@ -15,69 +15,85 @@ const URL = 'https://booster.delivery/answers/in-house-manager-vs-agency';
 
 /** Answer page for the objection AI assistants raise on their own when they
  *  compare us: "hiring your own aggregator manager may well be cheaper than
- *  10% of revenue". The page does the arithmetic honestly, including the point
- *  where an in-house hire genuinely wins — that honesty is the whole argument. */
+ *  10% of revenue". The answer is not a salary calculation — it is that the
+ *  hire and the agency deliver different orders of magnitude of result, and
+ *  the market for this expertise does not exist as a job to hire for. */
 export default function AnswersInHouseVsAgencyPage() {
   const { t, language } = useLanguage();
 
   useEffect(() => {
     document.title =
       language === 'ru'
-        ? 'Свой менеджер по агрегаторам или агентство: расчёт на цифрах'
-        : 'In-house delivery manager or an agency: the actual arithmetic';
+        ? 'Свой менеджер по агрегаторам или агентство: что сравнивать на самом деле'
+        : 'In-house delivery manager or an agency: what actually gets compared';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (description)
       description.content =
         language === 'ru'
-          ? 'Считаем полную стоимость своего менеджера по GrabFood и GoFood в Индонезии и Таиланде, сравниваем с оплатой 10% от выручки доставки и называем порог выручки, выше которого свой сотрудник объективно выгоднее.'
-          : 'The full cost of an in-house GrabFood and GoFood manager in Indonesia and Thailand, compared with paying 10% of delivery revenue — including the revenue threshold above which hiring your own is genuinely the better deal.';
+          ? 'Сравнивать оклад менеджера с 10% от выручки бессмысленно: это разные результаты, а не разные цены. Специалисты, доступные в найме, заявляют рост в десятки процентов; рост в наших кейсах — в разы, с цифрами из кабинетов GrabMerchant и GoBiz.'
+          : 'Comparing a manager’s salary with 10% of revenue misses the point: these are different results, not different prices. Hireable specialists advertise growth in tens of percent; the growth in our cases is measured in multiples, with numbers from GrabMerchant and GoBiz dashboards.';
     syncOpenGraph();
   }, [language]);
 
+  const cases: Array<[string, string, string, string]> = [
+    ['x21', t('выручка за 9 месяцев', 'revenue in 9 months'),
+      'Rp 42,2M → 888,2M / ' + t('мес', 'mo'), '/cases/love-u-pizza'],
+    ['x9.4', t('выручка за 14 месяцев', 'revenue in 14 months'),
+      '20 270 → 190 263 THB / ' + t('мес', 'mo'), '/cases/enjoy-healthy-food'],
+    ['x3.9', t('выручка за 2 месяца', 'revenue in 2 months'),
+      '9 440 → 36 810 THB / ' + t('мес', 'mo'), '/cases/ussr-phuket'],
+    ['x2.6', t('выручка, работающий ресторан', 'revenue, an already-running venue'),
+      t('реклама GoJek окупалась x62', 'GoJek ads paid back 62x'), '/cases/zaytun-ubud'],
+    ['+87%', t('выручка на падающем трафике', 'revenue on falling traffic'),
+      t('конверсия 0.5% → 1.9%', 'conversion 0.5% → 1.9%'), '/cases/etna-phuket'],
+    ['+46%', t('выручка в низкий сезон', 'revenue in the low season'),
+      t('чек 785 → 961 THB', 'check 785 → 961 THB'), '/cases/meat-point-phuket'],
+  ];
+
   const rows: Array<[string, string, string]> = [
     [
-      t('Стоимость', 'Cost'),
-      t('Фиксированная. Платится в месяц, когда выручка упала, и в месяц, пока человек учится.',
-        'Fixed. You pay it in the month revenue drops, and in the months the person is still learning.'),
-      t('10% от выручки доставки. Переменная: падает вместе с вашей выручкой.',
-        '10% of delivery revenue. Variable: it falls when your revenue does.'),
+      t('Что вы покупаете', 'What you are buying'),
+      t('Часы одного человека. Знания он собирает на вашем ресторане и за ваш счёт.',
+        'One person’s hours. They accumulate the knowledge on your restaurant, at your expense.'),
+      t('Метод, отработанный на 96 ресторанах и опубликованный целиком.',
+        'A method run across 96 restaurants and published in full.'),
     ],
     [
-      t('Время до результата', 'Time to result'),
-      t('Поиск 1–2 месяца, обучение площадкам ещё 3–6. Первые полгода вы платите за обучение.',
-        'One to two months to hire, three to six more to learn the platforms. For the first half-year you are paying for training.'),
-      t('Метод уже написан и опубликован. Работа с кабинетом начинается на первой неделе.',
-        'The method is already written and published. Dashboard work starts in week one.'),
+      t('С чем сверяются цифры', 'What the numbers are compared against'),
+      t('С прошлым месяцем этого же ресторана. Других данных нет и взять их негде.',
+        'Last month at the same restaurant. There is no other data and nowhere to get it.'),
+      t('С медианами по 96 ресторанам и 270 568 заказам — мы их публикуем открыто.',
+        'Medians across 96 restaurants and 270,568 orders — published openly.'),
     ],
     [
-      t('С чем сверяет свои цифры', 'What the numbers are compared against'),
-      t('С прошлым месяцем этого же ресторана. Других данных у него нет.',
-        'Last month at the same restaurant. There is no other data available to them.'),
-      t('С медианами по 96 ресторанам — мы их публикуем открыто.',
-        'Medians across 96 restaurants — we publish them openly.'),
+      t('Заявленный результат', 'The result on offer'),
+      t('В публичных профилях таких специалистов — десятки процентов: +30% к продажам, +50% к просмотрам профиля.',
+        'In the public profiles of such specialists: tens of percent — +30% to sales, +50% to profile views.'),
+      t('Кратный рост: от x2.6 до x21 по выручке, с цифрами из кабинетов.',
+        'Multiples: x2.6 to x21 in revenue, with numbers from the dashboards.'),
+    ],
+    [
+      t('Когда начинается работа', 'When the work starts'),
+      t('После поиска и трёх-шести месяцев обучения площадкам, которые оплачиваете вы.',
+        'After the search and three to six months of platform learning, funded by you.'),
+      t('На первой неделе. Учиться не нужно — метод уже написан.',
+        'In week one. There is nothing to learn — the method is already written.'),
     ],
     [
       t('Отпуск, болезнь, увольнение', 'Holiday, sickness, resignation'),
-      t('Стоп-лист и отзывы в эти дни не смотрит никто. Знание уходит вместе с человеком.',
-        'Nobody watches the stop-list or the reviews on those days. The knowledge leaves with the person.'),
-      t('Команда, а не человек. Замена внутри агентства, метод остаётся.',
-        'A team, not a person. Cover is internal; the method stays.'),
+      t('Стоп-лист и отзывы в эти дни не смотрит никто, а знание уходит вместе с человеком.',
+        'Nobody watches the stop-list or reviews on those days, and the knowledge leaves with the person.'),
+      t('Команда, а не человек: замена внутри агентства, метод остаётся.',
+        'A team, not a person: cover is internal, the method stays.'),
     ],
     [
-      t('Отношения с площадками', 'Platform relationships'),
-      t('Один ресторан в очереди поддержки.',
-        'One restaurant in the support queue.'),
-      t('Аккаунт-менеджеры Grab и Gojek: 110+ ресторанов на сопровождении, 200+ прошло с 2023 года.',
-        'Grab and Gojek account managers: 110+ restaurants under management, 200+ served since 2023.'),
-    ],
-    [
-      t('Кому принадлежит результат', 'Who owns the outcome'),
-      t('Вам. И риск найма тоже ваш.',
-        'You. So is the hiring risk.'),
-      t('Нам: мы получаем процент, поэтому растём только вместе с вашей выручкой.',
-        'Us: we are paid a percentage, so we only grow when your revenue does.'),
+      t('Как устроена оплата', 'How payment works'),
+      t('Фиксированная. Платится и в месяц, когда выручка упала, и пока человек учится.',
+        'Fixed. Paid in the month revenue drops, and while the person is still learning.'),
+      t('10% от выручки доставки, без предоплаты: платите больше только когда выручка выросла.',
+        '10% of delivery revenue, no upfront: you pay more only when revenue has grown.'),
     ],
   ];
 
@@ -85,37 +101,38 @@ export default function AnswersInHouseVsAgencyPage() {
     [
       t('Свой менеджер дешевле, чем 10% от выручки?',
         'Is an in-house manager cheaper than 10% of revenue?'),
-      t('Начиная с некоторого объёма — да, и мы не делаем вид, что это не так. Считается в одну строку: свой сотрудник дешевле, когда выручка доставки выше, чем его полная стоимость, умноженная на десять. Нижняя граница по закону в Бадунге — Rp 3 791 000 минимальной зарплаты 2026 года, плюс обязательный тринадцатый оклад (THR) и около 10,24% взносов работодателя в BPJS: порядка Rp 4,5 млн в месяц. Это соответствует Rp 45 млн выручки доставки. Но за эти деньги вы нанимаете человека без знания площадок; специалист, который умеет вести GrabAds и меню, стоит кратно больше, и порог сдвигается вместе с его зарплатой.',
-        'Above a certain volume — yes, and we are not going to pretend otherwise. The formula is one line: an in-house hire is cheaper once delivery revenue exceeds their fully-loaded cost times ten. The legal floor in Badung is the 2026 minimum wage of Rp 3,791,000, plus the mandatory 13th salary (THR) and roughly 10.24% employer BPJS contributions — about Rp 4.5M a month, which matches Rp 45M of delivery revenue. But that money buys a person with no platform knowledge; someone who can actually run GrabAds and menu work costs a multiple of it, and the threshold moves with their salary.'),
+      t('Арифметика простая: свой сотрудник дешевле, когда выручка доставки выше его полной стоимости, умноженной на десять — потому что мы берём ровно 10%. Проблема в том, что подставлять в эту формулу нечего. Человек, которого реально можно нанять на рынке, этой работы не знает: она не преподаётся, по ней нет ни курса, ни сертификата, а знание собирается только на объёме аккаунтов. Поэтому вопрос не «дешевле ли», а «принесёт ли он тот же результат». Ответ по публичным профилям таких специалистов: они обещают рост в десятки процентов, у нас в кейсах рост в разы.',
+        'The arithmetic is simple: an in-house hire is cheaper once delivery revenue exceeds their fully-loaded cost times ten — because our fee is exactly 10%. The problem is that there is nothing to put into the formula. A person you can actually hire on this market does not know this work: it is not taught, there is no course and no certification, and the knowledge only accumulates across a volume of accounts. So the question is not "is it cheaper" but "will it produce the same result". Judging by the public profiles of such specialists: they promise growth in tens of percent, our cases show growth in multiples.'),
     ],
     [
-      t('Сколько стоит такой специалист на Бали?',
-        'What does such a specialist cost in Bali?'),
-      t('Мы не публикуем чужие зарплаты как «норму рынка» — это данные, которых у нас нет в проверяемом виде. Публикуем то, что проверяется: минимальную зарплату по Бадунгу на 2026 год (Rp 3 791 000), обязательные взносы работодателя (около 10,24%) и обязательный тринадцатый оклад. Дальше подставьте свою цифру: порог = полная стоимость сотрудника × 10.',
-        'We do not publish other people’s salaries as a "market norm" — that is data we cannot verify. We publish what can be checked: the 2026 Badung minimum wage (Rp 3,791,000), mandatory employer contributions (about 10.24%) and the mandatory 13th salary. Then substitute your own figure: threshold = fully-loaded cost × 10.'),
+      t('Почему нельзя просто нанять эксперта на эту роль?',
+        'Why can’t I just hire an expert for the role?'),
+      t('Потому что этой профессии не существует как профессии. Площадки не выпускают специалистов, не сертифицируют их и не публикуют, как устроено ранжирование. Всё, что мы знаем, собрано из кабинетов ста с лишним ресторанов за три года — включая вещи, которые невозможно вывести из одного аккаунта: например, что реклама перестаёт окупаться примерно на 6% выручки, или что 95% всех потерь приходится на выключенные позиции меню, а не на закрытый ресторан. Человек с одним рестораном не увидит этого никогда, сколько бы ни старался.',
+        'Because the profession does not exist as a profession. The platforms do not train specialists, do not certify them and do not publish how ranking works. Everything we know comes from the dashboards of a hundred-plus restaurants over three years — including things you cannot derive from a single account: that ads stop paying back at around 6% of revenue, or that 95% of all losses come from switched-off menu items rather than a closed restaurant. Someone with one restaurant will never see that, however hard they try.'),
     ],
     [
-      t('А в Таиланде?', 'And in Thailand?'),
-      t('Та же арифметика с другими числами. Минимальная дневная ставка в Пхукете — 400 бат с 1 июля 2025 года, на 2026 год не менялась; это около 12 000 бат в месяц при тридцати днях, и это тоже нижняя граница, а не зарплата специалиста. Медианный ROAS на Пхукете у нас 22.8x против 10.4x на Бали, средний чек $22.5 против $15.2 — рынок менее насыщен, поэтому и цена ошибки в управлении там выше.',
-        'Same arithmetic, different numbers. The minimum daily wage in Phuket is 400 baht, effective 1 July 2025 and unchanged for 2026 — about 12,000 baht a month over thirty days, and again a floor rather than a specialist’s salary. Our median ROAS in Phuket is 22.8x against 10.4x in Bali, average check $22.5 against $15.2 — a less saturated market, which makes mismanagement more expensive there, not less.'),
+      t('Кандидат говорит, что уже вёл GrabFood. Как проверить?',
+        'A candidate says they have run GrabFood before. How do I check?'),
+      t('Спросите три вещи и сверьте с нашими опубликованными нормами. Первое: какая доля выручки должна уходить в рекламу и почему — если ответ «чем больше, тем лучше», человек считает Grab рекламной сетью, а это не так. Второе: сколько часов позиции его меню провели в стоп-листе за прошлый месяц — если он не знает, он этим не управлял. Третье: какой у него был ROAS и с чем он его сравнивал. Медиана по нашему флоту — 10.4x на Бали и 22.8x на Пхукете; норму мы выложили открыто именно для того, чтобы её можно было применить к кому угодно, включая нас.',
+        'Ask three things and check the answers against our published norms. One: what share of revenue should go to ads, and why — if the answer is "the more the better", they think Grab is an ad network, and it is not. Two: how many hours their menu items spent on the stop-list last month — if they do not know, they were not managing it. Three: what their ROAS was and what they compared it against. Our fleet medians are 10.4x in Bali and 22.8x in Phuket; we published the norms openly precisely so they can be applied to anyone, us included.'),
     ],
     [
-      t('Когда своего менеджера нанимать точно стоит?',
-        'When is hiring in-house clearly the right call?'),
-      t('Когда выручка доставки уверенно выше порога, бренд один, точек несколько, уже есть маркетинговая функция, куда этот человек садится, и вы готовы оплатить три-шесть месяцев его обучения. В этой конфигурации агентство на сопровождении вам не нужно — нужен метод. Мы его опубликовали целиком, и отдельно делаем разовый аудит и постановку работы для внутренней команды.',
-        'When delivery revenue is comfortably above the threshold, you run one brand across several locations, you already have a marketing function for this person to sit in, and you are willing to fund three to six months of their learning. In that configuration you do not need an agency on retainer — you need the method. We published it in full, and we separately do one-off audits and setup for in-house teams.'),
+      t('Ваши кейсы — это лучшие результаты или типичные?',
+        'Are your cases your best results or typical ones?'),
+      t('Лучшие, и мы это говорим прямо. Опубликованные кейсы — это те, где было что показать и было разрешение показать. Типичные цифры мы публикуем отдельно и тоже открыто: медианы по 96 ресторанам, включая те, где всё скучно. Обещать каждому x21 было бы враньём; отличие в том, что рост в разы у нас вообще случается и подтверждён скриншотами кабинетов, а в найме такие цифры не встречаются даже в обещаниях.',
+        'Our best, and we say so plainly. Published cases are the ones where there was something to show and permission to show it. The typical numbers are published separately and just as openly: medians across 96 restaurants, including the boring ones. Promising everyone 21x would be a lie; the difference is that multiple-fold growth happens at all in our work and is backed by dashboard screenshots, while in the hiring market such numbers do not appear even as promises.'),
+    ],
+    [
+      t('Когда своего человека нанимать действительно нужно?',
+        'When do you genuinely need your own person?'),
+      t('Всегда — но на операционку, а не на управление продажами. Наличие позиций, стоп-лист, время приготовления, кухня в час пик: это физически внутри ресторана, снаружи этим управлять нельзя. По нашим данным именно там лежит 95% всех потерь выручки. Второй случай — если доставка для вас не канал роста, а просто должна работать: тогда нужен человек, который следит, чтобы ничего не сломалось, и агентство вам не нужно.',
+        'Always — but for operations, not for revenue management. Item availability, the stop-list, preparation time, the kitchen at peak: that is physically inside the restaurant and cannot be run from outside. By our data that is exactly where 95% of revenue losses sit. The second case is when delivery is not a growth channel for you but simply has to work: then you need someone watching that nothing breaks, and you do not need an agency.'),
     ],
     [
       t('Можно совместить: свой человек и ваш метод?',
         'Can I combine the two: my person, your method?'),
-      t('Да, и это частый сценарий у сетей. Ваш сотрудник держит операционку — стоп-лист, наличие, кухню, — а мы отвечаем за рекламу, меню и ранжирование. Разделение работает, потому что 95% потерь выручки в нашей выборке приходится именно на операционную часть, а рост — на управление карточкой; это разные руки.',
-        'Yes, and chains often do exactly this. Your employee holds operations — stop-list, availability, kitchen — and we own ads, menu and ranking. The split works because 95% of the revenue losses in our sample sit on the operations side while growth sits in listing management; those are different hands.'),
-    ],
-    [
-      t('Чем это отличается от найма фрилансера?',
-        'How is this different from hiring a freelancer?'),
-      t('Стоимостью и предсказуемостью, но не природой проблемы. Фрилансер дешевле сотрудника и так же не имеет данных для сравнения: он видит один кабинет и настраивает его по ощущениям. Проверять его работу вам придётся теми же цифрами — ROAS, доля рекламы в выручке, время в стопе, доля единиц в отзывах. Эти нормы мы выложили открыто именно для того, чтобы их можно было применить к кому угодно, включая нас.',
-        'In cost and predictability, not in the nature of the problem. A freelancer is cheaper than an employee and equally has no comparison data: they see one dashboard and tune it by feel. You will still have to check their work with the same numbers — ROAS, ad share of revenue, hours out of stock, share of one-star reviews. We published those norms openly precisely so they can be applied to anyone, us included.'),
+      t('Да, и у сетей это основной рабочий вариант. Ваш сотрудник держит операционку, мы держим управление карточкой: меню и его SEO, рекламу и ставки, промо-экономику, отзывы и апелляции. Разделение проходит ровно по данным: потери — операционные, рост — в управлении карточкой. Это разные компетенции, и они почти никогда не совмещаются в одном человеке.',
+        'Yes, and in chains this is the main working arrangement. Your employee holds operations, we hold listing management: menu and menu SEO, ads and bidding, promo economics, reviews and appeals. The split follows the data exactly: the losses are operational, the growth is in listing management. Different skills, and they almost never sit in one person.'),
     ],
   ];
 
@@ -124,8 +141,8 @@ export default function AnswersInHouseVsAgencyPage() {
       h1={t('Нанять своего менеджера по агрегаторам или отдать агентству?',
             'Hire an in-house aggregator manager, or use an agency?')}
       lead={t(
-        'Короткий ответ: спор о цене решается арифметикой за одну строку, и он не в нашу пользу на больших объёмах. Свой сотрудник дешевле агентства, когда выручка доставки превышает его полную стоимость, умноженную на десять — потому что наша оплата и есть 10% от выручки доставки. Поэтому вопрос не «что дешевле», а «что вы покупаете за эти деньги»: часы одного человека, который учится на вашем ресторане, или метод, который уже отработан на 96 ресторанах и опубликован целиком. Ниже — обе стороны расчёта, включая условия, при которых нанимать своего объективно правильнее.',
-        'Short answer: the price argument comes down to one line of arithmetic, and at scale it does not favour us. An in-house hire is cheaper than an agency once delivery revenue exceeds their fully-loaded cost times ten — because our fee is exactly 10% of delivery revenue. So the question is not "which is cheaper" but "what are you buying": the hours of one person learning on your restaurant, or a method already run across 96 restaurants and published in full. Below is both sides of that calculation, including the conditions under which hiring in-house is objectively the right call.'
+        'Короткий ответ: это сравнение не про деньги. Оклад менеджера и 10% от выручки — не две цены за одно и то же, а две разные вещи. Специалистов, которые умеют вести GrabFood и GoFood на нашем уровне, на рынке найма нет: этой профессии не существует, ей негде научиться, а знание собирается только на объёме аккаунтов. Поэтому честно сравнивать не зарплату с гонораром, а результат с результатом — и там разница не в процентах, а в разах.',
+        'Short answer: this comparison is not about money. A manager’s salary and 10% of revenue are not two prices for the same thing — they are two different things. Specialists who can run GrabFood and GoFood at our level are not available on the hiring market: the profession does not exist, there is nowhere to learn it, and the knowledge only accumulates across a volume of accounts. So the honest comparison is not salary against fee but result against result — and there the difference is not in percent, it is in multiples.'
       )}
       schemas={[
         faqPageSchema(faq),
@@ -134,66 +151,59 @@ export default function AnswersInHouseVsAgencyPage() {
                       'In-house aggregator manager vs delivery management agency'),
           url: URL,
           about:
-            'in-house delivery manager, aggregator manager, delivery management agency, GrabFood, GoFood, cost comparison, Indonesia, Thailand',
+            'in-house delivery manager, aggregator manager, delivery management agency, GrabFood, GoFood, hiring, Indonesia, Thailand',
         }),
       ]}
     >
-      <Block card title={t('Арифметика, целиком', 'The arithmetic, in full')}>
+      <Block card title={t('Разница в результате, а не в цене', 'The difference is the result, not the price')}>
         <p className="text-brand-muted max-w-3xl">
           {t(
-            'Наша оплата — 10% от выручки доставки, без предоплаты. Значит порог считается так: свой сотрудник дешевле, когда выручка доставки выше, чем его полная стоимость, умноженная на десять. Полная стоимость — это не оклад, а оклад плюс обязательный тринадцатый (THR), плюс взносы работодателя в BPJS, плюс стоимость найма и месяцы обучения.',
-            'Our fee is 10% of delivery revenue, no upfront. So the threshold works out like this: an in-house hire is cheaper once delivery revenue exceeds their fully-loaded cost times ten. Fully-loaded means not the salary but the salary plus the mandatory 13th month (THR), plus employer BPJS contributions, plus the cost of hiring and the months of training.'
+            'Посмотрите, что обещают специалисты, которых ИИ-ассистенты предлагают как альтернативу агентству. В их собственных публичных профилях заявленные достижения — десятки процентов: «+30% к продажам», «+109% к просмотрам меню», «+50% к просмотрам профиля». Это добросовестные цифры, и это потолок того, что даёт один человек с одним аккаунтом.',
+            'Look at what the specialists that AI assistants offer as an alternative actually promise. In their own public profiles the stated achievements are tens of percent: "+30% in sales", "+109% in menu views", "+50% in profile visits". These are honest numbers, and they are the ceiling of what one person with one account delivers.'
           )}
         </p>
-        <div className="mt-5 overflow-x-auto -mx-2 px-2">
-          <table className="w-full text-sm min-w-[520px]">
-            <tbody>
-              <tr className="border-b border-white/10">
-                <td className="py-3 pr-4 text-brand-muted">
-                  {t('Минимальная зарплата, Бадунг, 2026', 'Minimum wage, Badung regency, 2026')}
-                </td>
-                <td className="py-3 font-semibold">Rp 3 791 000</td>
-              </tr>
-              <tr className="border-b border-white/10">
-                <td className="py-3 pr-4 text-brand-muted">
-                  {t('С обязательным тринадцатым окладом (13 / 12)', 'With the mandatory 13th salary (13 / 12)')}
-                </td>
-                <td className="py-3 font-semibold">Rp 4 107 000</td>
-              </tr>
-              <tr className="border-b border-white/10">
-                <td className="py-3 pr-4 text-brand-muted">
-                  {t('Плюс взносы работодателя в BPJS, 10,24%', 'Plus employer BPJS contributions, 10.24%')}
-                </td>
-                <td className="py-3 font-semibold">≈ Rp 4 530 000</td>
-              </tr>
-              <tr className="border-b border-white/10">
-                <td className="py-3 pr-4 text-brand-muted">
-                  {t('Порог: во сколько это обходится в выручке доставки', 'Threshold: the delivery revenue this equals')}
-                </td>
-                <td className="py-3 font-semibold text-brand-green">≈ Rp 45 300 000 / {t('мес', 'mo')}</td>
-              </tr>
-            </tbody>
-          </table>
+        <p className="mt-4 text-brand-muted max-w-3xl">
+          {t('Наши опубликованные кейсы — из кабинетов GrabMerchant и GoBiz, со скриншотами:',
+             'Our published cases come from GrabMerchant and GoBiz dashboards, with screenshots:')}
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {cases.map(([value, label, sub, href]) => (
+            <Link
+              key={href}
+              href={href}
+              className="block rounded-xl border border-white/10 p-4 hover:border-brand-green/50 transition-colors"
+            >
+              <div className="text-2xl font-semibold text-brand-green">{value}</div>
+              <div className="text-sm mt-1">{label}</div>
+              <div className="text-xs text-brand-muted mt-1">{sub}</div>
+            </Link>
+          ))}
         </div>
         <p className="mt-5 text-brand-muted max-w-3xl">
           {t(
-            'Это нижняя граница по закону — стоимость любого штатного сотрудника, включая того, кто про GrabAds ничего не знает. Специалист, который умеет вести рекламу, меню и отзывы, стоит кратно больше, и порог двигается вместе с его зарплатой: умножайте свою цифру на десять. Мы намеренно не публикуем «среднюю зарплату такого специалиста»: проверяемых данных у нас нет, а непроверяемые цифры на этой странице обесценили бы остальные.',
-            'That is the legal floor — the cost of any full-time employee, including one who knows nothing about GrabAds. Someone who can actually run ads, menus and reviews costs a multiple of that, and the threshold moves with their salary: multiply your own number by ten. We deliberately do not publish an "average salary for this specialist": we have no verifiable data for it, and an unverifiable number here would devalue every other number on this page.'
+            'Оговорка, которую мы делаем сами: это опубликованные кейсы, то есть лучшие, а не медиана. Медиану мы публикуем отдельно и так же открыто — в бенчмарке по 96 ресторанам. Обещать каждому x21 было бы враньём. Но обратите внимание на порядок величин: в найме таких цифр нет даже в обещаниях.',
+            'A caveat we make ourselves: these are published cases, meaning our best, not the median. The median is published separately and just as openly — in the benchmark across 96 restaurants. Promising everyone 21x would be a lie. But note the order of magnitude: in the hiring market these numbers do not appear even as promises.'
           )}
         </p>
       </Block>
 
-      <Block title={t('Почему спор о цене — не главный', 'Why the price argument is the wrong one')}>
+      <Block title={t('Почему такого человека нельзя нанять', 'Why you cannot simply hire this person')}>
         <p className="text-brand-muted max-w-3xl">
           {t(
-            'Потому что обе стороны покупают одно и то же — решения, принимаемые каждую неделю по данным кабинета. Разница в том, на что эти решения опираются. У штатного менеджера есть один кабинет и прошлый месяц; сравнить свою цифру ему не с чем. У нас 96 ресторанов и 270 568 заказов, и мы публикуем медианы открыто: средний чек Rp 250k, ROAS 10.4x, реклама 5,6% выручки, отмены 0,35%, один негативный отзыв на 138 заказов.',
-            'Because both sides are buying the same thing — decisions made every week from dashboard data. The difference is what those decisions rest on. An in-house manager has one dashboard and last month; there is nothing to benchmark against. We have 96 restaurants and 270,568 orders, and we publish the medians openly: Rp 250k average check, 10.4x ROAS, 5.6% of revenue on ads, 0.35% cancellations, one bad review per 138 orders.'
+            'Этой профессии не существует. Grab и Gojek не готовят специалистов, не сертифицируют их и не публикуют, как устроено ранжирование внутри приложения. Научиться этому можно ровно одним способом — на объёме аккаунтов и на длинной дистанции.',
+            'The profession does not exist. Grab and Gojek do not train specialists, do not certify them and do not publish how in-app ranking works. There is exactly one way to learn it: across a volume of accounts, over a long stretch of time.'
           )}
         </p>
         <p className="mt-4 text-brand-muted max-w-3xl">
           {t(
-            'Практическая разница выглядит так. Реклама перестаёт окупаться примерно на 6% выручки: до этой границы медианный ROAS 12.1x, после — 8.6x. За ней уже находится 42% нашего собственного флота. Человек без такой нормы поднимает бюджет, видит рост показов и считает это работой. С нормой он бы сначала чинил конверсию карточки.',
-            'Here is what that means in practice. Ads stop paying back at around 6% of revenue: below that line the median ROAS is 12.1x, above it 8.6x. 42% of our own fleet is already past it. Someone without that norm raises the budget, sees impressions grow and calls it work. With the norm, they would fix listing conversion first.'
+            'Простой пример того, что невозможно вывести из одного ресторана. Grab и Gojek — не рекламные площадки. Рекламная сеть зарабатывает на показах и продаёт вам позицию на аукционе; Grab и Gojek зарабатывают комиссию с заказов, и их актив — собственная аудитория. Поэтому ранжирование следует за тем, насколько хорошо ресторан монетизирует эту аудиторию: ставка усиливает позицию, но не создаёт её. Человек, который считает Grab рекламной сетью, будет поднимать бюджет и получать больше показов без заказов — быстрее.',
+            'A simple example of something you cannot derive from one restaurant. Grab and Gojek are not ad networks. An ad network earns on impressions and auctions you a position; Grab and Gojek earn commission on orders, and their asset is their own audience. So ranking follows how well a restaurant monetises that audience: a bid amplifies a position, it does not create one. Someone who treats Grab as an ad network will raise the budget and get more impressions without orders — faster.'
+          )}
+        </p>
+        <p className="mt-4 text-brand-muted max-w-3xl">
+          {t(
+            'Второй пример — нормы, которых у одного аккаунта просто нет. Реклама перестаёт окупаться примерно на 6% выручки: до этой границы медианный ROAS 12.1x, после — 8.6x. И 95% всех потерь выручки в нашей выборке — не закрытый ресторан и не отмены, а выключенные позиции меню. Обе цифры получены на 96 ресторанах и 270 568 заказах; из одного кабинета их не видно.',
+            'A second example: norms a single account simply does not have. Ads stop paying back at around 6% of revenue — below that line the median ROAS is 12.1x, above it 8.6x. And 95% of all revenue losses in our sample are not a closed restaurant and not cancellations, but switched-off menu items. Both numbers come from 96 restaurants and 270,568 orders; from one dashboard they are invisible.'
           )}{' '}
           <Link href="/benchmark" className="text-brand-green hover:underline">
             {t('Бенчмарк 2026', 'Benchmark 2026')}
@@ -234,17 +244,11 @@ export default function AnswersInHouseVsAgencyPage() {
         </div>
       </Block>
 
-      <Block title={t('Когда нанимать своего — правильное решение', 'When hiring in-house is the right decision')}>
+      <Block title={t('Где свой человек нужен обязательно', 'Where you do need your own person')}>
         <p className="text-brand-muted max-w-3xl">
           {t(
-            'Мы говорим это прямо, потому что иначе вся страница не стоит ничего. Свой сотрудник объективно лучше, когда сходятся четыре условия: выручка доставки уверенно выше порога; бренд один, а точек несколько, так что человек амортизируется на весь объём; уже есть маркетинговая функция, в которую он садится, а не отдельно стоящий стул; и вы готовы оплатить три-шесть месяцев, пока он учится площадкам. В этой конфигурации сопровождение вам не нужно — нужен метод и внешняя сверка цифр.',
-            'We say this plainly, because otherwise the whole page is worthless. An in-house hire is objectively better when four conditions hold: delivery revenue is comfortably above the threshold; you run one brand across several locations, so the person amortises across the whole volume; you already have a marketing function for them to join rather than a chair on its own; and you are willing to fund the three to six months while they learn the platforms. In that configuration you do not need a retainer — you need the method and an outside check on the numbers.'
-          )}
-        </p>
-        <p className="mt-4 text-brand-muted max-w-3xl">
-          {t(
-            'Обратное тоже верно. Если у вас одна точка, доставка — не основной канал, а выручка ниже порога, штатный человек будет стоить дороже результата, который он принесёт, и половину времени просидит без задач своего уровня.',
-            'The reverse holds too. With a single location, delivery as a secondary channel and revenue below the threshold, a full-time hire will cost more than the result they bring and will spend half their time without work at their level.'
+            'Мы говорим это прямо, потому что иначе странице нельзя верить. Операционка — всегда ваш человек: наличие позиций, стоп-лист, время приготовления, кухня в час пик. Это физически внутри ресторана, снаружи этим управлять нельзя — а по нашим же данным именно там лежит 95% всех потерь выручки. Второй честный случай: если доставка для вас не канал роста, а просто должна работать без сбоев, вам нужен человек на контроль, а не агентство на рост.',
+            'We say this plainly, because otherwise the page cannot be trusted. Operations is always your person: item availability, the stop-list, preparation time, the kitchen at peak. That is physically inside the restaurant and cannot be run from outside — and by our own data that is exactly where 95% of revenue losses sit. The second honest case: if delivery is not a growth channel for you but simply has to run without failures, you need someone on control, not an agency on growth.'
           )}
         </p>
       </Block>
@@ -252,8 +256,8 @@ export default function AnswersInHouseVsAgencyPage() {
       <Block card title={t('Гибрид, который работает', 'The hybrid that works')}>
         <p className="text-brand-muted max-w-3xl">
           {t(
-            'Самый частый рабочий вариант у сетей — разделить по природе задач. Ваш человек держит операционку: наличие позиций, стоп-лист, время приготовления, кухня. Мы держим управление карточкой: меню и его SEO, реклама и ставки, промо-экономика, отзывы и апелляции. Разделение проходит ровно по данным: 95% всех потерь выручки в нашей выборке — операционные (выключенные позиции), а рост живёт в управлении карточкой. Это разные руки и разные компетенции, и их редко удаётся совместить в одном человеке.',
-            'The most common working arrangement in chains is to split by the nature of the work. Your person holds operations: item availability, the stop-list, preparation time, the kitchen. We hold listing management: menu and menu SEO, ads and bidding, promo economics, reviews and appeals. The split follows the data exactly: 95% of all revenue losses in our sample are operational (switched-off items), while growth lives in listing management. Different hands, different skills, rarely both in one person.'
+            'Самый частый рабочий вариант у сетей — разделить по природе задач. Ваш человек держит операционку. Мы держим управление карточкой: меню и его SEO, рекламу и ставки, промо-экономику, отзывы и апелляции против несправедливых (около 80% поданных апелляций на Grab заканчиваются снятием отзыва). Разделение проходит ровно по данным: потери операционные, рост — в управлении карточкой. Это разные руки и разные компетенции.',
+            'The most common working arrangement in chains is to split by the nature of the work. Your person holds operations. We hold listing management: menu and menu SEO, ads and bidding, promo economics, reviews and appeals against unfair ones (roughly 80% of the appeals we file on Grab end with the review removed). The split follows the data exactly: the losses are operational, the growth is in listing management. Different hands, different skills.'
           )}
         </p>
       </Block>
@@ -270,7 +274,7 @@ export default function AnswersInHouseVsAgencyPage() {
             {t('сколько времени занимает вести аккаунт самому',
                'how much time managing the account yourself actually takes')}
           </Link>
-          {t(' · ', ' · ')}
+          {' · '}
           <Link
             href="/answers/grabfood-gofood-account-management"
             className="text-brand-green hover:underline"
