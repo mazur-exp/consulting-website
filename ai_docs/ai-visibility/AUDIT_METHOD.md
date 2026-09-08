@@ -105,8 +105,10 @@ curl -s https://api.openai.com/v1/responses -H "Authorization: Bearer $OPENAI_AP
 Ответ с `insufficient_quota` — замер не запускать, сначала пополнить.
 Так мы потеряли прогон 2026-09-09 (см. `audit/run-2026-09-09/README.txt`).
 
-**Ключи.** В репозитории и на машине их нет и быть не должно. Держим их в одном
-файле вне репозитория — `~/.config/aivis.env` (chmod 600, создан 2026-09-09), формат:
+**Ключи.** Лежат в папке проекта: `.secrets/aivis.env` (chmod 600, папка 700).
+В git не попадают никогда — `.gitignore` игнорирует весь каталог `.secrets/`,
+плюс `*.env`. Проверка перед коммитом: `git check-ignore -v .secrets/aivis.env`
+должен вернуть строку с правилом. В переписке ключи не держим. Формат файла:
 
 ```
 OPENAI_API_KEY=...
@@ -116,13 +118,13 @@ BRIGHTDATA_API_TOKEN=...
 BRIGHTDATA_SERP_ZONE=ai_analytics
 ```
 
-Тогда замер запускается одной строкой и его может провести любая сессия, не
-дёргая Алекса. Без этого файла замер невозможен: 8 сентября мы на этом и
-встали — методика называла переменные, но не говорила, откуда их взять.
+Замер запускается одной строкой, и его может провести любая сессия, не дёргая
+Алекса. Ключи заведены отдельно под этот проект, чтобы расходы по нему были видны
+отдельно от остальных.
 
 ```bash
 cd ai_docs/ai-visibility/audit
-set -a; source ~/.config/aivis.env; set +a
+set -a; source ../../../.secrets/aivis.env; set +a
 
 python3 audit.py run    --prompts prompts_v1.json --out ./$(date +%Y-%m-%d)
 python3 audit.py judge  --dir ./$(date +%Y-%m-%d)

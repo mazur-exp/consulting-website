@@ -4,3 +4,10 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Секреты. Ключи для замера AI Visibility лежат в .secrets/aivis.env —
+# в репозитории по пути, но НИКОГДА не в git. Не убирать эти строки.
+.secrets/
+*.env
+.env
+.env.*
