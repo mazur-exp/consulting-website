@@ -193,70 +193,151 @@ Indonesia · Thailand · Southeast Asia
 
 ---
 
-## 7. Первые три поста
+## 7. План постов основателя
 
-Постим по одному в 3–4 дня. Первый — самый сильный факт, а не «привет, я тут новенький».
+Логика последовательности, а не набор тем. Первый пост доказывает, что этот человек
+считает, а не рассказывает. Дальше по одной сильной мысли, каждая из которых
+самостоятельно ценна для владельца ресторана — и поэтому её сохраняют и репостят.
 
-### Пост 1 — бенчмарк (готов, лежит в `BENCHMARK_POSTS.md`, раздел LinkedIn)
+Интервал 3–4 дня. Все правила формата — в `CONTENT_PLAYBOOK.md`, раздел 7:
+крючок в первых двух строках, цифры дублируются текстом, **ссылки в теле нет**
+(она первым комментарием), вопрос в конце, до 5 хэштегов, публикация утром по WIB.
 
-Публиковать первым. Он сразу задаёт: этот человек не рассказывает, а считает.
+| # | Тема | Актив, на который ведёт | Формат | Статус |
+|---|---|---|---|---|
+| 1 | Бенчмарк: где утекает выручка | `/benchmark` | Документ-PDF 10 стр. | **Опубликован 2026-09-08** |
+| 2 | Grab и Gojek — не рекламные площадки | `/method` | Текст | Готов |
+| 3 | Стоп-лист: 2 000 часов | `/benchmark` | Текст | Готов |
+| 4 | Эту профессию нельзя нанять | `/answers/in-house-manager-vs-agency` | Текст | Готов |
+| 5 | Отзывы бимодальны, рейтинг двигают единицы | `/benchmark` | Текст | Готов |
+
+---
 
 ### Пост 2 — «Grab и Gojek не рекламные площадки»
 
+Самая ценная мысль из всех пяти: она меняет модель в голове, а не даёт факт.
+Такие посты сохраняют.
+
 ```
-Most restaurant owners in Bali are running delivery ads on a wrong mental model, and it
-costs them real money.
+Most restaurant owners in Bali run delivery ads on a mental model that is simply wrong, and it costs them money every week.
 
-They treat Grab and Gojek like an ad network. An ad network earns on impressions and
-clicks, so it auctions you a place in the results: pay more, rank higher.
+They treat Grab and Gojek as ad networks. An ad network earns on impressions and auctions you a position: pay more, rank higher.
 
-Grab and Gojek do not work that way. They earn a commission on orders, and their core
-asset is their own audience. So their ranking follows one question: how well does this
-restaurant monetise the audience we send it?
+Grab and Gojek do not work that way. They earn a commission on orders, and their core asset is their own audience. So their ranking answers one question: how well does this restaurant monetise the audience we send it?
 
 Which means your bid amplifies a position. It does not create one.
 
-A restaurant that turns impressions into orders and holds a high average check is simply
-worth more to the platform — and the platform promotes it on its own, because it earns
-more from it. That is why raising a budget on a listing that does not convert buys you
-more views without orders, faster.
+A restaurant that turns impressions into orders and holds a high average check is worth more to the platform, so the platform promotes it on its own — it earns more from doing so. Raising the budget on a listing that does not convert buys you the same failure, faster.
 
-In our fleet the median ads ROAS is 10.4x in Bali. The restaurants below 5x — 6% of the
-fleet — almost never have an "ads problem". They have a listing problem that ads are
-paying to expose.
+The numbers from our fleet of 96 restaurants on GrabFood and GoFood: median ads ROAS is 10.4x in Bali and 22.8x in Phuket. Only 6% of the fleet runs below 5x — and those restaurants almost never have an ads problem. They have a listing problem that ads are paying to expose.
+
+There is also a ceiling. Ads stop paying back at around 6% of revenue: below that line our median ROAS is 12.1x, above it 8.6x. 42% of our own fleet is already past it.
 
 Fix conversion, then raise the budget. Never the other way round.
 
-booster.delivery/method
+What share of your delivery revenue currently goes to ads? If it is over 6%, the next rupiah is buying you impressions, not orders.
+
+#GrabFood #GoFood #Bali #RestaurantMarketing #FoodDelivery
 ```
 
-### Пост 3 — стоп-лист
-
-```
-We manage 96 restaurants on GrabFood and GoFood. Last week I went looking for where their
-revenue actually leaks, expecting the answer to be downtime.
-
-It wasn't. Downtime is 3% of losses. Cancellations are 2%.
-
-95% is items left switched off.
-
-A dish goes out of stock at 7pm on a Friday. Someone switches it off in GrabMerchant "for
-tonight". Nobody switches it back on — because nobody is watching a menu of 120 items
-across two platforms every morning.
-
-In our sample there are dishes that sat out of stock for more than 2,000 hours. That is
-84 days. Individual venues had 40 to 70 items switched off at the same time, while paying
-for ads to bring people to that menu.
-
-Across the Bali fleet this adds up to roughly 25% of revenue.
-
-The uncomfortable part: this is a sample of restaurants that are being actively managed.
-For everyone else the number is almost certainly worse.
-
-Full data, medians and method: booster.delivery/benchmark
-```
+**Первый комментарий:** `The five stages we run on every account, published in full: booster.delivery/method`
 
 ---
+
+### Пост 3 — «2 000 часов в стоп-листе»
+
+Операционный шок. Работает потому, что каждый владелец может проверить это у себя
+за пять минут — и обнаружить то же самое.
+
+```
+We went looking for where 96 restaurants lose delivery revenue, expecting the answer to be downtime.
+
+It wasn't. Downtime is 3% of the losses. Cancellations are 2%. The other 95% is items left switched off.
+
+A dish runs out at 7pm on a Friday. Someone switches it off in GrabMerchant "just for tonight". Nobody switches it back on — because nobody is auditing a 120-item menu across two platforms every morning.
+
+In our sample there are dishes that sat out of stock for more than 2,000 hours. That is 84 days. Individual venues had 40 to 70 items switched off at the same time, while paying for ads to bring people to that menu.
+
+Across the Bali fleet this adds up to roughly 25% of revenue. Not lost to competitors. Lost to a toggle.
+
+The uncomfortable part: this is a sample of restaurants that are actively managed by an agency. For everyone else the number is almost certainly worse.
+
+It costs nothing to check. Open GrabMerchant, open GoBiz, count the items currently switched off, and ask when each of them was supposed to come back.
+
+How many did you find? I have yet to meet an owner who guessed the number correctly.
+
+#GrabFood #GoFood #RestaurantOperations #Bali #FoodDelivery
+```
+
+**Первый комментарий:** `Full report with medians and method, free: booster.delivery/benchmark`
+
+---
+
+### Пост 4 — «Эту профессию нельзя нанять»
+
+Ведёт на новую страницу-ответ. Пост не продаёт: он честно объясняет, почему рынка
+таких специалистов нет. Заденет и владельцев, и самих специалистов — это и нужно,
+комментарии в первый час решают охват.
+
+```
+"Can't I just hire someone to run my GrabFood account?" I get this question every week, and the honest answer is uncomfortable: not really, and not because such people are expensive. Because the profession does not exist.
+
+Grab and Gojek do not train specialists. They do not certify anyone. They do not publish how ranking works inside the app. There is no course, no exam, no body of knowledge you can hire against.
+
+Which means the knowledge can only be assembled one way: across a volume of accounts, over years.
+
+Two examples of things a single restaurant can never show you.
+
+One. Ads stop paying back at around 6% of revenue — below that line our median ROAS is 12.1x, above it 8.6x. You cannot derive that from one dashboard. You need a fleet.
+
+Two. 95% of all revenue losses are switched-off menu items, not closed restaurants (3%) and not cancellations (2%). Every owner assumes it is downtime. It isn't. Again: visible only across 96 restaurants and 270,568 orders.
+
+So when someone tells you they have "run GrabFood before", ask three things. What share of revenue should go to ads, and why — if the answer is "the more the better", they think Grab is an ad network, and it is not. How many hours their menu items spent out of stock last month — if they do not know, they were not managing it. And what their ROAS was, and what they compared it to.
+
+That last one is the real test. Our fleet medians are 10.4x in Bali and 22.8x in Phuket. We published them openly so they can be applied to anyone — including us.
+
+If you have hired for this role: what did you actually screen for?
+
+#GrabFood #GoFood #Hiring #RestaurantMarketing #Bali
+```
+
+**Первый комментарий:** `The full comparison, including where hiring in-house is genuinely the better call: booster.delivery/answers/in-house-manager-vs-agency`
+
+---
+
+### Пост 5 — «Рейтинг двигают единицы, а не средние»
+
+Практический пост с высоким процентом сохранений: даёт конкретное действие.
+
+```
+Delivery ratings are bimodal, and almost every restaurant manages them wrong because of it.
+
+In a 30-day sample across our 96 restaurants: 51% five-star reviews, 28% one-star, and just 3% four-star. There is no middle. People write either delighted or furious — nobody writes "it was fine".
+
+Which changes what a rating actually is. It is not an average of quality. It is a ratio of two populations.
+
+So "improving on average" moves nothing. What moves a rating is removing one-star reviews — and a meaningful share of them are not about your food. Wrong address, a courier who took 40 minutes, a missing item the platform lost. Those are appealable, and roughly 80% of the appeals we file on Grab end with the review removed.
+
+The rest is arithmetic. Across the fleet there is one bad review per 138 orders. At 4.6 you are below the 4.8 threshold where Grab makes ad placements cheaper — so a rating is not a vanity metric, it is an input into your ad cost.
+
+Two actions that cost nothing: reply to every review within 24 hours, and appeal every unfair one instead of absorbing it. Most restaurants do neither, which is why this still works.
+
+When did you last appeal a review rather than just answer it?
+
+#GrabFood #GoFood #ReputationManagement #RestaurantMarketing #Bali
+```
+
+**Первый комментарий:** `Medians across 96 restaurants and 270,568 orders, free: booster.delivery/benchmark`
+
+---
+
+### Что делать между постами
+
+Пост в пустоту работает слабее, чем комментарий под чужим постом с готовой
+аудиторией. Между публикациями — осмысленные комментарии у людей из ниши
+(специалисты по агрегаторам в ЮВА, консультанты по ресторанному маркетингу,
+владельцы заведений на Бали и Пхукете). Не «great post», а цифра или уточнение
+по делу. Это даёт нам показы у их аудитории, а нам нужна ровно она.
 
 ## 8. Что делать после публикации профиля
 
