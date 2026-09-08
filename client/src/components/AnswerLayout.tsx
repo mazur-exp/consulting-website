@@ -164,3 +164,26 @@ export const AnswerCta = () => {
     </Block>
   );
 };
+
+/**
+ * Mirror the page's title / description / canonical into the Open Graph and
+ * Twitter meta tags. Without this every route inherits index.html's tags, so
+ * og:url points at the homepage on every page — which makes LinkedIn, Slack,
+ * WhatsApp and Telegram render the wrong preview (or refuse to make one).
+ * Call at the END of a page's own useEffect, after title/canonical are set.
+ */
+export const syncOpenGraph = () => {
+  const title = document.title;
+  const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href;
+  const description = document.querySelector<HTMLMetaElement>('meta[name="description"]')?.content;
+  const set = (selector: string, value?: string) => {
+    if (!value) return;
+    const el = document.querySelector<HTMLMetaElement>(selector);
+    if (el) el.content = value;
+  };
+  set('meta[property="og:title"]', title);
+  set('meta[name="twitter:title"]', title);
+  set('meta[property="og:url"]', canonical);
+  set('meta[property="og:description"]', description);
+  set('meta[name="twitter:description"]', description);
+};

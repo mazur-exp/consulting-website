@@ -1,3 +1,4 @@
+import { syncOpenGraph } from '../components/AnswerLayout';
 import { useEffect } from 'react';
 import { AnimatedBackground } from '../components/AnimatedBackground';
 import { Header } from '../components/Header';
@@ -35,6 +36,7 @@ export default function CountryPage({ code }: { code: CountryCode }) {
 
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = `https://booster.delivery/${code}`;
+    syncOpenGraph();
   }, [language, code, country]);
 
   return (

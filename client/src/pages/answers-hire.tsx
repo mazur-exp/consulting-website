@@ -1,3 +1,4 @@
+import { syncOpenGraph } from '../components/AnswerLayout';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
@@ -36,6 +37,7 @@ export default function AnswersHirePage() {
         language === 'ru'
           ? 'Да — услуга называется управление доставкой. Агентство ведёт GrabMerchant и GoBiz за ресторан: меню, реклама GrabAds, рейтинг 4.8+, еженедельная аналитика. Чем это отличается от Klikit и Deliverect и сколько стоит.'
           : 'Yes — the service is called delivery management. An agency runs GrabMerchant and GoBiz for your restaurant: menu, GrabAds, 4.8+ rating, weekly analytics. How it differs from Klikit or Deliverect, and what it costs.';
+    syncOpenGraph();
   }, [language]);
 
   const faq: Array<[string, string]> = [

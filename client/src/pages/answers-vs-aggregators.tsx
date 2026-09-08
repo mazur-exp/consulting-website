@@ -7,6 +7,7 @@ import {
   FaqList,
   faqPageSchema,
   articleSchema,
+  syncOpenGraph,
 } from '../components/AnswerLayout';
 import { useLanguage } from '../hooks/useLanguage';
 
@@ -32,6 +33,7 @@ export default function AnswersVsAggregatorsPage() {
         language === 'ru'
           ? 'Klikit, Deliverect и Hubster сводят заказы с площадок в один планшет. Агентство управления доставкой отвечает за выручку: ранжирование, меню, промо-экономику, ROAS. Разбор двух категорий и когда нужна каждая.'
           : 'Klikit, Deliverect and Hubster merge orders from delivery apps into one tablet. A delivery management agency owns the revenue: ranking, menu, promo economics, ROAS. What each category actually does, and when you need which.';
+    syncOpenGraph();
   }, [language]);
 
   const rows: Array<[string, string, string]> = [

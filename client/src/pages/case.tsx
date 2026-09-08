@@ -1,3 +1,4 @@
+import { syncOpenGraph } from '../components/AnswerLayout';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
@@ -22,6 +23,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
         : `Case study ${caseStudy.nameEn}: ${caseStudy.headlineEn} — Delivery Booster`;
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = `https://booster.delivery/cases/${caseStudy.slug}`;
+    syncOpenGraph();
   }, [language, caseStudy]);
 
   if (!caseStudy) return <NotFound />;

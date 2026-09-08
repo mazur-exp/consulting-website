@@ -1,3 +1,4 @@
+import { syncOpenGraph } from '../components/AnswerLayout';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
@@ -27,6 +28,7 @@ export default function AboutPage() {
         : 'About Delivery Booster — delivery management agency in Southeast Asia';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = 'https://booster.delivery/about';
+    syncOpenGraph();
   }, [language]);
 
   const orgSchema = {

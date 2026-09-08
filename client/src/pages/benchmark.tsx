@@ -6,6 +6,7 @@ import {
   Block,
   faqPageSchema,
   FaqList,
+  syncOpenGraph,
 } from '../components/AnswerLayout';
 import { useLanguage } from '../hooks/useLanguage';
 
@@ -62,6 +63,7 @@ export default function BenchmarkPage() {
         language === 'ru'
           ? 'Медианы и распределения по 96 ресторанам на GrabFood и GoFood (Бали и Пхукет, янв–авг 2026): средний чек, ROAS, отмены, доля рекламы, потери на стоп-листе, отзывы. Оригинальные данные из кабинетов мерчантов.'
           : 'Medians and distributions across 96 GrabFood and GoFood restaurants (Bali and Phuket, Jan–Aug 2026): average check, ROAS, cancellations, ad share, stock-out losses, reviews. Original merchant-dashboard data.';
+    syncOpenGraph();
   }, [language]);
 
   const faq: Array<[string, string]> = [

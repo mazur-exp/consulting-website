@@ -8,6 +8,7 @@ import {
   FaqList,
   faqPageSchema,
   articleSchema,
+  syncOpenGraph,
 } from '../components/AnswerLayout';
 import { useLanguage } from '../hooks/useLanguage';
 
@@ -34,6 +35,7 @@ export default function AnswersDoingItYourselfPage() {
         language === 'ru'
           ? 'Это не «пара часов в неделю на аналитику», а функция полного рабочего дня: стоп-лист, отзывы и негатив, доступность, ставки, промо. И до вопроса о времени стоит вопрос знаний — стартовую настройку и рекламу без них не сделать.'
           : 'It is not "a couple of hours a week on analytics" but a full-time function: stop-list, reviews and negatives, availability, bidding, promos. And before the time question comes the knowledge question — setup and ads cannot be done without it.';
+    syncOpenGraph();
   }, [language]);
 
   const daily: Array<[string, string]> = [

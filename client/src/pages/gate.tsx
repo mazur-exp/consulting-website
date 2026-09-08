@@ -1,3 +1,4 @@
+import { syncOpenGraph } from '../components/AnswerLayout';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
@@ -23,6 +24,7 @@ export default function Gate() {
       language === 'ru'
         ? 'Delivery Booster — Рост продаж ресторанов на Grab и Gojek в Юго-Восточной Азии'
         : 'Delivery Booster — Grab & Gojek Sales Growth for Restaurants in Southeast Asia';
+    syncOpenGraph();
   }, [language]);
 
   useEffect(() => {

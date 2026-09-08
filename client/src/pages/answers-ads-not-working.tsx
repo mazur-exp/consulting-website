@@ -8,6 +8,7 @@ import {
   FaqList,
   faqPageSchema,
   articleSchema,
+  syncOpenGraph,
 } from '../components/AnswerLayout';
 import { useLanguage } from '../hooks/useLanguage';
 
@@ -32,6 +33,7 @@ export default function AnswersAdsNotWorkingPage() {
         language === 'ru'
           ? 'Реклама покупает показы, а не заказы. Порядок диагностики: доступность, конверсия карточки, экономика промо, рейтинг — и только потом ставки. С реальными цифрами кабинетов: конверсия 0.5% → 1.9%, ROAS 0.25x → 15.52x.'
           : 'Ads buy impressions, not orders. The diagnostic order: availability, listing conversion, promo economics, rating — and only then bids. With real dashboard numbers: conversion 0.5% → 1.9%, ROAS 0.25x → 15.52x.';
+    syncOpenGraph();
   }, [language]);
 
   const steps: Array<[string, string]> = [

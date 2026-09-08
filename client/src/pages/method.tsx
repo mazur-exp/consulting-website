@@ -7,6 +7,7 @@ import {
   FaqList,
   faqPageSchema,
   articleSchema,
+  syncOpenGraph,
 } from '../components/AnswerLayout';
 import { useLanguage } from '../hooks/useLanguage';
 
@@ -31,6 +32,7 @@ export default function MethodPage() {
         language === 'ru'
           ? 'Открытый метод Delivery Booster: пять этапов работы с аккаунтом ресторана на GrabFood и GoFood — доступность, карточка, меню и цены, рейтинг, реклама — с реальными цифрами кабинетов клиентов.'
           : 'The Delivery Booster Method, published in full: five stages of working a restaurant account on GrabFood and GoFood — availability, listing, menu and pricing, rating, ads — with real numbers from client dashboards.';
+    syncOpenGraph();
   }, [language]);
 
   const stages: Array<{ n: string; title: string; why: string; work: string[]; proof: string }> = [
