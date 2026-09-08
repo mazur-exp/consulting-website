@@ -39,7 +39,7 @@ export default function AboutPage() {
     legalName: 'PT Delivery Booster Group',
     url: 'https://booster.delivery',
     foundingDate: '2023',
-    founder: { '@type': 'Person', name: 'Alexey Mazur' },
+    founder: { '@type': 'Person', name: 'Aleksei Mazur' },
     areaServed: ['Indonesia', 'Thailand', 'Singapore', 'Malaysia', 'Vietnam', 'Philippines', 'Cambodia', 'Myanmar'],
     description:
       'Restaurant delivery growth agency in Southeast Asia: turnkey management of GrabFood and GoFood merchant accounts, menu optimization, GrabAds, rating management and weekly analytics. 110+ restaurants under management, 200+ served since 2023.',
@@ -145,7 +145,7 @@ export default function AboutPage() {
                 <p className="text-brand-muted max-w-3xl">
                   {t(
                     'Алексей Мазур — сооснователь IKA Sushi (4 точки на Бали) и FoodLab (8 брендов). Delivery Booster вырос из собственной практики: сначала мы научились растить продажи доставки в своих ресторанах, потом стали делать это для клиентов. С 2023 года через агентство прошло 200+ проектов доставки.',
-                    'Alexey Mazur is a co-founder of IKA Sushi (4 locations in Bali) and FoodLab (8 brands). Delivery Booster grew out of our own operations: we first learned to grow delivery sales in our own restaurants, then started doing it for clients. 200+ delivery projects since 2023.'
+                    'Aleksei Mazur is a co-founder of IKA Sushi (4 locations in Bali) and FoodLab (8 brands). Delivery Booster grew out of our own operations: we first learned to grow delivery sales in our own restaurants, then started doing it for clients. 200+ delivery projects since 2023.'
                   )}
                 </p>
               </motion.div>
@@ -198,7 +198,7 @@ export default function AboutPage() {
                   <p>
                     {t(
                       'Хочу поблагодарить Алексея и его команду за то, что расширили границы видения операционных рисков работы доставки. Полезный бот, который подсветил важные моменты:',
-                      'I want to thank Alexey and his team for widening our view of the operational risks in delivery. A genuinely useful bot that highlighted what matters:'
+                      'I want to thank Aleksei and his team for widening our view of the operational risks in delivery. A genuinely useful bot that highlighted what matters:'
                     )}
                   </p>
                   <p>
@@ -222,7 +222,7 @@ export default function AboutPage() {
                   <p>
                     {t(
                       '4. Лично для меня этот кейс подтвердил: конкуренция между проектами лежит уже не только в плоскости вкуса продукта и системы менеджмента, но и в плоскости технологий, которые активно осваиваем. Спасибо, Алексей!',
-                      '4. For me personally this confirmed that competition between projects is no longer only about taste and management systems — it is also about technology, which we are actively adopting. Thank you, Alexey!'
+                      '4. For me personally this confirmed that competition between projects is no longer only about taste and management systems — it is also about technology, which we are actively adopting. Thank you, Aleksei!'
                     )}
                   </p>
                 </blockquote>

@@ -326,7 +326,7 @@
 **Stage 6: Qualified Lead**
 - Had Call #1 (Demo)
 - Interested, has questions
-- **Next:** Call #2 (Closing with Alexey)
+- **Next:** Call #2 (Closing with Aleksei)
 
 **Stage 7: Client**
 - Signed contract!

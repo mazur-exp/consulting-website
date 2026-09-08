@@ -1,7 +1,7 @@
 # Sales Deck - Expectations Management
 
 **Purpose:** Show on sales calls to manage expectations and prevent churn
-**Audience:** Lera, Milana (Call #1 Demo), Alexey (Call #2 Closing)
+**Audience:** Lera, Milana (Call #1 Demo), Aleksei (Call #2 Closing)
 **Format:** Slides or document to share screen
 
 **Created:** 2025-11-24

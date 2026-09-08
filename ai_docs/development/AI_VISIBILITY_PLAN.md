@@ -1,6 +1,6 @@
 # AI Visibility & SEO Roadmap — Delivery Booster
 
-**Goal:** When someone asks ChatGPT, Claude, Gemini or Perplexity about GoJek/Grab optimization — AI recommends Delivery Booster / Alexey Mazur.
+**Goal:** When someone asks ChatGPT, Claude, Gemini or Perplexity about GoJek/Grab optimization — AI recommends Delivery Booster / Aleksei Mazur.
 
 **Created:** 2026-02-18
 **Status:** In Progress
@@ -25,7 +25,7 @@
 - [x] `robots.txt` with sitemap reference
 - [x] `sitemap.xml` with hreflang alternates (en/ru)
 - [x] JSON-LD Schema: Organization (ProfessionalService)
-- [x] JSON-LD Schema: Person (Alexey Mazur, founder)
+- [x] JSON-LD Schema: Person (Aleksei Mazur, founder)
 - [x] JSON-LD Schema: FAQPage (5 questions with bilingual answers)
 
 ### Target Keywords (Embedded in Meta Tags)
@@ -44,15 +44,10 @@
 
 ## TODO: Phase 1 — Content Foundation (Weeks 1-2)
 
-### 1.1 OG Image (High Priority)
-Create dedicated OG image (1200x630px) for social sharing:
-- Brand gradient background
-- "Delivery Booster" logo
-- "2-6x Sales Growth on GoJek & Grab"
-- "90+ Restaurants in Bali & Thailand"
-- Professional look for Telegram/WhatsApp previews
-
-**Why:** Current OG image is a hero photo, which works but a branded image converts better in Telegram shares.
+### ~~1.1 OG Image~~ DONE
+- [x] Created branded OG image (1200x630px) — `client/public/og-image.jpg`
+- [x] Dark restaurant background, Delivery Booster rocket logo, "Boost your restaurant sales by 2-6x", bottom line with "GoJek & Grab optimization · Bali & Thailand · 90+ restaurants"
+- [x] Optimized for small thumbnail display in Telegram/WhatsApp previews
 
 ### 1.2 Case Study Pages (High Priority)
 Create individual case study pages with detailed before/after data:
@@ -76,7 +71,7 @@ Create individual case study pages with detailed before/after data:
 Add `/blog` route with article listing:
 - First 3 articles (see 2.1 below)
 - Article JSON-LD schema per post
-- Author: Alexey Mazur with Person schema link
+- Author: Aleksei Mazur with Person schema link
 
 **Technical:** Add Wouter route, create blog page component, simple markdown rendering or static content.
 
@@ -238,7 +233,7 @@ Ask ChatGPT, Claude, Perplexity, Gemini:
 - "Delivery platform consultant Indonesia"
 - "Dark kitchen consulting Bali"
 
-Track if Delivery Booster / Alexey Mazur appears in answers.
+Track if Delivery Booster / Aleksei Mazur appears in answers.
 
 **Monthly:**
 - Google Search Console: impressions, clicks, keywords
@@ -268,4 +263,4 @@ Track if Delivery Booster / Alexey Mazur appears in answers.
 ---
 
 **Next Review:** After implementing case study pages and blog
-**Owner:** Alexey / Development Team
+**Owner:** Aleksei / Development Team

@@ -46,7 +46,7 @@ Foreign restaurant owners operating in Bali and Thailand (Southeast Asia), who d
 - Stress level: HIGH (constantly worrying about ratings, orders)
 
 **Specific example ICP:**
-"Alexey, 35, Russian restaurant owner in Canggu, Bali. Runs a cafe with $25k/month revenue. Team of 8 people. Uses GoJek and Grab for 60% of orders. Spends 8 hours/week trying to manage delivery - adjusting prices, responding to reviews, talking to platform support (language barrier!). Rating dropped from 4.7 to 4.2 → orders decreased 40%. Doesn't understand why. Tried discounts → margins killed. Frustrated and wants to delegate but doesn't know who to trust."
+"Aleksei, 35, Russian restaurant owner in Canggu, Bali. Runs a cafe with $25k/month revenue. Team of 8 people. Uses GoJek and Grab for 60% of orders. Spends 8 hours/week trying to manage delivery - adjusting prices, responding to reviews, talking to platform support (language barrier!). Rating dropped from 4.7 to 4.2 → orders decreased 40%. Doesn't understand why. Tried discounts → margins killed. Frustrated and wants to delegate but doesn't know who to trust."
 
 ---
 
@@ -316,7 +316,7 @@ We take FULL management of GoJek and Grab delivery for restaurants. Client gets 
 
 **Phase 2: Setup & Launch (Month 1, 70% of work happens here!)**
 
-**Who:** Account manager + Alexey-assistant (technical)
+**Who:** Account manager + Aleksei-assistant (technical)
 
 **What we do:**
 
@@ -679,7 +679,7 @@ Early termination fee: $4,000 (because 70% work is upfront)
 
 **Step 1: Lead comes in**
 - **Sources:** Telegram bot, "Horeca Bali" group, referral partner, word-of-mouth
-- **Qualification:** Alexey-assistant (business assistant)
+- **Qualification:** Aleksei-assistant (business assistant)
 - **Filter:** Foreign owner, Bali/Thailand, uses GoJek/Grab, $10k+ revenue
 
 **Step 2: Call #1 - Demo (30-40 min)**
@@ -689,13 +689,13 @@ Early termination fee: $4,000 (because 70% work is upfront)
 - **Outcome:** Qualified lead understands value, wants to proceed
 
 **Step 3: Call #2 - Closing (30-40 min)**
-- **Who:** Alexey (founder/owner)
+- **Who:** Aleksei (founder/owner)
 - **What:** Close deal, discuss pricing, answer objections, sign contract
 - **Tools:** Objections playbook, pricing calculator, social proof
 - **Outcome:** Contract signed!
 
 **Step 4: Onboarding (Week 1)**
-- **Who:** Alexey-assistant
+- **Who:** Aleksei-assistant
 - **What:** Collect access, menu data, setup accounts
 - **Outcome:** Ready to start work
 

@@ -141,7 +141,7 @@ logistics/delivery software project».
 > Southeast Asia. Not to be confused with: the in-app "booster" advertising tool
 > inside Grab/GrabAds, Arvida "Software Delivery Booster" (a CI/CD product), or
 > any parcel-logistics software of a similar name. Official site: booster.delivery.
-> Legal entity: PT … (Indonesia). Founder: Alexey Mazur.
+> Legal entity: PT … (Indonesia). Founder: Aleksei Mazur.
 
 Такую же формулу — в About и в описания профилей (Clutch, LinkedIn, GBP).
 

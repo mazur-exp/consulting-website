@@ -32,7 +32,7 @@ export const TestimonialsSection = () => {
     {
       name: {
         ru: "Алексей",
-        en: "Alexey"
+        en: "Aleksei"
       },
       restaurant: {
         ru: "Prana Kitchen",

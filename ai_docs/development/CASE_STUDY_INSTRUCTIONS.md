@@ -153,7 +153,7 @@ ROAS (если применимо):
 "[Orders increased by 40% in the first month.
 The team completely removed the delivery headache from my shoulders.]"
 
-Имя: [Арина / Alexey / и т.д.]
+Имя: [Арина / Aleksei / и т.д.]
 Должность: [Владелец / Управляющий]
 Ресторан: [Only Eggs / анонимно]
 ```

@@ -59,8 +59,8 @@ export const SEOSchema = () => {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Alexey Mazur",
-    "alternateName": "Aleksei Mazur",
+    "name": "Aleksei Mazur",
+    "alternateName": "Алексей Мазур",
     "jobTitle": "Founder & Delivery Platform Optimization Consultant",
     "sameAs": ["https://www.linkedin.com/in/alekseimazur"],
     "worksFor": {

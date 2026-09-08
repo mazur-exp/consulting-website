@@ -95,8 +95,8 @@ That's it!
 ## Contact
 
 **Account manager:** [Assigned Week 1]
-**Urgent:** Alexey-assistant
-**Strategic:** Alexey (founder)
+**Urgent:** Aleksei-assistant
+**Strategic:** Aleksei (founder)
 
 ---
 
