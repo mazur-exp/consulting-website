@@ -137,6 +137,8 @@ curl -sA "GPTBot" "https://booster.delivery/<route>?lang=id" | grep -o '<html la
 - Пресса: `PRESS_KIT.md` (пресс-релиз + письма под издания ЮВА)
 - Посты под бенчмарк: `BENCHMARK_POSTS.md`
 - Карта профилей и взаимных ссылок: `SOCIAL_LINKING.md`
+- Конкуренты и источники, которые видно в ответах ИИ: `COMPETITORS_AND_SOURCES.md`
+  (ведётся после каждого замера)
 - Задачи: `BACKLOG.md`
 - Журнал сессий: `SESSION_LOG.md`
 - Деплой: `../development/DEPLOYMENT.md`
