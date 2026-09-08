@@ -40,8 +40,8 @@ export const FAQSection = () => {
     {
       q: { ru: "Как быстро результат?", en: "How fast are results?" },
       a: {
-        ru: "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении.",
-        en: "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management."
+        ru: "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении и 200+, прошедшими через агентство с 2023 года.",
+        en: "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management and 200+ served since 2023."
       }
     },
     {
@@ -127,6 +127,12 @@ export const FAQSection = () => {
             <a className="text-brand-green hover:underline" href="/answers/grabfood-ads-not-working">
               {t('Плачу за рекламу в GrabFood, а заказов больше не стало — почему',
                  'Paying for GrabFood ads but orders are not increasing — why')}
+            </a>
+          </div>
+          <div>
+            <a className="text-brand-green hover:underline" href="/answers/managing-grabfood-yourself">
+              {t('Сколько времени занимает самому вести GrabFood и GoFood',
+                 'How much time does running GrabFood and GoFood yourself take')}
             </a>
           </div>
           <div>

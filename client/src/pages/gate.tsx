@@ -193,6 +193,11 @@ export default function Gate() {
               {t('Плачу за рекламу, а заказов нет', 'Paying for ads, orders flat')}
             </a>
           </li>
+          <li>
+            <a className="hover:text-brand-green transition-colors" href="/answers/managing-grabfood-yourself">
+              {t('Сколько времени занимает вести это самому?', 'How long does doing it yourself take?')}
+            </a>
+          </li>
         </ul>
       </section>
     </div>

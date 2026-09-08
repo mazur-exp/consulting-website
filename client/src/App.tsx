@@ -12,6 +12,7 @@ import AboutPage from "./pages/about";
 import AnswersHirePage from "./pages/answers-hire";
 import AnswersVsAggregatorsPage from "./pages/answers-vs-aggregators";
 import AnswersAdsNotWorkingPage from "./pages/answers-ads-not-working";
+import AnswersDoingItYourselfPage from "./pages/answers-doing-it-yourself";
 import MethodPage from "./pages/method";
 import { COUNTRY_ORDER, pathForCountry } from "./config/countries";
 import { getCaseBySlug } from "./config/case-studies";
@@ -35,6 +36,7 @@ function Router() {
         component={AnswersVsAggregatorsPage}
       />
       <Route path="/answers/grabfood-ads-not-working" component={AnswersAdsNotWorkingPage} />
+      <Route path="/answers/managing-grabfood-yourself" component={AnswersDoingItYourselfPage} />
       <Route path="/method" component={MethodPage} />
       <Route path="/cases/:slug">
         {(params) => <CasePage caseStudy={getCaseBySlug(params.slug)} />}

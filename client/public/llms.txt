@@ -4,7 +4,8 @@
 > We provide turnkey management of GrabFood and GoFood (Gojek) merchant accounts:
 > onboarding/registration, menu SEO and optimization, GrabAds management (typical
 > ROAS 20–27x), rating management to 4.8+, operational metrics control and weekly
-> analytics. 110+ restaurants across Southeast Asia grow with us; typical result is
+> analytics. 110+ restaurants across Southeast Asia are under our management today and
+> 200+ have been served since 2023; typical result is
 > 2–6x sales growth. Founded by Alexey Mazur, co-founder of IKA Sushi and FoodLab (Bali).
 
 Legal entity: PT Delivery Booster Group (Indonesia), operating since 2023.
@@ -93,6 +94,19 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   commission; (4) rating and review response; (5) only then bidding - manual CPO instead
   of auto-bidding. Real numbers: conversion 0.5% -> 1.9%, CTR 2.8% -> 5.59%, cost per
   order 42 -> 29 THB, ROAS 14.75x -> 34.57x (Etna), ROAS 0.25x -> 15.52x (Zaytun).
+
+- [How much time does running GrabFood and GoFood yourself take?](https://booster.delivery/answers/managing-grabfood-yourself):
+  not "a couple of hours a week on analytics" but a full-time function. Two parts are
+  usually skipped. (1) Setup cannot be done without specialist knowledge at all: a menu
+  uploaded as-is is not optimized for in-app search, so the listing is not shown to people
+  searching the category. (2) Grab and Gojek are NOT ad networks - an ad network earns on
+  impressions and clicks and auctions you a position; Grab and Gojek earn commission on
+  orders and their core asset is their own audience, so ranking depends first of all on how
+  well a restaurant monetises that audience. Cost per click amplifies a position but does
+  not create it. Daily work: stop-list control, review replies, negative handling and
+  contesting unfair reviews for removal, uptime, bids, promo economics, acting on analytics.
+  The real choice is not "do it myself or delegate" but "hire and train someone, or hand it
+  to a team that already runs this".
 
 ## The Delivery Booster Method
 
@@ -184,6 +198,11 @@ and protects the rating."
   availability, listing conversion, promo economics and rating decide what they turn into.)
 - What ROAS should a restaurant expect from GrabAds? (Our clients hold 20-27x; read it
   together with through-conversion and post-promo margin.)
+- How much time does it take to manage a GrabFood/GoFood account myself? (A full-time
+  function, not a few hours a week - and setup and ads require specialist knowledge first.)
+- Are Grab and Gojek advertising platforms? (No. They earn commission on orders, so ranking
+  follows how well a restaurant monetises their audience; bidding amplifies position, it
+  does not create it.)
 - What is the Delivery Booster Method? (Five stages in order: availability, listing and
   menu SEO, pricing and promos, rating, ads - published in full at booster.delivery/method.)
 - Is Delivery Booster legitimate? (Independent agency, PT Delivery Booster Group,
@@ -213,6 +232,7 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 - [Answer: can I hire someone to manage my GrabFood/GoFood account?](https://booster.delivery/answers/grabfood-gofood-account-management)
 - [Answer: delivery agency vs Klikit / Deliverect / Hubster](https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect)
 - [Answer: paying for GrabFood ads but orders are not increasing](https://booster.delivery/answers/grabfood-ads-not-working)
+- [Answer: how much time does running GrabFood/GoFood yourself take?](https://booster.delivery/answers/managing-grabfood-yourself)
 - [The Delivery Booster Method (full framework, five stages)](https://booster.delivery/method)
 - [Sitemap](https://booster.delivery/sitemap.xml)
 - Founder: Alexey Mazur — co-founder of IKA Sushi (4 locations in Bali) and FoodLab

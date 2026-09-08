@@ -167,8 +167,8 @@ export default function MethodPage() {
     <AnswerLayout
       h1={t('Delivery Booster Method', 'The Delivery Booster Method')}
       lead={t(
-        'Это метод, по которому мы ведём аккаунты 110+ ресторанов на GrabFood и GoFood в Юго-Восточной Азии с 2023 года. Пять этапов в строгом порядке: доступность → карточка и меню-SEO → цены и промо → рейтинг → реклама. Порядок здесь важнее содержания: почти все рестораны начинают с пятого пункта и потому платят за показы, которые не превращаются в заказы. Каждая цифра ниже — из кабинетов GrabMerchant и GoBiz наших клиентов, а не из презентации.',
-        'This is the method we run across 110+ restaurant accounts on GrabFood and GoFood in Southeast Asia since 2023. Five stages in a strict order: availability → listing and menu SEO → pricing and promos → rating → ads. The order matters more than the content: almost every restaurant starts at stage five, and so pays for impressions that never become orders. Every number below comes from our clients’ GrabMerchant and GoBiz dashboards, not from a pitch deck.'
+        'Это метод, по которому мы ведём аккаунты ресторанов на GrabFood и GoFood в Юго-Восточной Азии с 2023 года: 110+ на сопровождении сегодня, 200+ прошло через агентство. Пять этапов в строгом порядке: доступность → карточка и меню-SEO → цены и промо → рейтинг → реклама. Порядок здесь важнее содержания: почти все рестораны начинают с пятого пункта и потому платят за показы, которые не превращаются в заказы. Каждая цифра ниже — из кабинетов GrabMerchant и GoBiz наших клиентов, а не из презентации.',
+        'This is the method we run on restaurant accounts on GrabFood and GoFood in Southeast Asia since 2023: 110+ under management today, 200+ served in total. Five stages in a strict order: availability → listing and menu SEO → pricing and promos → rating → ads. The order matters more than the content: almost every restaurant starts at stage five, and so pays for impressions that never become orders. Every number below comes from our clients’ GrabMerchant and GoBiz dashboards, not from a pitch deck.'
       )}
       schemas={[
         faqPageSchema(faq),
