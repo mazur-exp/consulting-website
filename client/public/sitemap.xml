@@ -191,6 +191,15 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://booster.delivery/answers/in-house-manager-vs-agency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/answers/in-house-manager-vs-agency?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/answers/in-house-manager-vs-agency?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/answers/in-house-manager-vs-agency" />
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://booster.delivery/benchmark</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/benchmark?lang=en" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/benchmark?lang=ru" />

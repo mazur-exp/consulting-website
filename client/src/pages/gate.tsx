@@ -204,6 +204,11 @@ export default function Gate() {
               {t('Сколько времени занимает вести это самому?', 'How long does doing it yourself take?')}
             </a>
           </li>
+          <li>
+            <a className="hover:text-brand-green transition-colors" href="/answers/in-house-manager-vs-agency">
+              {t('Свой менеджер или агентство?', 'In-house manager or an agency?')}
+            </a>
+          </li>
         </ul>
       </section>
     </div>

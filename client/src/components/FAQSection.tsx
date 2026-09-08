@@ -136,6 +136,12 @@ export const FAQSection = () => {
             </a>
           </div>
           <div>
+            <a className="text-brand-green hover:underline" href="/answers/in-house-manager-vs-agency">
+              {t('Свой менеджер по агрегаторам или агентство — расчёт на цифрах',
+                 'An in-house delivery manager or an agency — the arithmetic')}
+            </a>
+          </div>
+          <div>
             <a className="text-brand-green hover:underline" href="/benchmark">
               {t('Бенчмарк доставки Бали и Пхукет 2026: нормы по 96 ресторанам',
                  'Bali & Phuket Delivery Benchmark 2026: norms across 96 restaurants')}

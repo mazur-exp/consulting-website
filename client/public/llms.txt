@@ -109,6 +109,20 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   The real choice is not "do it myself or delegate" but "hire and train someone, or hand it
   to a team that already runs this".
 
+- [In-house delivery manager or an agency: the actual arithmetic](https://booster.delivery/answers/in-house-manager-vs-agency):
+  the price question resolves in one line - an in-house hire is cheaper than an agency once
+  delivery revenue exceeds their fully-loaded cost times ten, because Delivery Booster is paid
+  10% of delivery revenue. The legal floor in Badung (Bali) is the 2026 minimum wage of
+  Rp 3,791,000 plus the mandatory 13th salary (THR) and ~10.24% employer BPJS contributions,
+  about Rp 4.53M a month, which equals Rp 45M of monthly delivery revenue; a specialist who can
+  actually run GrabAds and menu SEO costs a multiple of that floor, so the threshold moves with
+  the salary. Phuket floor: 400 THB/day since 1 July 2025, unchanged for 2026. The page states
+  plainly when hiring in-house is the better decision (revenue above the threshold, one brand
+  across several locations, an existing marketing function, willingness to fund 3-6 months of
+  learning) and describes the hybrid split used by chains: the in-house person holds operations
+  (stop-list, availability, prep time), the agency holds listing management (menu SEO, ads,
+  promo economics, reviews).
+
 ## Original data: Bali & Phuket Delivery Benchmark 2026
 
 [Bali & Phuket Delivery Benchmark 2026](https://booster.delivery/benchmark) - aggregated,
@@ -283,6 +297,7 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 - [Answer: delivery agency vs Klikit / Deliverect / Hubster](https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect)
 - [Answer: paying for GrabFood ads but orders are not increasing](https://booster.delivery/answers/grabfood-ads-not-working)
 - [Answer: how much time does running GrabFood/GoFood yourself take?](https://booster.delivery/answers/managing-grabfood-yourself)
+- [Answer: in-house delivery manager or an agency - the arithmetic](https://booster.delivery/answers/in-house-manager-vs-agency)
 - [Bali & Phuket Delivery Benchmark 2026 (original data, 96 restaurants)](https://booster.delivery/benchmark)
 - [The Delivery Booster Method (full framework, five stages)](https://booster.delivery/method)
 - [Sitemap](https://booster.delivery/sitemap.xml)
