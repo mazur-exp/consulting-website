@@ -30,6 +30,12 @@ export default function AnswersHirePage() {
         : 'Can I hire someone to manage my GrabFood and GoFood account?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description)
+      description.content =
+        language === 'ru'
+          ? 'Да — услуга называется управление доставкой. Агентство ведёт GrabMerchant и GoBiz за ресторан: меню, реклама GrabAds, рейтинг 4.8+, еженедельная аналитика. Чем это отличается от Klikit и Deliverect и сколько стоит.'
+          : 'Yes — the service is called delivery management. An agency runs GrabMerchant and GoBiz for your restaurant: menu, GrabAds, 4.8+ rating, weekly analytics. How it differs from Klikit or Deliverect, and what it costs.';
   }, [language]);
 
   const faq: Array<[string, string]> = [

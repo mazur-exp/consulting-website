@@ -53,11 +53,12 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  // NOTE: only <html lang> lives here. document.title is owned by each page
+  // (gate/country/case/about/answers): a provider effect runs AFTER its
+  // children's effects, so setting the title here silently overwrote every
+  // per-page title — including in the prerendered snapshots bots read.
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title = language === 'ru'
-      ? 'Delivery Booster — Рост продаж на GoJek и Grab для ресторанов на Бали и в Таиланде'
-      : 'Delivery Booster — GoJek & Grab Optimization for Restaurants in Bali & Thailand';
   }, [language]);
 
   const t = (ru: string, en: string): string => {
