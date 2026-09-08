@@ -121,6 +121,9 @@ export default function AnswersVsAggregatorsPage() {
           url: URL,
           about:
             'delivery management agency, Klikit, Deliverect, Hubster, order aggregator, GrabFood, GoFood',
+          datePublished: '2026-09-08',
+          dateModified: '2026-09-08',
+          language,
         }),
       ]}
     >

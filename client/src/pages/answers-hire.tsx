@@ -1,4 +1,4 @@
-import { syncOpenGraph } from '../components/AnswerLayout';
+import { syncOpenGraph, AUTHOR_ID } from '../components/AnswerLayout';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
@@ -86,10 +86,17 @@ export default function AnswersHirePage() {
     '@type': 'Article',
     headline: t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood',
       'Can I hire someone to manage my GrabFood and GoFood account', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood'),
-    author: { '@type': 'Organization', name: 'Delivery Booster' },
-    publisher: { '@type': 'Organization', name: 'Delivery Booster', legalName: 'PT Delivery Booster Group' },
+    author: { '@id': AUTHOR_ID },
+    publisher: {
+      '@type': 'Organization', name: 'Delivery Booster',
+      legalName: 'PT Delivery Booster Group', url: 'https://booster.delivery',
+    },
     mainEntityOfPage: URL,
     about: 'delivery management, GrabFood account management, GoFood account management',
+    datePublished: '2026-09-08',
+    dateModified: '2026-09-08',
+    inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : 'en-US',
+    isPartOf: { '@type': 'WebSite', name: 'Delivery Booster', url: 'https://booster.delivery' },
   };
 
   const includes: Array<[string, string]> = [

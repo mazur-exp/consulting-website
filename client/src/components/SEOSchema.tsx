@@ -71,6 +71,9 @@ export const SEOSchema = () => {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
+    // Канонический идентификатор. На него ссылаются все Article-схемы сайта
+    // (AUTHOR_ID в AnswerLayout) — так материалы связываются с одним автором.
+    "@id": "https://booster.delivery/#aleksei-mazur",
     "name": "Aleksei Mazur",
     "alternateName": "Алексей Мазур",
     "jobTitle": "Founder & Delivery Platform Optimization Consultant",

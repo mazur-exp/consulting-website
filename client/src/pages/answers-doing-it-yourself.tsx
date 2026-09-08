@@ -135,6 +135,9 @@ export default function AnswersDoingItYourselfPage() {
           url: URL,
           about:
             'GrabFood account management, GoFood management, delivery operations, GrabAds, restaurant delivery ranking',
+          datePublished: '2026-09-08',
+          dateModified: '2026-09-08',
+          language,
         }),
       ]}
     >

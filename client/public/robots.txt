@@ -1,4 +1,56 @@
+# robots.txt — booster.delivery
+# Позиция открытая: сайт делается для того, чтобы его цитировали ИИ-ассистенты.
+# ИИ-краулеры разрешены поимённо — не потому что без этого их закрывает
+# «User-agent: *», а чтобы намерение было явным и не зависело от того, как
+# конкретный краулер разбирает файл.
+
 User-agent: *
+Allow: /
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Google (Gemini, AI Overview) и Bing/Copilot
+User-agent: Google-Extended
+Allow: /
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# Прочие
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: YandexBot
 Allow: /
 
 Sitemap: https://booster.delivery/sitemap.xml

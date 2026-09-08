@@ -7,6 +7,7 @@ import {
   faqPageSchema,
   FaqList,
   syncOpenGraph,
+  AUTHOR_ID,
 } from '../components/AnswerLayout';
 import { useLanguage } from '../hooks/useLanguage';
 
@@ -158,13 +159,16 @@ export default function BenchmarkPage() {
     headline: t('Бенчмарк доставки Бали и Пхукет 2026',
                 'Bali & Phuket Delivery Benchmark 2026',
                 'Benchmark Delivery Bali & Phuket 2026'),
-    author: { '@type': 'Organization', name: 'Delivery Booster' },
+    author: { '@id': AUTHOR_ID },
     publisher: {
       '@type': 'Organization', name: 'Delivery Booster',
-      legalName: 'PT Delivery Booster Group',
+      legalName: 'PT Delivery Booster Group', url: 'https://booster.delivery',
     },
     mainEntityOfPage: URL,
     datePublished: '2026-09-08',
+    dateModified: '2026-09-08',
+    inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : 'en-US',
+    isPartOf: { '@type': 'WebSite', name: 'Delivery Booster', url: 'https://booster.delivery' },
     about: 'GrabFood benchmark, GoFood benchmark, Bali restaurant delivery, Phuket restaurant delivery, ROAS, average check',
   };
 

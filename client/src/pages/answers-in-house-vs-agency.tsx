@@ -183,6 +183,9 @@ export default function AnswersInHouseVsAgencyPage() {
           url: URL,
           about:
             'in-house delivery manager, aggregator manager, delivery management agency, GrabFood, GoFood, hiring, Indonesia, Thailand',
+          datePublished: '2026-09-08',
+          dateModified: '2026-09-09',
+          language,
         }),
       ]}
     >

@@ -136,6 +136,9 @@ export default function AnswersAdsNotWorkingPage() {
                       'Kenapa iklan GrabFood tidak menghasilkan pesanan'),
           url: URL,
           about: 'GrabAds, GrabFood advertising, ROAS, delivery app ranking, listing conversion',
+          datePublished: '2026-09-08',
+          dateModified: '2026-09-08',
+          language,
         }),
       ]}
     >

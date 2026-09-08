@@ -184,6 +184,9 @@ export default function MethodPage() {
           url: URL,
           about:
             'GrabFood ranking, GoFood ranking, delivery management method, menu SEO, GrabAds ROAS, restaurant delivery growth',
+          datePublished: '2026-09-08',
+          dateModified: '2026-09-08',
+          language,
         }),
       ]}
     >

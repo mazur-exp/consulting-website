@@ -114,26 +114,44 @@ export const faqPageSchema = (faq: Array<[string, string]>) => ({
   })),
 });
 
+/** Канонический @id основателя: тот же идентификатор объявлен в SEOSchema.
+ *  Ссылка по @id связывает все материалы сайта с одним человеком — это
+ *  машиночитаемое авторство, а не строка с названием компании. */
+export const AUTHOR_ID = 'https://booster.delivery/#aleksei-mazur';
+
 export const articleSchema = ({
   headline,
   url,
   about,
+  datePublished,
+  dateModified,
+  language = 'en',
 }: {
   headline: string;
   url: string;
   about: string;
+  /** Дата первой публикации страницы. Не менять при правках. */
+  datePublished: string;
+  /** Дата последней содержательной правки. Обновлять при каждой. */
+  dateModified: string;
+  language?: string;
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline,
-  author: { '@type': 'Organization', name: 'Delivery Booster' },
+  author: { '@id': AUTHOR_ID },
   publisher: {
     '@type': 'Organization',
     name: 'Delivery Booster',
     legalName: 'PT Delivery Booster Group',
+    url: 'https://booster.delivery',
   },
   mainEntityOfPage: url,
   about,
+  datePublished,
+  dateModified,
+  inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : 'en-US',
+  isPartOf: { '@type': 'WebSite', name: 'Delivery Booster', url: 'https://booster.delivery' },
 });
 
 /** CTA used at the bottom of every answer page. */
