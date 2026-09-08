@@ -15,13 +15,13 @@ export const FAQSection = () => {
   const platforms = country.platformsShort;
 
   const extendedFaqs = getCountryFaqs(country).map((f) => ({
-    q: { ru: f.qRu, en: f.qEn },
-    a: { ru: f.aRu, en: f.aEn },
+    q: { ru: f.qRu, en: f.qEn, id: f.qEn },
+    a: { ru: f.aRu, en: f.aEn, id: f.aEn },
   }));
 
   const faqs = [
     {
-      q: { ru: "Сколько стоит?", en: "How much does it cost?" },
+      q: { ru: "Сколько стоит?", en: "How much does it cost?", id: "Berapa biayanya?" },
       a: {
         ru: (
           <>
@@ -34,35 +34,45 @@ export const FAQSection = () => {
             Conditionally free - find out how in the <a href="https://wa.me/79520029077" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
             {'\n'}10% of {platforms} revenue. Average $400-800/month. No risk, no upfront payment.
           </>
+        ),
+        id: (
+          <>
+            Praktis gratis - cari tahu caranya di <a href="https://wa.me/79520029077" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
+            {'\n'}10% dari omzet {platforms}. Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.
+          </>
         )
       }
     },
     {
-      q: { ru: "Как быстро результат?", en: "How fast are results?" },
+      q: { ru: "Как быстро результат?", en: "How fast are results?", id: "Seberapa cepat hasilnya?" },
       a: {
         ru: "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении и 200+, прошедшими через агентство с 2023 года.",
-        en: "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management and 200+ served since 2023."
+        en: "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management and 200+ served since 2023.",
+        id: "Pertumbuhan pertama: 2-4 minggu. Ramp-up penuh: 3-6 bulan. Terbukti pada 110+ restoran dalam pengelolaan dan 200+ yang ditangani sejak 2023."
       }
     },
     {
-      q: { ru: "Есть гарантия?", en: "Is there a guarantee?" },
+      q: { ru: "Есть гарантия?", en: "Is there a guarantee?", id: "Ada garansi?" },
       a: {
         ru: "Да. Целевые продажи за 6 месяцев или возврат комиссии.",
-        en: "Yes. Target sales in 6 months or commission refund."
+        en: "Yes. Target sales in 6 months or commission refund.",
+        id: "Ya. Target penjualan dalam 6 bulan atau komisi dikembalikan."
       }
     },
     {
-      q: { ru: "Что входит?", en: "What's included?" },
+      q: { ru: "Что входит?", en: "What's included?", id: "Apa saja yang termasuk?" },
       a: {
         ru: `Полное управление ${platforms}. Вы тратите 0 часов, получаете отчеты.`,
-        en: `Full ${platforms} management. You spend 0 hours, get reports.`
+        en: `Full ${platforms} management. You spend 0 hours, get reports.`,
+        id: `Pengelolaan penuh ${platforms}. Anda habiskan 0 jam, laporan tetap Anda terima.`
       }
     },
     {
-      q: { ru: "Почему не делать самому?", en: "Why not do it yourself?" },
+      q: { ru: "Почему не делать самому?", en: "Why not do it yourself?", id: "Kenapa tidak dikerjakan sendiri?" },
       a: {
         ru: "Можете! Самостоятельное обучение займёт 3-6 месяцев, а ошибки в процессе обойдутся в $5-10k упущенной прибыли и времени.",
-        en: "You can! Self-learning will take 3-6 months, and mistakes along the way will cost you $5-10k in lost profits and time."
+        en: "You can! Self-learning will take 3-6 months, and mistakes along the way will cost you $5-10k in lost profits and time.",
+        id: "Bisa saja. Belajar sendiri butuh 3-6 bulan, dan kesalahan di prosesnya menghabiskan $5-10k potensi profit dan waktu Anda."
       }
     },
     ...extendedFaqs
@@ -79,7 +89,7 @@ export const FAQSection = () => {
           viewport={{ once: true }}
           data-testid="text-faq-title"
         >
-          {t("Вопросы", "Questions")}
+          {t("Вопросы", "Questions", "Pertanyaan")}
         </motion.h2>
 
         <motion.div
@@ -97,10 +107,22 @@ export const FAQSection = () => {
                 data-testid={`faq-item-${index}`}
               >
                 <AccordionTrigger className="text-left text-lg font-semibold hover:text-brand-green transition-colors">
-                  {typeof faq.q === 'string' ? t(faq.q, faq.q) : (language === 'ru' ? faq.q.ru : faq.q.en)}
+                  {typeof faq.q === 'string'
+                    ? t(faq.q, faq.q, faq.q)
+                    : language === 'ru'
+                      ? faq.q.ru
+                      : language === 'id'
+                        ? faq.q.id
+                        : faq.q.en}
                 </AccordionTrigger>
                 <AccordionContent className="text-brand-muted text-base pt-2 whitespace-pre-line">
-                  {typeof faq.a === 'object' && 'ru' in faq.a ? (language === 'ru' ? faq.a.ru : faq.a.en) : faq.a}
+                  {typeof faq.a === 'object' && 'ru' in faq.a
+                    ? language === 'ru'
+                      ? faq.a.ru
+                      : language === 'id'
+                        ? faq.a.id
+                        : faq.a.en
+                    : faq.a}
                 </AccordionContent>
               </AccordionItem>
             ))}
@@ -111,46 +133,53 @@ export const FAQSection = () => {
             answer page (see ai_docs/development/DEPLOYMENT.md). */}
         <div className="text-brand-muted text-sm mt-8 space-y-2">
           <div>
-            {t('Разбор по шагам: ', 'Step-by-step answers: ')}
+            {t('Разбор по шагам: ', 'Step-by-step answers: ', 'Jawaban langkah demi langkah: ')}
             <a className="text-brand-green hover:underline" href="/answers/grabfood-gofood-account-management">
               {t('можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood',
-                 'can I hire someone to manage my GrabFood and GoFood account')}
+                 'can I hire someone to manage my GrabFood and GoFood account',
+                 'bisakah pengelolaan akun GrabFood dan GoFood diserahkan ke pihak lain')}
             </a>
           </div>
           <div>
             <a className="text-brand-green hover:underline" href="/answers/delivery-agency-vs-klikit-deliverect">
               {t('Агентство или Klikit / Deliverect / Hubster — в чём разница',
-                 'An agency or Klikit / Deliverect / Hubster — what is the difference')}
+                 'An agency or Klikit / Deliverect / Hubster — what is the difference',
+                 'Agensi atau Klikit / Deliverect / Hubster — apa bedanya')}
             </a>
           </div>
           <div>
             <a className="text-brand-green hover:underline" href="/answers/grabfood-ads-not-working">
               {t('Плачу за рекламу в GrabFood, а заказов больше не стало — почему',
-                 'Paying for GrabFood ads but orders are not increasing — why')}
+                 'Paying for GrabFood ads but orders are not increasing — why',
+                 'Sudah bayar iklan GrabFood tapi pesanan tidak naik — kenapa')}
             </a>
           </div>
           <div>
             <a className="text-brand-green hover:underline" href="/answers/managing-grabfood-yourself">
               {t('Сколько времени занимает самому вести GrabFood и GoFood',
-                 'How much time does running GrabFood and GoFood yourself take')}
+                 'How much time does running GrabFood and GoFood yourself take',
+                 'Berapa banyak waktu untuk mengelola GrabFood dan GoFood sendiri')}
             </a>
           </div>
           <div>
             <a className="text-brand-green hover:underline" href="/answers/in-house-manager-vs-agency">
               {t('Свой менеджер по агрегаторам или агентство — расчёт на цифрах',
-                 'An in-house delivery manager or an agency — the arithmetic')}
+                 'An in-house delivery manager or an agency — the arithmetic',
+                 'Manajer delivery internal atau agensi — hitungannya di angka')}
             </a>
           </div>
           <div>
             <a className="text-brand-green hover:underline" href="/benchmark">
               {t('Бенчмарк доставки Бали и Пхукет 2026: нормы по 96 ресторанам',
-                 'Bali & Phuket Delivery Benchmark 2026: norms across 96 restaurants')}
+                 'Bali & Phuket Delivery Benchmark 2026: norms across 96 restaurants',
+                 'Benchmark delivery Bali & Phuket 2026: norma dari 96 restoran')}
             </a>
           </div>
           <div>
             <a className="text-brand-green hover:underline" href="/method">
               {t('Метод Delivery Booster: пять этапов целиком',
-                 'The Delivery Booster Method: all five stages')}
+                 'The Delivery Booster Method: all five stages',
+                 'Metode Delivery Booster: lima tahap lengkap')}
             </a>
           </div>
         </div>

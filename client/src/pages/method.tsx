@@ -23,6 +23,8 @@ export default function MethodPage() {
     document.title =
       language === 'ru'
         ? 'Delivery Booster Method — как мы растим продажи на GrabFood и GoFood'
+        : language === 'id'
+        ? 'Delivery Booster Method — cara kami menumbuhkan penjualan di GrabFood dan GoFood'
         : 'The Delivery Booster Method — how we grow GrabFood and GoFood sales';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
@@ -31,6 +33,8 @@ export default function MethodPage() {
       description.content =
         language === 'ru'
           ? 'Открытый метод Delivery Booster: пять этапов работы с аккаунтом ресторана на GrabFood и GoFood — доступность, карточка, меню и цены, рейтинг, реклама — с реальными цифрами кабинетов клиентов.'
+          : language === 'id'
+          ? 'Delivery Booster Method, dipublikasikan utuh: lima tahap pengelolaan akun restoran di GrabFood dan GoFood — ketersediaan, halaman toko, menu dan harga, rating, iklan — dengan angka nyata dari dashboard klien.'
           : 'The Delivery Booster Method, published in full: five stages of working a restaurant account on GrabFood and GoFood — availability, listing, menu and pricing, rating, ads — with real numbers from client dashboards.';
     syncOpenGraph();
   }, [language]);
@@ -38,102 +42,102 @@ export default function MethodPage() {
   const stages: Array<{ n: string; title: string; why: string; work: string[]; proof: string }> = [
     {
       n: '01',
-      title: t('Доступность', 'Availability'),
+      title: t('Доступность', 'Availability', 'Ketersediaan'),
       why: t(
         'Алгоритмы GrabFood и GoFood прежде всего проверяют, можно ли на вас положиться. Офлайн-часы, отмены и долгое приготовление роняют ранжирование сильнее, чем что-либо ещё, и восстанавливается оно медленно — площадке нужна новая история.',
-        'GrabFood and GoFood algorithms first check whether you can be relied on. Offline hours, cancellations and slow preparation hurt ranking more than anything else, and recovery is slow — the platform needs a new history.'
+        'GrabFood and GoFood algorithms first check whether you can be relied on. Offline hours, cancellations and slow preparation hurt ranking more than anything else, and recovery is slow — the platform needs a new history.', 'Algoritma GrabFood dan GoFood pertama-tama menilai apakah Anda bisa diandalkan. Jam offline, pembatalan, dan waktu masak yang lama menurunkan peringkat lebih dari faktor mana pun, dan pemulihannya lambat — platform butuh riwayat baru.'
       ),
       work: [
         t('Мониторинг статуса открыт/закрыт на обеих площадках в реальном времени',
-          'Real-time open/closed monitoring on both platforms'),
+          'Real-time open/closed monitoring on both platforms', 'Pemantauan status buka/tutup di kedua platform secara real time'),
         t('Контроль стоп-листа: позиции, выключенные случайно и незаметно',
-          'Stop-list control: items switched off by accident and unnoticed'),
+          'Stop-list control: items switched off by accident and unnoticed', 'Kontrol item yang dinonaktifkan: posisi yang mati tanpa disadari'),
         t('Работа с отменами и временем приготовления',
-          'Cancellation and preparation-time work'),
+          'Cancellation and preparation-time work', 'Penanganan pembatalan dan waktu persiapan pesanan'),
       ],
       proof: t(
         'USSR Phuket: 3 977 минут офлайна в месяц → 0, показы в поиске 0 → 7 481/мес. Enjoy Healthy Food: доля офлайна 73% → 0%, показы 7 038 → 25 543/мес, время ожидания курьера 437 → 135 секунд.',
-        'USSR Phuket: 3,977 offline minutes a month → 0, search impressions 0 → 7,481/month. Enjoy Healthy Food: offline rate 73% → 0%, impressions 7,038 → 25,543/month, driver waiting time 437 → 135 seconds.'
+        'USSR Phuket: 3,977 offline minutes a month → 0, search impressions 0 → 7,481/month. Enjoy Healthy Food: offline rate 73% → 0%, impressions 7,038 → 25,543/month, driver waiting time 437 → 135 seconds.', 'USSR Phuket: 3,977 menit offline per bulan → 0, tayangan pencarian 0 → 7,481/bulan. Enjoy Healthy Food: porsi offline 73% → 0%, tayangan 7,038 → 25,543/bulan, waktu tunggu driver 437 → 135 detik.'
       ),
     },
     {
       n: '02',
-      title: t('Карточка и меню-SEO', 'Listing and menu SEO'),
+      title: t('Карточка и меню-SEO', 'Listing and menu SEO', 'Halaman toko dan menu SEO'),
       why: t(
         'Внутри приложения работает поиск, и он ищет по словам, которые вы написали. Названия блюд, категории, описания и фото решают, сколько из увидевших карточку откроют меню, а сколько — закажут. Это и есть сквозная конверсия, главная цифра всей воронки.',
-        'There is a search engine inside the app, and it searches the words you wrote. Dish names, categories, descriptions and photos decide how many viewers open the menu and how many order. That is through-conversion — the number the whole funnel turns on.'
+        'There is a search engine inside the app, and it searches the words you wrote. Dish names, categories, descriptions and photos decide how many viewers open the menu and how many order. That is through-conversion — the number the whole funnel turns on.', 'Di dalam aplikasi ada mesin pencari, dan ia mencari kata-kata yang Anda tulis. Nama hidangan, kategori, deskripsi, dan foto menentukan berapa banyak orang yang membuka menu dan berapa yang memesan. Itulah konversi menyeluruh — angka utama dari seluruh funnel.'
       ),
       work: [
         t('Карта ключевых запросов по городу и категории',
-          'Keyword map by city and category'),
+          'Keyword map by city and category', 'Peta kata kunci berdasarkan kota dan kategori'),
         t('Ключи в названия и описания позиций, пересборка структуры категорий',
-          'Keywords in item names and descriptions, category structure rebuild'),
+          'Keywords in item names and descriptions, category structure rebuild', 'Kata kunci di nama dan deskripsi item, penyusunan ulang struktur kategori'),
         t('Фото и порядок позиций под первый экран',
-          'Photos and item order tuned for the first screen'),
+          'Photos and item order tuned for the first screen', 'Foto dan urutan item yang disesuaikan untuk layar pertama'),
       ],
       proof: t(
         'Etna Phuket: сквозная конверсия 0.5% → 1.9% (x3.8) при средней по нашему флоту 0.9%; меню стали открывать заметно чаще. Zaytun Ubud: охват x1.84, конверсия «охват → меню» 8.5% → 10.0%.',
-        'Etna Phuket: through-conversion 0.5% → 1.9% (x3.8) against a 0.9% fleet average; menu opens rose sharply. Zaytun Ubud: reach x1.84, reach → menu conversion 8.5% → 10.0%.'
+        'Etna Phuket: through-conversion 0.5% → 1.9% (x3.8) against a 0.9% fleet average; menu opens rose sharply. Zaytun Ubud: reach x1.84, reach → menu conversion 8.5% → 10.0%.', 'Etna Phuket: konversi menyeluruh 0.5% → 1.9% (x3.8) dibanding rata-rata 0.9% di portofolio kami; menu jauh lebih sering dibuka. Zaytun Ubud: jangkauan x1.84, konversi jangkauan → menu 8.5% → 10.0%.'
       ),
     },
     {
       n: '03',
-      title: t('Цены, промо и средний чек', 'Pricing, promos and average check'),
+      title: t('Цены, промо и средний чек', 'Pricing, promos and average check', 'Harga, promo, dan rata-rata nilai pesanan'),
       why: t(
         'Промо поднимает позицию в выдаче и режет маржу одновременно, поэтому считать надо не заказы, а то, что осталось после скидки и комиссии площадки. Средний чек — второй множитель выручки, о котором обычно забывают: он растёт от структуры меню, комбо и допов, а не от повышения цен.',
-        'A promo lifts your position and cuts your margin at once, so what counts is not orders but what is left after the discount and the platform commission. Average check is the second revenue multiplier and the forgotten one: it grows from menu structure, combos and add-ons — not from raising prices.'
+        'A promo lifts your position and cuts your margin at once, so what counts is not orders but what is left after the discount and the platform commission. Average check is the second revenue multiplier and the forgotten one: it grows from menu structure, combos and add-ons — not from raising prices.', 'Promo menaikkan posisi Anda sekaligus memotong margin, jadi yang dihitung bukan jumlah pesanan melainkan sisa setelah diskon dan komisi platform. Rata-rata nilai pesanan adalah pengali omzet kedua yang sering terlupakan: ia tumbuh dari struktur menu, combo, dan add-on — bukan dari menaikkan harga.'
       ),
       work: [
         t('Экономика каждой акции: что остаётся после скидки, комиссии и рекламы',
-          'Per-promo economics: what is left after discount, commission and ad spend'),
+          'Per-promo economics: what is left after discount, commission and ad spend', 'Ekonomi tiap promo: sisa setelah diskon, komisi, dan biaya iklan'),
         t('Комбо и допы, поднимающие чек без повышения цен',
-          'Combos and add-ons that lift the check without price rises'),
+          'Combos and add-ons that lift the check without price rises', 'Combo dan add-on yang menaikkan nilai pesanan tanpa menaikkan harga'),
         t('A/B-тесты позиций и цен',
-          'A/B tests of items and prices'),
+          'A/B tests of items and prices', 'Uji A/B untuk item dan harga'),
       ],
       proof: t(
         'Love U Pizza: средний чек +49.5% (Rp 217 397 → 324 999) при росте заказов x14.1. Meat Point Phuket: средний чек +22.4% (785 → 961 бат) — в низкий сезон, когда рестораны Пхукета теряют 20–40% выручки.',
-        'Love U Pizza: average check +49.5% (Rp 217,397 → 324,999) alongside 14.1x order growth. Meat Point Phuket: average check +22.4% (785 → 961 THB) — in the low season, when Phuket restaurants typically lose 20–40% of revenue.'
+        'Love U Pizza: average check +49.5% (Rp 217,397 → 324,999) alongside 14.1x order growth. Meat Point Phuket: average check +22.4% (785 → 961 THB) — in the low season, when Phuket restaurants typically lose 20–40% of revenue.', 'Love U Pizza: rata-rata nilai pesanan +49.5% (Rp 217,397 → 324,999) bersama pertumbuhan pesanan 14.1x. Meat Point Phuket: rata-rata nilai pesanan +22.4% (785 → 961 THB) — di low season, saat restoran Phuket biasanya kehilangan 20–40% omzet.'
       ),
     },
     {
       n: '04',
-      title: t('Рейтинг и отзывы', 'Rating and reviews'),
+      title: t('Рейтинг и отзывы', 'Rating and reviews', 'Rating dan ulasan'),
       why: t(
         'С 4.8 алгоритм отдаёт показы щедрее, а человек, выбирающий между двумя карточками, смотрит на цифру рядом с названием. Один несправедливый отзыв на молодом аккаунте стоит дороже, чем кажется, — и его часто можно снять, если ответить правильно и вовремя.',
-        'From 4.8 the algorithm serves impressions more generously, and a customer choosing between two listings looks at the number next to the name. One unfair review on a young account costs more than it seems — and can often be removed if you answer correctly and quickly.'
+        'From 4.8 the algorithm serves impressions more generously, and a customer choosing between two listings looks at the number next to the name. One unfair review on a young account costs more than it seems — and can often be removed if you answer correctly and quickly.', 'Mulai dari 4.8 algoritma memberi tayangan jauh lebih murah hati, dan pelanggan yang memilih di antara dua toko melihat angka di sebelah nama. Satu ulasan tidak adil pada akun yang masih muda lebih mahal daripada yang terlihat — dan sering bisa dihapus bila dijawab dengan tepat dan cepat.'
       ),
       work: [
         t('Ежедневный разбор новых отзывов и быстрые ответы',
-          'Daily review triage and fast replies'),
+          'Daily review triage and fast replies', 'Peninjauan ulasan baru setiap hari dan balasan cepat'),
         t('Оспаривание несправедливых отзывов вплоть до удаления',
-          'Escalating unfair reviews up to removal'),
+          'Escalating unfair reviews up to removal', 'Menyanggah ulasan tidak adil hingga dihapus'),
         t('Разбор причин: что именно в блюде, упаковке или скорости даёт минус',
-          'Root causes: what in the dish, packaging or speed is producing the minus'),
+          'Root causes: what in the dish, packaging or speed is producing the minus', 'Akar masalah: apa pada hidangan, kemasan, atau kecepatan yang menurunkan nilai'),
       ],
       proof: t(
         'USSR Phuket 4.5 → 4.8, Etna 4.6 → 4.8, Zaytun Ubud 4.67 → 4.8, Meat Point 4.6 → 4.8 при нулевых инцидентах. Love U Pizza удержал 4.8 при росте заказов в 14 раз — это сложнее, чем поднять.',
-        'USSR Phuket 4.5 → 4.8, Etna 4.6 → 4.8, Zaytun Ubud 4.67 → 4.8, Meat Point 4.6 → 4.8 with zero incidents. Love U Pizza held 4.8 through 14x order growth — harder than lifting it.'
+        'USSR Phuket 4.5 → 4.8, Etna 4.6 → 4.8, Zaytun Ubud 4.67 → 4.8, Meat Point 4.6 → 4.8 with zero incidents. Love U Pizza held 4.8 through 14x order growth — harder than lifting it.', 'USSR Phuket 4.5 → 4.8, Etna 4.6 → 4.8, Zaytun Ubud 4.67 → 4.8, Meat Point 4.6 → 4.8 tanpa satu pun insiden. Love U Pizza mempertahankan 4.8 melalui pertumbuhan pesanan 14x — itu lebih sulit daripada menaikkannya.'
       ),
     },
     {
       n: '05',
-      title: t('Реклама', 'Ads'),
+      title: t('Реклама', 'Ads', 'Iklan'),
       why: t(
         'Реклама идёт последней осознанно: она покупает показы, а превращает их в заказы всё, что сделано на этапах 1–4. Автоставка набирает дешёвые нерелевантные показы, поэтому мы ведём кампании вручную и правим их еженедельно, а не запускаем один раз.',
-        'Ads come last by design: they buy impressions, and everything from stages 1–4 is what turns those into orders. Auto-bidding collects cheap irrelevant impressions, so we run campaigns manually and adjust weekly instead of launching once.'
+        'Ads come last by design: they buy impressions, and everything from stages 1–4 is what turns those into orders. Auto-bidding collects cheap irrelevant impressions, so we run campaigns manually and adjust weekly instead of launching once.', 'Iklan sengaja ditempatkan terakhir: iklan membeli tayangan, dan yang mengubahnya menjadi pesanan adalah seluruh pekerjaan tahap 1–4. Bid otomatis mengumpulkan tayangan murah yang tidak relevan, jadi kami menjalankan kampanye secara manual dan menyesuaikannya tiap minggu, bukan sekali jalan.'
       ),
       work: [
         t('Ручной CPO вместо автоставки, ежедневное ведение',
-          'Manual CPO instead of auto-bidding, daily management'),
+          'Manual CPO instead of auto-bidding, daily management', 'CPO manual alih-alih bid otomatis, pengelolaan harian'),
         t('Контроль ROAS по каждой кампании, а не в среднем',
-          'ROAS control per campaign, not on average'),
+          'ROAS control per campaign, not on average', 'Kontrol ROAS per kampanye, bukan rata-rata'),
         t('Бюджет растёт только после того, как растёт конверсия',
-          'Budget grows only after conversion does'),
+          'Budget grows only after conversion does', 'Budget naik hanya setelah konversi naik'),
       ],
       proof: t(
         'Etna Phuket: ROAS 14.75x → 34.57x, CTR 2.8% → 5.59%, стоимость заказа 42 → 29 бат; бюджет +50%, выручка с рекламы x3.4. Zaytun Ubud: GoFood из убытка ROAS 0.25x → 15.52x (окупаемость x62), GrabAds 14.02x → 21.19x. Enjoy Healthy Food: ROAS 27.5x, 566 новых клиентов.',
-        'Etna Phuket: ROAS 14.75x → 34.57x, CTR 2.8% → 5.59%, cost per order 42 → 29 THB; budget +50%, ads revenue x3.4. Zaytun Ubud: GoFood from a loss-making 0.25x to 15.52x (x62 payback), GrabAds 14.02x → 21.19x. Enjoy Healthy Food: ROAS 27.5x, 566 new customers acquired.'
+        'Etna Phuket: ROAS 14.75x → 34.57x, CTR 2.8% → 5.59%, cost per order 42 → 29 THB; budget +50%, ads revenue x3.4. Zaytun Ubud: GoFood from a loss-making 0.25x to 15.52x (x62 payback), GrabAds 14.02x → 21.19x. Enjoy Healthy Food: ROAS 27.5x, 566 new customers acquired.', 'Etna Phuket: ROAS 14.75x → 34.57x, CTR 2.8% → 5.59%, biaya per pesanan 42 → 29 THB; budget +50%, omzet dari iklan x3.4. Zaytun Ubud: GoFood dari rugi 0.25x menjadi 15.52x (balik modal x62), GrabAds 14.02x → 21.19x. Enjoy Healthy Food: ROAS 27.5x, 566 pelanggan baru.'
       ),
     },
   ];
@@ -141,42 +145,42 @@ export default function MethodPage() {
   const faq: Array<[string, string]> = [
     [
       t('Почему реклама на последнем месте, а не на первом?',
-        'Why are ads last rather than first?'),
+        'Why are ads last rather than first?', 'Kenapa iklan ditempatkan terakhir, bukan pertama?'),
       t('Потому что реклама умножает конверсию карточки, а не заменяет её. На карточке со сквозной конверсией 0.5% каждый вложенный доллар покупает просмотр без заказа. Сначала поднимаем то, что умножается, потом умножаем.',
-        'Because ads multiply listing conversion rather than replace it. On a listing converting at 0.5%, every dollar buys a view without an order. First raise what gets multiplied, then multiply it.'),
+        'Because ads multiply listing conversion rather than replace it. On a listing converting at 0.5%, every dollar buys a view without an order. First raise what gets multiplied, then multiply it.', 'Karena iklan mengalikan konversi halaman toko, bukan menggantikannya. Pada toko dengan konversi 0.5%, setiap dolar hanya membeli kunjungan tanpa pesanan. Naikkan dulu yang akan dikalikan, baru kalikan.'),
     ],
     [
       t('Это работает и для нового ресторана, и для работающего?',
-        'Does this work for a new restaurant and an established one?'),
+        'Does this work for a new restaurant and an established one?', 'Apakah ini bekerja untuk restoran baru maupun yang sudah berjalan?'),
       t('Для обоих, но по-разному. На запуске главные рычаги — доступность и карточка: Love U Pizza вырос x21 за 9 месяцев с почти нулевой базы. На работающем ресторане лёгкие точки роста уже израсходованы, и каждый следующий процент достаётся из конверсии и меню: Zaytun Ubud делал 166,6 млн рупий в месяц до нас и вырос x2.6 за 5 месяцев.',
-        'Both, differently. At launch the big levers are availability and listing: Love U Pizza grew x21 in 9 months from a near-zero base. On an established restaurant the easy gains are already spent, and every next percent comes out of conversion and menu: Zaytun Ubud was already making Rp 166.6M a month before us and grew x2.6 in 5 months.'),
+        'Both, differently. At launch the big levers are availability and listing: Love U Pizza grew x21 in 9 months from a near-zero base. On an established restaurant the easy gains are already spent, and every next percent comes out of conversion and menu: Zaytun Ubud was already making Rp 166.6M a month before us and grew x2.6 in 5 months.', 'Keduanya, dengan cara berbeda. Saat peluncuran, pengungkit terbesar adalah ketersediaan dan halaman toko: Love U Pizza tumbuh x21 dalam 9 bulan dari basis hampir nol. Pada restoran yang sudah berjalan, perbaikan mudah sudah habis, dan setiap persen berikutnya datang dari konversi dan menu: Zaytun Ubud sudah membukukan Rp 166.6 juta per bulan sebelum kami dan tumbuh x2.6 dalam 5 bulan.'),
     ],
     [
       t('Можно применить метод самому?',
-        'Can I run the method myself?'),
+        'Can I run the method myself?', 'Bisakah saya menjalankan metode ini sendiri?'),
       t('Да — он поэтому и опубликован целиком. Ограничение не в знании, а в том, что это ежедневная работа с двумя кабинетами: ставки, стоп-лист, отзывы, промо, еженедельный разбор цифр. Обычно владелец делает это «по остатку», и метод разваливается не на понимании, а на регулярности.',
-        'Yes — that is why it is published in full. The constraint is not knowledge but that this is daily work across two dashboards: bids, stop-list, reviews, promos, weekly number reviews. Owners usually do it with whatever time is left, and the method breaks on consistency, not on understanding.'),
+        'Yes — that is why it is published in full. The constraint is not knowledge but that this is daily work across two dashboards: bids, stop-list, reviews, promos, weekly number reviews. Owners usually do it with whatever time is left, and the method breaks on consistency, not on understanding.', 'Bisa — karena itulah metode ini dipublikasikan utuh. Kendalanya bukan pengetahuan, melainkan bahwa ini pekerjaan harian di dua dashboard: bid, item yang dinonaktifkan, ulasan, promo, telaah angka mingguan. Pemilik biasanya mengerjakannya dengan sisa waktu, dan metode ini patah pada keteraturan, bukan pada pemahaman.'),
     ],
     [
       t('Сколько времени занимает полный цикл?',
-        'How long is a full cycle?'),
+        'How long is a full cycle?', 'Berapa lama satu siklus penuh?'),
       t('Первые изменения — 2–4 недели, полная раскачка — 3–6 месяцев. Быстрее всего отзываются доступность и ставки, медленнее всего — ранжирование и рейтинг, потому что алгоритму нужна история.',
-        'First movement in 2–4 weeks, full ramp-up in 3–6 months. Availability and bidding respond fastest; ranking and rating are slowest, because the algorithm needs history.'),
+        'First movement in 2–4 weeks, full ramp-up in 3–6 months. Availability and bidding respond fastest; ranking and rating are slowest, because the algorithm needs history.', 'Perubahan pertama dalam 2–4 minggu, akselerasi penuh dalam 3–6 bulan. Ketersediaan dan bid merespons paling cepat; peringkat dan rating paling lambat, karena algoritma butuh riwayat.'),
     ],
   ];
 
   return (
     <AnswerLayout
-      h1={t('Delivery Booster Method', 'The Delivery Booster Method')}
+      h1={t('Delivery Booster Method', 'The Delivery Booster Method', 'Delivery Booster Method')}
       lead={t(
         'Это метод, по которому мы ведём аккаунты ресторанов на GrabFood и GoFood в Юго-Восточной Азии с 2023 года: 110+ на сопровождении сегодня, 200+ прошло через агентство. Пять этапов в строгом порядке: доступность → карточка и меню-SEO → цены и промо → рейтинг → реклама. Порядок здесь важнее содержания: почти все рестораны начинают с пятого пункта и потому платят за показы, которые не превращаются в заказы. Каждая цифра ниже — из кабинетов GrabMerchant и GoBiz наших клиентов, а не из презентации.',
-        'This is the method we run on restaurant accounts on GrabFood and GoFood in Southeast Asia since 2023: 110+ under management today, 200+ served in total. Five stages in a strict order: availability → listing and menu SEO → pricing and promos → rating → ads. The order matters more than the content: almost every restaurant starts at stage five, and so pays for impressions that never become orders. Every number below comes from our clients’ GrabMerchant and GoBiz dashboards, not from a pitch deck.'
+        'This is the method we run on restaurant accounts on GrabFood and GoFood in Southeast Asia since 2023: 110+ under management today, 200+ served in total. Five stages in a strict order: availability → listing and menu SEO → pricing and promos → rating → ads. The order matters more than the content: almost every restaurant starts at stage five, and so pays for impressions that never become orders. Every number below comes from our clients’ GrabMerchant and GoBiz dashboards, not from a pitch deck.', 'Ini metode yang kami jalankan pada akun restoran di GrabFood dan GoFood di Asia Tenggara sejak 2023: 110+ dalam pengelolaan hari ini, 200+ total sejauh ini. Lima tahap dengan urutan tegas: ketersediaan → halaman toko dan menu SEO → harga dan promo → rating → iklan. Urutannya lebih penting daripada isinya: hampir semua restoran mulai dari tahap kelima, sehingga membayar tayangan yang tidak pernah menjadi pesanan. Setiap angka di bawah berasal dari dashboard GrabMerchant dan GoBiz klien kami, bukan dari materi presentasi.'
       )}
       schemas={[
         faqPageSchema(faq),
         articleSchema({
           headline: t('Delivery Booster Method: пять этапов роста продаж на GrabFood и GoFood',
-                      'The Delivery Booster Method: five stages of GrabFood and GoFood sales growth'),
+                      'The Delivery Booster Method: five stages of GrabFood and GoFood sales growth', 'Delivery Booster Method: lima tahap pertumbuhan penjualan di GrabFood dan GoFood'),
           url: URL,
           about:
             'GrabFood ranking, GoFood ranking, delivery management method, menu SEO, GrabAds ROAS, restaurant delivery growth',
@@ -200,7 +204,7 @@ export default function MethodPage() {
               </ul>
               <p className="text-sm text-brand-muted border-l-2 border-brand-green/40 pl-4">
                 <span className="font-medium text-brand-text">
-                  {t('Из кабинетов: ', 'From the dashboards: ')}
+                  {t('Из кабинетов: ', 'From the dashboards: ', 'Dari dashboard: ')}
                 </span>
                 {s.proof}
               </p>
@@ -209,16 +213,16 @@ export default function MethodPage() {
         </Block>
       ))}
 
-      <Block title={t('Что метод не обещает', 'What the method does not promise')}>
+      <Block title={t('Что метод не обещает', 'What the method does not promise', 'Yang tidak dijanjikan metode ini')}>
         <p className="text-brand-muted max-w-3xl">
           {t(
             'Он не делает ресторан прибыльным, если экономика блюда не сходится до доставки, и не спасает кухню, которая не тянет объём: рост заказов в 14 раз ломает плохой процесс быстрее, чем приносит деньги. Метод работает с тем, что находится внутри GrabMerchant и GoBiz, — и честно останавливается там, где начинается сама кухня.',
-            'It will not make a restaurant profitable if the unit economics do not work before delivery, and it will not save a kitchen that cannot handle volume: 14x order growth breaks a bad process faster than it earns. The method works on what lives inside GrabMerchant and GoBiz — and stops honestly where the kitchen itself begins.'
+            'It will not make a restaurant profitable if the unit economics do not work before delivery, and it will not save a kitchen that cannot handle volume: 14x order growth breaks a bad process faster than it earns. The method works on what lives inside GrabMerchant and GoBiz — and stops honestly where the kitchen itself begins.', 'Metode ini tidak membuat restoran untung bila ekonomi per hidangan sudah tidak masuk sebelum pengiriman, dan tidak menyelamatkan dapur yang tidak sanggup menangani volume: pertumbuhan pesanan 14x mematahkan proses yang buruk lebih cepat daripada menghasilkan uang. Metode ini bekerja pada apa yang ada di dalam GrabMerchant dan GoBiz — dan berhenti dengan jujur di titik tempat dapur itu sendiri dimulai.'
           )}
         </p>
       </Block>
 
-      <Block card title={t('Полные кейсы', 'Full case studies')}>
+      <Block card title={t('Полные кейсы', 'Full case studies', 'Studi kasus lengkap')}>
         <p className="text-brand-muted">
           <Link href="/cases/love-u-pizza" className="text-brand-green hover:underline">Love U Pizza — x21</Link>
           {' · '}
@@ -234,21 +238,21 @@ export default function MethodPage() {
         </p>
       </Block>
 
-      <FaqList faq={faq} title={t('Частые вопросы', 'Frequently asked')} />
+      <FaqList faq={faq} title={t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum')} />
 
       <Block>
         <p className="text-brand-muted">
-          {t('Смежные ответы: ', 'Related answers: ')}
+          {t('Смежные ответы: ', 'Related answers: ', 'Jawaban terkait: ')}
           <Link href="/answers/grabfood-gofood-account-management" className="text-brand-green hover:underline">
-            {t('можно ли отдать ведение аккаунта', 'can I hand the account over')}
+            {t('можно ли отдать ведение аккаунта', 'can I hand the account over', 'bisakah pengelolaan akun diserahkan')}
           </Link>
           {' · '}
           <Link href="/answers/delivery-agency-vs-klikit-deliverect" className="text-brand-green hover:underline">
-            {t('агентство или Klikit/Deliverect', 'agency or Klikit/Deliverect')}
+            {t('агентство или Klikit/Deliverect', 'agency or Klikit/Deliverect', 'agensi atau Klikit/Deliverect')}
           </Link>
           {' · '}
           <Link href="/answers/grabfood-ads-not-working" className="text-brand-green hover:underline">
-            {t('почему реклама не приносит заказов', 'why ads bring no orders')}
+            {t('почему реклама не приносит заказов', 'why ads bring no orders', 'kenapa iklan tidak membawa pesanan')}
           </Link>
         </p>
       </Block>

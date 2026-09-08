@@ -71,19 +71,27 @@ try {
   const executablePath = findChromium();
   const browser = await chromium.launch(executablePath ? { executablePath } : {});
 
+  // 'en' writes the default snapshots bots get on the bare URL; every other
+  // language writes a parallel tree under lang-<code>/ that the server hands
+  // out for ?lang=<code>. Without this, a Bahasa page exists only after JS runs
+  // — i.e. never, for the crawlers we care about.
+  const LANGS = ['en', 'id'];
+  let count = 0;
+
+  for (const lang of LANGS)
   for (const route of routes) {
     const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const page = await ctx.newPage();
     // Deterministic snapshots: no geo redirects, no saved prefs
     await page.route('https://api.country.is/**', (r) => r.abort());
-    await page.addInitScript(() => {
+    await page.addInitScript((l) => {
       try {
         localStorage.clear();
-        localStorage.setItem('preferredLanguage', 'en');
+        localStorage.setItem('preferredLanguage', l);
       } catch {}
-    });
+    }, lang);
 
-    await page.goto(BASE + route.url, { waitUntil: 'networkidle', timeout: 30000 });
+    await page.goto(BASE + route.url + (lang === 'en' ? '' : `?lang=${lang}`), { waitUntil: 'networkidle', timeout: 30000 });
     // Gate shows the picker after geo fails (2.5s fallback timer)
     if (route.url === '/') await page.waitForTimeout(3200);
     else await page.waitForTimeout(800);
@@ -105,20 +113,23 @@ try {
     await page.waitForTimeout(600);
 
     const html = await page.content();
-    const outPath = path.join(DIST, route.out);
+    const outPath = lang === 'en'
+      ? path.join(DIST, route.out)
+      : path.join(DIST, `lang-${lang}`, route.out);
     mkdirSync(path.dirname(outPath), { recursive: true });
-    if (route.out === 'index.html') {
+    if (lang === 'en' && route.out === 'index.html') {
       // Keep the pristine SPA shell as the fallback for unknown routes
       cpSync(outPath, path.join(DIST, 'spa-shell.html'), { force: true });
     }
     writeFileSync(outPath, '<!DOCTYPE html>\n' + html.replace(/^<!DOCTYPE html>\s*/i, ''));
     const bytes = Buffer.byteLength(html);
-    console.log(`prerendered ${route.url} -> ${route.out} (${(bytes / 1024).toFixed(0)} KB)`);
+    count++;
+    console.log(`prerendered [${lang}] ${route.url} -> ${path.relative(DIST, outPath)} (${(bytes / 1024).toFixed(0)} KB)`);
     await ctx.close();
   }
 
   await browser.close();
-  console.log(`prerender: ${routes.length} routes done`);
+  console.log(`prerender: ${count} snapshots done (${routes.length} routes x ${LANGS.length} languages)`);
 } finally {
   server.kill();
 }

@@ -72,7 +72,7 @@ export const AnswerLayout = ({
                 data-testid="link-back-home"
               >
                 <ArrowLeft className="w-4 h-4" />
-                {t('На главную', 'Home')}
+                {t('На главную', 'Home', 'Beranda')}
               </Link>
 
               <motion.div {...fadeIn}>
@@ -143,12 +143,13 @@ export const AnswerCta = () => {
     <Block card>
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-3">
-          {t('Проверить свой ресторан', 'Check your own restaurant')}
+          {t('Проверить свой ресторан', 'Check your own restaurant', 'Cek restoran Anda')}
         </h2>
         <p className="text-brand-muted mb-6 max-w-2xl mx-auto">
           {t(
             'Пришлите ссылку на ресторан в Grab — сделаем бесплатный разбор карточки и покажем, где вы теряете заказы.',
-            'Send your restaurant’s Grab link — we’ll run a free audit of your listing and show where you lose orders.'
+            'Send your restaurant’s Grab link — we’ll run a free audit of your listing and show where you lose orders.',
+            'Kirim link restoran Anda di Grab — kami audit halaman Anda gratis dan tunjukkan di mana pesanan hilang.'
           )}
         </p>
         <a
@@ -158,7 +159,7 @@ export const AnswerCta = () => {
           className="inline-block brand-gradient px-8 py-3 rounded-lg font-semibold"
           data-testid="cta-telegram"
         >
-          {t('Получить бесплатный разбор', 'Get a free audit')}
+          {t('Получить бесплатный разбор', 'Get a free audit', 'Minta audit gratis')}
         </a>
       </div>
     </Block>

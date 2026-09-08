@@ -23,7 +23,9 @@ export default function Gate() {
     document.title =
       language === 'ru'
         ? 'Delivery Booster — Рост продаж ресторанов на Grab и Gojek в Юго-Восточной Азии'
-        : 'Delivery Booster — Grab & Gojek Sales Growth for Restaurants in Southeast Asia';
+        : language === 'id'
+          ? 'Delivery Booster — Pertumbuhan Omzet Restoran di Grab dan Gojek se-Asia Tenggara'
+          : 'Delivery Booster — Grab & Gojek Sales Growth for Restaurants in Southeast Asia';
     syncOpenGraph();
   }, [language]);
 
@@ -113,12 +115,13 @@ export default function Gate() {
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold mb-2">Delivery Booster</h1>
             <p className="text-brand-muted mb-1.5 text-lg">
-              {t('Где находится ваш ресторан?', 'Where is your restaurant located?')}
+              {t('Где находится ваш ресторан?', 'Where is your restaurant located?', 'Di mana lokasi restoran Anda?')}
             </p>
             <p className="text-brand-muted mb-8 text-sm">
               {t(
                 'Покажем кейсы и условия для вашего региона',
-                "We'll show case studies and terms for your region"
+                "We'll show case studies and terms for your region",
+                'Kami tampilkan studi kasus dan ketentuan untuk wilayah Anda'
               )}
             </p>
 
@@ -155,7 +158,11 @@ export default function Gate() {
           Real <a href> links so engines can reach cases and markets from "/". */}
       <section className="relative z-10 max-w-3xl mx-auto px-4 pb-12 text-sm">
         <h2 className="text-brand-muted font-semibold mb-3 text-center">
-          {t('Кейсы с реальными цифрами мерчант-кабинетов', 'Case studies with real merchant-dashboard numbers')}
+          {t(
+            'Кейсы с реальными цифрами мерчант-кабинетов',
+            'Case studies with real merchant-dashboard numbers',
+            'Studi kasus dengan angka asli dari dasbor merchant'
+          )}
         </h2>
         <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-brand-muted">
           <li><a className="hover:text-brand-green transition-colors" href="/cases/love-u-pizza">Love U Pizza (Bali) — x21</a></li>
@@ -168,45 +175,47 @@ export default function Gate() {
         <p className="text-brand-muted text-center mt-4 max-w-2xl mx-auto">
           {t(
             'Delivery Booster — агентство управления доставкой: ведём GrabFood и GoFood за ресторан — меню, реклама GrabAds, рейтинг, еженедельная аналитика. Сейчас на сопровождении 110+ ресторанов, всего через агентство прошло 200+ с 2023 года.',
-            'Delivery Booster is a delivery management agency: we run GrabFood and GoFood for restaurants — menu, GrabAds, rating, weekly analytics. 110+ restaurants under management today, 200+ served since 2023.'
+            'Delivery Booster is a delivery management agency: we run GrabFood and GoFood for restaurants — menu, GrabAds, rating, weekly analytics. 110+ restaurants under management today, 200+ served since 2023.',
+            'Delivery Booster adalah agensi pengelolaan delivery: kami menjalankan GrabFood dan GoFood untuk restoran — menu, GrabAds, rating, analitik mingguan. Saat ini 110+ restoran dalam pengelolaan, total 200+ sejak 2023.'
           )}{' '}
           <a className="text-brand-green hover:underline" href="/about">
-            {t('О компании', 'About the company')}
+            {t('О компании', 'About the company', 'Tentang kami')}
           </a>
           {' · '}
           <a className="text-brand-green hover:underline" href="/method">
-            {t('Метод Delivery Booster', 'The Delivery Booster Method')}
+            {t('Метод Delivery Booster', 'The Delivery Booster Method', 'Metode Delivery Booster')}
           </a>
           {' · '}
           <a className="text-brand-green hover:underline" href="/benchmark">
-            {t('Бенчмарк рынка 2026', 'Market Benchmark 2026')}
+            {t('Бенчмарк рынка 2026', 'Market Benchmark 2026', 'Benchmark Pasar 2026')}
           </a>
         </p>
         <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-brand-muted mt-4">
           <li>
             <a className="hover:text-brand-green transition-colors" href="/answers/grabfood-gofood-account-management">
               {t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?',
-                 'Can I hire someone to manage my GrabFood and GoFood account?')}
+                 'Can I hire someone to manage my GrabFood and GoFood account?',
+                 'Bisakah menyerahkan pengelolaan akun GrabFood dan GoFood ke pihak lain?')}
             </a>
           </li>
           <li>
             <a className="hover:text-brand-green transition-colors" href="/answers/delivery-agency-vs-klikit-deliverect">
-              {t('Агентство или Klikit / Deliverect?', 'An agency or Klikit / Deliverect?')}
+              {t('Агентство или Klikit / Deliverect?', 'An agency or Klikit / Deliverect?', 'Agensi atau Klikit / Deliverect?')}
             </a>
           </li>
           <li>
             <a className="hover:text-brand-green transition-colors" href="/answers/grabfood-ads-not-working">
-              {t('Плачу за рекламу, а заказов нет', 'Paying for ads, orders flat')}
+              {t('Плачу за рекламу, а заказов нет', 'Paying for ads, orders flat', 'Sudah bayar iklan, pesanan tetap sama')}
             </a>
           </li>
           <li>
             <a className="hover:text-brand-green transition-colors" href="/answers/managing-grabfood-yourself">
-              {t('Сколько времени занимает вести это самому?', 'How long does doing it yourself take?')}
+              {t('Сколько времени занимает вести это самому?', 'How long does doing it yourself take?', 'Berapa lama kalau dikerjakan sendiri?')}
             </a>
           </li>
           <li>
             <a className="hover:text-brand-green transition-colors" href="/answers/in-house-manager-vs-agency">
-              {t('Свой менеджер или агентство?', 'In-house manager or an agency?')}
+              {t('Свой менеджер или агентство?', 'In-house manager or an agency?', 'Manajer internal atau agensi?')}
             </a>
           </li>
         </ul>
