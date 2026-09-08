@@ -6,6 +6,7 @@ import {
   AnswerCta,
   Block,
   FaqList,
+  KeepReading,
   faqPageSchema,
   articleSchema,
   syncOpenGraph,
@@ -85,36 +86,73 @@ export default function AnswersAdsNotWorkingPage() {
 
   const faq: Array<[string, string]> = [
     [
-      t('Какой ROAS в GrabAds считать нормальным?',
-        'What ROAS should I expect from GrabAds?',
-        'ROAS berapa yang wajar diharapkan dari GrabAds?'),
+      t('Как понять, что моя реклама окупается нормально?',
+        'How do I know if my ads are actually paying off?',
+        'Bagaimana saya tahu iklan saya benar-benar balik modal?'),
       t('Наши клиенты держат 20–27x, в отдельных кампаниях выше. Но ROAS без контекста обманчив: он считается по выручке с рекламы и не учитывает скидку, комиссию площадки и то, что часть этих заказов пришла бы и без рекламы. Смотреть надо на связку ROAS + сквозная конверсия + маржа после промо.',
         'Our clients hold 20–27x, higher in individual campaigns. But ROAS in isolation is misleading: it counts ads revenue and ignores your discount, the platform commission, and the share of those orders you would have received anyway. Read ROAS together with through-conversion and post-promo margin.',
         'Klien kami bertahan di 20–27x, pada kampanye tertentu lebih tinggi. Tapi ROAS tanpa konteks menyesatkan: angka itu menghitung omzet dari iklan dan mengabaikan diskon Anda, komisi platform, serta bagian pesanan yang tetap datang tanpa iklan. Baca ROAS bersama konversi menyeluruh dan margin setelah promo.'),
     ],
     [
-      t('Может, просто поднять бюджет?',
-        'Should I just raise the budget?',
-        'Apa cukup menaikkan anggaran saja?'),
+      t('Если я подниму бюджет на рекламу, заказов станет больше?',
+        'If I raise my ad budget, will I get more orders?',
+        'Kalau anggaran iklan saya naikkan, pesanan saya bertambah?'),
       t('Если карточка не конвертит, больший бюджет купит больше просмотров без заказов — это самый быстрый способ потратить деньги впустую. У Etna мы подняли бюджет на 50% уже ПОСЛЕ того, как починили карточку и ставки, и получили втрое больше выручки с рекламы.',
         'If the listing does not convert, a bigger budget buys more views without orders — the fastest way to waste money. At Etna we raised the budget 50% only AFTER fixing the listing and the bidding, and got 3.4x the ads revenue.',
         'Kalau listing tidak berkonversi, anggaran yang lebih besar hanya membeli lebih banyak tampilan tanpa pesanan — cara tercepat membuang uang. Di Etna kami menaikkan anggaran 50% justru SETELAH listing dan bid diperbaiki, dan mendapat 3.4x omzet dari iklan.'),
     ],
     [
-      t('Сколько ждать результата?',
-        'How long until results?',
-        'Berapa lama sampai ada hasil?'),
+      t('Через сколько я увижу рост заказов?',
+        'How soon will I see my orders start growing?',
+        'Berapa lama sampai saya lihat pesanan mulai naik?'),
       t('Первые изменения — 2–4 недели, полная раскачка — 3–6 месяцев. Быстрее всего отзываются доступность и ставки; конверсия карточки и рейтинг набираются медленнее, потому что алгоритму нужна история.',
         'First movement in 2–4 weeks, full ramp-up in 3–6 months. Availability and bidding respond fastest; listing conversion and rating take longer because the algorithm needs history.',
         'Perubahan pertama dalam 2–4 minggu, hasil penuh dalam 3–6 bulan. Ketersediaan dan bid paling cepat merespons; konversi listing dan rating butuh waktu lebih lama karena algoritma perlu riwayat.'),
     ],
     [
-      t('Реклама вообще нужна, если карточка хорошая?',
-        'Do I need ads at all if my listing is good?',
-        'Apakah iklan tetap perlu kalau listing sudah bagus?'),
+      t('У меня хорошая карточка — мне вообще нужна реклама?',
+        'My listing is good — do I still need ads at all?',
+        'Halaman toko saya sudah bagus — apa saya masih perlu iklan?'),
       t('Нужна — но как усилитель, а не как замена. Реклама покупает показы; заказ делает карточка. В правильном порядке реклама умножает то, что уже работает; в неправильном — оплачивает то, что не работает.',
         'Yes — but as an amplifier, not a substitute. Ads buy impressions; the listing earns the order. In the right order, ads multiply what already works; in the wrong one, they pay for what does not.',
         'Perlu — tapi sebagai penguat, bukan pengganti. Iklan membeli tayangan; listing yang menghasilkan pesanan. Dalam urutan yang benar, iklan melipatgandakan yang sudah bekerja; dalam urutan yang salah, iklan membayari yang tidak bekerja.'),
+    ],
+  ];
+
+  /** Что видно в кабинете в первые дни — мост от статьи к услуге через факты,
+   *  а не через обещания. Цифры — из нашего флота и из медиан по Бали. */
+  const findings: Array<[string, string]> = [
+    [
+      t('Реклама ведёт на карточку с выключенными позициями',
+        'Ads point at a listing with items switched off',
+        'Iklan mengarah ke listing yang itemnya dimatikan'),
+      t('Мимо ресторана в среднем проходит 25% выручки, и 95% этих потерь — именно выключенные позиции: не закрытый ресторан (3%) и не отмены (2%). Мы регулярно видим 40–70 позиций, выключенных одновременно, а отдельные блюда висят в стопе больше 2000 часов. Каждый оплаченный клик в это время ведёт человека в меню, где половины хитов нет.',
+        'On average 25% of revenue leaks past the restaurant, and 95% of that loss is switched-off items — not a closed restaurant (3%), not cancellations (2%). We routinely see 40–70 items off at once, and individual dishes stuck in the stop-list for over 2,000 hours. Every paid click in that window sends someone to a menu where half the bestsellers are missing.',
+        'Rata-rata 25% omzet lolos begitu saja, dan 95% kerugian itu berasal dari item yang dimatikan — bukan restoran yang tutup (3%), bukan pembatalan (2%). Kami rutin menemukan 40–70 item mati sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam. Setiap klik berbayar pada saat itu membawa orang ke menu yang kehilangan separuh menu terlarisnya.'),
+    ],
+    [
+      t('Расход на рекламу перевалил за 6% выручки',
+        'Ad spend has crossed 6% of revenue',
+        'Belanja iklan sudah melewati 6% dari omzet'),
+      t('Это граница, за которой реклама перестаёт окупаться: до неё медианный ROAS 12.1x, после — 8.6x. За этой границей сейчас 42% ресторанов нашего флота. Симптом ровно тот, с которым к нам приходят: бюджет растёт, заказы — нет.',
+        'That is the line where ads stop paying back: below it the median ROAS is 12.1x, above it 8.6x. 42% of the restaurants in our fleet are already past that line. The symptom is exactly the one owners arrive with: the budget grows, the orders do not.',
+        'Itulah batas ketika iklan berhenti balik modal: di bawahnya ROAS median 12.1x, di atasnya 8.6x. Saat ini 42% restoran di portofolio kami sudah melewati batas itu. Gejalanya persis seperti yang dibawa pemilik saat datang ke kami: anggaran naik, pesanan tidak.'),
+    ],
+    [
+      t('Ваши две цифры не сходятся с медианой рынка',
+        'Your two numbers do not line up with the market median',
+        'Dua angka Anda tidak sejalan dengan median pasar'),
+      t('Медианы Бали, с которыми мы сверяем каждый аккаунт: средний чек Rp 250k, ROAS 10.4x, реклама 5.6% выручки, отмены 0.35%. Поставьте рядом свою долю рекламы в выручке и свой ROAS — из этой пары сразу видно, покупаете вы заказы или показы.',
+        'The Bali medians we check every account against: Rp 250k average check, 10.4x ROAS, ads at 5.6% of revenue, 0.35% cancellations. Put your own ad share of revenue and your own ROAS next to them — that pair shows immediately whether you are buying orders or impressions.',
+        'Median Bali yang kami pakai membandingkan setiap akun: rata-rata nilai pesanan Rp 250k, ROAS 10.4x, iklan 5.6% dari omzet, pembatalan 0.35%. Sandingkan porsi iklan terhadap omzet dan ROAS Anda sendiri — dari pasangan itu langsung terlihat apakah Anda membeli pesanan atau tayangan.'),
+    ],
+    [
+      t('Рейтинг сбит единицами, которые никто не оспаривал',
+        'The rating is dragged down by one-stars nobody contested',
+        'Rating jatuh oleh bintang satu yang tak pernah dibantah'),
+      t('Отзывы бимодальны: 51% пятёрок, 28% единиц и всего 3% четвёрок — рейтинг делают крайности. Медиана Бали — один негативный отзыв на 138 заказов. Около 80% апелляций, которые мы подаём на Grab, заканчиваются снятием отзыва, но подавать их обычно некому. Рекламный трафик тем временем приходит на карточку с уже сбитой цифрой.',
+        'Reviews are bimodal: 51% five-stars, 28% one-stars and only 3% fours — the extremes make the rating. The Bali median is one negative review per 138 orders. Around 80% of the appeals we file with Grab end with the review removed, but usually nobody is filing them. Meanwhile the ad traffic lands on a listing whose number is already down.',
+        'Ulasan bersifat bimodal: 51% bintang lima, 28% bintang satu, dan hanya 3% bintang empat — yang membentuk rating adalah ekstremnya. Median Bali adalah satu ulasan negatif per 138 pesanan. Sekitar 80% banding yang kami ajukan ke Grab berakhir dengan ulasan dihapus, tapi biasanya tidak ada yang mengajukannya. Sementara itu trafik iklan mendarat di listing yang angkanya sudah jatuh.'),
     ],
   ];
 
@@ -191,21 +229,30 @@ export default function AnswersAdsNotWorkingPage() {
 
       <FaqList faq={faq} title={t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum')} />
 
-      <Block>
-        <p className="text-brand-muted">
-          {t('Смежные ответы: ', 'Related answers: ', 'Jawaban terkait: ')}
-          <Link
-            href="/answers/grabfood-gofood-account-management"
-            className="text-brand-green hover:underline"
-          >
-            {t('можно ли отдать ведение аккаунта', 'can I hand the account over', 'bisakah pengelolaan akun diserahkan')}
-          </Link>
-          {' · '}
-          <Link href="/method" className="text-brand-green hover:underline">
-            {t('метод Delivery Booster целиком', 'the full Delivery Booster Method', 'Delivery Booster Method selengkapnya')}
-          </Link>
+      <Block card title={t('Что мы находим на аккаунте вроде вашего',
+                           'What we find on an account like yours',
+                           'Apa yang kami temukan di akun seperti milik Anda')}>
+        <p className="text-brand-muted max-w-3xl mb-6">
+          {t(
+            'Не гипотезы, а то, что видно в первые дни, когда открываем кабинет ресторана с этой жалобой.',
+            'Not hypotheses — what shows up in the first days when we open the dashboard of a restaurant with this complaint.',
+            'Bukan hipotesis — inilah yang terlihat pada hari-hari pertama saat kami membuka dashboard restoran dengan keluhan ini.'
+          )}
         </p>
+        <div className="space-y-5">
+          {findings.map(([title, body]) => (
+            <div key={title} className="flex gap-3">
+              <Check className="w-5 h-5 text-brand-green shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">{title}</div>
+                <p className="text-brand-muted text-sm">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </Block>
+
+      <KeepReading currentHref="/answers/grabfood-ads-not-working" />
 
       <AnswerCta />
     </AnswerLayout>

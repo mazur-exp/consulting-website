@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
+import { Check } from 'lucide-react';
 import {
   AnswerLayout,
   AnswerCta,
   Block,
   FaqList,
+  KeepReading,
   faqPageSchema,
   articleSchema,
   syncOpenGraph,
@@ -115,52 +117,87 @@ export default function AnswersInHouseVsAgencyPage() {
 
   const faq: Array<[string, string]> = [
     [
-      t('Свой менеджер дешевле, чем 10% от выручки?',
-        'Is an in-house manager cheaper than 10% of revenue?',
-        'Apakah manajer internal lebih murah daripada 10% dari omzet?'),
+      t('Мне дешевле держать своего человека, чем платить вам 10%?',
+        'Is my own hire cheaper than paying you 10% of revenue?',
+        'Lebih murah punya orang sendiri daripada bayar 10% ke Anda?'),
       t('Арифметика простая: свой сотрудник дешевле, когда выручка доставки выше его полной стоимости, умноженной на десять — потому что мы берём ровно 10%. Проблема в том, что подставлять в эту формулу нечего. Человек, которого реально можно нанять на рынке, этой работы не знает: она не преподаётся, по ней нет ни курса, ни сертификата, а знание собирается только на объёме аккаунтов. Поэтому вопрос не «дешевле ли», а «принесёт ли он тот же результат». Ответ по публичным профилям таких специалистов: они обещают рост в десятки процентов, у нас в кейсах рост в разы.',
         'The arithmetic is simple: an in-house hire is cheaper once delivery revenue exceeds their fully-loaded cost times ten — because our fee is exactly 10%. The problem is that there is nothing to put into the formula. A person you can actually hire on this market does not know this work: it is not taught, there is no course and no certification, and the knowledge only accumulates across a volume of accounts. So the question is not "is it cheaper" but "will it produce the same result". Judging by the public profiles of such specialists: they promise growth in tens of percent, our cases show growth in multiples.',
         'Aritmetikanya sederhana: karyawan internal lebih murah begitu omzet delivery melampaui biaya totalnya dikali sepuluh — karena fee kami tepat 10%. Masalahnya, tidak ada yang bisa dimasukkan ke rumus itu. Orang yang benar-benar bisa Anda rekrut di pasar ini tidak menguasai pekerjaan tersebut: tidak diajarkan di mana pun, tidak ada kursus maupun sertifikasi, dan pengetahuannya hanya terkumpul dari banyak akun. Jadi pertanyaannya bukan "lebih murah atau tidak", melainkan "apakah hasilnya sama". Menurut profil publik spesialis semacam itu: mereka menjanjikan pertumbuhan puluhan persen, sementara kasus kami menunjukkan pertumbuhan berlipat.'),
     ],
     [
-      t('Почему нельзя просто нанять эксперта на эту роль?',
-        'Why can’t I just hire an expert for the role?',
-        'Kenapa tidak bisa merekrut ahli untuk peran ini?'),
+      t('Почему я не могу просто найти толкового специалиста?',
+        'Why can’t I just find a good specialist myself?',
+        'Kenapa saya tidak bisa cari saja spesialis yang bagus?'),
       t('Потому что этой профессии не существует как профессии. Площадки не выпускают специалистов, не сертифицируют их и не публикуют, как устроено ранжирование. Всё, что мы знаем, собрано из кабинетов ста с лишним ресторанов за три года — включая вещи, которые невозможно вывести из одного аккаунта: например, что реклама перестаёт окупаться примерно на 6% выручки, или что 95% всех потерь приходится на выключенные позиции меню, а не на закрытый ресторан. Человек с одним рестораном не увидит этого никогда, сколько бы ни старался.',
         'Because the profession does not exist as a profession. The platforms do not train specialists, do not certify them and do not publish how ranking works. Everything we know comes from the dashboards of a hundred-plus restaurants over three years — including things you cannot derive from a single account: that ads stop paying back at around 6% of revenue, or that 95% of all losses come from switched-off menu items rather than a closed restaurant. Someone with one restaurant will never see that, however hard they try.',
         'Karena profesi ini tidak ada sebagai profesi. Platform tidak melatih spesialis, tidak menyertifikasi mereka, dan tidak menerbitkan cara kerja peringkat. Semua yang kami tahu berasal dari dashboard seratus lebih restoran selama tiga tahun — termasuk hal yang tidak bisa disimpulkan dari satu akun: bahwa iklan berhenti balik modal sekitar 6% dari omzet, atau bahwa 95% seluruh kerugian datang dari item menu yang dinonaktifkan, bukan dari restoran yang tutup. Orang dengan satu restoran tidak akan pernah melihat itu, sekeras apa pun usahanya.'),
     ],
     [
-      t('Кандидат говорит, что уже вёл GrabFood. Как проверить?',
-        'A candidate says they have run GrabFood before. How do I check?',
-        'Kandidat mengaku pernah mengelola GrabFood. Bagaimana memeriksanya?'),
+      t('Как мне проверить кандидата, который говорит, что вёл GrabFood?',
+        'How do I check a candidate who says they have run GrabFood?',
+        'Bagaimana saya memeriksa kandidat yang mengaku pernah mengelola GrabFood?'),
       t('Спросите три вещи и сверьте с нашими опубликованными нормами. Первое: какая доля выручки должна уходить в рекламу и почему — если ответ «чем больше, тем лучше», человек считает Grab рекламной сетью, а это не так. Второе: сколько часов позиции его меню провели в стоп-листе за прошлый месяц — если он не знает, он этим не управлял. Третье: какой у него был ROAS и с чем он его сравнивал. Медиана по нашему флоту — 10.4x на Бали и 22.8x на Пхукете; норму мы выложили открыто именно для того, чтобы её можно было применить к кому угодно, включая нас.',
         'Ask three things and check the answers against our published norms. One: what share of revenue should go to ads, and why — if the answer is "the more the better", they think Grab is an ad network, and it is not. Two: how many hours their menu items spent on the stop-list last month — if they do not know, they were not managing it. Three: what their ROAS was and what they compared it against. Our fleet medians are 10.4x in Bali and 22.8x in Phuket; we published the norms openly precisely so they can be applied to anyone, us included.',
         'Tanyakan tiga hal dan cocokkan dengan norma yang kami terbitkan. Pertama: berapa porsi omzet yang seharusnya masuk ke iklan, dan kenapa — kalau jawabannya "makin besar makin baik", dia menganggap Grab sebagai jaringan iklan, dan itu keliru. Kedua: berapa jam item menunya berada dalam status nonaktif bulan lalu — kalau dia tidak tahu, berarti dia tidak mengelolanya. Ketiga: berapa ROAS-nya dan dibandingkan dengan apa. Median portofolio kami 10.4x di Bali dan 22.8x di Phuket; norma itu kami buka justru agar bisa diterapkan ke siapa pun, termasuk ke kami.'),
     ],
     [
-      t('Ваши кейсы — это лучшие результаты или типичные?',
-        'Are your cases your best results or typical ones?',
-        'Kasus Anda itu hasil terbaik atau hasil yang khas?'),
+      t('У меня будет такой же рост, как в ваших кейсах?',
+        'Will my restaurant grow like the ones in your cases?',
+        'Apakah restoran saya akan tumbuh seperti di kasus Anda?'),
       t('Лучшие, и мы это говорим прямо. Опубликованные кейсы — это те, где было что показать и было разрешение показать. Типичные цифры мы публикуем отдельно и тоже открыто: медианы по 96 ресторанам, включая те, где всё скучно. Обещать каждому x21 было бы враньём; отличие в том, что рост в разы у нас вообще случается и подтверждён скриншотами кабинетов, а в найме такие цифры не встречаются даже в обещаниях.',
         'Our best, and we say so plainly. Published cases are the ones where there was something to show and permission to show it. The typical numbers are published separately and just as openly: medians across 96 restaurants, including the boring ones. Promising everyone 21x would be a lie; the difference is that multiple-fold growth happens at all in our work and is backed by dashboard screenshots, while in the hiring market such numbers do not appear even as promises.',
         'Terbaik, dan kami mengatakannya terus terang. Kasus yang kami terbitkan adalah yang ada sesuatu untuk ditunjukkan dan ada izin untuk menunjukkannya. Angka yang khas kami terbitkan terpisah dan sama terbukanya: median 96 restoran, termasuk yang membosankan. Menjanjikan x21 kepada semua orang jelas bohong; bedanya, pertumbuhan berlipat memang terjadi pada kami dan didukung tangkapan layar dashboard, sementara di pasar rekrutmen angka seperti itu tidak muncul bahkan sebagai janji.'),
     ],
     [
-      t('Когда своего человека нанимать действительно нужно?',
-        'When do you genuinely need your own person?',
-        'Kapan karyawan internal benar-benar dibutuhkan?'),
+      t('В каком случае мне всё-таки нужен свой человек?',
+        'When do I actually need my own person instead?',
+        'Kapan saya justru benar-benar butuh orang sendiri?'),
       t('Всегда — но на операционку, а не на управление продажами. Наличие позиций, стоп-лист, время приготовления, кухня в час пик: это физически внутри ресторана, снаружи этим управлять нельзя. По нашим данным именно там лежит 95% всех потерь выручки. Второй случай — если доставка для вас не канал роста, а просто должна работать: тогда нужен человек, который следит, чтобы ничего не сломалось, и агентство вам не нужно.',
         'Always — but for operations, not for revenue management. Item availability, the stop-list, preparation time, the kitchen at peak: that is physically inside the restaurant and cannot be run from outside. By our data that is exactly where 95% of revenue losses sit. The second case is when delivery is not a growth channel for you but simply has to work: then you need someone watching that nothing breaks, and you do not need an agency.',
         'Selalu — tapi untuk operasional, bukan untuk mengelola penjualan. Ketersediaan item, item yang dinonaktifkan, waktu masak, dapur di jam sibuk: itu ada secara fisik di dalam restoran dan tidak bisa dijalankan dari luar. Menurut data kami, di situlah 95% seluruh kehilangan omzet berada. Kasus kedua: kalau delivery bukan kanal pertumbuhan bagi Anda dan cukup berjalan saja, Anda butuh orang yang menjaga agar tidak ada yang rusak, dan agensi tidak diperlukan.'),
     ],
     [
-      t('Можно совместить: свой человек и ваш метод?',
-        'Can I combine the two: my person, your method?',
-        'Bisakah digabung: karyawan internal dan metode Anda?'),
+      t('Можно оставить своего человека и подключить вас?',
+        'Can I keep my person and bring you in as well?',
+        'Bisakah saya tetap punya orang sendiri dan menggandeng Anda?'),
       t('Да, и у сетей это основной рабочий вариант. Ваш сотрудник держит операционку, мы держим управление карточкой: меню и его SEO, рекламу и ставки, промо-экономику, отзывы и апелляции. Разделение проходит ровно по данным: потери — операционные, рост — в управлении карточкой. Это разные компетенции, и они почти никогда не совмещаются в одном человеке.',
         'Yes, and in chains this is the main working arrangement. Your employee holds operations, we hold listing management: menu and menu SEO, ads and bidding, promo economics, reviews and appeals. The split follows the data exactly: the losses are operational, the growth is in listing management. Different skills, and they almost never sit in one person.',
         'Bisa, dan di jaringan restoran inilah opsi utamanya. Karyawan Anda memegang operasional, kami memegang pengelolaan listing: menu dan menu SEO, iklan dan bid, ekonomi promo, ulasan dan banding. Pembagiannya tepat mengikuti data: kerugian ada di operasional, pertumbuhan ada di pengelolaan listing. Ini kompetensi yang berbeda, dan hampir tidak pernah menyatu pada satu orang.'),
+    ],
+  ];
+
+  const findings: Array<[string, string]> = [
+    [
+      t('Ваши цифры не с чем сравнить',
+        'Your numbers have nothing to be compared against',
+        'Angka Anda tidak punya pembanding'),
+      t('Медианы Бали по нашему флоту: чек Rp 250 000, ROAS 10.4x, реклама 5.6% выручки, отмены 0.35%, один негативный отзыв на 138 заказов. Свой менеджер сравнивает ваш месяц только с вашим прошлым месяцем — других данных у него нет и взять их негде.',
+        'Our fleet medians for Bali: check Rp 250,000, ROAS 10.4x, ads at 5.6% of revenue, cancellations 0.35%, one negative review per 138 orders. An in-house manager can only compare your month with your previous month — there is no other data and nowhere to get it.',
+        'Median portofolio kami untuk Bali: nilai pesanan Rp 250.000, ROAS 10.4x, iklan 5.6% dari omzet, pembatalan 0.35%, satu ulasan negatif per 138 pesanan. Manajer internal hanya bisa membandingkan bulan Anda dengan bulan Anda sebelumnya — data lain tidak ada dan tidak bisa didapat.'),
+    ],
+    [
+      t('Граница, за которой реклама перестаёт окупаться',
+        'The line past which ads stop paying back',
+        'Batas ketika iklan berhenti balik modal'),
+      t('Она проходит примерно на 6% выручки: до неё медианный ROAS 12.1x, после — 8.6x. За границей уже 42% ресторанов нашего флота. Из одного аккаунта эту границу вывести нельзя: там нет второй точки, с которой она видна.',
+        'It sits at roughly 6% of revenue: below it the median ROAS is 12.1x, above it 8.6x. 42% of the restaurants in our fleet are already past it. You cannot derive that line from one account — there is no second point from which it becomes visible.',
+        'Batas itu ada di sekitar 6% dari omzet: di bawahnya ROAS median 12.1x, di atasnya 8.6x. Sebanyak 42% restoran di portofolio kami sudah melewatinya. Batas itu tidak bisa disimpulkan dari satu akun — tidak ada titik kedua yang membuatnya terlihat.'),
+    ],
+    [
+      t('Где на самом деле лежат потери',
+        'Where the losses actually sit',
+        'Di mana kerugian sebenarnya berada'),
+      t('Мимо ресторана проходит около 25% выручки, и 95% этих потерь — выключенные позиции меню, а не закрытый ресторан (3%) и не отмены (2%). Типичная картина — 40–70 позиций выключено одновременно, отдельные блюда висят в стопе больше 2000 часов.',
+        'Around 25% of revenue goes past the restaurant, and 95% of that loss is switched-off menu items — not a closed restaurant (3%) and not cancellations (2%). The typical picture is 40–70 items off at once, with individual dishes stuck in the stop-list for over 2,000 hours.',
+        'Sekitar 25% omzet lewat begitu saja, dan 95% kerugian itu berasal dari item menu yang dinonaktifkan — bukan restoran tutup (3%) dan bukan pembatalan (2%). Gambaran khasnya: 40–70 item nonaktif sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam.'),
+    ],
+    [
+      t('Отзывы, которые вообще можно снять',
+        'Reviews that can actually be removed',
+        'Ulasan yang sebenarnya bisa dihapus'),
+      t('Отзывы бимодальны: 51% пятёрок против 28% единиц, четвёрок всего 3% — рейтинг делают крайности. Около 80% апелляций, которые мы подаём на Grab, заканчиваются снятием отзыва. Человек, который делает это впервые, не знает ни формулировок, ни сроков.',
+        'Reviews are bimodal: 51% five-stars against 28% one-stars, with only 3% fours — the rating is made by the extremes. Around 80% of the appeals we file with Grab end with the review removed. Someone doing it for the first time knows neither the wording nor the deadlines.',
+        'Ulasan bersifat bimodal: 51% bintang lima berbanding 28% bintang satu, bintang empat hanya 3% — rating dibentuk oleh ekstremnya. Sekitar 80% banding yang kami ajukan ke Grab berakhir dengan ulasan dihapus. Orang yang baru pertama kali melakukannya tidak tahu susunan kalimatnya maupun tenggat waktunya.'),
     ],
   ];
 
@@ -306,28 +343,30 @@ export default function AnswersInHouseVsAgencyPage() {
 
       <FaqList faq={faq} title={t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum')} />
 
-      <Block>
-        <p className="text-brand-muted">
-          {t('Смежные вопросы: ', 'Related: ', 'Terkait: ')}
-          <Link
-            href="/answers/managing-grabfood-yourself"
-            className="text-brand-green hover:underline"
-          >
-            {t('сколько времени занимает вести аккаунт самому',
-               'how much time managing the account yourself actually takes',
-               'berapa waktu yang sebenarnya dibutuhkan untuk mengelola akun sendiri')}
-          </Link>
-          {' · '}
-          <Link
-            href="/answers/grabfood-gofood-account-management"
-            className="text-brand-green hover:underline"
-          >
-            {t('можно ли нанять кого-то для ведения аккаунта',
-               'can I hire someone to manage the account',
-               'bisakah merekrut orang untuk mengelola akun')}
-          </Link>
+      <Block card title={t('Что мы находим на аккаунте вроде вашего',
+                           'What we find on an account like yours',
+                           'Apa yang kami temukan di akun seperti milik Anda')}>
+        <p className="text-brand-muted max-w-3xl mb-6">
+          {t(
+            'Это не про то, хороший у вас человек или плохой. Это то, что видно только на объёме аккаунтов и чего не видно из одного кабинета.',
+            'This is not about whether your person is good or bad. It is what only shows up across a volume of accounts and stays invisible from a single dashboard.',
+            'Ini bukan soal orang Anda bagus atau tidak. Ini hal yang hanya terlihat dari banyak akun dan tidak terlihat dari satu dashboard.'
+          )}
         </p>
+        <div className="space-y-5">
+          {findings.map(([title, body]) => (
+            <div key={title} className="flex gap-3">
+              <Check className="w-5 h-5 text-brand-green shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">{title}</div>
+                <p className="text-brand-muted text-sm">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </Block>
+
+      <KeepReading currentHref="/answers/in-house-manager-vs-agency" />
 
       <AnswerCta />
     </AnswerLayout>

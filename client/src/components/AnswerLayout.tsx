@@ -7,6 +7,7 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { CountryProvider } from '../hooks/useCountry';
 import { useLanguage } from '../hooks/useLanguage';
+import { ANSWER_MATERIALS, ASSET_MATERIALS } from './AnswersIndex';
 
 export const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -155,34 +156,111 @@ export const articleSchema = ({
 });
 
 /** CTA used at the bottom of every answer page. */
+/**
+ * Двухдорожечный финал страницы-ответа: сделать самому или отдать нам.
+ * Односторонний CTA («отдайте нам») отсекает тех, кто пришёл разобраться, —
+ * а именно они чаще всего и есть будущие клиенты. Самостоятельная дорожка у
+ * нас сильнее, чем у кого-либо в нише: метод и данные опубликованы целиком
+ * и бесплатно, и это же работает на доверие ко второй дорожке.
+ */
 export const AnswerCta = () => {
   const { t } = useLanguage();
   return (
     <Block card>
-      <div className="text-center">
-        <h2 className="text-2xl font-bold mb-3">
-          {t('Проверить свой ресторан', 'Check your own restaurant', 'Cek restoran Anda')}
-        </h2>
-        <p className="text-brand-muted mb-6 max-w-2xl mx-auto">
-          {t(
-            'Пришлите ссылку на ресторан в Grab — сделаем бесплатный разбор карточки и покажем, где вы теряете заказы.',
-            'Send your restaurant’s Grab link — we’ll run a free audit of your listing and show where you lose orders.',
-            'Kirim link restoran Anda di Grab — kami audit halaman Anda gratis dan tunjukkan di mana pesanan hilang.'
-          )}
-        </p>
-        <a
-          href="https://t.me/delivery_booster"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block brand-gradient px-8 py-3 rounded-lg font-semibold"
-          data-testid="cta-telegram"
-        >
-          {t('Получить бесплатный разбор', 'Get a free audit', 'Minta audit gratis')}
-        </a>
+      <h2 className="text-2xl font-bold mb-2 text-center">
+        {t('Два способа двигаться дальше', 'Two ways to go from here', 'Dua cara untuk melanjutkan')}
+      </h2>
+      <p className="text-brand-muted mb-8 max-w-2xl mx-auto text-center">
+        {t(
+          'Оба рабочие. Первый ничего не стоит и не требует нас.',
+          'Both work. The first costs nothing and does not require us.',
+          'Keduanya berhasil. Yang pertama gratis dan tidak membutuhkan kami.'
+        )}
+      </p>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-xl border border-white/10 p-6 flex flex-col">
+          <div className="text-[11px] uppercase tracking-wider text-brand-muted mb-2">
+            {t('Сами', 'Do it yourself', 'Sendiri')}
+          </div>
+          <h3 className="text-lg font-semibold mb-2">
+            {t('Метод и нормы — открыто и бесплатно',
+               'The method and the norms — open and free',
+               'Metode dan norma — terbuka dan gratis')}
+          </h3>
+          <p className="text-sm text-brand-muted mb-5 flex-1">
+            {t(
+              'Пять этапов, по которым мы ведём каждый аккаунт, опубликованы целиком. Рядом — нормы рынка по 96 ресторанам, чтобы было с чем сравнить свои цифры.',
+              'The five stages we run on every account, published in full. Alongside them, market norms from 96 restaurants so you have something to compare your numbers against.',
+              'Lima tahap yang kami jalankan di setiap akun, dipublikasikan lengkap. Di sampingnya, norma pasar dari 96 restoran sebagai pembanding angka Anda.'
+            )}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a href="/method" className="text-brand-green hover:underline text-sm font-medium">
+              {t('Метод целиком', 'The full method', 'Metode lengkap')} →
+            </a>
+            <a href="/benchmark" className="text-brand-green hover:underline text-sm font-medium">
+              {t('Бенчмарк 2026', 'Benchmark 2026', 'Benchmark 2026')} →
+            </a>
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-brand-green/40 bg-brand-green/[0.06] p-6 flex flex-col">
+          <div className="text-[11px] uppercase tracking-wider text-brand-green mb-2">
+            {t('С нами', 'With us', 'Bersama kami')}
+          </div>
+          <h3 className="text-lg font-semibold mb-2">
+            {t('Разбор вашей карточки', 'An audit of your listing', 'Audit halaman Anda')}
+          </h3>
+          <p className="text-sm text-brand-muted mb-5 flex-1">
+            {t(
+              'Пришлите ссылку на ресторан в Grab — покажем, где именно вы теряете заказы. Бесплатно, без обязательств; дальше 10% от выручки доставки и без предоплаты.',
+              'Send your restaurant’s Grab link and we will show where exactly you lose orders. Free, no strings; after that it is 10% of delivery revenue with no upfront payment.',
+              'Kirim link restoran Anda di Grab dan kami tunjukkan di mana persisnya pesanan hilang. Gratis, tanpa ikatan; setelahnya 10% dari omzet delivery tanpa pembayaran di muka.'
+            )}
+          </p>
+          <a
+            href={t('https://t.me/delivery_booster', 'https://wa.me/79520029077', 'https://wa.me/79520029077')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block brand-gradient px-6 py-3 rounded-lg font-semibold text-center"
+            data-testid="cta-telegram"
+          >
+            {t('Получить бесплатный разбор', 'Get a free audit', 'Minta audit gratis')}
+          </a>
+        </div>
       </div>
     </Block>
   );
 };
+
+/**
+ * «Читайте дальше» — плотная перелинковка внутри кластера. Берёт материалы из
+ * общего реестра и показывает все, кроме текущего. Смысл не в удобстве, а в
+ * том, что краулер с любой страницы кластера достаёт остальные за один переход,
+ * а каждая страница получает вес от всех соседних.
+ */
+export const KeepReading = ({ currentHref }: { currentHref: string }) => {
+  const { t } = useLanguage();
+  const items = [...ANSWER_MATERIALS, ...ASSET_MATERIALS].filter((m) => m.href !== currentHref);
+  return (
+    <Block title={t('Читайте дальше', 'Keep reading', 'Baca juga')}>
+      <div className="grid gap-2 sm:grid-cols-2">
+        {items.map((m) => (
+          <a
+            key={m.href}
+            href={m.href}
+            className="text-brand-green hover:underline text-sm"
+            data-testid={`keep-reading-${m.href}`}
+          >
+            {t(m.titleRu, m.titleEn, m.titleId)}
+          </a>
+        ))}
+      </div>
+    </Block>
+  );
+};
+
 
 /**
  * Mirror the page's title / description / canonical into the Open Graph and

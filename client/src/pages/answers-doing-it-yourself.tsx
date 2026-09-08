@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { Link } from 'wouter';
 import { Check } from 'lucide-react';
 import {
   AnswerLayout,
   AnswerCta,
   Block,
   FaqList,
+  KeepReading,
   faqPageSchema,
   articleSchema,
   syncOpenGraph,
@@ -83,36 +83,73 @@ export default function AnswersDoingItYourselfPage() {
 
   const faq: Array<[string, string]> = [
     [
-      t('Так сколько это часов в неделю?',
-        'So how many hours a week is it?',
-        'Jadi berapa jam per minggu?'),
+      t('Сколько часов в неделю у меня это будет занимать?',
+        'How many hours a week will this take me?',
+        'Berapa jam seminggu ini akan menyita waktu saya?'),
       t('Мы не публикуем цифру в часах, потому что честная единица здесь — не часы, а роль. У ресторана на 500 заказов в месяц и на 3 000 объём разный, но набор ежедневных задач один и тот же, и он не помещается в «пару часов по пятницам». Если делать всё перечисленное, а не только смотреть отчёт, это функция полного рабочего дня.',
         'We do not publish an hours figure, because the honest unit here is a role, not hours. A restaurant at 500 orders a month and one at 3,000 differ in volume, but the daily task set is the same — and it does not fit into "a couple of hours on Fridays". Done properly rather than as report-reading, it is a full-time function.',
         'Kami tidak menerbitkan angka jam, karena satuan yang jujur di sini adalah peran, bukan jam. Restoran dengan 500 pesanan per bulan dan yang 3,000 berbeda volumenya, tetapi daftar tugas hariannya sama — dan itu tidak muat dalam "beberapa jam setiap Jumat". Kalau dikerjakan sungguh-sungguh, bukan sekadar membaca laporan, ini fungsi penuh waktu.'),
     ],
     [
-      t('А если просто загрузить меню и включить рекламу?',
-        'What if I just upload the menu and switch ads on?',
-        'Bagaimana kalau menu diunggah lalu iklan tinggal dinyalakan?'),
+      t('Я загружу меню и включу рекламу — этого хватит?',
+        'I upload my menu and switch ads on — is that enough?',
+        'Saya unggah menu lalu nyalakan iklan — apa itu cukup?'),
       t('Так делает большинство — и поэтому большинство считает, что «доставка не работает». Меню, загруженное как есть, не оптимизировано под поиск внутри приложения; реклама на такой карточке покупает просмотры без заказов. Работать начинает не то, что включено, а то, что настроено.',
         'That is what most owners do — and why most conclude that "delivery does not work". A menu uploaded as-is is not optimized for in-app search; ads on such a listing buy views without orders. What works is not what is switched on, but what is set up.',
         'Begitulah yang dilakukan kebanyakan pemilik — dan karena itu kebanyakan menyimpulkan bahwa "delivery tidak jalan". Menu yang diunggah apa adanya tidak dioptimalkan untuk pencarian di dalam aplikasi; iklan pada listing seperti itu membeli tampilan tanpa pesanan. Yang bekerja bukan yang dinyalakan, melainkan yang disiapkan.'),
     ],
     [
-      t('Можно нанять своего человека вместо агентства?',
-        'Can I hire my own person instead of an agency?',
-        'Bisakah merekrut karyawan internal ketimbang agensi?'),
+      t('Мне выгоднее нанять человека в штат или отдать агентству?',
+        'Am I better off hiring in-house or handing this to an agency?',
+        'Lebih untung saya rekrut karyawan sendiri atau serahkan ke agensi?'),
       t('Да, и для большой сети это разумно. Считать нужно честно: зарплата такого сотрудника, время на его обучение и то, что учиться он будет на ваших аккаунтах и ваших ошибках. У агентства эти ошибки уже оплачены на других ресторанах.',
         'Yes, and for a large chain it makes sense. Just count honestly: that person’s salary, the time to train them, and the fact that they will learn on your accounts and your mistakes. An agency has already paid for those mistakes on other restaurants.',
         'Bisa, dan untuk jaringan besar itu masuk akal. Hitung saja dengan jujur: gaji orang tersebut, waktu untuk melatihnya, dan kenyataan bahwa dia belajar di akun Anda dan dari kesalahan Anda. Agensi sudah membayar kesalahan itu di restoran lain.'),
     ],
     [
-      t('Что теряется, когда доставкой занимаются «по остатку»?',
-        'What gets lost when delivery is done with whatever time is left?',
-        'Apa yang hilang kalau delivery dikerjakan dengan sisa waktu?'),
+      t('Что я теряю, если занимаюсь доставкой между делом?',
+        'What do I lose if I run delivery on the side?',
+        'Apa yang hilang kalau saya urus delivery sambil lalu?'),
       t('Не разовая выручка, а позиция. Ранжирование — накопительная величина: выключенные позиции, медленные ответы и неотвеченный негатив копятся в историю аккаунта. Вернуть позицию дороже и дольше, чем удержать.',
         'Not one-off revenue — position. Ranking is cumulative: switched-off items, slow replies and unanswered negatives accumulate into the account’s history. Regaining position costs more and takes longer than holding it.',
         'Bukan omzet sesaat — melainkan posisi. Peringkat bersifat kumulatif: item yang dinonaktifkan, balasan yang lambat, dan keluhan tak terjawab menumpuk menjadi riwayat akun. Mengembalikan posisi lebih mahal dan lebih lama daripada mempertahankannya.'),
+    ],
+  ];
+
+  /** Что видно в кабинете ресторана, который ведёт себя сам: не «мало старания»,
+   *  а объём рутины, который физически не помещается в день одного человека. */
+  const findings: Array<[string, string]> = [
+    [
+      t('Стоп-лист, который никто не успевает разгребать',
+        'A stop-list nobody has time to clear',
+        'Stop-list yang tidak sempat dibereskan siapa pun'),
+      t('Типичная картина — 40–70 позиций выключено одновременно, а отдельные блюда висят в стопе больше 2000 часов. Это не халатность: позиции выключают кухня, касса и сама площадка в течение дня, и вернуть их вовремя может только тот, кто заходит в кабинет каждый день.',
+        'The typical picture is 40–70 items switched off at once, with individual dishes stuck in the stop-list for over 2,000 hours. It is not negligence: items get switched off by the kitchen, the till and the platform itself during the day, and only someone opening the dashboard daily brings them back in time.',
+        'Gambaran khasnya: 40–70 item nonaktif sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam. Ini bukan kelalaian: item dimatikan oleh dapur, oleh kasir, dan oleh platform sepanjang hari, dan hanya orang yang membuka dashboard setiap hari yang sempat menghidupkannya kembali.'),
+    ],
+    [
+      t('25% выручки проходит мимо — и почти всё из-за первого пункта',
+        '25% of revenue goes past you — and almost all of it from the first point',
+        '25% omzet lewat begitu saja — dan hampir semuanya dari poin pertama'),
+      t('В потерянной выручке 95% — это именно выключенные позиции. Закрытый ресторан даёт 3%, отмены — 2%. То есть самая дорогая часть работы — не стратегия и не реклама, а рутина, до которой у владельца между делом не доходят руки.',
+        'Of the revenue lost, 95% is switched-off items. A closed restaurant accounts for 3%, cancellations for 2%. Which means the most expensive part of the job is not strategy or ads but the routine an owner doing this on the side never gets to.',
+        'Dari omzet yang hilang, 95% berasal dari item yang dimatikan. Restoran tutup menyumbang 3%, pembatalan 2%. Artinya bagian pekerjaan yang paling mahal bukan strategi atau iklan, melainkan rutinitas yang tak pernah sempat dikerjakan pemilik yang mengurusnya sambil lalu.'),
+    ],
+    [
+      t('Ставки правят раз в месяц вместо каждого дня',
+        'Bids get touched once a month instead of every day',
+        'Bid disentuh sebulan sekali, bukan setiap hari'),
+      t('Реклама перестаёт окупаться примерно на 6% выручки: до этой границы медианный ROAS 12.1x, после — 8.6x, и 42% ресторанов нашего флота уже за ней. Заметить переход можно только при ежедневном ведении: раз в месяц вы видите его в отчёте, когда деньги уже потрачены.',
+        'Ads stop paying back at roughly 6% of revenue: below that line the median ROAS is 12.1x, above it 8.6x, and 42% of the restaurants in our fleet are already past it. You only catch the crossing with daily management — once a month you see it in a report, after the money is gone.',
+        'Iklan berhenti balik modal di sekitar 6% dari omzet: di bawah batas itu ROAS median 12.1x, di atasnya 8.6x, dan 42% restoran di portofolio kami sudah melewatinya. Perpindahan itu hanya terlihat kalau dikelola harian: sebulan sekali Anda melihatnya di laporan, setelah uangnya habis.'),
+    ],
+    [
+      t('Негатив копится, а апелляции не подаёт никто',
+        'Negatives pile up and nobody files the appeals',
+        'Keluhan menumpuk dan tak ada yang mengajukan banding'),
+      t('Медиана Бали — один негативный отзыв на 138 заказов, и отзывы бимодальны: 51% пятёрок против 28% единиц, четвёрок всего 3%. Около 80% апелляций, которые мы подаём на Grab, заканчиваются снятием отзыва — но это отдельный навык и отдельное время, и именно он выпадает первым, когда доставкой занимаются по остатку.',
+        'The Bali median is one negative review per 138 orders, and reviews are bimodal: 51% five-stars against 28% one-stars, with only 3% fours. Around 80% of the appeals we file with Grab end with the review removed — but that is a separate skill and separate time, and it is the first thing to drop when delivery gets whatever time is left.',
+        'Median Bali adalah satu ulasan negatif per 138 pesanan, dan ulasan bersifat bimodal: 51% bintang lima berbanding 28% bintang satu, bintang empat hanya 3%. Sekitar 80% banding yang kami ajukan ke Grab berakhir dengan ulasan dihapus — tapi itu keahlian tersendiri dan waktu tersendiri, dan justru itu yang pertama hilang saat delivery hanya dapat sisa waktu.'),
     ],
   ];
 
@@ -201,24 +238,32 @@ export default function AnswersDoingItYourselfPage() {
         </p>
       </Block>
 
-      <Block>
-        <p className="text-brand-muted">
-          {t('Смежные ответы: ', 'Related answers: ', 'Jawaban terkait: ')}
-          <Link href="/answers/grabfood-gofood-account-management" className="text-brand-green hover:underline">
-            {t('можно ли отдать ведение аккаунта', 'can I hand the account over', 'bisakah pengelolaan akun diserahkan')}
-          </Link>
-          {' · '}
-          <Link href="/answers/grabfood-ads-not-working" className="text-brand-green hover:underline">
-            {t('почему реклама не приносит заказов', 'why ads bring no orders', 'kenapa iklan tidak menghasilkan pesanan')}
-          </Link>
-          {' · '}
-          <Link href="/method" className="text-brand-green hover:underline">
-            {t('метод целиком', 'the full method', 'metode selengkapnya')}
-          </Link>
+      <FaqList faq={faq} title={t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum')} />
+
+      <Block card title={t('Что мы находим на аккаунте вроде вашего',
+                           'What we find on an account like yours',
+                           'Apa yang kami temukan di akun seperti milik Anda')}>
+        <p className="text-brand-muted max-w-3xl mb-6">
+          {t(
+            'Не гипотезы, а то, что видно в первые дни, когда открываем кабинет ресторана, который вёл доставку сам.',
+            'Not hypotheses — what shows up in the first days when we open the dashboard of a restaurant that has been running delivery on its own.',
+            'Bukan hipotesis — inilah yang terlihat pada hari-hari pertama saat kami membuka dashboard restoran yang selama ini mengurus delivery sendiri.'
+          )}
         </p>
+        <div className="space-y-5">
+          {findings.map(([title, body]) => (
+            <div key={title} className="flex gap-3">
+              <Check className="w-5 h-5 text-brand-green shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">{title}</div>
+                <p className="text-brand-muted text-sm">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </Block>
 
-      <FaqList faq={faq} title={t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum')} />
+      <KeepReading currentHref="/answers/managing-grabfood-yourself" />
 
       <AnswerCta />
     </AnswerLayout>

@@ -1,4 +1,4 @@
-import { syncOpenGraph, AUTHOR_ID } from '../components/AnswerLayout';
+import { syncOpenGraph, AUTHOR_ID, Block, KeepReading } from '../components/AnswerLayout';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
@@ -46,26 +46,26 @@ export default function AnswersHirePage() {
 
   const faq: Array<[string, string]> = [
     [
-      t('Как называется услуга ведения аккаунта доставки?',
-        'What is the service of managing a delivery account called?', 'Apa nama layanan pengelolaan akun delivery?'),
+      t('Как называется услуга, если я хочу отдать аккаунт целиком?',
+        'What is it called when someone runs my account for me?', 'Apa namanya kalau akun saya dikelola orang lain?'),
       t('Это delivery management (управление доставкой). Агентство ведёт аккаунты ресторана в GrabMerchant и GoBiz от его имени: меню, реклама, рейтинг, аналитика.',
         'It is called delivery management. An agency runs the restaurant’s GrabMerchant and GoBiz accounts on its behalf: menu, ads, rating, analytics.', 'Namanya delivery management. Agensi menjalankan akun GrabMerchant dan GoBiz restoran atas nama restoran itu sendiri: menu, iklan, rating, analitik.'),
     ],
     [
-      t('Чем агентство отличается от Klikit, Deliverect или Hubster?',
-        'How is an agency different from Klikit, Deliverect or Hubster?', 'Apa beda agensi dengan Klikit, Deliverect, atau Hubster?'),
+      t('У меня уже стоит Klikit — зачем мне ещё агентство?',
+        'I already use Klikit — why would I need an agency too?', 'Saya sudah pakai Klikit — kenapa masih butuh agensi?'),
       t('Klikit, Deliverect, Hubster — софт-агрегаторы: сводят заказы с площадок в один планшет и синхронизируют меню. Софт не решает, что продвигать, какое промо в минус и почему упало ранжирование. Агентство управляет продажами и совместимо с любым POS.',
         'Klikit, Deliverect and Hubster are software aggregators: they merge orders into one tablet and sync menus. Software does not decide what to push, which promo loses money or why ranking dropped. An agency manages the sales side and works alongside any POS.', 'Klikit, Deliverect, dan Hubster adalah software agregator: menyatukan pesanan ke satu tablet dan menyinkronkan menu. Software tidak memutuskan apa yang perlu didorong, promo mana yang merugi, atau kenapa peringkat turun. Agensi mengelola sisi penjualan dan tetap berjalan berdampingan dengan POS apa pun.'),
     ],
     [
-      t('Сколько это стоит?',
-        'How much does it cost?', 'Berapa biayanya?'),
+      t('Сколько мне это будет стоить в месяц?',
+        'How much will this cost me every month?', 'Berapa biayanya untuk saya setiap bulan?'),
       t('У Delivery Booster — 10% от выручки доставки, без предоплаты. Модель завязана на результат: агентство зарабатывает, когда растёт выручка ресторана.',
         'At Delivery Booster it is 10% of delivery revenue, with no upfront fee. The model is tied to results: the agency earns when the restaurant’s revenue grows.', 'Di Delivery Booster biayanya 10% dari omzet delivery, tanpa biaya di muka. Modelnya terikat pada hasil: agensi baru menghasilkan ketika omzet restoran tumbuh.'),
     ],
     [
-      t('Это легально и не нарушает правила Grab?',
-        'Is this legal and within Grab’s rules?', 'Apakah ini legal dan sesuai aturan Grab?'),
+      t('Меня не забанит Grab, если я пущу кого-то в кабинет?',
+        'Will Grab ban me if I let someone into my account?', 'Apakah Grab memblokir saya kalau orang lain masuk ke akun saya?'),
       t('Да. Агентство работает внутри официальных мерчант-инструментов (GrabMerchant, GoBiz) от имени ресторана — это штатный, разрешённый сценарий. Delivery Booster — независимое агентство (PT Delivery Booster Group, с 2023), не аффилировано с Grab или GoTo.',
         'Yes. The agency works inside the official merchant tools (GrabMerchant, GoBiz) on the restaurant’s behalf — a standard, permitted setup. Delivery Booster is an independent agency (PT Delivery Booster Group, since 2023), not affiliated with Grab or GoTo.', 'Ya. Agensi bekerja di dalam perangkat merchant resmi (GrabMerchant, GoBiz) atas nama restoran — skema yang standar dan diizinkan. Delivery Booster adalah agensi independen (PT Delivery Booster Group, sejak 2023), tidak berafiliasi dengan Grab maupun GoTo.'),
     ],
@@ -112,6 +112,41 @@ export default function AnswersHirePage() {
      t('офлайн-часы, отмены, время приготовления', 'offline hours, cancellations, preparation time', 'jam offline, pembatalan, waktu persiapan pesanan')],
     [t('Еженедельная аналитика и мониторинг', 'Weekly analytics and monitoring', 'Analitik dan pemantauan mingguan'),
      t('отчёты и приложение с алертами по стоп-листу', 'reports and an app with stop-list alerts', 'laporan dan aplikasi dengan notifikasi item yang dinonaktifkan')],
+  ];
+
+  const findings: Array<[string, string]> = [
+    [
+      t('Первое, что мы забираем, — стоп-лист',
+        'The first thing we take over is the stop-list',
+        'Hal pertama yang kami ambil alih adalah stop-list'),
+      t('Типичная картина при передаче — 40–70 позиций выключено одновременно, а отдельные блюда висят в стопе больше 2000 часов. Их выключают кухня, касса и сама площадка в течение дня, и обратно они не включаются сами.',
+        'The typical picture at handover is 40–70 items switched off at once, with individual dishes stuck in the stop-list for over 2,000 hours. The kitchen, the till and the platform itself switch them off during the day, and they do not come back on their own.',
+        'Gambaran khas saat serah terima: 40–70 item nonaktif sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam. Dapur, kasir, dan platform sendiri mematikannya sepanjang hari, dan item itu tidak menyala kembali dengan sendirinya.'),
+    ],
+    [
+      t('25% выручки, которые аккаунт терял без присмотра',
+        'The 25% of revenue the account was losing unattended',
+        '25% omzet yang hilang selama akun tidak diawasi'),
+      t('Мимо ресторана проходит около 25% выручки, и 95% этих потерь — именно выключенные позиции меню. Закрытый ресторан даёт 3%, отмены — 2%. То есть самая дорогая часть того, что вы передаёте, — не стратегия, а ежедневная рутина.',
+        'Around 25% of revenue goes past the restaurant, and 95% of that loss is switched-off menu items. A closed restaurant accounts for 3%, cancellations for 2%. Which means the most expensive part of what you hand over is not strategy but daily routine.',
+        'Sekitar 25% omzet lewat begitu saja, dan 95% dari kerugian itu berasal dari item menu yang dinonaktifkan. Restoran tutup menyumbang 3%, pembatalan 2%. Artinya bagian termahal dari yang Anda serahkan bukan strategi, melainkan rutinitas harian.'),
+    ],
+    [
+      t('Рекламу почти всегда передают уже за границей окупаемости',
+        'Ads are almost always handed over past the payback line',
+        'Iklan hampir selalu diserahkan setelah melewati batas balik modal'),
+      t('Реклама перестаёт окупаться примерно на 6% выручки: до этой границы медианный ROAS 12.1x, после — 8.6x. За границей уже 42% ресторанов нашего флота. Это первое, что мы пересчитываем, приняв кабинет.',
+        'Ads stop paying back at roughly 6% of revenue: below that line the median ROAS is 12.1x, above it 8.6x. 42% of the restaurants in our fleet are already past it. It is the first thing we recalculate once we take the dashboard over.',
+        'Iklan berhenti balik modal di sekitar 6% dari omzet: di bawah batas itu ROAS median 12.1x, di atasnya 8.6x. Sebanyak 42% restoran di portofolio kami sudah melewatinya. Ini hal pertama yang kami hitung ulang setelah menerima dashboard.'),
+    ],
+    [
+      t('Отзывы, по которым не подано ни одной апелляции',
+        'Reviews with not a single appeal filed',
+        'Ulasan yang belum pernah sekali pun dibanding'),
+      t('Отзывы бимодальны: 51% пятёрок против 28% единиц, четвёрок всего 3%. Медиана Бали — один негативный отзыв на 138 заказов. Около 80% апелляций, которые мы подаём на Grab, заканчиваются снятием отзыва, но подать их должен кто-то конкретный.',
+        'Reviews are bimodal: 51% five-stars against 28% one-stars, with only 3% fours. The Bali median is one negative review per 138 orders. Around 80% of the appeals we file with Grab end with the review removed — but somebody specific has to file them.',
+        'Ulasan bersifat bimodal: 51% bintang lima berbanding 28% bintang satu, bintang empat hanya 3%. Median Bali adalah satu ulasan negatif per 138 pesanan. Sekitar 80% banding yang kami ajukan ke Grab berakhir dengan ulasan dihapus — tapi harus ada orang tertentu yang mengajukannya.'),
+    ],
   ];
 
   return (
@@ -202,6 +237,31 @@ export default function AnswersHirePage() {
                   ))}
                 </div>
               </motion.div>
+
+              <Block card title={t('Что мы находим на аккаунте вроде вашего',
+                                   'What we find on an account like yours',
+                                   'Apa yang kami temukan di akun seperti milik Anda')}>
+                <p className="text-brand-muted max-w-3xl mb-6">
+                  {t(
+                    'Передача аккаунта начинается не с договора, а с того, что мы видим в первый день, когда открываем ваши GrabMerchant и GoBiz. Обычно там есть вот это.',
+                    'Handing the account over does not start with a contract — it starts with what we see on day one, when we open your GrabMerchant and GoBiz. This is what is usually there.',
+                    'Serah terima akun tidak dimulai dari kontrak, melainkan dari apa yang kami lihat di hari pertama saat membuka GrabMerchant dan GoBiz Anda. Biasanya inilah isinya.'
+                  )}
+                </p>
+                <div className="space-y-5">
+                  {findings.map(([title, body]) => (
+                    <div key={title} className="flex gap-3">
+                      <Check className="w-5 h-5 text-brand-green shrink-0 mt-1" />
+                      <div>
+                        <div className="font-semibold mb-1">{title}</div>
+                        <p className="text-brand-muted text-sm">{body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Block>
+
+              <KeepReading currentHref="/answers/grabfood-gofood-account-management" />
 
               <motion.div {...fadeIn} className="glass-card p-6 sm:p-8 rounded-2xl mt-12 text-center">
                 <h2 className="text-2xl font-bold mb-3">

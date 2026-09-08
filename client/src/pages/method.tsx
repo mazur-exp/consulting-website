@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
+import { Check } from 'lucide-react';
 import {
   AnswerLayout,
   AnswerCta,
   Block,
   FaqList,
+  KeepReading,
   faqPageSchema,
   articleSchema,
   syncOpenGraph,
@@ -144,28 +146,63 @@ export default function MethodPage() {
 
   const faq: Array<[string, string]> = [
     [
-      t('Почему реклама на последнем месте, а не на первом?',
-        'Why are ads last rather than first?', 'Kenapa iklan ditempatkan terakhir, bukan pertama?'),
+      t('Почему вы не включаете мне рекламу сразу?',
+        'Why don’t you just switch my ads on first?', 'Kenapa iklan saya tidak langsung dinyalakan dari awal?'),
       t('Потому что реклама умножает конверсию карточки, а не заменяет её. На карточке со сквозной конверсией 0.5% каждый вложенный доллар покупает просмотр без заказа. Сначала поднимаем то, что умножается, потом умножаем.',
         'Because ads multiply listing conversion rather than replace it. On a listing converting at 0.5%, every dollar buys a view without an order. First raise what gets multiplied, then multiply it.', 'Karena iklan mengalikan konversi halaman toko, bukan menggantikannya. Pada toko dengan konversi 0.5%, setiap dolar hanya membeli kunjungan tanpa pesanan. Naikkan dulu yang akan dikalikan, baru kalikan.'),
     ],
     [
-      t('Это работает и для нового ресторана, и для работающего?',
-        'Does this work for a new restaurant and an established one?', 'Apakah ini bekerja untuk restoran baru maupun yang sudah berjalan?'),
+      t('Это для новых ресторанов или для таких, как мой?',
+        'Is this for new restaurants or for one like mine?', 'Ini untuk restoran baru atau untuk yang seperti punya saya?'),
       t('Для обоих, но по-разному. На запуске главные рычаги — доступность и карточка: Love U Pizza вырос x21 за 9 месяцев с почти нулевой базы. На работающем ресторане лёгкие точки роста уже израсходованы, и каждый следующий процент достаётся из конверсии и меню: Zaytun Ubud делал 166,6 млн рупий в месяц до нас и вырос x2.6 за 5 месяцев.',
         'Both, differently. At launch the big levers are availability and listing: Love U Pizza grew x21 in 9 months from a near-zero base. On an established restaurant the easy gains are already spent, and every next percent comes out of conversion and menu: Zaytun Ubud was already making Rp 166.6M a month before us and grew x2.6 in 5 months.', 'Keduanya, dengan cara berbeda. Saat peluncuran, pengungkit terbesar adalah ketersediaan dan halaman toko: Love U Pizza tumbuh x21 dalam 9 bulan dari basis hampir nol. Pada restoran yang sudah berjalan, perbaikan mudah sudah habis, dan setiap persen berikutnya datang dari konversi dan menu: Zaytun Ubud sudah membukukan Rp 166.6 juta per bulan sebelum kami dan tumbuh x2.6 dalam 5 bulan.'),
     ],
     [
-      t('Можно применить метод самому?',
-        'Can I run the method myself?', 'Bisakah saya menjalankan metode ini sendiri?'),
+      t('Могу я сделать всё это сам, без вас?',
+        'Can I do all of this myself, without you?', 'Bisakah saya melakukan semua ini sendiri, tanpa Anda?'),
       t('Да — он поэтому и опубликован целиком. Ограничение не в знании, а в том, что это ежедневная работа с двумя кабинетами: ставки, стоп-лист, отзывы, промо, еженедельный разбор цифр. Обычно владелец делает это «по остатку», и метод разваливается не на понимании, а на регулярности.',
         'Yes — that is why it is published in full. The constraint is not knowledge but that this is daily work across two dashboards: bids, stop-list, reviews, promos, weekly number reviews. Owners usually do it with whatever time is left, and the method breaks on consistency, not on understanding.', 'Bisa — karena itulah metode ini dipublikasikan utuh. Kendalanya bukan pengetahuan, melainkan bahwa ini pekerjaan harian di dua dashboard: bid, item yang dinonaktifkan, ulasan, promo, telaah angka mingguan. Pemilik biasanya mengerjakannya dengan sisa waktu, dan metode ini patah pada keteraturan, bukan pada pemahaman.'),
     ],
     [
-      t('Сколько времени занимает полный цикл?',
-        'How long is a full cycle?', 'Berapa lama satu siklus penuh?'),
+      t('Когда я увижу изменения после начала работы?',
+        'When will I see changes after we start?', 'Kapan saya melihat perubahan setelah kita mulai?'),
       t('Первые изменения — 2–4 недели, полная раскачка — 3–6 месяцев. Быстрее всего отзываются доступность и ставки, медленнее всего — ранжирование и рейтинг, потому что алгоритму нужна история.',
         'First movement in 2–4 weeks, full ramp-up in 3–6 months. Availability and bidding respond fastest; ranking and rating are slowest, because the algorithm needs history.', 'Perubahan pertama dalam 2–4 minggu, akselerasi penuh dalam 3–6 bulan. Ketersediaan dan bid merespons paling cepat; peringkat dan rating paling lambat, karena algoritma butuh riwayat.'),
+    ],
+  ];
+
+  const findings: Array<[string, string]> = [
+    [
+      t('Этап 1 начинается со стоп-листа, а не со стратегии',
+        'Stage 1 starts with the stop-list, not with strategy',
+        'Tahap 1 dimulai dari stop-list, bukan dari strategi'),
+      t('Типичная картина в первый день — 40–70 позиций выключено одновременно, отдельные блюда висят в стопе больше 2000 часов. Здесь же и деньги: около 25% выручки проходит мимо ресторана, и 95% этих потерь — именно выключенные позиции, а не закрытый ресторан (3%) и не отмены (2%).',
+        'The typical day-one picture is 40–70 items switched off at once, with individual dishes stuck in the stop-list for over 2,000 hours. The money is here too: around 25% of revenue goes past the restaurant, and 95% of that loss is switched-off items — not a closed restaurant (3%) and not cancellations (2%).',
+        'Gambaran khas di hari pertama: 40–70 item nonaktif sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam. Uangnya juga ada di sini: sekitar 25% omzet lewat begitu saja, dan 95% kerugian itu berasal dari item yang dinonaktifkan — bukan restoran tutup (3%) dan bukan pembatalan (2%).'),
+    ],
+    [
+      t('Долю рекламы считаем до того, как трогать ставки',
+        'We check the ad share before touching a single bid',
+        'Porsi iklan kami hitung sebelum menyentuh bid'),
+      t('Реклама перестаёт окупаться примерно на 6% выручки: до этой границы медианный ROAS 12.1x, после — 8.6x. За границей уже 42% ресторанов нашего флота — и почти всегда это повод сначала чинить этапы 1–4, а не поднимать бюджет.',
+        'Ads stop paying back at roughly 6% of revenue: below that line the median ROAS is 12.1x, above it 8.6x. 42% of the restaurants in our fleet are already past it — and that is almost always a reason to fix stages 1–4 first rather than raise the budget.',
+        'Iklan berhenti balik modal di sekitar 6% dari omzet: di bawah batas itu ROAS median 12.1x, di atasnya 8.6x. Sebanyak 42% restoran di portofolio kami sudah melewatinya — dan itu hampir selalu alasan untuk membereskan tahap 1–4 dulu, bukan menaikkan anggaran.'),
+    ],
+    [
+      t('Ваши цифры сверяем с медианой, а не с прошлым месяцем',
+        'Your numbers go against the median, not against last month',
+        'Angka Anda kami bandingkan dengan median, bukan bulan lalu'),
+      t('Медианы Бали по нашему флоту: чек Rp 250 000, ROAS 10.4x, реклама 5.6% выручки, отмены 0.35%, один негативный отзыв на 138 заказов. Пока цифру не с чем сравнить, непонятно, что чинить первым, — поэтому нормы опубликованы открыто.',
+        'Our fleet medians for Bali: check Rp 250,000, ROAS 10.4x, ads at 5.6% of revenue, cancellations 0.35%, one negative review per 138 orders. Until a number has something to be compared against, you cannot tell what to fix first — which is why the norms are published openly.',
+        'Median portofolio kami untuk Bali: nilai pesanan Rp 250.000, ROAS 10.4x, iklan 5.6% dari omzet, pembatalan 0.35%, satu ulasan negatif per 138 pesanan. Selama sebuah angka tidak punya pembanding, tidak jelas apa yang harus dibereskan lebih dulu — karena itu normanya kami terbitkan terbuka.'),
+    ],
+    [
+      t('На этапе 4 сначала разбираем, что вообще можно снять',
+        'At stage 4 we first sort out what can be removed at all',
+        'Di tahap 4 kami pilah dulu ulasan mana yang bisa dihapus'),
+      t('Отзывы бимодальны: 51% пятёрок против 28% единиц, четвёрок всего 3% — рейтинг делают крайности. Около 80% апелляций, которые мы подаём на Grab, заканчиваются снятием отзыва, и это самая быстрая часть работы с рейтингом.',
+        'Reviews are bimodal: 51% five-stars against 28% one-stars, with only 3% fours — the rating is made by the extremes. Around 80% of the appeals we file with Grab end with the review removed, and that is the fastest part of rating work.',
+        'Ulasan bersifat bimodal: 51% bintang lima berbanding 28% bintang satu, bintang empat hanya 3% — rating dibentuk oleh ekstremnya. Sekitar 80% banding yang kami ajukan ke Grab berakhir dengan ulasan dihapus, dan itu bagian tercepat dari pekerjaan rating.'),
     ],
   ];
 
@@ -243,22 +280,30 @@ export default function MethodPage() {
 
       <FaqList faq={faq} title={t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum')} />
 
-      <Block>
-        <p className="text-brand-muted">
-          {t('Смежные ответы: ', 'Related answers: ', 'Jawaban terkait: ')}
-          <Link href="/answers/grabfood-gofood-account-management" className="text-brand-green hover:underline">
-            {t('можно ли отдать ведение аккаунта', 'can I hand the account over', 'bisakah pengelolaan akun diserahkan')}
-          </Link>
-          {' · '}
-          <Link href="/answers/delivery-agency-vs-klikit-deliverect" className="text-brand-green hover:underline">
-            {t('агентство или Klikit/Deliverect', 'agency or Klikit/Deliverect', 'agensi atau Klikit/Deliverect')}
-          </Link>
-          {' · '}
-          <Link href="/answers/grabfood-ads-not-working" className="text-brand-green hover:underline">
-            {t('почему реклама не приносит заказов', 'why ads bring no orders', 'kenapa iklan tidak membawa pesanan')}
-          </Link>
+      <Block card title={t('Что мы находим на аккаунте вроде вашего',
+                           'What we find on an account like yours',
+                           'Apa yang kami temukan di akun seperti milik Anda')}>
+        <p className="text-brand-muted max-w-3xl mb-6">
+          {t(
+            'Метод начинается не с презентации, а с того, что мы находим в кабинете в первую неделю. Порядок этапов взялся именно отсюда.',
+            'The method does not start with a deck — it starts with what we find in the dashboard in the first week. The order of the stages comes from exactly this.',
+            'Metode ini tidak dimulai dari presentasi, melainkan dari apa yang kami temukan di dashboard pada minggu pertama. Urutan tahapnya lahir dari sini.'
+          )}
         </p>
+        <div className="space-y-5">
+          {findings.map(([title, body]) => (
+            <div key={title} className="flex gap-3">
+              <Check className="w-5 h-5 text-brand-green shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">{title}</div>
+                <p className="text-brand-muted text-sm">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </Block>
+
+      <KeepReading currentHref="/method" />
 
       <AnswerCta />
     </AnswerLayout>

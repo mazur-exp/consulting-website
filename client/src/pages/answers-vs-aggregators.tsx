@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
+import { Check } from 'lucide-react';
 import {
   AnswerLayout,
   AnswerCta,
   Block,
   FaqList,
+  KeepReading,
   faqPageSchema,
   articleSchema,
   syncOpenGraph,
@@ -80,28 +82,65 @@ export default function AnswersVsAggregatorsPage() {
 
   const faq: Array<[string, string]> = [
     [
-      t('Klikit или агентство — что выбрать?',
-        'Klikit or an agency — which should I choose?', 'Klikit atau agensi — mana yang harus dipilih?'),
+      t('Мне нужен Klikit или всё-таки нужно агентство?',
+        'Do I need Klikit, or do I actually need an agency?', 'Saya butuh Klikit, atau sebenarnya butuh agensi?'),
       t('Это разные категории, а не альтернативы. Агрегатор нужен, когда у вас несколько площадок и хаос с планшетами и меню. Агентство нужно, когда заказов мало или выручка не растёт. Если проблема в операционке — берите софт. Если в продажах — софт её не решит.',
         'They are different categories, not alternatives. You need an aggregator when several platforms create tablet and menu chaos. You need an agency when orders are low or revenue is flat. If the problem is operations, buy software. If it is sales, software will not fix it.', 'Keduanya kategori yang berbeda, bukan alternatif satu sama lain. Agregator dibutuhkan ketika beberapa platform membuat kekacauan tablet dan menu. Agensi dibutuhkan ketika pesanan sedikit atau omzet tidak tumbuh. Kalau masalahnya operasional, beli software. Kalau masalahnya penjualan, software tidak akan menyelesaikannya.'),
     ],
     [
-      t('Можно использовать и то, и другое?',
-        'Can I use both?', 'Bisakah memakai keduanya sekaligus?'),
+      t('Могу я пользоваться и софтом, и агентством сразу?',
+        'Can I use the software and an agency at the same time?', 'Bisakah saya pakai software dan agensi sekaligus?'),
       t('Да, и у части наших клиентов агрегатор стоит параллельно. Мы работаем внутри GrabMerchant и GoBiz, поэтому совместимы с любым POS и любым агрегатором заказов.',
         'Yes — some of our clients run an aggregator in parallel. We work inside GrabMerchant and GoBiz, so we are compatible with any POS and any order aggregator.', 'Bisa — sebagian klien kami memakai agregator secara paralel. Kami bekerja di dalam GrabMerchant dan GoBiz, jadi kami kompatibel dengan POS apa pun dan agregator pesanan apa pun.'),
     ],
     [
-      t('Агрегатор ведь тоже синхронизирует меню — разве это не оптимизация меню?',
-        'An aggregator syncs menus too — isn’t that menu optimization?', 'Agregator juga menyinkronkan menu — bukankah itu optimasi menu?'),
+      t('У меня меню уже синхронизируется — этого разве мало?',
+        'My menu already syncs everywhere — isn’t that enough?', 'Menu saya sudah tersinkron di mana-mana — apa belum cukup?'),
       t('Нет. Синхронизация переносит ваше меню на площадки как есть. Оптимизация — это решение, как позиция называется, в какой категории лежит, какое фото стоит и какая цена. Синхрон копирует; оптимизация меняет то, что копируется.',
         'No. Syncing copies your menu to the apps as-is. Optimization decides what an item is called, which category it sits in, which photo it uses and what it costs. Sync copies; optimization changes what gets copied.', 'Bukan. Sinkronisasi menyalin menu Anda ke aplikasi apa adanya. Optimasi memutuskan sebuah item diberi nama apa, masuk kategori mana, memakai foto yang mana, dan dihargai berapa. Sinkronisasi menyalin; optimasi mengubah apa yang disalin.'),
     ],
     [
-      t('Что агентство делает такого, чего софт не умеет в принципе?',
-        'What does an agency do that software fundamentally cannot?', 'Apa yang dilakukan agensi yang pada dasarnya tidak bisa dilakukan software?'),
+      t('Что вы сделаете с моим аккаунтом, чего не сделает софт?',
+        'What will you do with my account that software will not?', 'Apa yang kalian lakukan di akun saya yang tidak dilakukan software?'),
       t('Решения на основании суждения: какое промо уходит в минус, а какое окупается; почему упало ранжирование на этой неделе; какую позицию поднять в выдаче приложения; как ответить на несправедливый отзыв, чтобы его сняли. Это не настройки, это работа с данными кабинета каждую неделю.',
         'Judgement calls: which promo loses money and which pays back; why ranking dropped this week; which item to push in in-app search; how to answer an unfair review so it gets removed. These are not settings — it is weekly work with the dashboard data.', 'Keputusan yang butuh penilaian: promo mana yang merugi dan mana yang balik modal; kenapa peringkat turun minggu ini; item mana yang perlu didorong di pencarian aplikasi; bagaimana menjawab ulasan tidak adil agar dihapus. Ini bukan pengaturan — ini pekerjaan mingguan dengan data dashboard.'),
+    ],
+  ];
+
+  /** Что видно в кабинете ресторана, у которого интеграция настроена идеально:
+   *  все эти цифры софт показывает — и ни одну из них не чинит. */
+  const findings: Array<[string, string]> = [
+    [
+      t('Позиции выключены — и интеграция честно это показывает',
+        'Items are switched off — and the integration honestly shows it',
+        'Item dimatikan — dan integrasi menampilkannya dengan jujur'),
+      t('Мы регулярно открываем кабинет и видим 40–70 выключенных позиций одновременно, а отдельные блюда висят в стопе больше 2000 часов. Синхронизация меню при этом работает исправно: она аккуратно переносит на площадки меню, в котором этих позиций нет.',
+        'We routinely open a dashboard and find 40–70 items switched off at once, with individual dishes stuck in the stop-list for over 2,000 hours. The menu sync is working perfectly all the while: it faithfully pushes to the apps a menu those items are missing from.',
+        'Kami rutin membuka dashboard dan menemukan 40–70 item nonaktif sekaligus, dengan beberapa hidangan tertahan di stop-list lebih dari 2.000 jam. Sementara itu sinkronisasi menu bekerja sempurna: ia dengan setia mengirim ke aplikasi sebuah menu yang justru kehilangan item-item itu.'),
+    ],
+    [
+      t('25% выручки утекает, и цифра эта в дашборде есть',
+        '25% of revenue leaks, and that number is right there in the dashboard',
+        '25% omzet bocor, dan angka itu ada di dashboard'),
+      t('95% этих потерь — выключенные позиции, 3% — закрытый ресторан, 2% — отмены. Ни одно из этих чисел не спрятано. Граница между софтом и агентством проходит ровно здесь: показать цифру умеет отчёт, включить позиции обратно — только человек.',
+        '95% of that loss is switched-off items, 3% a closed restaurant, 2% cancellations. None of these numbers is hidden. The line between software and an agency runs exactly here: a report can show the number, only a person switches the items back on.',
+        '95% kerugian itu adalah item yang dimatikan, 3% restoran tutup, 2% pembatalan. Tidak satu pun angka ini disembunyikan. Batas antara software dan agensi ada persis di sini: laporan bisa menampilkan angkanya, hanya manusia yang menghidupkan kembali itemnya.'),
+    ],
+    [
+      t('Реклама за границей окупаемости, а ROAS виден всем',
+        'Ads are past the payback line, and the ROAS is visible to everyone',
+        'Iklan sudah melewati batas balik modal, dan ROAS-nya terlihat semua orang'),
+      t('Реклама перестаёт окупаться примерно на 6% выручки: до этой границы медианный ROAS 12.1x, после — 8.6x, и за ней уже 42% ресторанов нашего флота. Любой дашборд покажет вам оба числа; снизить ставку и пересобрать кампанию — это решение, а не отчёт.',
+        'Ads stop paying back at roughly 6% of revenue: below that line the median ROAS is 12.1x, above it 8.6x, and 42% of the restaurants in our fleet are already past it. Any dashboard will show you both numbers; lowering the bid and rebuilding the campaign is a decision, not a report.',
+        'Iklan berhenti balik modal di sekitar 6% dari omzet: di bawah batas itu ROAS median 12.1x, di atasnya 8.6x, dan 42% restoran di portofolio kami sudah melewatinya. Dashboard mana pun akan menunjukkan kedua angka itu; menurunkan bid dan merombak kampanye adalah keputusan, bukan laporan.'),
+    ],
+    [
+      t('Единицы в отзывах, которые можно было снять',
+        'One-star reviews that could have been removed',
+        'Ulasan bintang satu yang sebenarnya bisa dihapus'),
+      t('Отзывы бимодальны: 51% пятёрок, 28% единиц, четвёрок всего 3% — рейтинг делают крайности. Медиана Бали — один негативный отзыв на 138 заказов. Около 80% апелляций, которые мы подаём на Grab, заканчиваются снятием отзыва; эту кнопку не нажимает ни один агрегатор, потому что это не интеграция, а аргумент.',
+        'Reviews are bimodal: 51% five-stars, 28% one-stars, only 3% fours — the extremes make the rating. The Bali median is one negative review per 138 orders. Around 80% of the appeals we file with Grab end with the review removed; no aggregator presses that button, because it is not an integration, it is an argument.',
+        'Ulasan bersifat bimodal: 51% bintang lima, 28% bintang satu, bintang empat hanya 3% — yang membentuk rating adalah ekstremnya. Median Bali adalah satu ulasan negatif per 138 pesanan. Sekitar 80% banding yang kami ajukan ke Grab berakhir dengan ulasan dihapus; tidak ada agregator yang menekan tombol itu, karena ini bukan integrasi, melainkan argumentasi.'),
     ],
   ];
 
@@ -184,18 +223,30 @@ export default function AnswersVsAggregatorsPage() {
 
       <FaqList faq={faq} title={t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum')} />
 
-      <Block>
-        <p className="text-brand-muted">
-          {t('Смежный вопрос: ', 'Related: ', 'Terkait: ')}
-          <Link
-            href="/answers/grabfood-gofood-account-management"
-            className="text-brand-green hover:underline"
-          >
-            {t('можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood',
-               'can I hire someone to manage my GrabFood and GoFood account', 'bisakah menyewa orang untuk mengelola akun GrabFood dan GoFood')}
-          </Link>
+      <Block card title={t('Что мы находим на аккаунте вроде вашего',
+                           'What we find on an account like yours',
+                           'Apa yang kami temukan di akun seperti milik Anda')}>
+        <p className="text-brand-muted max-w-3xl mb-6">
+          {t(
+            'Не гипотезы, а то, что видно в первые дни, когда открываем кабинет ресторана с настроенной интеграцией и жалобой на заказы.',
+            'Not hypotheses — what shows up in the first days when we open the dashboard of a restaurant with a working integration and a complaint about orders.',
+            'Bukan hipotesis — inilah yang terlihat pada hari-hari pertama saat kami membuka dashboard restoran dengan integrasi yang jalan tapi pesanan yang dikeluhkan.'
+          )}
         </p>
+        <div className="space-y-5">
+          {findings.map(([title, body]) => (
+            <div key={title} className="flex gap-3">
+              <Check className="w-5 h-5 text-brand-green shrink-0 mt-1" />
+              <div>
+                <div className="font-semibold mb-1">{title}</div>
+                <p className="text-brand-muted text-sm">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </Block>
+
+      <KeepReading currentHref="/answers/delivery-agency-vs-klikit-deliverect" />
 
       <AnswerCta />
     </AnswerLayout>
