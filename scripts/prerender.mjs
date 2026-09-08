@@ -24,6 +24,7 @@ const ANSWERS = [
   'grabfood-gofood-account-management',
   'delivery-agency-vs-klikit-deliverect',
   'grabfood-ads-not-working',
+  'managing-grabfood-yourself',
 ];
 const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
