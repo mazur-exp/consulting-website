@@ -66,43 +66,148 @@ Caveat we state on the page: this is a sample of agency-managed restaurants, not
 
 ---
 
-## 3. Instagram (@delivery.booster) — карусель, 6 слайдов
+## 3. Instagram (@delivery.booster) — carousel, 6 slides (EN)
 
-**Слайд 1 (обложка)**
-96 ресторанов.
-270 568 заказов.
-Вот где у них утекают деньги.
+Формат 1080×1350 (4:5). Единая система: тёмно-зелёный фон, одна крупная цифра на слайд,
+акцент — фирменный зелёный. Слайд 1 цепляет, слайды 2–5 несут по одному факту, слайд 6 — CTA.
 
-**Слайд 2**
-25% выручки теряется на простоях, стоп-листе и отменах.
-95% из них — стоп-лист.
-Не закрытый ресторан. Выключенные позиции меню.
+**Общий стиль для всех промптов (вставлять в каждый):**
+`Dark editorial data-visual poster, 1080x1350 (4:5). Background #0B140D with a very subtle
+vertical gradient to #0E1A11 and a faint circular green glow. Accent color #2AC663, secondary
+#1D9549. Text color #E3F2E7, muted text #C6DDCB. Clean geometric sans-serif (Inter-like),
+tight kerning, generous margins, strong typographic hierarchy. Flat vector, no photos, no
+people, no stock imagery, no drop shadows, no 3D. Minimal, calm, premium fintech-report
+feel. Empty space at the bottom for a small logo.`
 
-**Слайд 3**
-2 000 часов
-столько висит в стоп-листе самая «долгая» позиция в нашей выборке.
-84 дня, за которые её никто не включил обратно.
+---
 
-**Слайд 4**
-Реклама окупается хуже после 6% выручки:
-до 6% → ROAS 12.1x
-после 6% → 8.6x
-Бюджет поднимают после роста конверсии. Не до.
+**Slide 1 — cover**
 
-**Слайд 5**
-Нормы Бали (медиана, 84 ресторана):
-чек Rp 250k
-ROAS 10.4x
-реклама 5.6% выручки
-отмены 0.35%
-1 негативный отзыв на 138 заказов
+Текст на слайде:
+```
+96 restaurants.
+270,568 orders.
+Here's where the money leaks.
+```
+Промпт:
+`[общий стиль] Bold typographic cover. Three stacked lines of text, left-aligned, filling the
+upper two thirds: "96 restaurants." and "270,568 orders." in large white type, then "Here's
+where the money leaks." in #2AC663, slightly larger and heavier. Below them, a thin horizontal
+line and a small caption "Bali & Phuket Delivery Benchmark 2026" in muted green. No other
+elements.`
 
-**Слайд 6**
-Полный отчёт — booster.delivery/benchmark
-Обновляем раз в квартал.
+---
 
-**Текст под постом:**
-Мы взяли кабинеты 96 ресторанов, которые ведём на Бали и Пхукете, обезличили цифры и выложили как нормы рынка. Таких данных по ЮВА не публикует никто. Самое неожиданное — что рестораны теряют деньги не когда закрыты, а когда открыты с половиной выключенного меню. Ссылка в шапке профиля.
+**Slide 2 — where it leaks**
+
+Текст на слайде:
+```
+25% of revenue leaks away.
+95% of it is out-of-stock items.
+Not a closed restaurant. Not cancellations.
+```
+Промпт:
+`[общий стиль] A single large donut chart, thin stroke, centered in the upper half: 95% of the
+ring in #2AC663 labelled "Out of stock", a 3% segment in muted grey-green labelled "Downtime",
+a 2% segment labelled "Cancellations". In the middle of the ring, large white text "25%" with
+"of revenue" underneath in muted green. Headline above the chart: "Where delivery revenue
+actually leaks". One short caption line under the chart: "Not a closed restaurant. Switched-off
+menu items."`
+
+---
+
+**Slide 3 — 2,000 hours**
+
+Текст на слайде:
+```
+2,000 hours
+the longest a single dish sat out of stock in our sample.
+84 days nobody switched it back on.
+```
+Промпт:
+`[общий стиль] One enormous number "2,000" in #2AC663 occupying the middle of the frame, with
+the word "hours" in white directly beneath it in much smaller type. Above the number, a short
+line in muted green: "The longest a single dish sat out of stock". Below, one line in white:
+"84 days nobody switched it back on." To the right edge, a very subtle vertical progress bar
+filled almost entirely in green, suggesting elapsed time. Nothing else.`
+
+---
+
+**Slide 4 — diminishing returns**
+
+Текст на слайде:
+```
+Ads stop paying back after 6% of revenue.
+under 6% → ROAS 12.1x
+over 6% → ROAS 8.6x
+Raise the budget after conversion improves. Not before.
+```
+Промпт:
+`[общий стиль] A simple line chart with 5 points descending from left to right, plotted on a
+faint grid: values 12.1, 12.8, 11.8, 9.6, 6.9, x-axis labelled "0-2%", "2-4%", "4-6%", "6-8%",
+"8%+" and titled "ad spend as share of revenue", y-axis labelled "median ROAS". The line is
+#2AC663, 3px, with small filled dots. A vertical dashed white line at the 6% mark with a small
+tag reading "the break". Headline at the top: "Ads stop paying back after 6% of revenue".
+Caption at the bottom in muted green: "Raise the budget after conversion improves. Not before."`
+
+---
+
+**Slide 5 — the norms**
+
+Текст на слайде:
+```
+Bali norms (median, 84 restaurants)
+Average check — Rp 250k
+Ads ROAS — 10.4x
+Ad spend — 5.6% of revenue
+Cancellations — 0.35%
+1 bad review per 138 orders
+```
+Промпт:
+`[общий стиль] A clean five-row data table, left column labels in muted green, right column
+values in large white type, thin horizontal dividers between rows: "Average check / Rp 250k",
+"Ads ROAS / 10.4x", "Ad spend / 5.6% of revenue", "Cancellations / 0.35%", "Bad reviews / 1 per
+138 orders". Headline above: "Bali norms" with a small subtitle "median across 84 restaurants".
+No chart, no icons, pure typographic table.`
+
+---
+
+**Slide 6 — CTA**
+
+Текст на слайде:
+```
+Full report, free
+booster.delivery/benchmark
+Updated every quarter.
+```
+Промпт:
+`[общий стиль] Minimal closing slide. Centered: "Full report, free" in white, then
+"booster.delivery/benchmark" in large #2AC663 type as the visual anchor, then "Updated every
+quarter." in small muted green. Above the text, a small green arrow pointing down. Large amount
+of empty space, calm composition.`
+
+---
+
+**Caption (EN):**
+
+We manage 96 restaurants on GrabFood and GoFood across Bali and Phuket. We took their
+GrabMerchant and GoBiz dashboards — 270,568 orders — anonymised the numbers and published them
+as market norms. Nobody in Southeast Asia publishes data like this, the platforms included.
+
+The finding that surprised us most: restaurants don't lose money while they're closed. They
+lose it while they're open with half the menu switched off. That's 95% of all losses — and we
+found dishes that sat out of stock for 84 days.
+
+Full report in bio: median check, ROAS, cancellations, bad-review frequency, a nine-area
+breakdown of Bali and a Bali/Phuket comparison.
+
+`#bali #canggu #ubud #uluwatu #phuket #grabfood #gofood #balirestaurant #restaurantmarketing
+#foodDelivery #balibusiness #canggufood #restaurantowner #deliverybooster`
+
+**Как пользоваться промптами:** генераторы часто врут в мелком тексте и цифрах. Проверяй
+каждый слайд на опечатки; если цифра вышла кривой — проще сгенерировать чистый фон (тот же
+промпт без текстовых строк) и набрать цифры сверху в Canva. Логотип во всех промптах не
+просят специально: место под него оставлено внизу.
 
 ---
 
