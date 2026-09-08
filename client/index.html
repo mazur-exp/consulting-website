@@ -31,6 +31,35 @@
     <meta name="twitter:description" content="Full delivery platform management for restaurants in Bali & Thailand. 110+ restaurants under management, 200+ served since 2023." />
     <meta name="twitter:image" content="https://booster.delivery/og-preview.jpg" />
 
+    <!-- Аналитика.
+         Umami — свой сервер, без кук: работает всегда, согласия не требует.
+         GA4 — Consent Mode v2: тег грузится сразу (иначе Google не подтвердит
+         владение сайтом и не увидит его), но до согласия analytics_storage
+         запрещён, то есть кук нет. Согласие обновляет ConsentBanner.
+         Куки GA4 ставятся на .booster.delivery, поэтому переход
+         booster.delivery → diagnostic → app считается одним человеком без
+         дополнительной настройки. Скрипты в пререндере блокируются
+         (scripts/prerender.mjs), иначе каждая сборка накручивала бы 96 визитов. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      (function () {
+        var granted = false;
+        try { granted = localStorage.getItem('db_consent') === 'granted'; } catch (e) {}
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: granted ? 'granted' : 'denied',
+          wait_for_update: 500
+        });
+      })();
+      gtag('js', new Date());
+      gtag('config', 'G-GYK9V931F2');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYK9V931F2"></script>
+    <script defer src="https://analytics.booster.delivery/script.js" data-website-id="a3060360-a401-4885-af8c-e0ecf802cd14"></script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

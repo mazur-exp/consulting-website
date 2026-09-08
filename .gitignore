@@ -11,3 +11,6 @@ vite.config.ts.*
 *.env
 .env
 .env.*
+
+# Серверный лог трафика (см. server/crawler-log.ts)
+logs/

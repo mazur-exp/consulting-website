@@ -85,6 +85,11 @@ try {
     const page = await ctx.newPage();
     // Deterministic snapshots: no geo redirects, no saved prefs
     await page.route('https://api.country.is/**', (r) => r.abort());
+    // Счётчики в пререндере глушим. Иначе каждая сборка — это 48 снимков в двух
+    // языках, то есть 96 фальшивых визитов с IP сервера в Umami и GA4, плюс
+    // networkidle начинает ждать чужие домены и снимки становятся хрупкими.
+    await page.route('https://www.googletagmanager.com/**', (r) => r.abort());
+    await page.route('https://analytics.booster.delivery/**', (r) => r.abort());
     await page.addInitScript((l) => {
       try {
         localStorage.clear();

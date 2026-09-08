@@ -1,8 +1,12 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { trafficLogger } from "./crawler-log";
 
 const app = express();
+// Первым делом: обходы ИИ-краулеров и заходы с внешних сайтов. JS-счётчики
+// ботов не видят вообще, а это самый ранний сигнал, что нас читают движки.
+app.use(trafficLogger());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

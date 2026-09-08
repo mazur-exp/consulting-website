@@ -1,9 +1,12 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./hooks/useLanguage";
+import { ConsentBanner } from "./components/ConsentBanner";
+import { trackPageView, trackTrafficSource } from "./lib/analytics";
+import { useEffect, useRef } from "react";
 import Gate from "./pages/gate";
 import CountryPage from "./pages/country";
 import CasePage from "./pages/case";
@@ -52,13 +55,40 @@ function Router() {
   );
 }
 
+/**
+ * Аналитика маршрутов. Umami сама ловит смену адреса в SPA, GA4 — нет, поэтому
+ * page_view для неё шлём руками. Первый рендер пропускаем: его gtag уже
+ * посчитал при загрузке документа, иначе главная удваивалась бы на каждом
+ * заходе. Источник трафика шлём один раз за сессию.
+ */
+function Analytics() {
+  const [location] = useLocation();
+  const first = useRef(true);
+
+  useEffect(() => {
+    trackTrafficSource();
+  }, []);
+
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    trackPageView(location);
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <LanguageProvider>
           <Toaster />
+          <Analytics />
           <Router />
+          <ConsentBanner />
         </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
