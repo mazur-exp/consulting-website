@@ -92,14 +92,28 @@ export function serveStatic(app: Express) {
     return res.sendFile(candidate);
   });
 
+  // Serve prerendered snapshots explicitly, before express.static.
+  // express.static's `extensions` option only kicks in when the path does not
+  // exist at all — if a directory shares the snapshot's name (/answers is both
+  // answers.html and the answers/ folder holding the individual answer pages)
+  // it either redirects to the directory or falls through to the SPA shell, and
+  // the page is silently wrong for bots and users alike. Checking <path>.html
+  // first removes that whole class of collision.
+  app.use((req, res, next) => {
+    if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+    const clean = req.path.replace(/\/+$/, '');
+    if (!clean || path.extname(clean)) return next();
+    const candidate = path.resolve(distPath, '.' + clean + '.html');
+    if (!candidate.startsWith(distPath)) return next();
+    if (!fs.existsSync(candidate)) return next();
+    res.setHeader('Cache-Control', 'no-cache');
+    return res.sendFile(candidate);
+  });
+
   app.use(express.static(distPath, {
     maxAge: '1y',
     etag: true,
     lastModified: true,
-    // A prerendered snapshot can share a name with a directory: /answers is both
-    // answers.html and the answers/ folder holding the individual answer pages.
-    // With the default redirect:true express sends 301 /answers -> /answers/ and
-    // the snapshot is never reached, so the hub page 404s for bots and users.
     redirect: false,
     // Serve prerendered snapshots: /th -> th.html, /cases/x -> cases/x.html
     extensions: ['html'],
