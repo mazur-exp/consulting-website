@@ -4,6 +4,7 @@ const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/delivery.booster/' },
   { label: 'YouTube', href: 'https://www.youtube.com/@DeliveryBooster' },
   { label: 'Telegram', href: 'https://t.me/deliverybooster_asia' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alekseimazur' },
 ];
 
 export const Footer = () => {

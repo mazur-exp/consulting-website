@@ -49,6 +49,7 @@ export default function AboutPage() {
       'https://t.me/deliverybooster_asia',
       'https://t.me/delivery_booster',
       'https://app.booster.delivery',
+      'https://www.linkedin.com/in/alekseimazur',
     ],
     disambiguatingDescription:
       'Delivery Booster (booster.delivery) is a restaurant delivery growth agency. Not the in-app "booster" ad tool inside Grab, not Arvida "Software Delivery Booster" (CI/CD), and not parcel-logistics software.',

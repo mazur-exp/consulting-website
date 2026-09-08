@@ -44,7 +44,8 @@ export const SEOSchema = () => {
     "sameAs": [
       "https://www.youtube.com/@DeliveryBooster",
       "https://www.instagram.com/delivery.booster/",
-      "https://t.me/deliverybooster_asia"
+      "https://t.me/deliverybooster_asia",
+      "https://www.linkedin.com/in/alekseimazur"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
@@ -59,7 +60,9 @@ export const SEOSchema = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Alexey Mazur",
+    "alternateName": "Aleksei Mazur",
     "jobTitle": "Founder & Delivery Platform Optimization Consultant",
+    "sameAs": ["https://www.linkedin.com/in/alekseimazur"],
     "worksFor": {
       "@type": "Organization",
       "name": "Delivery Booster"
