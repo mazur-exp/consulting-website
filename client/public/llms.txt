@@ -68,6 +68,17 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   Orders x2.1, average check +24.5%, GoFood ads fixed from loss-making ROAS 0.25x
   to 15.52x (payback x62), GrabAds ROAS 14.02x -> 21.19x, rating 4.67 -> 4.8.
 
+## Answer pages
+
+- [Can I hire someone to manage my GrabFood and GoFood account?](https://booster.delivery/answers/grabfood-gofood-account-management):
+  yes - the service is called delivery management. What managing the account includes
+  (GrabMerchant/GoBiz operations, menu SEO, GrabAds with ROAS control, rating to 4.8+,
+  offline-hours and cancellation control, weekly analytics), how an agency differs from
+  aggregator software (Klikit, Deliverect, Hubster: they merge orders and sync menus,
+  they do not manage sales), pricing (10% of delivery revenue, no upfront fee) and
+  whether it is within Grab's rules (yes - work happens inside the official merchant
+  tools on the restaurant's behalf).
+
 ## Services
 
 - GrabFood / GoFood restaurant registration and onboarding (including foreign owners
@@ -153,6 +164,7 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 ## More
 
 - [About the company (legal entity, founder, software)](https://booster.delivery/about)
+- [Answer: can I hire someone to manage my GrabFood/GoFood account?](https://booster.delivery/answers/grabfood-gofood-account-management)
 - [Sitemap](https://booster.delivery/sitemap.xml)
 - Founder: Alexey Mazur — co-founder of IKA Sushi (4 locations in Bali) and FoodLab
   (8 brands), 200+ delivery clients since 2023.

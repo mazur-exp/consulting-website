@@ -9,6 +9,7 @@ import CountryPage from "./pages/country";
 import CasePage from "./pages/case";
 import NotFound from "@/pages/not-found";
 import AboutPage from "./pages/about";
+import AnswersHirePage from "./pages/answers-hire";
 import { COUNTRY_ORDER, pathForCountry } from "./config/countries";
 import { getCaseBySlug } from "./config/case-studies";
 
@@ -22,6 +23,10 @@ function Router() {
         </Route>
       ))}
       <Route path="/about" component={AboutPage} />
+      <Route
+        path="/answers/grabfood-gofood-account-management"
+        component={AnswersHirePage}
+      />
       <Route path="/cases/:slug">
         {(params) => <CasePage caseStudy={getCaseBySlug(params.slug)} />}
       </Route>

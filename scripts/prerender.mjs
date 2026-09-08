@@ -25,6 +25,12 @@ const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-p
 const routes = [
   { url: '/', out: 'index.html', pickCountry: null }, // gate with the 8-country picker
   { url: '/about', out: 'about.html', pickCountry: 'id' },
+  // Answer page for the "delegation" query cluster (AI-visibility gap, see ai_docs/ai-visibility)
+  {
+    url: '/answers/grabfood-gofood-account-management',
+    out: 'answers/grabfood-gofood-account-management.html',
+    pickCountry: 'id',
+  },
   ...COUNTRIES.map((c) => ({ url: `/${c}`, out: `${c}.html`, pickCountry: c })),
   ...CASES.map((s) => ({ url: `/cases/${s}`, out: `cases/${s}.html`, pickCountry: 'th' })),
 ];

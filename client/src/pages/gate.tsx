@@ -171,6 +171,14 @@ export default function Gate() {
           <a className="text-brand-green hover:underline" href="/about">
             {t('О компании', 'About the company')}
           </a>
+          {' · '}
+          <a
+            className="text-brand-green hover:underline"
+            href="/answers/grabfood-gofood-account-management"
+          >
+            {t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?',
+               'Can I hire someone to manage my GrabFood and GoFood account?')}
+          </a>
         </p>
       </section>
     </div>

@@ -145,4 +145,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://booster.delivery/answers/grabfood-gofood-account-management</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booster.delivery/answers/grabfood-gofood-account-management?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://booster.delivery/answers/grabfood-gofood-account-management?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booster.delivery/answers/grabfood-gofood-account-management" />
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
