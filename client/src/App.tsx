@@ -10,6 +10,9 @@ import CasePage from "./pages/case";
 import NotFound from "@/pages/not-found";
 import AboutPage from "./pages/about";
 import AnswersHirePage from "./pages/answers-hire";
+import AnswersVsAggregatorsPage from "./pages/answers-vs-aggregators";
+import AnswersAdsNotWorkingPage from "./pages/answers-ads-not-working";
+import MethodPage from "./pages/method";
 import { COUNTRY_ORDER, pathForCountry } from "./config/countries";
 import { getCaseBySlug } from "./config/case-studies";
 
@@ -27,6 +30,12 @@ function Router() {
         path="/answers/grabfood-gofood-account-management"
         component={AnswersHirePage}
       />
+      <Route
+        path="/answers/delivery-agency-vs-klikit-deliverect"
+        component={AnswersVsAggregatorsPage}
+      />
+      <Route path="/answers/grabfood-ads-not-working" component={AnswersAdsNotWorkingPage} />
+      <Route path="/method" component={MethodPage} />
       <Route path="/cases/:slug">
         {(params) => <CasePage caseStudy={getCaseBySlug(params.slug)} />}
       </Route>

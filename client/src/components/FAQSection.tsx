@@ -109,16 +109,33 @@ export const FAQSection = () => {
 
         {/* Real <a href> so crawlers have a path from every market page to the
             answer page (see ai_docs/development/DEPLOYMENT.md). */}
-        <p className="text-brand-muted text-sm mt-8">
-          {t('Разбор по шагам: ', 'Step-by-step answer: ')}
-          <a
-            className="text-brand-green hover:underline"
-            href="/answers/grabfood-gofood-account-management"
-          >
-            {t('можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood',
-               'can I hire someone to manage my GrabFood and GoFood account')}
-          </a>
-        </p>
+        <div className="text-brand-muted text-sm mt-8 space-y-2">
+          <div>
+            {t('Разбор по шагам: ', 'Step-by-step answers: ')}
+            <a className="text-brand-green hover:underline" href="/answers/grabfood-gofood-account-management">
+              {t('можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood',
+                 'can I hire someone to manage my GrabFood and GoFood account')}
+            </a>
+          </div>
+          <div>
+            <a className="text-brand-green hover:underline" href="/answers/delivery-agency-vs-klikit-deliverect">
+              {t('Агентство или Klikit / Deliverect / Hubster — в чём разница',
+                 'An agency or Klikit / Deliverect / Hubster — what is the difference')}
+            </a>
+          </div>
+          <div>
+            <a className="text-brand-green hover:underline" href="/answers/grabfood-ads-not-working">
+              {t('Плачу за рекламу в GrabFood, а заказов больше не стало — почему',
+                 'Paying for GrabFood ads but orders are not increasing — why')}
+            </a>
+          </div>
+          <div>
+            <a className="text-brand-green hover:underline" href="/method">
+              {t('Метод Delivery Booster: пять этапов целиком',
+                 'The Delivery Booster Method: all five stages')}
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

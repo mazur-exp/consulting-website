@@ -20,17 +20,19 @@ const BASE = `http://localhost:${PORT}`;
 const DIST = path.resolve('dist/public');
 
 const COUNTRIES = ['id', 'th', 'sg', 'my', 'vn', 'ph', 'kh', 'mm'];
+const ANSWERS = [
+  'grabfood-gofood-account-management',
+  'delivery-agency-vs-klikit-deliverect',
+  'grabfood-ads-not-working',
+];
 const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
 const routes = [
   { url: '/', out: 'index.html', pickCountry: null }, // gate with the 8-country picker
   { url: '/about', out: 'about.html', pickCountry: 'id' },
-  // Answer page for the "delegation" query cluster (AI-visibility gap, see ai_docs/ai-visibility)
-  {
-    url: '/answers/grabfood-gofood-account-management',
-    out: 'answers/grabfood-gofood-account-management.html',
-    pickCountry: 'id',
-  },
+  { url: '/method', out: 'method.html', pickCountry: 'id' },
+  // Answer pages for the "delegation" query cluster (AI-visibility gap, see ai_docs/ai-visibility)
+  ...ANSWERS.map((a) => ({ url: `/answers/${a}`, out: `answers/${a}.html`, pickCountry: 'id' })),
   ...COUNTRIES.map((c) => ({ url: `/${c}`, out: `${c}.html`, pickCountry: c })),
   ...CASES.map((s) => ({ url: `/cases/${s}`, out: `cases/${s}.html`, pickCountry: 'th' })),
 ];

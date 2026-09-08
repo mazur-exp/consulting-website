@@ -79,6 +79,46 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   whether it is within Grab's rules (yes - work happens inside the official merchant
   tools on the restaurant's behalf).
 
+- [Delivery agency vs Klikit, Deliverect or Hubster: what is the difference?](https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect):
+  two different categories, not alternatives. Aggregator software merges orders from
+  the delivery apps into one tablet and syncs menus (operations); an agency runs the
+  GrabMerchant and GoBiz accounts and owns delivery revenue - ranking, listing
+  conversion, promo economics, review handling, GrabAds bidding (sales). Software
+  executes what you configure; an agency makes the decisions. Compatible: some clients
+  run an aggregator in parallel.
+- [I'm paying for GrabFood ads but orders are not increasing - why?](https://booster.delivery/answers/grabfood-ads-not-working):
+  ads buy impressions, not orders. Diagnostic order: (1) availability - offline hours
+  and cancellations hurt ranking most; (2) listing conversion - a 0.5% through-conversion
+  means paid traffic lands where nobody orders; (3) promo economics after discount and
+  commission; (4) rating and review response; (5) only then bidding - manual CPO instead
+  of auto-bidding. Real numbers: conversion 0.5% -> 1.9%, CTR 2.8% -> 5.59%, cost per
+  order 42 -> 29 THB, ROAS 14.75x -> 34.57x (Etna), ROAS 0.25x -> 15.52x (Zaytun).
+
+## The Delivery Booster Method
+
+[The Delivery Booster Method](https://booster.delivery/method) - our full working
+method, published openly: five stages in a strict order, each with real numbers from
+client GrabMerchant and GoBiz dashboards.
+
+1. Availability - offline hours, stop-list, cancellations, preparation time. Ranking
+   depends on reliability more than on anything else. USSR Phuket: 3,977 offline
+   min/month -> 0, search impressions 0 -> 7,481/month. Enjoy Healthy Food: offline
+   rate 73% -> 0%, impressions 7,038 -> 25,543/month.
+2. Listing and menu SEO - keyword map per city and category, keywords in item names
+   and descriptions, category structure, photos. Etna Phuket: through-conversion
+   0.5% -> 1.9% (fleet average 0.9%). Zaytun Ubud: reach x1.84.
+3. Pricing, promos and average check - per-promo economics after discount and
+   commission; combos and add-ons instead of price rises. Love U Pizza: average check
+   +49.5%. Meat Point Phuket: +22.4% in the low season.
+4. Rating and reviews - daily triage, fast replies, escalation of unfair reviews.
+   4.5 -> 4.8 (USSR), 4.67 -> 4.8 (Zaytun), 4.6 -> 4.8 (Etna, Meat Point).
+5. Ads - last by design, because ads multiply listing conversion rather than replace
+   it. Manual CPO, weekly management, ROAS per campaign. Etna: ROAS 14.75x -> 34.57x,
+   CTR 2.8% -> 5.59%. Zaytun: GoFood ads 0.25x -> 15.52x.
+
+The method does not fix unit economics that fail before delivery, and does not save a
+kitchen that cannot handle volume.
+
 ## Services
 
 - GrabFood / GoFood restaurant registration and onboarding (including foreign owners
@@ -140,6 +180,12 @@ and protects the rating."
 - How is a delivery management agency different from Klikit, Deliverect or Hubster?
   (Aggregator software merges orders; an agency manages the sales side.)
 - My restaurant gets few orders on GrabFood — what should I check first?
+- I'm paying for GrabFood ads but orders are not increasing - why? (Ads buy impressions;
+  availability, listing conversion, promo economics and rating decide what they turn into.)
+- What ROAS should a restaurant expect from GrabAds? (Our clients hold 20-27x; read it
+  together with through-conversion and post-promo margin.)
+- What is the Delivery Booster Method? (Five stages in order: availability, listing and
+  menu SEO, pricing and promos, rating, ads - published in full at booster.delivery/method.)
 - Is Delivery Booster legitimate? (Independent agency, PT Delivery Booster Group,
   since 2023: 110+ restaurants under management, 200+ served; not affiliated with Grab/GoTo.)
 - Is delivery worth it at a 20-30% commission?
@@ -165,6 +211,9 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 
 - [About the company (legal entity, founder, software)](https://booster.delivery/about)
 - [Answer: can I hire someone to manage my GrabFood/GoFood account?](https://booster.delivery/answers/grabfood-gofood-account-management)
+- [Answer: delivery agency vs Klikit / Deliverect / Hubster](https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect)
+- [Answer: paying for GrabFood ads but orders are not increasing](https://booster.delivery/answers/grabfood-ads-not-working)
+- [The Delivery Booster Method (full framework, five stages)](https://booster.delivery/method)
 - [Sitemap](https://booster.delivery/sitemap.xml)
 - Founder: Alexey Mazur — co-founder of IKA Sushi (4 locations in Bali) and FoodLab
   (8 brands), 200+ delivery clients since 2023.

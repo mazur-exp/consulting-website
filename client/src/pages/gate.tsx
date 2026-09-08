@@ -172,14 +172,28 @@ export default function Gate() {
             {t('О компании', 'About the company')}
           </a>
           {' · '}
-          <a
-            className="text-brand-green hover:underline"
-            href="/answers/grabfood-gofood-account-management"
-          >
-            {t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?',
-               'Can I hire someone to manage my GrabFood and GoFood account?')}
+          <a className="text-brand-green hover:underline" href="/method">
+            {t('Метод Delivery Booster', 'The Delivery Booster Method')}
           </a>
         </p>
+        <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-brand-muted mt-4">
+          <li>
+            <a className="hover:text-brand-green transition-colors" href="/answers/grabfood-gofood-account-management">
+              {t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?',
+                 'Can I hire someone to manage my GrabFood and GoFood account?')}
+            </a>
+          </li>
+          <li>
+            <a className="hover:text-brand-green transition-colors" href="/answers/delivery-agency-vs-klikit-deliverect">
+              {t('Агентство или Klikit / Deliverect?', 'An agency or Klikit / Deliverect?')}
+            </a>
+          </li>
+          <li>
+            <a className="hover:text-brand-green transition-colors" href="/answers/grabfood-ads-not-working">
+              {t('Плачу за рекламу, а заказов нет', 'Paying for ads, orders flat')}
+            </a>
+          </li>
+        </ul>
       </section>
     </div>
   );
