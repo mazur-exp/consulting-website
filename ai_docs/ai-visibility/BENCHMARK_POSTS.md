@@ -43,39 +43,99 @@ ROAS ниже 5x — только у 6% флота. Если у вас ниже,
 
 ---
 
-## 2. LinkedIn (EN, от лица основателя)
+## 2. LinkedIn — пост-документ (основной формат), EN, от лица основателя
 
-We manage 96 restaurants on GrabFood and GoFood in Bali and Phuket. We just published what their dashboards actually say.
+**Файл:** `attached_assets/benchmark-slides/benchmark-2026.pdf` — 10 страниц 4:5,
+векторный текст (не картинки), кликабельная ссылка на booster.delivery/benchmark
+в футере каждой страницы и на финальной.
 
-270,568 orders, January–August 2026, anonymised and aggregated. Three findings that surprised us:
+**Как публиковать:** в форме поста «Add a document» → загрузить PDF → **Document
+title: `Bali & Phuket Delivery Benchmark 2026`** (заголовок показывается над
+каруселью и индексируется, поэтому он с ключевыми словами, а не «отчёт»).
 
-**1. A quarter of revenue leaks — and 95% of it is stock-outs.**
-Not closed restaurants (3%). Not cancellations (2%). Switched-off menu items. Our sample contains dishes that have been out of stock for over 2,000 hours — 84 days. Some venues have 40–70 items off at once. Nobody is watching, so nobody notices.
+**Ссылку в текст поста НЕ ставим** — LinkedIn режет охват постам с внешними
+ссылками. Ссылка живёт в PDF (кликабельная) и в первом комментарии.
 
-**2. Ad spend hits diminishing returns at 6% of revenue.**
-Median ROAS by ad share: 0–2% → 12.1x · 2–4% → 12.8x · 4–6% → 11.8x · 6–8% → 9.6x · over 8% → 6.9x. Below the 6% line the median is 12.1x; above it, 8.6x. 42% of our own fleet is past that line. Budget should follow conversion, not lead it.
+---
 
-**3. Delivery ratings are bimodal.**
-In a 30-day sample: 51% five-star, 28% one-star, 3% four-star. There is no middle. Which means a rating moves by removing one-stars, not by "improving on average" — and roughly 80% of the unfair reviews we appeal on Grab do get removed.
+### Текст поста
 
-Bali medians for reference: Rp 250k average check, 10.4x ROAS, 5.6% of revenue on ads, 0.35% cancellations, one bad review per 138 orders.
+```
+We checked where 96 restaurants actually lose delivery revenue. It is not when they are closed.
 
-Full report, including a nine-area breakdown of Bali and a Bali/Phuket comparison: booster.delivery/benchmark
+95% of the loss is menu items somebody switched off and nobody switched back on.
 
-Caveat we state on the page: this is a sample of agency-managed restaurants, not a random market sample. Real market stock-out losses are probably worse than our 25%.
+We manage those 96 restaurants on GrabFood and GoFood across Bali and Phuket. We took their GrabMerchant and GoBiz dashboards — 270,568 orders, January to August 2026 — anonymised the numbers and published them as market norms. Medians, not averages.
+
+Three things surprised us.
+
+1. A quarter of revenue leaks away.
+Downtime is 3% of that loss. Cancellations are 2%. Everything else is stock-outs. Our sample contains dishes that sat out of stock for 2,000 hours — 84 days. Individual venues had 40 to 70 items switched off at once, while paying for ads to bring people to that menu.
+
+2. Ads stop paying back at around 6% of revenue.
+Median ROAS by ad share: 0–2% → 12.1x. 2–4% → 12.8x. 4–6% → 11.8x. 6–8% → 9.6x. Over 8% → 6.9x. Below the line the median is 12.1x, above it 8.6x. 42% of our own fleet is already past that line. Budget should follow conversion, not lead it.
+
+3. Delivery ratings are bimodal.
+In a 30-day sample: 51% five-star, 28% one-star, 3% four-star. There is no middle. So a rating moves by removing one-star reviews rather than by improving on average — and about 80% of the unfair reviews we appeal on Grab do get removed.
+
+Bali medians for reference: Rp 250k average check, 10.4x ads ROAS, 5.6% of revenue on ads, 0.35% cancellations, one bad review per 138 orders. Only 6% of the fleet runs below 5x ROAS — that is a broken listing, not the market.
+
+The caveat we state on the page: this is a sample of agency-managed restaurants, not a random market sample. Real market stock-out losses are almost certainly worse than our 25%.
+
+Full report with the nine-area breakdown of Bali and the Bali/Phuket comparison is linked in the comments.
+
+Restaurant owners: how many items are switched off in your menu right now? Most people who check are surprised.
+
+#GrabFood #GoFood #Bali #Phuket #RestaurantMarketing
+```
+
+**Первый комментарий (опубликовать сразу после поста):**
+
+```
+Full report, free — no gate, no form: booster.delivery/benchmark
+Updated every quarter.
+```
+
+---
+
+### Почему пост написан именно так
+
+- **Первые две строки — крючок.** LinkedIn показывает ~140 знаков до «…see more».
+  Начинать с «We manage 96 restaurants» нельзя: это про нас, а не про читателя.
+  Начинаем с факта, который ломает ожидание.
+- **Все цифры продублированы текстом,** а не только в PDF. Картинки не читаются ни
+  поиском LinkedIn, ни ИИ-краулерами, а linkedin.com даёт 9–12% цитат в ответах ИИ —
+  цитировать можно только текст.
+- **Названы сущности целиком:** Delivery Booster, GrabFood, GoFood, GrabMerchant,
+  GoBiz, Bali, Phuket. Так ИИ связывает факт с нами, а не с «одним агентством».
+- **Абзацы по 1–3 строки.** Мобильная колонка узкая, стена текста не читается.
+- **Оговорка про смещение выборки — в самом посте.** Это не слабость, а то, что
+  отличает данные от маркетинга; и это снимает главное возражение заранее.
+- **Вопрос в конце** — комментарии в первый час решают охват сильнее лайков.
+- **5 хэштегов,** не больше; в конце, не внутри текста.
+
+### После публикации
+
+- Первый комментарий со ссылкой — сразу, не через час.
+- Отвечать на комментарии в первый час: распределение поста считается по ранней
+  активности.
+- **Не редактировать пост в первый час** — правка сбивает охват.
+- Время: утро по Бали (WIB), когда аудитория ЮВА и экспаты в сети.
 
 ---
 
 ## Готовые файлы
 
-Слайды сгенерированы и собраны 2026-09-08, лежат в `attached_assets/benchmark-slides/`:
-- `benchmark-2026-linkedin.pdf` — 6 страниц 4:5, грузится в LinkedIn как **документ**
-  (не как картинки): пост-карусель, самый охватный формат в LinkedIn.
-- `slide-1.png` … `slide-6.png` — те же слайды 1080×1350 для Instagram-карусели.
+Собраны 2026-09-08, лежат в `attached_assets/benchmark-slides/`:
 
-На каждой странице футер с логотипом и нумерация «N / 6» — чтобы отдельный слайд,
-вырванный скриншотом, оставался узнаваемым. Слайд 6 несёт ссылку, поэтому на нём
-футер без дубля URL.
+- **`benchmark-2026.pdf`** — документ под LinkedIn, 10 страниц 1080×1350 (4:5).
+  Собран из текста LinkedIn-поста, векторный: текст выделяется и копируется,
+  графики нарисованы, а не отрендерены картинкой. В футере каждой страницы —
+  логотип и кликабельная `booster.delivery/benchmark`. Это основной файл.
+- `slide-1.png` … `slide-6.png` — 6 слайдов 1080×1350 для Instagram-карусели.
+- `benchmark-2026-linkedin.pdf` — первая версия из тех же шести картинок.
+  Оставлена как архив, в LinkedIn не грузим: растровый текст не читается ни
+  поиском, ни ИИ, и в нём нет кликабельной ссылки.
 
 ## 3. Instagram (@delivery.booster) — carousel, 6 slides (EN)
 
