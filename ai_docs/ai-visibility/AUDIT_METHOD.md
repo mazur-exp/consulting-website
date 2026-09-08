@@ -90,10 +90,24 @@ YouTube `@DeliveryBooster`, Instagram `delivery.booster`, Telegram
 
 ## Как повторить замер (раз в месяц)
 
+**Ключи.** В репозитории и на машине их нет и быть не должно. Держим их в одном
+файле вне репозитория — `~/.config/aivis.env` (chmod 600), формат:
+
+```
+OPENAI_API_KEY=...
+PERPLEXITY_API_KEY=...
+GEMINI_API_KEY=...
+BRIGHTDATA_API_TOKEN=...
+BRIGHTDATA_SERP_ZONE=ai_analytics
+```
+
+Тогда замер запускается одной строкой и его может провести любая сессия, не
+дёргая Алекса. Без этого файла замер невозможен: 8 сентября мы на этом и
+встали — методика называла переменные, но не говорила, откуда их взять.
+
 ```bash
 cd ai_docs/ai-visibility/audit
-export OPENAI_API_KEY=... PERPLEXITY_API_KEY=... GEMINI_API_KEY=...
-export BRIGHTDATA_API_TOKEN=... BRIGHTDATA_SERP_ZONE=ai_analytics
+set -a; source ~/.config/aivis.env; set +a
 
 python3 audit.py run    --prompts prompts_v1.json --out ./$(date +%Y-%m-%d)
 python3 audit.py judge  --dir ./$(date +%Y-%m-%d)
