@@ -14,27 +14,33 @@ export const VideoSection = () => {
   const videoPoints = [
     {
       ru: "Объемы рынка доставки на Бали и его особенности",
-      en: "Bali delivery market volumes and features"
+      en: "Bali delivery market volumes and features",
+      id: "Ukuran pasar delivery di Bali dan karakteristiknya"
     },
     {
       ru: "Нужно ли вашему бизнесу заниматься доставкой?",
-      en: "Does your business need delivery services?"
+      en: "Does your business need delivery services?",
+      id: "Apakah bisnis Anda perlu masuk ke layanan delivery?"
     },
     {
       ru: "Как настроить аккаунты в Gojek и Grab и правильно оформить меню",
-      en: "How to set up Gojek and Grab accounts and design menu properly"
+      en: "How to set up Gojek and Grab accounts and design menu properly",
+      id: "Cara menyiapkan akun Gojek dan Grab serta menyusun menu dengan benar"
     },
     {
       ru: "Советы по повышению среднего чека и формированию товаров-локомотивов",
-      en: "Tips for increasing average order value and creating bestsellers"
+      en: "Tips for increasing average order value and creating bestsellers",
+      id: "Tips menaikkan rata-rata nilai pesanan dan membentuk item penarik pesanan"
     },
     {
       ru: "Рекомендации по ведению рекламных кампаний и работе с аккаунт-менеджерами",
-      en: "Recommendations for advertising campaigns and account manager relationships"
+      en: "Recommendations for advertising campaigns and account manager relationships",
+      id: "Rekomendasi menjalankan kampanye iklan dan bekerja dengan account manager"
     },
     {
       ru: "Как эффективно управлять рейтингами на платформах доставки",
-      en: "How to effectively manage ratings on delivery platforms"
+      en: "How to effectively manage ratings on delivery platforms",
+      id: "Cara mengelola rating di platform delivery secara efektif"
     }
   ];
 
@@ -49,7 +55,7 @@ export const VideoSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 whitespace-pre-line" data-testid="text-video-title">
-            {t("Платформы доставки еды Gojek и Grab на Бали.\nКак подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali.\nHow to connect and profit from it.")}
+            {t("Платформы доставки еды Gojek и Grab на Бали.\nКак подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali.\nHow to connect and profit from it.", "Platform delivery makanan Gojek dan Grab di Bali.\nCara bergabung dan mendapat untung darinya.")}
           </h2>
         </motion.div>
 
@@ -82,7 +88,8 @@ export const VideoSection = () => {
                       <p className="text-sm font-medium text-brand-text">
                         {t(
                           "Платформы доставки еды Gojek и Grab на Бали",
-                          "Gojek and Grab food delivery platforms in Bali"
+                          "Gojek and Grab food delivery platforms in Bali",
+                          "Platform delivery makanan Gojek dan Grab di Bali"
                         )}
                       </p>
                     </div>
@@ -126,7 +133,7 @@ export const VideoSection = () => {
                   <span className="text-white text-xs font-bold">✓</span>
                 </div>
                 <p className="text-brand-muted leading-relaxed">
-                  {t(point.ru, point.en)}
+                  {t(point.ru, point.en, point.id)}
                 </p>
               </motion.div>
             ))}

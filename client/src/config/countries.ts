@@ -9,10 +9,13 @@ export interface CaseCard {
   value: string;
   labelRu: string;
   labelEn: string;
+  labelId?: string;
   nameRu: string;
   nameEn: string;
+  nameId?: string;
   detailRu: string;
   detailEn: string;
+  detailId?: string;
   /** Slug of a full case study page under /cases/<slug> */
   caseSlug?: string;
 }
@@ -24,25 +27,31 @@ export interface CountryConfig {
   flag: string;
   nameRu: string;
   nameEn: string;
+  nameId?: string;
   /** "на Бали", "в Таиланде" — used inside sentences */
   inCountryRu: string;
   inCountryEn: string;
+  inCountryId?: string;
   /** Main city / hub shown in SEO + schema */
   cityRu: string;
   cityEn: string;
+  cityId?: string;
   /** Delivery platforms served in this market */
   platformsRu: string;
   platformsEn: string;
+  platformsId?: string;
   /** Short platform token for FAQ/pricing, e.g. "GoJek/Grab" */
   platformsShort: string;
   socialProofRu: string;
   socialProofEn: string;
+  socialProofId?: string;
   cases: CaseCard[];
   caseImages: { src: string; alt: string }[];
   /** Named clients shown as chips; null hides the section */
   clients: string[] | null;
   clientsTitleRu: string;
   clientsTitleEn: string;
+  clientsTitleId?: string;
   /** Bali-specific blocks — testimonials and the Bali market video */
   showTestimonials: boolean;
   showVideo: boolean;
@@ -56,40 +65,52 @@ const THAI_CASES: CaseCard[] = [
     value: 'x3.9',
     labelRu: 'выручки на Grab',
     labelEn: 'Grab revenue',
+    labelId: 'omzet di Grab',
     nameRu: 'USSR Phuket (Патонг)',
     nameEn: 'USSR Phuket (Patong)',
+    nameId: 'USSR Phuket (Patong)',
     detailRu: 'заказы x7.4 · ROAS 24x · за 2 месяца',
     detailEn: 'orders x7.4 · ROAS 24x · in 2 months',
+    detailId: 'pesanan x7.4 · ROAS 24x · dalam 2 bulan',
     caseSlug: 'ussr-phuket',
   },
   {
     value: 'x9.4',
     labelRu: 'выручки на Grab',
     labelEn: 'Grab revenue',
+    labelId: 'omzet di Grab',
     nameRu: 'Enjoy Healthy Food (Пхукет)',
     nameEn: 'Enjoy Healthy Food (Phuket)',
+    nameId: 'Enjoy Healthy Food (Phuket)',
     detailRu: 'заказы x4.6 · ROAS 27.5x · за 14 месяцев',
     detailEn: 'orders x4.6 · ROAS 27.5x · in 14 months',
+    detailId: 'pesanan x4.6 · ROAS 27.5x · dalam 14 bulan',
     caseSlug: 'enjoy-healthy-food',
   },
   {
     value: '+87%',
     labelRu: 'выручки на Grab',
     labelEn: 'Grab revenue',
+    labelId: 'omzet di Grab',
     nameRu: 'Etna Phuket (Банг Тао)',
     nameEn: 'Etna Phuket (Bang Tao)',
+    nameId: 'Etna Phuket (Bang Tao)',
     detailRu: 'заказы x2.2 · ROAS 34.6x · за 2 месяца в низкий сезон',
     detailEn: 'orders x2.2 · ROAS 34.6x · in 2 months, low season',
+    detailId: 'pesanan x2.2 · ROAS 34.6x · dalam 2 bulan saat low season',
     caseSlug: 'etna-phuket',
   },
   {
     value: '+46%',
     labelRu: 'выручки на Grab',
     labelEn: 'Grab revenue',
+    labelId: 'omzet di Grab',
     nameRu: 'Meat Point Phuket (Раваи)',
     nameEn: 'Meat Point Phuket (Rawai)',
+    nameId: 'Meat Point Phuket (Rawai)',
     detailRu: 'чек +22% · ROAS 30x · рост в низкий сезон',
     detailEn: 'AOV +22% · ROAS 30x · growth in the low season',
+    detailId: 'rata-rata nilai pesanan +22% · ROAS 30x · tumbuh saat low season',
     caseSlug: 'meat-point-phuket',
   },
 ];
@@ -109,23 +130,27 @@ const REGIONAL_CASES: CaseCard[] = THAI_CASES.map((c) => ({
   ...c,
   detailRu: `${c.detailRu} · Таиланд, GrabFood`,
   detailEn: `${c.detailEn} · Thailand, GrabFood`,
+  detailId: `${c.detailId ?? c.detailEn} · Thailand, GrabFood`,
 }));
 
 const GRAB_ONLY = {
   platformsRu: 'Grab',
   platformsEn: 'Grab',
+  platformsId: 'Grab',
   platformsShort: 'Grab',
   cases: REGIONAL_CASES,
   caseImages: THAI_CASE_IMAGES,
   clients: null,
   clientsTitleRu: '',
   clientsTitleEn: '',
+  clientsTitleId: '',
   showTestimonials: false,
   showVideo: false,
   heroImage: '/th-assets/grab-insights-ehf-sales.jpg',
   heroImageAlt: 'GrabFood sales growth analytics',
   socialProofRu: '110+ ресторанов в ЮВА на сопровождении, 200+ прошло через нас с 2023',
   socialProofEn: '110+ restaurants under management in SE Asia, 200+ served since 2023',
+  socialProofId: '110+ restoran di Asia Tenggara dalam pengelolaan kami, 200+ sudah bekerja sama sejak 2023',
 } as const;
 
 export const COUNTRIES: Record<CountryCode, CountryConfig> = {
@@ -135,42 +160,55 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     flag: '🇮🇩',
     nameRu: 'Индонезия',
     nameEn: 'Indonesia',
+    nameId: 'Indonesia',
     inCountryRu: 'на Бали',
     inCountryEn: 'in Bali',
+    inCountryId: 'di Bali',
     cityRu: 'Бали',
     cityEn: 'Bali',
+    cityId: 'Bali',
     platformsRu: 'Gojek и Grab',
     platformsEn: 'Gojek and Grab',
+    platformsId: 'Gojek dan Grab',
     platformsShort: 'GoJek/Grab',
     socialProofRu: '110+ ресторанов на сопровождении, 200+ прошло через нас с 2023',
     socialProofEn: '110+ restaurants under management, 200+ served since 2023',
+    socialProofId: '110+ restoran dalam pengelolaan kami, 200+ sudah bekerja sama sejak 2023',
     cases: [
       {
         value: 'x21',
         labelRu: 'выручки за 9 месяцев',
         labelEn: 'revenue in 9 months',
+        labelId: 'omzet dalam 9 bulan',
         nameRu: 'Love U Pizza (Бали)',
         nameEn: 'Love U Pizza (Bali)',
+        nameId: 'Love U Pizza (Bali)',
         detailRu: 'заказы x14 · чек +50% · Grab + GoJek',
         detailEn: 'orders x14 · check +50% · Grab + GoJek',
+        detailId: 'pesanan x14 · rata-rata nilai pesanan +50% · Grab + GoJek',
         caseSlug: 'love-u-pizza',
       },
       {
         value: 'x2.6',
         labelRu: 'выручки',
         labelEn: 'revenue',
+        labelId: 'omzet',
         nameRu: 'Zaytun (Убуд)',
         nameEn: 'Zaytun (Ubud)',
+        nameId: 'Zaytun (Ubud)',
         detailRu: 'заказы x2.1 · GoJek-реклама из убытка в ROAS 15.5x',
         detailEn: 'orders x2.1 · GoJek ads from loss to 15.5x ROAS',
+        detailId: 'pesanan x2.1 · iklan GoJek dari rugi jadi ROAS 15.5x',
         caseSlug: 'zaytun-ubud',
       },
       {
         value: 'x6',
         labelRu: 'продаж',
         labelEn: 'sales',
+        labelId: 'penjualan',
         nameRu: 'To The Moon',
         nameEn: 'To The Moon',
+        nameId: 'To The Moon',
         detailRu: '',
         detailEn: '',
       },
@@ -178,8 +216,10 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
         value: '300 млн IDR',
         labelRu: 'в месяц',
         labelEn: 'per month',
+        labelId: 'per bulan',
         nameRu: 'Only Eggs',
         nameEn: 'Only Eggs',
+        nameId: 'Only Eggs',
         detailRu: '',
         detailEn: '',
       },
@@ -187,8 +227,10 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
         value: 'x3',
         labelRu: 'продаж',
         labelEn: 'sales',
+        labelId: 'penjualan',
         nameRu: 'Lit Pizza',
         nameEn: 'Lit Pizza',
+        nameId: 'Lit Pizza',
         detailRu: '',
         detailEn: '',
       },
@@ -217,15 +259,20 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     flag: '🇹🇭',
     nameRu: 'Таиланд',
     nameEn: 'Thailand',
+    nameId: 'Thailand',
     inCountryRu: 'в Таиланде',
     inCountryEn: 'in Thailand',
+    inCountryId: 'di Thailand',
     cityRu: 'Пхукет',
     cityEn: 'Phuket',
+    cityId: 'Phuket',
     platformsRu: 'Grab',
     platformsEn: 'Grab',
+    platformsId: 'Grab',
     platformsShort: 'Grab',
     socialProofRu: '15+ ресторанов в Таиланде растут с нами',
     socialProofEn: '15+ restaurants in Thailand grow with us',
+    socialProofId: '15+ restoran di Thailand tumbuh bersama kami',
     cases: THAI_CASES,
     caseImages: THAI_CASE_IMAGES,
     clients: [
@@ -247,6 +294,7 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     ],
     clientsTitleRu: 'Нам доверяют 15+ ресторанов в Таиланде',
     clientsTitleEn: 'Trusted by 15+ restaurants in Thailand',
+    clientsTitleId: 'Dipercaya 15+ restoran di Thailand',
     showTestimonials: false,
     showVideo: false,
     heroImage: '/th-assets/grab-insights-ehf-sales.jpg',
@@ -260,10 +308,13 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     flag: '🇸🇬',
     nameRu: 'Сингапур',
     nameEn: 'Singapore',
+    nameId: 'Singapura',
     inCountryRu: 'в Сингапуре',
     inCountryEn: 'in Singapore',
+    inCountryId: 'di Singapura',
     cityRu: 'Сингапур',
     cityEn: 'Singapore',
+    cityId: 'Singapura',
   },
 
   my: {
@@ -273,10 +324,13 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     flag: '🇲🇾',
     nameRu: 'Малайзия',
     nameEn: 'Malaysia',
+    nameId: 'Malaysia',
     inCountryRu: 'в Малайзии',
     inCountryEn: 'in Malaysia',
+    inCountryId: 'di Malaysia',
     cityRu: 'Куала-Лумпур',
     cityEn: 'Kuala Lumpur',
+    cityId: 'Kuala Lumpur',
   },
 
   vn: {
@@ -286,10 +340,13 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     flag: '🇻🇳',
     nameRu: 'Вьетнам',
     nameEn: 'Vietnam',
+    nameId: 'Vietnam',
     inCountryRu: 'во Вьетнаме',
     inCountryEn: 'in Vietnam',
+    inCountryId: 'di Vietnam',
     cityRu: 'Хошимин',
     cityEn: 'Ho Chi Minh City',
+    cityId: 'Ho Chi Minh City',
   },
 
   ph: {
@@ -299,10 +356,13 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     flag: '🇵🇭',
     nameRu: 'Филиппины',
     nameEn: 'Philippines',
+    nameId: 'Filipina',
     inCountryRu: 'на Филиппинах',
     inCountryEn: 'in the Philippines',
+    inCountryId: 'di Filipina',
     cityRu: 'Манила',
     cityEn: 'Manila',
+    cityId: 'Manila',
   },
 
   kh: {
@@ -312,10 +372,13 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     flag: '🇰🇭',
     nameRu: 'Камбоджа',
     nameEn: 'Cambodia',
+    nameId: 'Kamboja',
     inCountryRu: 'в Камбодже',
     inCountryEn: 'in Cambodia',
+    inCountryId: 'di Kamboja',
     cityRu: 'Пномпень',
     cityEn: 'Phnom Penh',
+    cityId: 'Phnom Penh',
   },
 
   mm: {
@@ -325,10 +388,13 @@ export const COUNTRIES: Record<CountryCode, CountryConfig> = {
     flag: '🇲🇲',
     nameRu: 'Мьянма',
     nameEn: 'Myanmar',
+    nameId: 'Myanmar',
     inCountryRu: 'в Мьянме',
     inCountryEn: 'in Myanmar',
+    inCountryId: 'di Myanmar',
     cityRu: 'Янгон',
     cityEn: 'Yangon',
+    cityId: 'Yangon',
   },
 };
 

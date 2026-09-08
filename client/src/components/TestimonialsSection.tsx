@@ -17,45 +17,54 @@ export const TestimonialsSection = () => {
     {
       name: {
         ru: "Арина",
-        en: "Arina"
+        en: "Arina",
+        id: "Arina"
       },
       restaurant: {
         ru: "Only Eggs",
-        en: "Only Eggs"
+        en: "Only Eggs",
+        id: "Only Eggs"
       },
       text: {
         ru: "За первый месяц работы количество заказов выросло на 40%. Особенно впечатлила работа с меню и позиционированием.",
-        en: "Orders increased by 40% in the first month. Menu optimization and positioning were especially impressive."
+        en: "Orders increased by 40% in the first month. Menu optimization and positioning were especially impressive.",
+        id: "Dalam bulan pertama kerja sama, jumlah pesanan naik 40%. Yang paling berkesan adalah penataan menu dan positioning."
       },
       rating: 5
     },
     {
       name: {
         ru: "Алексей",
-        en: "Aleksei"
+        en: "Aleksei",
+        id: "Aleksei"
       },
       restaurant: {
         ru: "Prana Kitchen",
-        en: "Prana Kitchen"
+        en: "Prana Kitchen",
+        id: "Prana Kitchen"
       },
       text: {
         ru: "Профессиональный подход и быстрые результаты. Теперь понимаем, как правильно работать с Gojek и Grab и увеличивать прибыль. Сняли большую головную боль по работе с платформами — наконец появилось время заниматься развитием бизнеса.",
-        en: "Professional approach and quick results. Now we understand how to work with Gojek and Grab properly and increase profits. Removed a huge headache from working with platforms — finally have time to focus on business development."
+        en: "Professional approach and quick results. Now we understand how to work with Gojek and Grab properly and increase profits. Removed a huge headache from working with platforms — finally have time to focus on business development.",
+        id: "Pendekatan yang profesional dan hasil yang cepat. Sekarang kami paham cara bekerja dengan Gojek dan Grab dengan benar dan menaikkan laba. Beban besar dalam mengurus platform sudah diambil alih — akhirnya kami punya waktu untuk mengembangkan bisnis."
       },
       rating: 5
     },
     {
       name: {
         ru: "Дмитрий П.",
-        en: "Dmitry P."
+        en: "Dmitry P.",
+        id: "Dmitry P."
       },
       restaurant: {
         ru: "Пиццерия",
-        en: "Pizzeria"
+        en: "Pizzeria",
+        id: "Pizzeria"
       },
       text: {
         ru: "Аудит показал неочевидные проблемы, которые мы не замечали. После внедрения рекомендаций средний чек вырос на 25%.",
-        en: "The audit revealed non-obvious problems we hadn't noticed. After implementing recommendations, the average check increased by 25%."
+        en: "The audit revealed non-obvious problems we hadn't noticed. After implementing recommendations, the average check increased by 25%.",
+        id: "Audit menunjukkan masalah yang tidak kami sadari sebelumnya. Setelah rekomendasinya diterapkan, rata-rata nilai pesanan naik 25%."
       },
       rating: 5
     }
@@ -94,7 +103,7 @@ export const TestimonialsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-testimonials-title">
-            {t("Отзывы", "Testimonials")}
+            {t("Отзывы", "Testimonials", "Ulasan")}
           </h2>
         </motion.div>
 
@@ -115,7 +124,7 @@ export const TestimonialsSection = () => {
                     <Quote className="w-10 h-10 text-brand-primary mb-4 opacity-50" />
                     
                     <p className="text-brand-text mb-6 flex-grow">
-                      {t(testimonial.text.ru, testimonial.text.en)}
+                      {t(testimonial.text.ru, testimonial.text.en, testimonial.text.id)}
                     </p>
                     
                     <div className="flex items-center gap-1 mb-4">
@@ -133,10 +142,10 @@ export const TestimonialsSection = () => {
                     
                     <div>
                       <p className="font-semibold text-brand-text">
-                        {t(testimonial.name.ru, testimonial.name.en)}
+                        {t(testimonial.name.ru, testimonial.name.en, testimonial.name.id)}
                       </p>
                       <p className="text-sm text-brand-muted">
-                        {t(testimonial.restaurant.ru, testimonial.restaurant.en)}
+                        {t(testimonial.restaurant.ru, testimonial.restaurant.en, testimonial.restaurant.id)}
                       </p>
                     </div>
                   </div>

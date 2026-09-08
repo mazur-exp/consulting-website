@@ -29,33 +29,39 @@ export const WorkProcessSection = () => {
       number: 1,
       title: {
         ru: "Вводная консультация",
-        en: "Intro call"
+        en: "Intro call",
+        id: "Konsultasi awal"
       },
       description: {
         ru: `Экспресс-диагностика профиля ${country.platformsShort} и приоритеты на 30 дней.`,
-        en: `Quick ${country.platformsShort} profile check and 30-day priorities.`
+        en: `Quick ${country.platformsShort} profile check and 30-day priorities.`,
+        id: `Cek cepat profil ${country.platformsShort} dan prioritas untuk 30 hari.`
       }
     },
     {
       number: 2,
       title: {
         ru: "Индивидуальный план",
-        en: "Plan"
+        en: "Plan",
+        id: "Rencana kerja"
       },
       description: {
         ru: "Согласуем цели и объём работ — без типовых «пакетов».",
-        en: "Agree on goals and scope — no generic packages."
+        en: "Agree on goals and scope — no generic packages.",
+        id: "Kami sepakati target dan lingkup kerja — tanpa paket standar."
       }
     },
     {
       number: 3,
       title: {
         ru: "Запуск и спринты",
-        en: "Sprints"
+        en: "Sprints",
+        id: "Peluncuran dan sprint"
       },
       description: {
         ru: "Еженедельные итерации с отчётами и рекомендациями.",
-        en: "Weekly iterations with reports and recommendations."
+        en: "Weekly iterations with reports and recommendations.",
+        id: "Iterasi mingguan dengan laporan dan rekomendasi."
       }
     }
   ];
@@ -71,7 +77,7 @@ export const WorkProcessSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-process-title">
-            {t("Как мы работаем", "How we work")}
+            {t("Как мы работаем", "How we work", "Cara kami bekerja")}
           </h2>
         </motion.div>
         
@@ -93,10 +99,10 @@ export const WorkProcessSection = () => {
                 {step.number}
               </div>
               <h3 className="text-xl font-semibold mb-4">
-                {t(step.title.ru, step.title.en)}
+                {t(step.title.ru, step.title.en, step.title.id)}
               </h3>
               <p className="text-brand-muted">
-                {t(step.description.ru, step.description.en)}
+                {t(step.description.ru, step.description.en, step.description.id)}
               </p>
             </motion.div>
           ))}

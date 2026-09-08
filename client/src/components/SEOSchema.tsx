@@ -5,10 +5,20 @@ import { getCountryFaqs } from '../config/faqs';
 export const SEOSchema = () => {
   const { language } = useLanguage();
   const isRu = language === 'ru';
+  const isId = language === 'id';
   const country = useCountry();
   const platforms = country.platformsShort;
   const regionRu = country.inCountryRu;
   const regionEn = country.inCountryEn;
+  const regionId = country.inCountryId ?? country.inCountryEn;
+  const platformsId = country.platformsId ?? country.platformsEn;
+
+  /** Picks the localized string for the JSON-LD payload; Bahasa falls back to English. */
+  const pick = (ru: string, en: string, id?: string): string => {
+    if (isRu) return ru;
+    if (isId) return id ?? en;
+    return en;
+  };
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -17,9 +27,11 @@ export const SEOSchema = () => {
     "alternateName": ["Food Delivery Booster", "Delivery Booster Bali"],
     "url": `https://booster.delivery/${country.code}`,
     "logo": "https://booster.delivery/favicon.svg",
-    "description": isRu
-      ? `Сервис по увеличению продаж на ${country.platformsRu} для ресторанов ${regionRu}. Рост продаж в 2-6 раз.`
-      : `${country.platformsEn} delivery optimization service for restaurants ${regionEn}. 2-6x sales growth.`,
+    "description": pick(
+      `Сервис по увеличению продаж на ${country.platformsRu} для ресторанов ${regionRu}. Рост продаж в 2-6 раз.`,
+      `${country.platformsEn} delivery optimization service for restaurants ${regionEn}. 2-6x sales growth.`,
+      `Layanan peningkatan penjualan di ${platformsId} untuk restoran ${regionId}. Pertumbuhan omzet 2-6 kali lipat.`
+    ),
     "areaServed": [
       { "@type": "Place", "name": `${country.cityEn}, ${country.nameEn}` },
       { "@type": "Place", "name": country.nameEn }
@@ -67,9 +79,11 @@ export const SEOSchema = () => {
       "@type": "Organization",
       "name": "Delivery Booster"
     },
-    "description": isRu
-      ? "Основатель Delivery Booster. Сооснователь IKA Sushi (4 точки на Бали), FoodLab (8 брендов). 200+ клиентов с 2023 года, 15 лет опыта в бизнесе."
-      : "Founder of Delivery Booster. Co-founder of IKA Sushi (4 locations in Bali), FoodLab (8 brands). 200+ clients since 2023, 15 years of business experience.",
+    "description": pick(
+      "Основатель Delivery Booster. Сооснователь IKA Sushi (4 точки на Бали), FoodLab (8 брендов). 200+ клиентов с 2023 года, 15 лет опыта в бизнесе.",
+      "Founder of Delivery Booster. Co-founder of IKA Sushi (4 locations in Bali), FoodLab (8 brands). 200+ clients since 2023, 15 years of business experience.",
+      "Pendiri Delivery Booster. Co-founder IKA Sushi (4 gerai di Bali), FoodLab (8 merek). 200+ klien sejak 2023, 15 tahun pengalaman di bisnis."
+    ),
     "knowsAbout": [
       "GoJek optimization",
       "Grab delivery optimization",
@@ -88,62 +102,82 @@ export const SEOSchema = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": isRu
-          ? `Сколько стоит оптимизация доставки на ${country.platformsRu}?`
-          : `How much does ${country.platformsEn} delivery optimization cost?`,
+        "name": pick(
+          `Сколько стоит оптимизация доставки на ${country.platformsRu}?`,
+          `How much does ${country.platformsEn} delivery optimization cost?`,
+          `Berapa biaya optimasi delivery di ${platformsId}?`
+        ),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": isRu
-            ? `10% от выручки ${platforms}. Среднее $400-800/мес. Нет рисков, нет предоплаты.`
-            : `10% of ${platforms} revenue. Average $400-800/month. No risk, no upfront payment.`
+          "text": pick(
+            `10% от выручки ${platforms}. Среднее $400-800/мес. Нет рисков, нет предоплаты.`,
+            `10% of ${platforms} revenue. Average $400-800/month. No risk, no upfront payment.`,
+            `10% dari omzet ${platforms}. Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.`
+          )
         }
       },
       {
         "@type": "Question",
-        "name": isRu ? "Как быстро будут результаты?" : "How fast are results?",
+        "name": pick("Как быстро будут результаты?", "How fast are results?", "Seberapa cepat hasilnya terlihat?"),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": isRu
-            ? "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении и 200+, прошедшими через агентство с 2023 года."
-            : "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management and 200+ served since 2023."
+          "text": pick(
+            "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении и 200+, прошедшими через агентство с 2023 года.",
+            "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management and 200+ served since 2023.",
+            "Pertumbuhan pertama: 2-4 minggu. Skala penuh: 3-6 bulan. Dikonfirmasi oleh 110+ restoran dalam pengelolaan kami dan 200+ yang sudah kami tangani sejak 2023."
+          )
         }
       },
       {
         "@type": "Question",
-        "name": isRu ? "Есть гарантия результата?" : "Is there a guarantee?",
+        "name": pick("Есть гарантия результата?", "Is there a guarantee?", "Apakah ada garansi hasil?"),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": isRu
-            ? "Да. Целевые продажи за 6 месяцев или возврат комиссии."
-            : "Yes. Target sales in 6 months or commission refund."
+          "text": pick(
+            "Да. Целевые продажи за 6 месяцев или возврат комиссии.",
+            "Yes. Target sales in 6 months or commission refund.",
+            "Ya. Target penjualan tercapai dalam 6 bulan atau komisi dikembalikan."
+          )
         }
       },
       {
         "@type": "Question",
-        "name": isRu ? "Что входит в управление доставкой?" : "What's included in delivery management?",
+        "name": pick(
+          "Что входит в управление доставкой?",
+          "What's included in delivery management?",
+          "Apa saja yang termasuk dalam pengelolaan delivery?"
+        ),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": isRu
-            ? `Полное управление ${platforms}: меню, реклама, рейтинги, аналитика, обучение команды. Вы тратите 0 часов, получаете еженедельные отчеты.`
-            : `Full ${platforms} management: menu, ads, ratings, analytics, team training. You spend 0 hours, get weekly reports.`
+          "text": pick(
+            `Полное управление ${platforms}: меню, реклама, рейтинги, аналитика, обучение команды. Вы тратите 0 часов, получаете еженедельные отчеты.`,
+            `Full ${platforms} management: menu, ads, ratings, analytics, team training. You spend 0 hours, get weekly reports.`,
+            `Pengelolaan penuh ${platforms}: menu, iklan, rating, analitik, pelatihan tim. Anda menghabiskan 0 jam dan menerima laporan mingguan.`
+          )
         }
       },
       {
         "@type": "Question",
-        "name": isRu ? "Почему не делать оптимизацию самому?" : "Why not do delivery optimization yourself?",
+        "name": pick(
+          "Почему не делать оптимизацию самому?",
+          "Why not do delivery optimization yourself?",
+          "Kenapa tidak melakukan optimasi sendiri?"
+        ),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": isRu
-            ? "Можете! Самостоятельное обучение займёт 3-6 месяцев, а ошибки обойдутся в $5-10k упущенной прибыли."
-            : "You can! Self-learning takes 3-6 months, and mistakes cost $5-10k in lost profits and time."
+          "text": pick(
+            "Можете! Самостоятельное обучение займёт 3-6 месяцев, а ошибки обойдутся в $5-10k упущенной прибыли.",
+            "You can! Self-learning takes 3-6 months, and mistakes cost $5-10k in lost profits and time.",
+            "Bisa saja. Belajar sendiri butuh 3-6 bulan, dan kesalahan bisa merugikan $5-10k berupa laba dan waktu yang hilang."
+          )
         }
       },
       ...getCountryFaqs(country).map((f) => ({
         "@type": "Question",
-        "name": isRu ? f.qRu : f.qEn,
+        "name": pick(f.qRu, f.qEn, f.qId),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": isRu ? f.aRu : f.aEn
+          "text": pick(f.aRu, f.aEn, f.aId)
         }
       }))
     ]

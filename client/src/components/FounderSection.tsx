@@ -7,6 +7,7 @@ export const FounderSection = () => {
   const country = useCountry();
   const platformsRu = country.platformsRu;
   const platformsEn = country.platformsEn;
+  const platformsId = country.platformsId ?? country.platformsEn;
 
   return (
     <section className="py-16 border-t border-white/10">
@@ -34,23 +35,24 @@ export const FounderSection = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold" data-testid="text-founder-title">
-              {t("Алексей Мазур", "Aleksei Mazur")}
+              {t("Алексей Мазур", "Aleksei Mazur", "Aleksei Mazur")}
             </h2>
             <p className="text-brand-muted text-lg leading-relaxed whitespace-pre-line" data-testid="text-founder-description">
               {t(
                 `Основатель Delivery Booster.\n\nСооснователь IKA Sushi (4 точки на Бали, оборот более 1,5 млрд рупий в месяц), FoodLab (8 брендов, 2 локации на Бали).\n\nОпыт работы с маркетплейсами - 8 лет команда делала Android приложения (более 3000 приложений было создано), знания в маркетинге и построении бизнесов - за 15 лет было создано 11 успешных бизнесов в разных сферах.\n\nОснователь Delivery Booster, сервиса по увеличению продаж на ${platformsRu}: 200+ клиентов с 2023 года (110+ на сопровождении сейчас), рост продаж в 2-6 раз за счет настройки и оптимизации услуг доставки.`,
-                `Founder of Delivery Booster.\n\nCo-founder of IKA Sushi (4 locations in Bali, revenue over 1.5 billion rupees per month), FoodLab (8 brands, 2 locations in Bali).\n\nExperience with marketplaces - 8 years the team made Android applications (more than 3000 applications were created), knowledge in marketing and business building - over 15 years, 11 successful businesses were created in various fields.\n\nFounder of Delivery Booster, a service to increase sales on ${platformsEn}: 200+ clients since 2023 (110+ under management today), sales growth of 2-6x through setup and optimization of delivery services.`
+                `Founder of Delivery Booster.\n\nCo-founder of IKA Sushi (4 locations in Bali, revenue over 1.5 billion rupees per month), FoodLab (8 brands, 2 locations in Bali).\n\nExperience with marketplaces - 8 years the team made Android applications (more than 3000 applications were created), knowledge in marketing and business building - over 15 years, 11 successful businesses were created in various fields.\n\nFounder of Delivery Booster, a service to increase sales on ${platformsEn}: 200+ clients since 2023 (110+ under management today), sales growth of 2-6x through setup and optimization of delivery services.`,
+                `Pendiri Delivery Booster.\n\nCo-founder IKA Sushi (4 outlet di Bali, omzet lebih dari Rp 1,5 miliar per bulan) dan FoodLab (8 brand, 2 lokasi di Bali).\n\nPengalaman dengan marketplace: selama 8 tahun tim kami membuat aplikasi Android (lebih dari 3000 aplikasi dibuat), ditambah pengetahuan di bidang marketing dan membangun bisnis — dalam 15 tahun terakhir telah dibangun 11 bisnis yang berhasil di berbagai bidang.\n\nPendiri Delivery Booster, layanan peningkatan penjualan di ${platformsId}: 200+ klien sejak 2023 (110+ dalam pengelolaan saat ini), pertumbuhan penjualan 2-6x lewat penataan dan optimasi layanan delivery.`
               )}
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
+                href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="button-founder-audit"
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300"
               >
-                {t("Записаться на бесплатный аудит", "Book a free audit")}
+                {t("Записаться на бесплатный аудит", "Book a free audit", "Jadwalkan audit gratis")}
               </a>
             </div>
           </motion.div>

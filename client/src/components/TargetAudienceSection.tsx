@@ -27,28 +27,32 @@ export const TargetAudienceSection = () => {
       title: "Owner",
       description: {
         ru: "Быстрое повышение заказов, рейтинга и дохода, без бесконечных скидок. Снимаем операционную нагрузку: работа с платформами полностью на нашей стороне.",
-        en: "Fast increase in orders, rating and income, without endless discounts. We remove operational burden: platform management is entirely on our side."
+        en: "Fast increase in orders, rating and income, without endless discounts. We remove operational burden: platform management is entirely on our side.",
+        id: "Pesanan, rating, dan pendapatan naik cepat tanpa diskon terus-menerus. Beban operasional kami ambil alih: pengelolaan akun platform sepenuhnya di sisi kami."
       }
     },
     {
       title: "General Manager", 
       description: {
         ru: "Сократить отмены и задержки, улучшить SLA и качество выполнения заказов.",
-        en: "Reduce cancellations and delays, improve SLA and order fulfillment quality."
+        en: "Reduce cancellations and delays, improve SLA and order fulfillment quality.",
+        id: "Kurangi pembatalan dan keterlambatan, tingkatkan SLA dan kualitas pemenuhan pesanan."
       }
     },
     {
       title: "Marketing Lead",
       description: {
         ru: "Только эффективные Ads с прозрачной отчетностью и высоким ROAS.",
-        en: "Only effective Ads with transparent reporting and high ROAS."
+        en: "Only effective Ads with transparent reporting and high ROAS.",
+        id: "Hanya iklan yang efektif, dengan laporan transparan dan ROAS tinggi."
       }
     },
     {
       title: "Cloud/Ghost Kitchen",
       description: {
         ru: "Больше заказов и узнаваемости в приложениях доставки — без необходимости открывать зал.",
-        en: "More orders and visibility in delivery apps – without needing a dining room."
+        en: "More orders and visibility in delivery apps – without needing a dining room.",
+        id: "Lebih banyak pesanan dan visibilitas di aplikasi delivery — tanpa perlu ruang makan."
       }
     }
   ];
@@ -64,7 +68,7 @@ export const TargetAudienceSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-audience-title">
-            {t("Кому мы помогаем", "Who we help")}
+            {t("Кому мы помогаем", "Who we help", "Untuk siapa layanan ini")}
           </h2>
         </motion.div>
         
@@ -86,7 +90,7 @@ export const TargetAudienceSection = () => {
                 {audience.title}
               </div>
               <p className="text-brand-muted">
-                {t(audience.description.ru, audience.description.en)}
+                {t(audience.description.ru, audience.description.en, audience.description.id)}
               </p>
             </motion.div>
           ))}

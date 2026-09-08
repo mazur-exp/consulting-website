@@ -40,6 +40,7 @@ export const Footer = () => {
           <p className="text-brand-muted text-center md:text-right" data-testid="text-copyright">
             {t(
               "© Delivery Booster. Bali & Thailand.",
+              "© Delivery Booster. Bali & Thailand.",
               "© Delivery Booster. Bali & Thailand."
             )}
           </p>

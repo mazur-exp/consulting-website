@@ -20,7 +20,7 @@ export const ClientsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-clients-title">
-            {t(country.clientsTitleRu, country.clientsTitleEn)}
+            {t(country.clientsTitleRu, country.clientsTitleEn, country.clientsTitleId)}
           </h2>
         </motion.div>
 

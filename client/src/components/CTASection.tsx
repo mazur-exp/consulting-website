@@ -15,22 +15,23 @@ export const CTASection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6" data-testid="text-cta-title">
-            {t("Готовы увеличить заказы?", "Ready to increase orders?")}
+            {t("Готовы увеличить заказы?", "Ready to increase orders?", "Siap menambah pesanan?")}
           </h2>
           <p className="text-brand-muted text-lg mb-8 max-w-2xl mx-auto" data-testid="text-cta-description">
             {t(
               "Получите бесплатную диагностику вашего профиля и узнайте, как увеличить доходы на 50-600%",
-              "Get a free profile audit and learn how to increase revenue by 50-600%"
+              "Get a free profile audit and learn how to increase revenue by 50-600%",
+              "Dapatkan audit gratis untuk profil Anda dan pelajari cara menaikkan omzet 50-600%"
             )}
           </p>
           <a
-            href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
+            href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
             target="_blank"
             rel="noopener noreferrer"
             data-testid="button-cta-main"
             className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"
           >
-            {t("Написать", "Contact us")}
+            {t("Написать", "Contact us", "Hubungi kami")}
           </a>
         </motion.div>
       </div>

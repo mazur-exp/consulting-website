@@ -46,7 +46,7 @@ export const CountryToggle = () => {
         className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm border border-white/20 rounded-lg text-brand-muted hover:bg-white/10 transition-all duration-300"
       >
         <span className="text-base leading-none">{current.flag}</span>
-        <span className="hidden sm:inline">{t(current.nameRu, current.nameEn)}</span>
+        <span className="hidden sm:inline">{t(current.nameRu, current.nameEn, current.nameId)}</span>
         <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
 
@@ -70,7 +70,7 @@ export const CountryToggle = () => {
               }`}
             >
               <span className="text-base leading-none">{c.flag}</span>
-              <span className="flex-1">{t(c.nameRu, c.nameEn)}</span>
+              <span className="flex-1">{t(c.nameRu, c.nameEn, c.nameId)}</span>
               <span className="text-xs text-brand-muted">{c.platformsShort}</span>
             </button>
           ))}

@@ -26,24 +26,26 @@ export const HeroSection = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" data-testid="text-hero-title">
               {t(
                 `Увеличение продаж в 2-6 раз в ${country.platformsRu}`,
-                `2-6x sales increase in ${country.platformsEn}`
+                `2-6x sales increase in ${country.platformsEn}`,
+                `Penjualan naik 2-6x di ${country.platformsId ?? country.platformsEn}`
               )}
             </h1>
 
             <p className="text-lg text-brand-muted text-center lg:text-left" data-testid="text-hero-social-proof">
-              {t(country.socialProofRu, country.socialProofEn)}
+              {t(country.socialProofRu, country.socialProofEn, country.socialProofId)}
             </p>
 
             <p className="text-xl text-brand-muted leading-relaxed" data-testid="text-hero-subtitle">
               {t(
                 "Управление вашей доставкой «под ключ» (меню, реклама, обучение команды, статистика, отчеты и многое другое)",
-                "Turnkey delivery management (menu, ads, team training, analytics, reports and more)"
+                "Turnkey delivery management (menu, ads, team training, analytics, reports and more)",
+                "Pengelolaan akun delivery Anda secara menyeluruh (menu, iklan, pelatihan tim, analitik, laporan, dan lainnya)"
               )}
             </p>
 
             <div className="flex flex-wrap gap-4">
               <a
-                href={t("https://t.me/delivery_booster", "https://wa.me/79520029077")}
+                href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="button-primary-cta"
@@ -51,7 +53,8 @@ export const HeroSection = () => {
               >
                 {t(
                   "Получить бесплатную диагностику",
-                  "Book a free audit"
+                  "Book a free audit",
+                  "Dapatkan audit gratis"
                 )}
               </a>
             </div>

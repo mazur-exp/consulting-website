@@ -142,7 +142,7 @@ export default function Gate() {
                 >
                   <span className="block text-3xl sm:text-4xl mb-2">{c.flag}</span>
                   <span className="block font-semibold text-sm sm:text-base group-hover:text-brand-green transition-colors leading-tight">
-                    {t(c.nameRu, c.nameEn)}
+                    {t(c.nameRu, c.nameEn, c.nameId)}
                   </span>
                   <span className="block text-xs text-brand-muted mt-1">
                     {c.platformsShort.replace('/', ' · ')}

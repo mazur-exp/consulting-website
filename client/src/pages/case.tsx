@@ -20,7 +20,9 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
     document.title =
       language === 'ru'
         ? `Кейс ${caseStudy.nameRu}: ${caseStudy.headlineRu} — Delivery Booster`
-        : `Case study ${caseStudy.nameEn}: ${caseStudy.headlineEn} — Delivery Booster`;
+        : language === 'id'
+          ? `Studi kasus ${caseStudy.nameId ?? caseStudy.nameEn}: ${caseStudy.headlineId ?? caseStudy.headlineEn} — Delivery Booster`
+          : `Case study ${caseStudy.nameEn}: ${caseStudy.headlineEn} — Delivery Booster`;
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = `https://booster.delivery/cases/${caseStudy.slug}`;
     syncOpenGraph();
@@ -32,7 +34,12 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: language === 'ru' ? `${c.nameRu}: ${c.headlineRu}` : `${c.nameEn}: ${c.headlineEn}`,
+    headline:
+      language === 'ru'
+        ? `${c.nameRu}: ${c.headlineRu}`
+        : language === 'id'
+          ? `${c.nameId ?? c.nameEn}: ${c.headlineId ?? c.headlineEn}`
+          : `${c.nameEn}: ${c.headlineEn}`,
     about: { '@type': 'Restaurant', name: c.nameEn, address: c.locationEn },
     author: { '@type': 'Organization', name: 'Delivery Booster', url: 'https://booster.delivery' },
     publisher: { '@type': 'Organization', name: 'Delivery Booster' },
@@ -57,23 +64,23 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                 data-testid="link-back"
               >
                 <ArrowLeft className="w-4 h-4" />
-                {t('Все кейсы', 'All case studies')}
+                {t('Все кейсы', 'All case studies', 'Semua studi kasus')}
               </Link>
 
               <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                 <p className="text-brand-green font-medium mb-3 uppercase tracking-wide text-sm">
-                  {t('Кейс · GrabFood ·', 'Case study · GrabFood ·')} {t(c.locationRu, c.locationEn)}
+                  {t('Кейс · GrabFood ·', 'Case study · GrabFood ·', 'Studi kasus · GrabFood ·')} {t(c.locationRu, c.locationEn, c.locationId)}
                 </p>
                 <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-4" data-testid="text-case-title">
-                  {t(c.nameRu, c.nameEn)}: {t(c.headlineRu, c.headlineEn)}
+                  {t(c.nameRu, c.nameEn, c.nameId)}: {t(c.headlineRu, c.headlineEn, c.headlineId)}
                 </h1>
-                <p className="text-brand-muted text-lg mb-8">{t(c.periodRu, c.periodEn)}</p>
+                <p className="text-brand-muted text-lg mb-8">{t(c.periodRu, c.periodEn, c.periodId)}</p>
 
                 <div className="grid grid-cols-3 gap-4 max-w-xl">
                   {c.heroStats.map((s, i) => (
                     <div key={i} className="glass-card rounded-xl p-4 text-center">
                       <p className="text-2xl sm:text-3xl font-bold text-brand-green">{s.value}</p>
-                      <p className="text-sm text-brand-muted mt-1">{t(s.labelRu, s.labelEn)}</p>
+                      <p className="text-sm text-brand-muted mt-1">{t(s.labelRu, s.labelEn, s.labelId)}</p>
                     </div>
                   ))}
                 </div>
@@ -84,10 +91,10 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
           {/* Situation before */}
           <section className="py-14 border-t border-white/10">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold mb-4">{t('Ситуация до начала работы', 'The situation before we started')}</h2>
-              <p className="text-brand-muted text-lg mb-8 max-w-3xl">{t(c.situationRu, c.situationEn)}</p>
+              <h2 className="text-3xl font-bold mb-4">{t('Ситуация до начала работы', 'The situation before we started', 'Situasi sebelum kami mulai')}</h2>
+              <p className="text-brand-muted text-lg mb-8 max-w-3xl">{t(c.situationRu, c.situationEn, c.situationId)}</p>
               <ul className="space-y-3 max-w-3xl">
-                {(language === 'ru' ? c.problemsRu : c.problemsEn).map((p, i) => (
+                {(language === 'ru' ? c.problemsRu : language === 'id' ? c.problemsId ?? c.problemsEn : c.problemsEn).map((p, i) => (
                   <li key={i} className="flex items-start gap-3 text-brand-muted">
                     <XIcon className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                     <span>{p}</span>
@@ -100,16 +107,20 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
           {/* What we did */}
           <section className="py-14 border-t border-white/10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold mb-10">{t('Что мы сделали — стратегия из 4 направлений', 'What we did — a 4-track strategy')}</h2>
+              <h2 className="text-3xl font-bold mb-10">{t(
+                'Что мы сделали — стратегия из 4 направлений',
+                'What we did — a 4-track strategy',
+                'Apa yang kami lakukan — strategi di 4 arah'
+              )}</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {c.work.map((w, i) => (
                   <div key={i} className="glass-card rounded-2xl p-6">
                     <div className="w-9 h-9 brand-gradient rounded-lg flex items-center justify-center text-white font-bold mb-4">
                       {i + 1}
                     </div>
-                    <h3 className="font-semibold text-lg mb-4">{t(w.titleRu, w.titleEn)}</h3>
+                    <h3 className="font-semibold text-lg mb-4">{t(w.titleRu, w.titleEn, w.titleId)}</h3>
                     <ul className="space-y-2.5">
-                      {(language === 'ru' ? w.itemsRu : w.itemsEn).map((item, j) => (
+                      {(language === 'ru' ? w.itemsRu : language === 'id' ? w.itemsId ?? w.itemsEn : w.itemsEn).map((item, j) => (
                         <li key={j} className="flex items-start gap-2 text-sm text-brand-muted">
                           <Check className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
                           <span>{item}</span>
@@ -125,13 +136,13 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
           {/* Results */}
           <section className="py-14 border-t border-white/10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold mb-10">{t('Ключевые результаты', 'Key results')}</h2>
+              <h2 className="text-3xl font-bold mb-10">{t('Ключевые результаты', 'Key results', 'Hasil utama')}</h2>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 {c.results.map((r, i) => (
                   <div key={i} className="glass-card rounded-2xl p-6 text-center" data-testid={`case-result-${i}`}>
                     <p className="text-3xl sm:text-4xl font-bold text-brand-green mb-2">{r.value}</p>
-                    <p className="text-brand-text font-medium">{t(r.labelRu, r.labelEn)}</p>
-                    {r.subRu && <p className="text-sm text-brand-muted mt-1">{t(r.subRu, r.subEn || r.subRu)}</p>}
+                    <p className="text-brand-text font-medium">{t(r.labelRu, r.labelEn, r.labelId)}</p>
+                    {r.subRu && <p className="text-sm text-brand-muted mt-1">{t(r.subRu, r.subEn || r.subRu, r.subId)}</p>}
                   </div>
                 ))}
               </div>
@@ -141,15 +152,15 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                 <table className="w-full text-left min-w-[560px]">
                   <thead>
                     <tr className="border-b border-white/10 text-sm text-brand-muted">
-                      <th className="px-6 py-4 font-medium">{t('Показатель', 'Metric')}</th>
-                      <th className="px-6 py-4 font-medium">{t('До', 'Before')}</th>
-                      <th className="px-6 py-4 font-medium">{t('После', 'After')}</th>
+                      <th className="px-6 py-4 font-medium">{t('Показатель', 'Metric', 'Indikator')}</th>
+                      <th className="px-6 py-4 font-medium">{t('До', 'Before', 'Sebelum')}</th>
+                      <th className="px-6 py-4 font-medium">{t('После', 'After', 'Sesudah')}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {c.beforeAfter.map((row, i) => (
                       <tr key={i} className="border-b border-white/5 last:border-0">
-                        <td className="px-6 py-3.5 text-brand-text">{t(row.metricRu, row.metricEn)}</td>
+                        <td className="px-6 py-3.5 text-brand-text">{t(row.metricRu, row.metricEn, row.metricId)}</td>
                         <td className="px-6 py-3.5 text-red-400">{row.before}</td>
                         <td className="px-6 py-3.5 text-brand-green font-semibold">{row.after}</td>
                       </tr>
@@ -163,7 +174,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
           {/* Screenshots */}
           <section className="py-14 border-t border-white/10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold mb-8">{t('Данные из GrabFood', 'The GrabFood data')}</h2>
+              <h2 className="text-3xl font-bold mb-8">{t('Данные из GrabFood', 'The GrabFood data', 'Data dari GrabFood')}</h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {c.images.map((img, i) => (
                   <div key={i} className="glass-card rounded-2xl p-3">
@@ -172,7 +183,11 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                 ))}
               </div>
               <p className="text-sm text-brand-muted mt-4">
-                {t('Данные реального клиента из GrabMerchant.', 'Real client data from GrabMerchant.')}
+                {t(
+                  'Данные реального клиента из GrabMerchant.',
+                  'Real client data from GrabMerchant.',
+                  'Data nyata klien dari GrabMerchant.'
+                )}
               </p>
             </div>
           </section>
@@ -182,22 +197,27 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <div className="glass-card p-8 md:p-12 rounded-3xl">
                 <h2 className="text-3xl font-bold mb-4">
-                  {t('Хотите такой же рост вашего ресторана?', 'Want the same growth for your restaurant?')}
+                  {t(
+                    'Хотите такой же рост вашего ресторана?',
+                    'Want the same growth for your restaurant?',
+                    'Ingin pertumbuhan yang sama untuk restoran Anda?'
+                  )}
                 </h2>
                 <p className="text-brand-muted text-lg mb-8">
                   {t(
                     `Мы сделали это для ${c.nameRu}. Сделаем и для вас — бесплатная диагностика профиля за 24 часа.`,
-                    `We did it for ${c.nameEn}. We'll do it for you — free profile audit within 24 hours.`
+                    `We did it for ${c.nameEn}. We'll do it for you — free profile audit within 24 hours.`,
+                    `Kami melakukannya untuk ${c.nameId ?? c.nameEn}. Kami bisa melakukannya untuk Anda — audit profil gratis dalam 24 jam.`
                   )}
                 </p>
                 <a
-                  href={t('https://t.me/delivery_booster', 'https://wa.me/79520029077')}
+                  href={t('https://t.me/delivery_booster', 'https://wa.me/79520029077', 'https://wa.me/79520029077')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"
                   data-testid="button-case-cta"
                 >
-                  {t('Получить бесплатную диагностику', 'Book a free audit')}
+                  {t('Получить бесплатную диагностику', 'Book a free audit', 'Dapatkan audit gratis')}
                 </a>
               </div>
             </div>

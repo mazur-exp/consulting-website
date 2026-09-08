@@ -68,7 +68,7 @@ export const CaseStudiesSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-cases-title">
-            {t("Кейсы", "Case studies")}
+            {t("Кейсы", "Case studies", "Studi Kasus")}
           </h2>
         </motion.div>
 
@@ -90,10 +90,10 @@ export const CaseStudiesSection = () => {
               data-testid={`card-case-stat-${index}`}
             >
               <p className="text-3xl font-bold text-brand-green mb-2">{c.value}</p>
-              <p className="text-brand-muted">{t(c.labelRu, c.labelEn)}</p>
-              <p className="text-sm text-brand-muted mt-2">{t(c.nameRu, c.nameEn)}</p>
+              <p className="text-brand-muted">{t(c.labelRu, c.labelEn, c.labelId)}</p>
+              <p className="text-sm text-brand-muted mt-2">{t(c.nameRu, c.nameEn, c.nameId)}</p>
               {(c.detailRu || c.detailEn) && (
-                <p className="text-xs text-brand-muted mt-1">{t(c.detailRu, c.detailEn)}</p>
+                <p className="text-xs text-brand-muted mt-1">{t(c.detailRu, c.detailEn, c.detailId)}</p>
               )}
               {c.caseSlug && (
                 <Link
@@ -101,7 +101,7 @@ export const CaseStudiesSection = () => {
                   className="inline-block mt-3 text-sm text-brand-green hover:text-brand-green-light underline transition-colors"
                   data-testid={`link-case-${c.caseSlug}`}
                 >
-                  {t('Читать кейс полностью →', 'Read the full case study →')}
+                  {t('Читать кейс полностью →', 'Read the full case study →', 'Baca studi kasus lengkap →')}
                 </Link>
               )}
             </div>

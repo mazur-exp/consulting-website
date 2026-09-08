@@ -15,8 +15,8 @@ export const FAQSection = () => {
   const platforms = country.platformsShort;
 
   const extendedFaqs = getCountryFaqs(country).map((f) => ({
-    q: { ru: f.qRu, en: f.qEn, id: f.qEn },
-    a: { ru: f.aRu, en: f.aEn, id: f.aEn },
+    q: { ru: f.qRu, en: f.qEn, id: f.qId ?? f.qEn },
+    a: { ru: f.aRu, en: f.aEn, id: f.aId ?? f.aEn },
   }));
 
   const faqs = [

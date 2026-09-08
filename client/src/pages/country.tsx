@@ -29,10 +29,24 @@ export default function CountryPage({ code }: { code: CountryCode }) {
   const country = COUNTRIES[code];
 
   useEffect(() => {
+    const platformsId = country.platformsId ?? country.platformsEn;
+    const inCountryId = country.inCountryId ?? country.inCountryEn;
+
     document.title =
       language === 'ru'
         ? `Delivery Booster — Рост продаж на ${country.platformsRu} для ресторанов ${country.inCountryRu}`
-        : `Delivery Booster — ${country.platformsEn} Optimization for Restaurants ${country.inCountryEn}`;
+        : language === 'id'
+          ? `Delivery Booster — Pertumbuhan Omzet di ${platformsId} untuk Restoran ${inCountryId}`
+          : `Delivery Booster — ${country.platformsEn} Optimization for Restaurants ${country.inCountryEn}`;
+
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description)
+      description.content =
+        language === 'ru'
+          ? `Delivery Booster — сервис по увеличению продаж на ${country.platformsRu} для ресторанов ${country.inCountryRu}. Рост продаж в 2-6 раз: доступность, меню и цены, рейтинг и реклама в одном аккаунте.`
+          : language === 'id'
+            ? `Delivery Booster menumbuhkan omzet restoran ${inCountryId} di ${platformsId}. Omzet naik 2-6 kali: ketersediaan, menu dan harga, rating, serta iklan dikelola dalam satu akun.`
+            : `Delivery Booster grows restaurant sales ${country.inCountryEn} on ${country.platformsEn}. 2-6x revenue growth: availability, menu and pricing, rating and ads managed in one account.`;
 
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = `https://booster.delivery/${code}`;
