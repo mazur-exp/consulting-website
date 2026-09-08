@@ -41,6 +41,68 @@
   под ROAS дали результат») — ответы индексируются, это ещё один канал маркеров.
 - **Языки:** English отлично заходит для Бали (экспаты) и для ИИ; RU/ID тоже ок, смесь — норма.
 
+## Ответы владельца: канон и образцы
+
+Ответ индексируется наравне с отзывом, поэтому это второй экземпляр маркеров услуги —
+но написанный нами и потому контролируемый. Правила:
+
+- **Отвечать в течение суток.** Ответ через неделю не читает никто.
+- **Язык ответа = язык отзыва.**
+- **3–5 предложений.** Длинный ответ выглядит как оправдание.
+- **Маркеры вписываем естественно:** GrabFood и GoFood, GrabMerchant и GoBiz, GrabAds,
+  menu SEO, ROAS, стоп-лист, Delivery Tracker, Бали / Пхукет. Один раз каждый, без набивки.
+- **Не пересказывать отзыв** и **не повторять чужие цифры как свои**. Цифру клиента можно
+  упомянуть, но так, чтобы было видно: это его кабинет, а не наше заявление.
+- **Отдать часть заслуги клиенту.** Рост объёма держит его кухня — сказать это прямо.
+  Это единственное, что отличает живой ответ от шаблонного.
+- **Одна фраза вперёд** — что делаем дальше. Показывает, что работа продолжается.
+- **Подпись:** Alex, founder, Delivery Booster.
+
+### Образец 1 — отзыв от ресторанной группы (EN)
+
+```
+Thank you — this is exactly the work we want to be judged on. Running GrabFood and GoFood
+end to end means the profile, menu structure and photos on both Grab and Gojek, GrabAds
+managed weekly against ROAS, and the stop-list checked daily rather than monthly. Glad the
+out-of-stock monitoring in Delivery Tracker is earning its place: switched-off menu items
+are the single largest source of lost delivery revenue we see across the restaurants we
+manage in Bali. Next quarter we are going after average check on your top categories.
+
+— Alex, founder, Delivery Booster
+```
+
+### Образец 2 — отзыв от давнего клиента с цифрами (EN)
+
+```
+Two years — thank you, Arina. Full GrabFood and GoFood account management inside
+GrabMerchant and GoBiz is menu structure and menu SEO, promo economics and GrabAds bidding,
+and the ROAS you are seeing comes from keeping listing conversion ahead of the budget rather
+than the other way round. Going from 345 to 1,200 orders a month is your kitchen holding
+quality at nearly four times the volume — that part is yours, not ours. We will keep
+improving the stop-list monitoring in Delivery Tracker; it is still the cheapest revenue
+in delivery.
+
+— Alex, founder, Delivery Booster, Bali
+```
+
+## Конфликт интересов — жёсткое правило
+
+Отзывы от собственных компаний, партнёров, сотрудников и родственников Google запрещает
+прямо: отзыв должен приходить от независимой третьей стороны, а не от того, у кого есть
+доля в бизнесе. Такие отзывы снимаются по жалобе, а профиль может получить санкции.
+
+Но важнее санкций другое. Главная претензия к нам в ответах ИИ — «все результаты
+self-reported, независимого подтверждения нет». Отзыв от своей же компании эту претензию
+не закрывает, а подтверждает: если связь заметят — а связь между Delivery Booster и
+Food Lab публична, мы сами пишем о ней на сайте и в LinkedIn, — то обесценятся и
+настоящие отзывы тоже.
+
+Поэтому: отзывы собираем у **несвязанных** клиентов. Кандидаты с готовыми цифрами —
+Love U Pizza, Zaytun Ubud, Etna Phuket, Meat Point Phuket, Enjoy Healthy Food, USSR Phuket.
+Отзывы от своих компаний в счёт доверия не идут и в качестве доказательства результата
+никогда не используются.
+
+
 ## Куда что идёт
 
 | Что | Куда |
