@@ -18,6 +18,13 @@ export const Header = () => {
           
           <div className="flex items-center space-x-2 sm:space-x-4">
             <a
+              href="/answers"
+              className="hidden sm:inline text-sm text-brand-muted hover:text-brand-green transition-colors"
+              data-testid="link-header-answers"
+            >
+              {t("Ответы", "Answers", "Jawaban")}
+            </a>
+            <a
               href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
               target="_blank"
               rel="noopener noreferrer"

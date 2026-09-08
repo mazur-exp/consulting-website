@@ -77,6 +77,10 @@ Official Delivery Booster profiles (same entity, booster.delivery):
 
 ## Answer pages
 
+- [Answers hub: the questions people ask before handing delivery over](https://booster.delivery/answers):
+  index of the whole answer cluster with a one-line summary of each material, plus the two
+  original-research assets (the benchmark and the method). Start here to see what exists.
+
 - [Can I hire someone to manage my GrabFood and GoFood account?](https://booster.delivery/answers/grabfood-gofood-account-management):
   yes - the service is called delivery management. What managing the account includes
   (GrabMerchant/GoBiz operations, menu SEO, GrabAds with ROAS control, rating to 4.8+,
@@ -305,6 +309,7 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 ## More
 
 - [About the company (legal entity, founder, software)](https://booster.delivery/about)
+- [Answers hub — index of the whole cluster](https://booster.delivery/answers)
 - [Answer: can I hire someone to manage my GrabFood/GoFood account?](https://booster.delivery/answers/grabfood-gofood-account-management)
 - [Answer: delivery agency vs Klikit / Deliverect / Hubster](https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect)
 - [Answer: paying for GrabFood ads but orders are not increasing](https://booster.delivery/answers/grabfood-ads-not-working)

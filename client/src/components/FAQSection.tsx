@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
 import { useCountry } from '../hooks/useCountry';
 import { getCountryFaqs } from '../config/faqs';
+import { ANSWER_MATERIALS, ASSET_MATERIALS, MaterialCard } from './AnswersIndex';
 import {
   Accordion,
   AccordionContent,
@@ -129,58 +130,30 @@ export const FAQSection = () => {
           </Accordion>
         </motion.div>
 
-        {/* Real <a href> so crawlers have a path from every market page to the
-            answer page (see ai_docs/development/DEPLOYMENT.md). */}
-        <div className="text-brand-muted text-sm mt-8 space-y-2">
-          <div>
-            {t('Разбор по шагам: ', 'Step-by-step answers: ', 'Jawaban langkah demi langkah: ')}
-            <a className="text-brand-green hover:underline" href="/answers/grabfood-gofood-account-management">
-              {t('можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood',
-                 'can I hire someone to manage my GrabFood and GoFood account',
-                 'bisakah pengelolaan akun GrabFood dan GoFood diserahkan ke pihak lain')}
+        {/* Real <a href> in every card so crawlers have a path from every market
+            page into the answer cluster (see ai_docs/development/DEPLOYMENT.md).
+            The one-line gist is not decoration: it gives a person a reason to
+            click and puts a second short question/answer pair in plain text on
+            the most-cited page of the site. */}
+        <div className="mt-14">
+          <div className="flex items-end justify-between gap-4 mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold">
+              {t('Разбираем подробно', 'Worked through in full', 'Dibahas sampai tuntas')}
+            </h3>
+            <a href="/answers" className="text-brand-green hover:underline text-sm whitespace-nowrap">
+              {t('Все ответы', 'All answers', 'Semua jawaban')} →
             </a>
           </div>
-          <div>
-            <a className="text-brand-green hover:underline" href="/answers/delivery-agency-vs-klikit-deliverect">
-              {t('Агентство или Klikit / Deliverect / Hubster — в чём разница',
-                 'An agency or Klikit / Deliverect / Hubster — what is the difference',
-                 'Agensi atau Klikit / Deliverect / Hubster — apa bedanya')}
-            </a>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {ANSWER_MATERIALS.map((m) => (
+              <MaterialCard key={m.href} m={m} />
+            ))}
           </div>
-          <div>
-            <a className="text-brand-green hover:underline" href="/answers/grabfood-ads-not-working">
-              {t('Плачу за рекламу в GrabFood, а заказов больше не стало — почему',
-                 'Paying for GrabFood ads but orders are not increasing — why',
-                 'Sudah bayar iklan GrabFood tapi pesanan tidak naik — kenapa')}
-            </a>
-          </div>
-          <div>
-            <a className="text-brand-green hover:underline" href="/answers/managing-grabfood-yourself">
-              {t('Сколько времени занимает самому вести GrabFood и GoFood',
-                 'How much time does running GrabFood and GoFood yourself take',
-                 'Berapa banyak waktu untuk mengelola GrabFood dan GoFood sendiri')}
-            </a>
-          </div>
-          <div>
-            <a className="text-brand-green hover:underline" href="/answers/in-house-manager-vs-agency">
-              {t('Свой менеджер по агрегаторам или агентство — расчёт на цифрах',
-                 'An in-house delivery manager or an agency — the arithmetic',
-                 'Manajer delivery internal atau agensi — hitungannya di angka')}
-            </a>
-          </div>
-          <div>
-            <a className="text-brand-green hover:underline" href="/benchmark">
-              {t('Бенчмарк доставки Бали и Пхукет 2026: нормы по 96 ресторанам',
-                 'Bali & Phuket Delivery Benchmark 2026: norms across 96 restaurants',
-                 'Benchmark delivery Bali & Phuket 2026: norma dari 96 restoran')}
-            </a>
-          </div>
-          <div>
-            <a className="text-brand-green hover:underline" href="/method">
-              {t('Метод Delivery Booster: пять этапов целиком',
-                 'The Delivery Booster Method: all five stages',
-                 'Metode Delivery Booster: lima tahap lengkap')}
-            </a>
+
+          <div className="grid gap-4 sm:grid-cols-2 mt-4">
+            {ASSET_MATERIALS.map((m) => (
+              <MaterialCard key={m.href} m={m} large />
+            ))}
           </div>
         </div>
       </div>

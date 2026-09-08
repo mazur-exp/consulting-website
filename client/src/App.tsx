@@ -14,6 +14,7 @@ import AnswersVsAggregatorsPage from "./pages/answers-vs-aggregators";
 import AnswersAdsNotWorkingPage from "./pages/answers-ads-not-working";
 import AnswersDoingItYourselfPage from "./pages/answers-doing-it-yourself";
 import AnswersInHouseVsAgencyPage from "./pages/answers-in-house-vs-agency";
+import AnswersHubPage from "./pages/answers-hub";
 import MethodPage from "./pages/method";
 import BenchmarkPage from "./pages/benchmark";
 import { COUNTRY_ORDER, pathForCountry } from "./config/countries";
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/answers/grabfood-ads-not-working" component={AnswersAdsNotWorkingPage} />
       <Route path="/answers/managing-grabfood-yourself" component={AnswersDoingItYourselfPage} />
       <Route path="/answers/in-house-manager-vs-agency" component={AnswersInHouseVsAgencyPage} />
+      <Route path="/answers" component={AnswersHubPage} />
       <Route path="/method" component={MethodPage} />
       <Route path="/benchmark" component={BenchmarkPage} />
       <Route path="/cases/:slug">

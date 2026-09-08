@@ -35,6 +35,7 @@ const routes = [
   { url: '/method', out: 'method.html', pickCountry: 'id' },
   { url: '/benchmark', out: 'benchmark.html', pickCountry: 'id' },
   // Answer pages for the "delegation" query cluster (AI-visibility gap, see ai_docs/ai-visibility)
+  { url: '/answers', out: 'answers.html', pickCountry: 'id' },
   ...ANSWERS.map((a) => ({ url: `/answers/${a}`, out: `answers/${a}.html`, pickCountry: 'id' })),
   ...COUNTRIES.map((c) => ({ url: `/${c}`, out: `${c}.html`, pickCountry: c })),
   ...CASES.map((s) => ({ url: `/cases/${s}`, out: `cases/${s}.html`, pickCountry: 'th' })),
