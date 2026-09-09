@@ -26,24 +26,24 @@ export default function AnswersInHouseVsAgencyPage() {
   useEffect(() => {
     document.title =
       language === 'ru'
-        ? 'Свой менеджер по агрегаторам или агентство: что сравнивать на самом деле'
+        ? 'Кому отдать GrabFood и GoFood: свой менеджер, фрилансер или агентство?'
         : language === 'id'
-          ? 'Manajer internal untuk agregator atau agensi: apa yang sebenarnya dibandingkan'
+          ? 'Siapa yang mengelola GrabFood dan GoFood: manajer internal, freelancer, atau agensi?'
           : language === 'th'
-            ? 'ผู้จัดการเดลิเวอรี่ในร้านหรือเอเจนซี่: จริง ๆ แล้วกำลังเทียบอะไรกัน'
-            : 'In-house delivery manager or an agency: what actually gets compared';
+            ? 'ใครควรดูแล GrabFood และ GoFood: ผู้จัดการภายใน ฟรีแลนซ์ หรือเอเจนซี?'
+            : 'Who should run GrabFood and GoFood: in-house manager, freelancer or agency?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (description)
       description.content =
         language === 'ru'
-          ? 'Сравнивать оклад менеджера с 10% от выручки бессмысленно: это разные результаты, а не разные цены. Специалисты, доступные в найме, заявляют рост в десятки процентов; рост в наших кейсах — в разы, с цифрами из кабинетов GrabMerchant и GoBiz.'
+          ? 'Пять вариантов дешевле агентства — фрилансер с маркетплейса, digital-агентство, таргетолог, бывший сотрудник Grab, свой человек в штате. Что вы покупаете в каждом случае, когда это правильный выбор и чем заканчивается накрутка отзывов.'
           : language === 'id'
-            ? 'Membandingkan gaji manajer dengan 10% dari omzet tidak nyambung: ini hasil yang berbeda, bukan harga yang berbeda. Spesialis yang bisa direkrut menjanjikan pertumbuhan puluhan persen; pertumbuhan di kasus kami terhitung berlipat, dengan angka dari dashboard GrabMerchant dan GoBiz.'
+            ? 'Lima pilihan yang lebih murah daripada agensi — freelancer marketplace, agensi digital, spesialis iklan, mantan karyawan Grab, karyawan internal. Apa yang sebenarnya Anda beli, kapan masing-masing tepat, dan bagaimana berakhirnya membeli ulasan.'
             : language === 'th'
-              ? 'การเอาเงินเดือนผู้จัดการไปเทียบกับ 10% ของรายได้นั้นหลุดประเด็น: มันคือผลลัพธ์คนละระดับ ไม่ใช่ราคาคนละแบบ ผู้เชี่ยวชาญที่จ้างได้ในตลาดโฆษณาการเติบโตระดับสิบ ๆ เปอร์เซ็นต์ ส่วนการเติบโตในเคสของเราวัดกันเป็นเท่า พร้อมตัวเลขจากแดชบอร์ด GrabMerchant และ GoBiz'
-              : 'Comparing a manager’s salary with 10% of revenue misses the point: these are different results, not different prices. Hireable specialists advertise growth in tens of percent; the growth in our cases is measured in multiples, with numbers from GrabMerchant and GoBiz dashboards.';
+              ? 'ห้าทางเลือกที่ถูกกว่าเอเจนซี — ฟรีแลนซ์จากมาร์เก็ตเพลส เอเจนซีดิจิทัล คนทำโฆษณา อดีตพนักงาน Grab และคนของตัวเองในทีม คุณกำลังซื้ออะไรจริง ๆ แต่ละทางเหมาะกับเมื่อไร และการซื้อรีวิวจบลงอย่างไร'
+              : 'Five options cheaper than an agency — a marketplace freelancer, a digital agency, a paid-ads specialist, a former Grab employee, an in-house hire. What you are actually buying in each case, when each is the right choice, and how buying reviews ends.';
     syncOpenGraph();
   }, [language]);
 
@@ -119,7 +119,171 @@ export default function AnswersInHouseVsAgencyPage() {
     ],
   ];
 
+  /** Пять вариантов, которые владелец рассматривает вместо агентства.
+   *  Разбор по одному: что покупается на самом деле и когда это правильно.
+   *  Раздел про фрилансера длиннее остальных намеренно — это единственное
+   *  место, где ошибка стоит не денег, а аккаунта. */
+  const options: Array<{ name: string; paras: string[]; right: string }> = [
+    {
+      name: t('Фрилансер с маркетплейса', 'A marketplace freelancer', 'Freelancer dari marketplace', 'ฟรีแลนซ์จากมาร์เก็ตเพลส'),
+      paras: [
+        t('Посмотрите, что на самом деле продаётся на Fastwork и Sribu по запросу про GrabFood: «Jasa Daftar GoFood/GrabFood» — регистрация, оформление меню и фото, передача аккаунта владельцу с обучением, чтобы дальше он справлялся сам. Это разовая работа с понятным концом, и как разовая работа она честная.',
+          'Look at what is actually for sale on Fastwork and Sribu under GrabFood: "Jasa Daftar GoFood/GrabFood" — registration, menu and photo setup, then handover of the account to the owner with training so they can carry on alone. That is one-off work with a defined end, and as one-off work it is honest.',
+          'Lihat apa yang sebenarnya dijual di Fastwork dan Sribu untuk GrabFood: "Jasa Daftar GoFood/GrabFood" — pendaftaran, penataan menu dan foto, lalu serah terima akun ke pemilik beserta pelatihan supaya bisa lanjut sendiri. Itu pekerjaan sekali jalan dengan titik akhir yang jelas, dan sebagai pekerjaan sekali jalan itu jujur.',
+          'ลองดูว่าบน Fastwork และ Sribu ขายอะไรจริง ๆ ในหมวด GrabFood: "Jasa Daftar GoFood/GrabFood" คือการจดทะเบียน จัดเมนูและรูปภาพ แล้วส่งมอบบัญชีคืนเจ้าของพร้อมสอนให้ทำต่อเองได้ นี่คืองานครั้งเดียวที่มีจุดจบชัดเจน และในฐานะงานครั้งเดียว มันซื่อสัตย์'),
+        t('Проблема начинается там, где разовой работой пытаются закрыть постоянную. И особенно — там, где ею пытаются закрыть рейтинг. Здесь коротко не получится, потому что это единственное место во всём сравнении, где ошибка стоит не денег и не месяцев, а бизнеса.',
+          'The trouble starts where one-off work is used to cover a continuous job. And especially where it is used to cover the rating. This part cannot be short, because it is the one place in this whole comparison where the mistake costs neither money nor months, but the business.',
+          'Masalah muncul ketika pekerjaan sekali jalan dipakai untuk menutup pekerjaan yang berkelanjutan. Terutama ketika dipakai untuk menutup soal rating. Bagian ini tidak bisa singkat, karena inilah satu-satunya tempat dalam perbandingan ini di mana kesalahannya tidak menelan uang atau waktu, melainkan bisnisnya.',
+          'ปัญหาเริ่มตรงที่เอางานครั้งเดียวไปแทนงานที่ต้องทำต่อเนื่อง โดยเฉพาะเมื่อเอาไปแทนเรื่องเรตติ้ง ตรงนี้เขียนสั้นไม่ได้ เพราะเป็นจุดเดียวในการเปรียบเทียบทั้งหมดที่ความผิดพลาดไม่ได้แลกด้วยเงินหรือเวลา แต่แลกด้วยธุรกิจ'),
+        t('На тех же маркетплейсах рядом с «оптимизацией» открыто продаются отзывы и рейтинги: от Rp 99 000, с гарантией возврата денег и с оговоркой, что держаться они будут не обязательно — политика площадки от продавца не зависит. Это дешёвый ответ на проблему рейтинга, и его покупают, потому что он выглядит как решение.',
+          'On the same marketplaces, right next to "optimisation", reviews and ratings are openly for sale: from Rp 99,000, with a money-back guarantee and a note that they may not stick, since platform policy is outside the seller’s control. That is the cheap answer to the rating problem, and people buy it because it looks like a solution.',
+          'Di marketplace yang sama, persis di sebelah "optimasi", ulasan dan rating dijual terbuka: mulai Rp 99.000, dengan garansi uang kembali dan catatan bahwa ulasannya belum tentu bertahan, karena kebijakan platform di luar kendali penjual. Itulah jawaban murah untuk masalah rating, dan orang membelinya karena terlihat seperti solusi.',
+          'บนมาร์เก็ตเพลสเดียวกัน ถัดจากคำว่า "ปรับแต่งร้าน" ไปนิดเดียว มีการขายรีวิวและเรตติ้งอย่างเปิดเผย เริ่มต้นที่ 99,000 รูเปียห์ พร้อมรับประกันคืนเงิน และหมายเหตุว่ารีวิวอาจไม่อยู่ถาวร เพราะนโยบายแพลตฟอร์มอยู่นอกเหนือการควบคุมของผู้ขาย นี่คือคำตอบราคาถูกสำหรับปัญหาเรตติ้ง และคนซื้อเพราะมันดูเหมือนทางแก้'),
+        t('Теперь то, чего продавец вам не скажет, а исполнитель, скорее всего, не знает сам — и это не фигура речи: ни фрилансер с маркетплейса, ни «специалист по маркетплейсам» в большинстве своём не представляют, как площадка работает с рейтингом, и не знают, что за накрутку аккаунт закрывают.',
+          'Now the part the seller will not tell you and the contractor most likely does not know himself — and that is not a figure of speech: neither the marketplace freelancer nor the self-described "marketplace specialist" usually has any idea how the platform handles ratings, or that an account gets closed for faking them.',
+          'Sekarang bagian yang tidak akan diberitahu penjualnya, dan yang kemungkinan besar tidak diketahui pelaksananya sendiri — dan ini bukan kiasan: baik freelancer marketplace maupun "spesialis marketplace" umumnya tidak tahu bagaimana platform menangani rating, dan tidak tahu bahwa akun ditutup karena manipulasi ulasan.',
+          'ทีนี้ถึงส่วนที่คนขายไม่บอกคุณ และคนรับงานเองก็แทบจะไม่รู้ และนี่ไม่ใช่การพูดเปรียบเปรย: ทั้งฟรีแลนซ์จากมาร์เก็ตเพลสและ "ผู้เชี่ยวชาญมาร์เก็ตเพลส" ส่วนใหญ่ไม่รู้ว่าแพลตฟอร์มจัดการเรื่องเรตติ้งอย่างไร และไม่รู้ว่าการปั่นรีวิวทำให้บัญชีถูกปิด'),
+        t('Grab и Gojek следят за накруткой отзывов внимательно и системно. Для них фальшивый отзыв — не мелкое нарушение правил, а порча их собственного актива: они зарабатывают комиссию с заказов, заказы идут за доверием к оценкам, и человек, который врёт в оценках, отнимает деньги лично у них. У площадки есть данные, которых нет ни у вас, ни у исполнителя: с какого устройства, с какого аккаунта, в каком порядке и с какой скоростью приходят отзывы. Накрутка видна оттуда так же ясно, как костёр ночью.',
+          'Grab and Gojek watch review manipulation closely and systematically. To them a fake review is not a minor rule breach but damage to their own asset: they earn commission on orders, orders follow trust in the ratings, and someone who lies in the ratings is taking money out of their pocket. The platform holds data neither you nor your contractor has: which device, which account, in what order and at what speed the reviews arrive. From there, manipulation is as visible as a bonfire at night.',
+          'Grab dan Gojek memantau manipulasi ulasan secara ketat dan sistematis. Bagi mereka ulasan palsu bukan pelanggaran kecil, melainkan perusakan aset mereka sendiri: mereka mendapat komisi dari pesanan, pesanan mengikuti kepercayaan pada rating, dan orang yang berbohong di rating mengambil uang langsung dari kantong mereka. Platform punya data yang tidak dimiliki Anda maupun pelaksana Anda: dari perangkat mana, dari akun mana, dalam urutan apa, dan dengan kecepatan berapa ulasan itu masuk. Dari sana, manipulasi terlihat sejelas api unggun di malam hari.',
+          'Grab และ Gojek จับตาการปั่นรีวิวอย่างใกล้ชิดและเป็นระบบ สำหรับพวกเขา รีวิวปลอมไม่ใช่การผิดกฎเล็กน้อย แต่คือการทำลายสินทรัพย์ของตัวเอง เพราะพวกเขาได้ค่าคอมมิชชันจากออร์เดอร์ ออร์เดอร์เดินตามความเชื่อถือในคะแนน และคนที่โกหกในคะแนนก็คือคนที่หยิบเงินออกจากกระเป๋าพวกเขาโดยตรง แพลตฟอร์มมีข้อมูลที่ทั้งคุณและคนรับงานไม่มี: มาจากอุปกรณ์ไหน บัญชีไหน เรียงลำดับอย่างไร และมาด้วยความเร็วเท่าไร มองจากตรงนั้น การปั่นรีวิวชัดพอ ๆ กับกองไฟกลางดึก'),
+        t('К нам пришёл владелец ресторана — тогда ещё не наш клиент, аккаунт у него вёл такой вот «специалист» со стороны. Пришёл с криком, потому что получил письмо от Grab: второе и последнее предупреждение за фальшивые отзывы. Накручивали ему с одного и того же аккаунта — самая грубая схема из возможных, площадка увидела её мгновенно. «Второе и последнее» означает ровно то, что написано: первое он пропустил, третьего не будет. Следующий шаг не понижение в выдаче и не снятие отзывов, а закрытый мерчант-аккаунт — вместе с историей заказов, рейтингом, накопленной аудиторией и позицией, которую ресторан зарабатывал месяцами. Если доставка была основным каналом — вместе с бизнесом.',
+          'A restaurant owner came to us — not our client at the time; his account was being run by exactly this kind of outside "specialist". He came shouting, because he had received an email from Grab: a second and final warning for fake reviews. His reviews were being posted from one and the same account — the crudest scheme there is, and the platform spotted it instantly. "Second and final" means exactly what it says: he had missed the first one and there would be no third. The next step is not a ranking penalty and not the removal of reviews, but a closed merchant account — along with the order history, the rating, the audience built up over time and the position the restaurant had earned over months. If delivery was the main channel, along with the business.',
+          'Seorang pemilik restoran datang ke kami — saat itu belum klien kami; akunnya dikelola persis oleh "spesialis" luar semacam itu. Dia datang sambil berteriak, karena menerima email dari Grab: peringatan kedua dan terakhir atas ulasan palsu. Ulasannya dikirim dari satu akun yang sama — skema paling kasar yang ada, dan platform langsung melihatnya. "Kedua dan terakhir" berarti persis seperti bunyinya: yang pertama terlewat, dan tidak akan ada yang ketiga. Langkah berikutnya bukan penurunan peringkat dan bukan penghapusan ulasan, melainkan akun merchant ditutup — berikut riwayat pesanan, rating, audiens yang terkumpul, dan posisi yang dibangun restoran selama berbulan-bulan. Kalau delivery adalah kanal utamanya, berikut bisnisnya.',
+          'มีเจ้าของร้านคนหนึ่งมาหาเรา ตอนนั้นยังไม่ใช่ลูกค้าเรา บัญชีของเขาดูแลโดย "ผู้เชี่ยวชาญ" ภายนอกแบบที่ว่านี้แหละ เขามาพร้อมเสียงตะโกน เพราะได้รับอีเมลจาก Grab: คำเตือนครั้งที่สองและครั้งสุดท้าย เรื่องรีวิวปลอม รีวิวของเขาถูกปั่นมาจากบัญชีเดียวกันซ้ำ ๆ ซึ่งเป็นวิธีที่หยาบที่สุดเท่าที่มี และแพลตฟอร์มเห็นทันที คำว่า "ครั้งที่สองและครั้งสุดท้าย" หมายความตรงตัว: ครั้งแรกเขาพลาดไป และจะไม่มีครั้งที่สาม ขั้นต่อไปไม่ใช่การลดอันดับและไม่ใช่การลบรีวิว แต่คือบัญชีร้านค้าถูกปิด พร้อมกับประวัติออร์เดอร์ เรตติ้ง ฐานลูกค้าที่สะสมมา และอันดับที่ร้านใช้เวลาหลายเดือนกว่าจะได้มา ถ้าเดลิเวอรีเป็นช่องทางหลัก ก็พร้อมกับธุรกิจทั้งหมด'),
+        t('Он не покупал себе бан. Он купил услугу за пару сотен тысяч рупий у человека, который не знал, что так бывает. Стоил этот человек дёшево ровно до того письма.',
+          'He did not buy himself a ban. He bought a service for a couple of hundred thousand rupiah from someone who did not know this could happen. That person was cheap right up until that email.',
+          'Dia tidak membeli banned. Dia membeli jasa seharga beberapa ratus ribu rupiah dari orang yang tidak tahu bahwa hal ini bisa terjadi. Orang itu murah — tepat sampai email tersebut datang.',
+          'เขาไม่ได้ซื้อการถูกแบน เขาซื้อบริการราคาไม่กี่แสนรูเปียห์จากคนที่ไม่รู้ว่าเรื่องแบบนี้เกิดขึ้นได้ คนคนนั้นราคาถูกจริง จนกระทั่งอีเมลฉบับนั้นมาถึง'),
+        t('Легальный ответ на ту же самую проблему выглядит скучнее и работает лучше: апелляция. Около 80% поданных нами апелляций на Grab заканчиваются снятием несправедливого отзыва — при двух условиях: подавать быстро и приводить факты конкретного заказа, а не общее несогласие. Разница простая. После апелляции у вас на один несправедливый отзыв меньше. После накрутки — на одно предупреждение больше.',
+          'The legal answer to the very same problem looks duller and works better: the appeal. Around 80% of the appeals we file on Grab end with the unfair review removed — on two conditions: file fast, and cite the facts of the specific order rather than general disagreement. The difference is simple. After an appeal you have one unfair review less. After buying reviews you have one warning more.',
+          'Jawaban legal untuk masalah yang sama terlihat lebih membosankan dan bekerja lebih baik: banding. Sekitar 80% banding yang kami ajukan di Grab berakhir dengan ulasan tidak adil dihapus — dengan dua syarat: ajukan cepat, dan sebutkan fakta pesanan yang bersangkutan, bukan ketidaksetujuan umum. Bedanya sederhana. Setelah banding, ulasan tidak adil Anda berkurang satu. Setelah beli ulasan, peringatan Anda bertambah satu.',
+          'ทางที่ถูกกฎสำหรับปัญหาเดียวกันดูน่าเบื่อกว่า แต่ได้ผลดีกว่า นั่นคือการอุทธรณ์ ราว 80% ของคำอุทธรณ์ที่เรายื่นกับ Grab จบด้วยการลบรีวิวที่ไม่เป็นธรรมออก โดยมีสองเงื่อนไข: ยื่นให้เร็ว และอ้างข้อเท็จจริงของออร์เดอร์นั้นจริง ๆ ไม่ใช่แค่บอกว่าไม่เห็นด้วย ความต่างง่ายมาก หลังอุทธรณ์ คุณมีรีวิวที่ไม่เป็นธรรมน้อยลงหนึ่งอัน หลังปั่นรีวิว คุณมีคำเตือนเพิ่มขึ้นหนึ่งครั้ง'),
+      ],
+      right: t('разовая задача с понятным концом. Зарегистрировать, отснять меню, перевести описания. Всё, что имеет дату окончания, а не еженедельный ритм.',
+        'a one-off job with a defined end. Registration, menu photography, translating descriptions. Anything with a finish date rather than a weekly rhythm.',
+        'pekerjaan sekali jalan dengan titik akhir yang jelas. Pendaftaran, pemotretan menu, penerjemahan deskripsi. Apa pun yang punya tanggal selesai, bukan ritme mingguan.',
+        'งานครั้งเดียวที่มีจุดจบชัดเจน จดทะเบียน ถ่ายรูปเมนู แปลคำอธิบาย ทุกอย่างที่มีวันจบ ไม่ใช่สิ่งที่ต้องทำทุกสัปดาห์'),
+    },
+    {
+      name: t('Digital-агентство', 'A digital agency', 'Agensi digital', 'เอเจนซีดิจิทัล'),
+      paras: [
+        t('Узнаётся по формулировке «мы попробуем запустить вам Grab». «Попробуем» — честное слово, и оно же диагноз: у них двадцать строк в прайсе, и доставка — одна из них.',
+          'You recognise it by the phrasing: "we’ll try running Grab for you". "Try" is an honest word, and it is also the diagnosis: they have twenty lines on the price list, and delivery is one of them.',
+          'Dikenali dari kalimatnya: "kami akan coba jalankan Grab untuk Anda". "Coba" adalah kata yang jujur, dan sekaligus diagnosisnya: mereka punya dua puluh baris di daftar layanan, dan delivery salah satunya.',
+          'สังเกตได้จากประโยคที่ว่า "เดี๋ยวเราลองรัน Grab ให้" คำว่า "ลอง" เป็นคำที่ซื่อสัตย์ และเป็นคำวินิจฉัยไปในตัว: พวกเขามียี่สิบบรรทัดในใบเสนอราคา และเดลิเวอรีเป็นหนึ่งในนั้น'),
+        t('Компетенция у них при этом настоящая, просто она в другом месте: сайт, SMM, съёмка, Meta-реклама, бренд. Ранжирование внутри маркетплейса из этих дисциплин не переносится — там другая механика и другие нормы, а собирать их неоткуда: чтобы увидеть, что реклама перестаёт окупаться примерно на 6% выручки, нужны не двадцать услуг, а девяносто шесть ресторанов.',
+          'Their competence is real, it just sits elsewhere: websites, social media, photography, Meta ads, branding. Ranking inside a marketplace does not transfer from those disciplines — different mechanics, different norms, and nowhere to collect them: to see that ads stop paying back at around 6% of revenue you do not need twenty services, you need ninety-six restaurants.',
+          'Kompetensi mereka nyata, hanya letaknya di tempat lain: website, media sosial, pemotretan, iklan Meta, branding. Peringkat di dalam marketplace tidak berpindah dari disiplin-disiplin itu — mekanikanya beda, normanya beda, dan tidak ada tempat untuk mengumpulkannya: untuk melihat bahwa iklan berhenti balik modal di sekitar 6% dari omzet, yang dibutuhkan bukan dua puluh layanan, melainkan sembilan puluh enam restoran.',
+          'ความสามารถของพวกเขามีจริง เพียงแต่อยู่คนละที่: เว็บไซต์ โซเชียล การถ่ายภาพ โฆษณา Meta และแบรนด์ อันดับภายในมาร์เก็ตเพลสไม่ได้ถ่ายโอนมาจากศาสตร์เหล่านั้น เพราะกลไกคนละแบบ ตัวเลขมาตรฐานคนละชุด และไม่มีที่ให้เก็บ: การจะเห็นว่าโฆษณาหยุดคุ้มทุนที่ราว 6% ของยอดขาย ไม่ได้ต้องการบริการยี่สิบอย่าง แต่ต้องการร้านเก้าสิบหกแห่ง'),
+      ],
+      right: t('когда вам нужны бренд, сайт, фото и соцсети. Мы этого не делаем и не берёмся.',
+        'when you need branding, a website, photography and social media. We do not do that and do not take it on.',
+        'ketika Anda butuh branding, website, fotografi, dan media sosial. Kami tidak mengerjakan itu dan tidak mengambilnya.',
+        'เมื่อคุณต้องการแบรนด์ เว็บไซต์ ภาพถ่าย และโซเชียล เราไม่ทำสิ่งเหล่านี้ และไม่รับงานนี้'),
+    },
+    {
+      name: t('Таргетолог', 'A paid-ads specialist', 'Spesialis iklan berbayar', 'คนทำโฆษณา'),
+      paras: [
+        t('Самая понятная и самая дорогая ошибка, потому что звучит она разумно: «реклама есть реклама, настрою».',
+          'The most understandable and the most expensive mistake, because it sounds reasonable: "ads are ads, I’ll set them up".',
+          'Kesalahan yang paling bisa dimengerti sekaligus paling mahal, karena kedengarannya masuk akal: "iklan ya iklan, saya atur saja".',
+          'ความผิดพลาดที่เข้าใจง่ายที่สุดและแพงที่สุด เพราะฟังดูมีเหตุผล: "โฆษณาก็คือโฆษณา เดี๋ยวจัดให้"'),
+        t('Таргетолог оптимизирует аукцион рекламной сети. Там вы покупаете показ, и мастерство в том, чтобы купить его дешевле и точнее. Grab и Gojek зарабатывают не на показах — они берут комиссию с заказов, и их актив — собственная аудитория. Поэтому ранжирование следует за тем, насколько хорошо ресторан эту аудиторию монетизирует: ставка усиливает позицию, но не создаёт её. Человек с рефлексом рекламной сети будет поднимать бюджет — и на нашем же графике уедет за 6% выручки, где медианный ROAS падает с 12.1x до 8.6x. Он не ошибается как таргетолог. Он решает не ту задачу.',
+          'A paid-ads specialist optimises an ad network auction. There you buy an impression, and the craft is buying it cheaper and more precisely. Grab and Gojek do not earn on impressions — they take commission on orders, and their asset is their own audience. So ranking follows how well a restaurant monetises that audience: a bid amplifies a position, it does not create one. Someone with an ad-network reflex will raise the budget — and on our own chart will drive past 6% of revenue, where the median ROAS falls from 12.1x to 8.6x. He is not failing as a paid-ads specialist. He is solving the wrong problem.',
+          'Spesialis iklan mengoptimalkan lelang di jaringan iklan. Di sana Anda membeli tayangan, dan keahliannya adalah membelinya lebih murah dan lebih tepat sasaran. Grab dan Gojek tidak mendapat uang dari tayangan — mereka mengambil komisi dari pesanan, dan aset mereka adalah audiens sendiri. Jadi peringkat mengikuti seberapa baik restoran memonetisasi audiens itu: bid memperkuat posisi, bukan menciptakannya. Orang dengan refleks jaringan iklan akan menaikkan anggaran — dan di grafik kami sendiri akan melewati 6% dari omzet, tempat median ROAS turun dari 12.1x ke 8.6x. Dia tidak gagal sebagai spesialis iklan. Dia menyelesaikan masalah yang salah.',
+          'คนทำโฆษณาเก่งเรื่องปรับการประมูลในเครือข่ายโฆษณา ที่นั่นคุณซื้อการมองเห็น และฝีมืออยู่ที่ซื้อให้ถูกลงและตรงกลุ่มขึ้น แต่ Grab และ Gojek ไม่ได้หาเงินจากการมองเห็น พวกเขาเก็บค่าคอมมิชชันจากออร์เดอร์ และสินทรัพย์ของพวกเขาคือฐานลูกค้าของตัวเอง อันดับจึงเดินตามว่าร้านทำเงินจากฐานลูกค้านั้นได้ดีแค่ไหน การบิดขยายตำแหน่งที่มี ไม่ได้สร้างมันขึ้นมา คนที่มีสัญชาตญาณแบบเครือข่ายโฆษณาจะเพิ่มงบ แล้วเลยเส้น 6% ของยอดขายบนกราฟของเราเอง ซึ่งเป็นจุดที่ ROAS มัธยฐานตกจาก 12.1 เท่าเหลือ 8.6 เท่า เขาไม่ได้ทำงานโฆษณาผิด เขาแก้ผิดโจทย์'),
+      ],
+      right: t('когда вы гоните трафик в свой собственный канал — сайт, WhatsApp, зал. Это его аукцион и его работа.',
+        'when you are driving traffic to your own channel — website, WhatsApp, the dining room. That is his auction and his job.',
+        'ketika Anda mengarahkan trafik ke kanal Anda sendiri — website, WhatsApp, ruang makan. Itu lelangnya dan itu pekerjaannya.',
+        'เมื่อคุณต้องการดันทราฟฟิกเข้าช่องทางของคุณเอง ทั้งเว็บไซต์ WhatsApp และหน้าร้าน นั่นคือการประมูลของเขาและเป็นงานของเขา'),
+    },
+    {
+      name: t('Бывший сотрудник Grab', 'A former Grab employee', 'Mantan karyawan Grab', 'อดีตพนักงาน Grab'),
+      paras: [
+        t('Самый убедительный кандидат на собеседовании, и здесь стоит быть точным.',
+          'The most convincing candidate in an interview, and here it pays to be precise.',
+          'Kandidat paling meyakinkan saat wawancara, dan di sini kita perlu tepat.',
+          'ผู้สมัครที่ดูน่าเชื่อถือที่สุดในห้องสัมภาษณ์ และตรงนี้ควรพูดให้แม่น'),
+        t('Внутри экосистемы Grab действительно есть официальная агентская роль — Agent Reference Merchant: агент рекомендует ресторан, помогает пройти регистрацию и получает бонус за подключение плюс комиссию с транзакций мерчанта. Роль заканчивается на подключении: ни меню, ни ставок, ни рейтинга в ней нет. То есть официальная роль, которую площадка создала и оплачивает, — это продажи, а не рост.',
+          'There is indeed an official agent role inside the Grab ecosystem — Agent Reference Merchant: the agent recommends a restaurant, helps it through registration, and receives a bonus for the signup plus a commission on the merchant’s transactions. The role ends at signup: no menu, no bidding, no rating in it. So the official role the platform created and pays for is sales, not growth.',
+          'Di dalam ekosistem Grab memang ada peran agen resmi — Agent Reference Merchant: agen merekomendasikan restoran, membantunya melewati pendaftaran, dan menerima bonus atas pendaftaran plus komisi dari transaksi merchant tersebut. Perannya berakhir di pendaftaran: tidak ada menu, tidak ada bid, tidak ada rating di dalamnya. Jadi peran resmi yang diciptakan dan dibayar oleh platform adalah penjualan, bukan pertumbuhan.',
+          'ในระบบนิเวศของ Grab มีบทบาทตัวแทนอย่างเป็นทางการอยู่จริง ชื่อว่า Agent Reference Merchant: ตัวแทนแนะนำร้านอาหาร ช่วยพาผ่านขั้นตอนสมัคร แล้วได้โบนัสจากการสมัครสำเร็จบวกค่าคอมมิชชันจากธุรกรรมของร้านนั้น บทบาทนี้จบที่การสมัคร ไม่มีเรื่องเมนู ไม่มีเรื่องการบิด ไม่มีเรื่องเรตติ้ง แปลว่าบทบาททางการที่แพลตฟอร์มสร้างขึ้นและจ่ายเงินให้ คืองานขาย ไม่ใช่งานสร้างการเติบโต'),
+        t('Сотрудник видел процессы, тарифы и промо-программы изнутри, и это правда ценно. Но видел он их со стороны площадки, а не со стороны кабинета мерчанта, где выручка складывается из стоп-листа, конверсии карточки и ставок. Это разные окна в один и тот же экран.',
+          'An employee saw the processes, the rates and the promo programmes from the inside, and that is genuinely valuable. But he saw them from the platform’s side, not from the merchant dashboard, where revenue is assembled out of the stop-list, listing conversion and bidding. Two different windows onto the same screen.',
+          'Karyawan tersebut melihat proses, tarif, dan program promo dari dalam, dan itu memang berharga. Tapi dia melihatnya dari sisi platform, bukan dari dashboard merchant, tempat omzet tersusun dari item yang dinonaktifkan, konversi listing, dan bid. Dua jendela berbeda ke layar yang sama.',
+          'พนักงานคนนั้นเห็นกระบวนการ อัตราค่าธรรมเนียม และโปรแกรมโปรโมชันจากด้านใน ซึ่งมีค่าจริง แต่เขาเห็นจากฝั่งแพลตฟอร์ม ไม่ใช่จากหลังบ้านของร้านค้า ที่ซึ่งยอดขายประกอบขึ้นจากสต็อปลิสต์ อัตราปิดการขายของหน้าร้าน และการบิด เป็นคนละหน้าต่างที่มองจอเดียวกัน'),
+      ],
+      right: t('если он действительно вёл кабинеты, а не аккаунт-менеджерил. Проверяется тремя вопросами — они ниже, в разделе «Как проверить кандидата», и нормы мы опубликовали специально, чтобы их можно было применить к кому угодно, включая нас.',
+        'if he actually ran merchant dashboards rather than account-managed. Three questions settle it — they are in the FAQ below, and we published our norms precisely so they can be applied to anyone, us included.',
+        'kalau dia benar-benar mengelola dashboard merchant, bukan sekadar account management. Tiga pertanyaan sudah cukup — ada di FAQ di bawah, dan norma kami sengaja diterbitkan agar bisa diterapkan ke siapa pun, termasuk ke kami.',
+        'ถ้าเขาเคยดูแลหลังบ้านร้านค้าจริง ไม่ใช่แค่เป็นแอคเคานต์แมเนเจอร์ สามคำถามก็รู้ผล อยู่ใน FAQ ด้านล่าง และเราเผยแพร่ตัวเลขมาตรฐานไว้ก็เพื่อให้เอาไปวัดใครก็ได้ รวมถึงวัดเราเอง'),
+    },
+    {
+      name: t('Свой менеджер', 'An in-house manager', 'Manajer internal', 'ผู้จัดการภายใน'),
+      paras: [
+        t('Разобран выше отдельно: короткий ответ — этой профессии не существует как профессии, ей негде научиться, и знание собирается только на объёме аккаунтов. Но операционка — всегда ваш человек, и по нашим же данным именно там лежит 95% потерь выручки.',
+          'Covered separately above: the short answer is that the profession does not exist as a profession, there is nowhere to learn it, and the knowledge only accumulates across a volume of accounts. But operations is always your person — and by our own data that is where 95% of revenue losses sit.',
+          'Sudah dibahas terpisah di atas: jawaban singkatnya, profesi ini tidak ada sebagai profesi, tidak ada tempat mempelajarinya, dan pengetahuannya hanya terkumpul dari banyak akun. Tapi operasional selalu milik orang Anda — dan menurut data kami sendiri, di situlah 95% kehilangan omzet berada.',
+          'พูดถึงแยกไว้ด้านบนแล้ว คำตอบสั้น ๆ คืออาชีพนี้ไม่มีอยู่จริงในฐานะอาชีพ ไม่มีที่ให้เรียน และความรู้สะสมได้จากปริมาณบัญชีเท่านั้น แต่งานหน้างานต้องเป็นคนของคุณเสมอ และตามข้อมูลของเราเอง ตรงนั้นแหละคือที่ที่ 95% ของความสูญเสียอยู่'),
+      ],
+      right: t('операционка — всегда. Наличие позиций, стоп-лист, время приготовления, кухня в час пик.',
+        'operations — always. Item availability, the stop-list, preparation time, the kitchen at peak.',
+        'operasional — selalu. Ketersediaan item, item yang dinonaktifkan, waktu masak, dapur di jam sibuk.',
+        'งานหน้างาน เสมอ ทั้งความพร้อมของเมนู สต็อปลิสต์ เวลาเตรียมอาหาร และครัวช่วงพีค'),
+    },
+  ];
+
+  const whoRows: Array<[string, string, string]> = [
+    [t('Фрилансер с маркетплейса', 'Marketplace freelancer', 'Freelancer marketplace', 'ฟรีแลนซ์จากมาร์เก็ตเพลส'),
+     t('Разовый запуск: регистрация, меню, фото', 'A one-off launch: registration, menu, photos', 'Peluncuran sekali jalan: pendaftaran, menu, foto', 'การเปิดร้านครั้งเดียว: จดทะเบียน เมนู รูปภาพ'),
+     t('Разовая задача с понятным концом', 'A one-off job with a defined end', 'Pekerjaan sekali jalan dengan titik akhir jelas', 'งานครั้งเดียวที่มีจุดจบชัดเจน')],
+    [t('Digital-агентство', 'Digital agency', 'Agensi digital', 'เอเจนซีดิจิทัล'),
+     t('Бренд и внешние каналы; доставка — строка в прайсе', 'Brand and outside channels; delivery is a line on the price list', 'Brand dan kanal eksternal; delivery hanya satu baris di daftar layanan', 'แบรนด์และช่องทางภายนอก ส่วนเดลิเวอรีเป็นแค่บรรทัดหนึ่งในใบเสนอราคา'),
+     t('Сайт, съёмка, SMM, Meta', 'Website, photography, social, Meta', 'Website, pemotretan, media sosial, Meta', 'เว็บไซต์ ถ่ายภาพ โซเชียล Meta')],
+    [t('Таргетолог', 'Paid-ads specialist', 'Spesialis iklan berbayar', 'คนทำโฆษณา'),
+     t('Мастерство в аукционе рекламной сети', 'Craft in an ad-network auction', 'Keahlian di lelang jaringan iklan', 'ฝีมือในการประมูลของเครือข่ายโฆษณา'),
+     t('Трафик в ваш собственный канал', 'Traffic to your own channel', 'Trafik ke kanal Anda sendiri', 'ทราฟฟิกเข้าช่องทางของคุณเอง')],
+    [t('Бывший сотрудник Grab', 'Former Grab employee', 'Mantan karyawan Grab', 'อดีตพนักงาน Grab'),
+     t('Взгляд со стороны площадки', 'The view from the platform’s side', 'Sudut pandang dari sisi platform', 'มุมมองจากฝั่งแพลตฟอร์ม'),
+     t('Если он реально вёл кабинеты', 'If he actually ran merchant dashboards', 'Kalau dia benar-benar mengelola dashboard merchant', 'ถ้าเขาเคยดูแลหลังบ้านร้านค้าจริง')],
+    [t('Свой менеджер', 'In-house manager', 'Manajer internal', 'ผู้จัดการภายใน'),
+     t('Часы одного человека, обучение за ваш счёт', 'One person’s hours, the learning funded by you', 'Jam kerja satu orang, proses belajarnya Anda yang biayai', 'ชั่วโมงทำงานของคนหนึ่งคน โดยคุณออกค่าเรียนรู้ให้'),
+     t('Операционка — всегда', 'Operations — always', 'Operasional — selalu', 'งานหน้างาน เสมอ')],
+    [t('Агентство по доставке', 'Delivery agency', 'Agensi delivery', 'เอเจนซีเดลิเวอรี'),
+     t('Метод на 96 ресторанах и ответственность за выручку', 'A method across 96 restaurants and accountability for revenue', 'Metode dari 96 restoran dan tanggung jawab atas omzet', 'วิธีการจากร้าน 96 แห่ง และความรับผิดชอบต่อยอดขาย'),
+     t('Когда доставка — канал роста', 'When delivery is a growth channel', 'Ketika delivery adalah kanal pertumbuhan', 'เมื่อเดลิเวอรีคือช่องทางเติบโต')],
+  ];
+
   const faq: Array<[string, string]> = [
+    [
+      t('Мне советуют найти фрилансера на Fastwork — это же дешевле?',
+        'I’m told to find a freelancer on Fastwork — isn’t that cheaper?',
+        'Saya disarankan mencari freelancer di Fastwork — bukankah itu lebih murah?', 'มีคนแนะนำให้หาฟรีแลนซ์บน Fastwork ถูกกว่าไม่ใช่หรือ'),
+      t('Дешевле, и для части задач это правильный выбор: зарегистрировать ресторан, собрать меню, отснять фото. Именно это там в основном и продаётся — разовый запуск с передачей аккаунта владельцу. Ведения там нет, а заказы приносит ведение: стоп-лист, ставки, промо-экономика и отзывы — это каждую неделю, а не один раз. Но главное предупреждение не про деньги, а про рейтинг. На тех же маркетплейсах рядом продают отзывы и рейтинги от Rp 99 000, и покупает их обычно не владелец, а нанятый исполнитель, который не знает, чем это заканчивается. Grab и Gojek отслеживают накрутку системно: им видно устройство, аккаунт и скорость появления оценок. К нам приходил ресторан, получивший от Grab второе и последнее предупреждение за фальшивые отзывы — их накручивали с одного и того же аккаунта. Следующий шаг после последнего предупреждения — закрытие мерчант-аккаунта вместе со всей историей. Легальный путь к той же цели — апелляции: около 80% наших апелляций на Grab заканчиваются снятием несправедливого отзыва.',
+        'Cheaper, yes, and for some jobs it is the right choice: registering the restaurant, building the menu, shooting the photos. That is mostly what is on sale there — a one-off launch with the account handed back to the owner. There is no ongoing running, and orders come from the running: the stop-list, bidding, promo economics and reviews happen every week, not once. But the main warning is not about money, it is about the rating. On the same marketplaces reviews and ratings are sold from Rp 99,000, and the buyer is usually not the owner but the hired contractor, who does not know how it ends. Grab and Gojek track manipulation systematically: they see the device, the account and the speed at which ratings appear. A restaurant came to us holding a second and final warning from Grab for fake reviews — they had been posted from one and the same account. The step after a final warning is the merchant account being closed, with the entire history. The legal route to the same goal is appeals: around 80% of ours on Grab end with the unfair review removed.',
+        'Lebih murah, ya, dan untuk sebagian pekerjaan itu pilihan yang tepat: mendaftarkan restoran, menyusun menu, memotret foto. Itulah yang sebagian besar dijual di sana — peluncuran sekali jalan dengan akun diserahkan kembali ke pemilik. Tidak ada pengelolaan lanjutan, padahal pesanan datang dari pengelolaan: item yang dinonaktifkan, bid, ekonomi promo, dan ulasan terjadi setiap minggu, bukan sekali. Tapi peringatan utamanya bukan soal uang, melainkan soal rating. Di marketplace yang sama, ulasan dan rating dijual mulai Rp 99.000, dan yang membeli biasanya bukan pemiliknya, melainkan pelaksana yang disewa dan tidak tahu akhirnya seperti apa. Grab dan Gojek melacak manipulasi secara sistematis: mereka melihat perangkat, akun, dan kecepatan munculnya penilaian. Ada restoran yang datang ke kami membawa peringatan kedua dan terakhir dari Grab atas ulasan palsu — semuanya dikirim dari satu akun yang sama. Langkah setelah peringatan terakhir adalah akun merchant ditutup beserta seluruh riwayatnya. Jalur legal menuju tujuan yang sama adalah banding: sekitar 80% banding kami di Grab berakhir dengan ulasan tidak adil dihapus.',
+        'ถูกกว่าจริง และสำหรับงานบางอย่างมันคือทางเลือกที่ถูกต้อง เช่น จดทะเบียนร้าน จัดเมนู ถ่ายรูป ซึ่งนั่นแหละคือสิ่งที่ขายกันอยู่ที่นั่นเป็นหลัก คือการเปิดร้านครั้งเดียวแล้วส่งบัญชีคืนเจ้าของ ไม่มีการดูแลต่อเนื่อง ขณะที่ออร์เดอร์มาจากการดูแลต่อเนื่อง ทั้งสต็อปลิสต์ การบิด เศรษฐศาสตร์ของโปรโมชัน และรีวิว ล้วนเกิดขึ้นทุกสัปดาห์ ไม่ใช่ครั้งเดียว แต่คำเตือนสำคัญที่สุดไม่ใช่เรื่องเงิน เป็นเรื่องเรตติ้ง บนมาร์เก็ตเพลสเดียวกันมีการขายรีวิวและเรตติ้งเริ่มต้นที่ 99,000 รูเปียห์ และคนที่ซื้อมักไม่ใช่เจ้าของร้าน แต่เป็นคนรับงานที่ไม่รู้ว่ามันจบอย่างไร Grab และ Gojek ติดตามการปั่นรีวิวอย่างเป็นระบบ พวกเขาเห็นทั้งอุปกรณ์ บัญชี และความเร็วที่คะแนนทยอยเข้ามา เคยมีร้านมาหาเราพร้อมคำเตือนครั้งที่สองและครั้งสุดท้ายจาก Grab เรื่องรีวิวปลอม ซึ่งถูกปั่นมาจากบัญชีเดียวกันทั้งหมด ขั้นถัดจากคำเตือนครั้งสุดท้ายคือบัญชีร้านค้าถูกปิดพร้อมประวัติทั้งหมด ส่วนทางที่ถูกกฎเพื่อเป้าหมายเดียวกันคือการอุทธรณ์ ราว 80% ของคำอุทธรณ์ที่เรายื่นกับ Grab จบด้วยการลบรีวิวที่ไม่เป็นธรรมออก'),
+    ],
+    [
+      t('Моё digital-агентство говорит, что может вести и Grab. Стоит соглашаться?',
+        'My digital agency says it can run Grab too. Should I agree?',
+        'Agensi digital saya bilang bisa mengelola Grab juga. Perlu saya setujui?', 'เอเจนซีดิจิทัลของเราบอกว่ารับดูแล Grab ได้ด้วย ควรตกลงไหม'),
+      t('Спросите, с чем они будут сверять ваши цифры. Ранжирование внутри маркетплейса не выводится из опыта в сайтах, SMM и Meta — там другая механика и другие нормы, а нормы берутся только с объёма аккаунтов. Проверить легко: наши медианы опубликованы — ROAS 10.4x на Бали и 22.8x на Пхукете, реклама 5.6% выручки, один негативный отзыв на 138 заказов. Если ответ на вопрос «сколько должно уходить в рекламу» звучит как «чем больше, тем лучше», перед вами специалист по рекламным сетям, а Grab не рекламная сеть.',
+        'Ask what they will compare your numbers against. Ranking inside a marketplace does not follow from experience in websites, social media and Meta — different mechanics, different norms, and norms only come from a volume of accounts. Easy to check: our medians are published — ROAS 10.4x in Bali and 22.8x in Phuket, ads at 5.6% of revenue, one negative review per 138 orders. If the answer to "what share should go to ads" is "the more the better", you are looking at an ad-network specialist, and Grab is not an ad network.',
+        'Tanyakan angka Anda akan dibandingkan dengan apa. Peringkat di dalam marketplace tidak mengikuti pengalaman di website, media sosial, dan Meta — mekanikanya beda, normanya beda, dan norma hanya bisa didapat dari banyak akun. Mudah diperiksa: median kami sudah diterbitkan — ROAS 10.4x di Bali dan 22.8x di Phuket, iklan 5.6% dari omzet, satu ulasan negatif per 138 pesanan. Kalau jawaban atas pertanyaan "berapa porsi yang harus masuk ke iklan" adalah "makin besar makin baik", yang di depan Anda adalah spesialis jaringan iklan, sedangkan Grab bukan jaringan iklan.',
+        'ถามว่าเขาจะเอาตัวเลขของคุณไปเทียบกับอะไร อันดับภายในมาร์เก็ตเพลสไม่ได้ตามมาจากประสบการณ์ด้านเว็บไซต์ โซเชียล และ Meta เพราะกลไกคนละแบบ ตัวเลขมาตรฐานคนละชุด และตัวเลขมาตรฐานได้มาจากปริมาณบัญชีเท่านั้น ตรวจสอบง่ายมาก ค่ามัธยฐานของเราเผยแพร่ไว้แล้ว: ROAS 10.4 เท่าที่บาหลี และ 22.8 เท่าที่ภูเก็ต ค่าโฆษณา 5.6% ของยอดขาย รีวิวลบหนึ่งครั้งต่อ 138 ออร์เดอร์ ถ้าคำตอบของคำถามที่ว่าควรใช้งบโฆษณากี่เปอร์เซ็นต์คือ ยิ่งมากยิ่งดี ตรงหน้าคุณคือผู้เชี่ยวชาญเครือข่ายโฆษณา และ Grab ไม่ใช่เครือข่ายโฆษณา'),
+    ],
+    [
+      t('А если нанять таргетолога — он же умеет настраивать рекламу?',
+        'What about hiring a paid-ads specialist — they know how to run ads?',
+        'Bagaimana kalau menyewa spesialis iklan — dia kan bisa mengatur iklan?', 'ถ้าจ้างคนทำโฆษณาล่ะ เขาก็ตั้งค่าโฆษณาเป็นไม่ใช่หรือ'),
+      t('Умеет, но другую. Рекламная сеть продаёт показ на аукционе, и задача таргетолога — купить его дешевле. Grab и Gojek берут комиссию с заказов, их актив — собственная аудитория, и ранжирование следует за тем, насколько хорошо ресторан её монетизирует. Ставка усиливает позицию, но не создаёт её. Практическое следствие: специалист по сетям увеличивает бюджет, а окупаемость ломается примерно на 6% выручки — до этой границы медианный ROAS 12.1x, после 8.6x. За границей уже 42% ресторанов нашего флота, так что ошибка массовая.',
+        'They do, but a different kind. An ad network sells an impression at auction, and the specialist’s job is to buy it cheaper. Grab and Gojek take commission on orders, their asset is their own audience, and ranking follows how well a restaurant monetises it. A bid amplifies a position, it does not create one. The practical consequence: a network specialist raises the budget, and payback breaks at around 6% of revenue — below that line the median ROAS is 12.1x, above it 8.6x. 42% of the restaurants in our fleet are already past it, so the mistake is a common one.',
+        'Bisa, tapi jenis yang lain. Jaringan iklan menjual tayangan lewat lelang, dan tugas spesialisnya adalah membelinya lebih murah. Grab dan Gojek mengambil komisi dari pesanan, aset mereka adalah audiens sendiri, dan peringkat mengikuti seberapa baik restoran memonetisasinya. Bid memperkuat posisi, bukan menciptakannya. Konsekuensi praktisnya: spesialis jaringan menaikkan anggaran, dan titik balik modal patah di sekitar 6% dari omzet — di bawah garis itu median ROAS 12.1x, di atasnya 8.6x. Sebanyak 42% restoran di portofolio kami sudah melewatinya, jadi kesalahan ini umum terjadi.',
+        'เป็น แต่คนละแบบ เครือข่ายโฆษณาขายการมองเห็นผ่านการประมูล และงานของคนทำโฆษณาคือซื้อให้ถูกลง ส่วน Grab และ Gojek เก็บค่าคอมมิชชันจากออร์เดอร์ สินทรัพย์ของพวกเขาคือฐานลูกค้าของตัวเอง และอันดับเดินตามว่าร้านทำเงินจากฐานลูกค้านั้นได้ดีแค่ไหน การบิดขยายตำแหน่งที่มี ไม่ได้สร้างมันขึ้นมา ผลในทางปฏิบัติคือ ผู้เชี่ยวชาญเครือข่ายจะเพิ่มงบ แล้วความคุ้มทุนจะพังที่ราว 6% ของยอดขาย ต่ำกว่าเส้นนี้ ROAS มัธยฐานอยู่ที่ 12.1 เท่า สูงกว่านั้นเหลือ 8.6 เท่า ร้าน 42% ที่เราดูแลเลยเส้นนี้ไปแล้ว ความผิดพลาดนี้จึงเกิดขึ้นกันทั่วไป'),
+    ],
     [
       t('Мне дешевле держать своего человека, чем платить вам 10%?',
         'Is my own hire cheaper than paying you 10% of revenue?',
@@ -207,24 +371,24 @@ export default function AnswersInHouseVsAgencyPage() {
 
   return (
     <AnswerLayout
-      h1={t('Нанять своего менеджера по агрегаторам или отдать агентству?',
-            'Hire an in-house aggregator manager, or use an agency?',
-            'Merekrut manajer agregator internal atau menyerahkan ke agensi?', 'จ้างผู้จัดการแพลตฟอร์มเอง หรือใช้เอเจนซี')}
+      h1={t('Кому доверить GrabFood и GoFood: своему менеджеру, фрилансеру, digital-агентству или профильному агентству?',
+            'Who should you trust with GrabFood and GoFood: an in-house manager, a freelancer, a digital agency or a specialist agency?',
+            'Kepada siapa menyerahkan GrabFood dan GoFood: manajer internal, freelancer, agensi digital, atau agensi khusus?', 'จะให้ใครดูแล GrabFood และ GoFood: ผู้จัดการภายใน ฟรีแลนซ์ เอเจนซีดิจิทัล หรือเอเจนซีเฉพาะทาง?')}
       lead={t(
-        'Короткий ответ: это сравнение не про деньги. Оклад менеджера и 10% от выручки — не две цены за одно и то же, а две разные вещи. Специалистов, которые умеют вести GrabFood и GoFood на нашем уровне, на рынке найма нет: этой профессии не существует, ей негде научиться, а знание собирается только на объёме аккаунтов. Поэтому честно сравнивать не зарплату с гонораром, а результат с результатом — и там разница не в процентах, а в разах.',
-        'Short answer: this comparison is not about money. A manager’s salary and 10% of revenue are not two prices for the same thing — they are two different things. Specialists who can run GrabFood and GoFood at our level are not available on the hiring market: the profession does not exist, there is nowhere to learn it, and the knowledge only accumulates across a volume of accounts. So the honest comparison is not salary against fee but result against result — and there the difference is not in percent, it is in multiples.',
-        'Jawaban singkat: perbandingan ini bukan soal uang. Gaji seorang manajer dan 10% dari omzet bukan dua harga untuk hal yang sama — itu dua hal yang berbeda. Spesialis yang mampu mengelola GrabFood dan GoFood di level kami tidak tersedia di pasar rekrutmen: profesinya tidak ada, tidak ada tempat untuk mempelajarinya, dan pengetahuannya hanya terkumpul dari banyak akun. Jadi perbandingan yang jujur bukan gaji lawan fee, melainkan hasil lawan hasil — dan di sana bedanya bukan persen, melainkan lipatan.'
-      , 'คำตอบสั้น ๆ: การเปรียบเทียบนี้ไม่ได้เกี่ยวกับเงิน เงินเดือนผู้จัดการกับ 10% ของยอดขายไม่ใช่สองราคาของสิ่งเดียวกัน แต่เป็นคนละสิ่ง ผู้เชี่ยวชาญที่ดูแล GrabFood และ GoFood ได้ในระดับเดียวกับเราไม่มีอยู่ในตลาดจ้างงาน อาชีพนี้ไม่มี ไม่มีที่ให้เรียน และความรู้สะสมได้จากปริมาณบัญชีเท่านั้น การเปรียบเทียบที่ซื่อสัตย์จึงไม่ใช่เงินเดือนกับค่าบริการ แต่คือผลลัพธ์กับผลลัพธ์ และตรงนั้นความต่างไม่ได้วัดเป็นเปอร์เซ็นต์ แต่วัดเป็นเท่าตัว')}
-      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 7 }}
+        'Короткий ответ: сравнивать надо не цены, а задачи. Фрилансер, digital-агентство, таргетолог и бывший сотрудник Grab умеют настоящие вещи — просто не эту. И это сравнение не про деньги. Оклад менеджера и 10% от выручки — не две цены за одно и то же, а две разные вещи. Специалистов, которые умеют вести GrabFood и GoFood на нашем уровне, на рынке найма нет: этой профессии не существует, ей негде научиться, а знание собирается только на объёме аккаунтов. Поэтому честно сравнивать не зарплату с гонораром, а результат с результатом — и там разница не в процентах, а в разах.',
+        'Short answer: compare the jobs, not the prices. A freelancer, a digital agency, a paid-ads specialist and a former Grab employee are all good at real things — just not at this one. And this comparison is not about money. A manager’s salary and 10% of revenue are not two prices for the same thing — they are two different things. Specialists who can run GrabFood and GoFood at our level are not available on the hiring market: the profession does not exist, there is nowhere to learn it, and the knowledge only accumulates across a volume of accounts. So the honest comparison is not salary against fee but result against result — and there the difference is not in percent, it is in multiples.',
+        'Jawaban singkat: bandingkan pekerjaannya, bukan harganya. Freelancer, agensi digital, spesialis iklan, dan mantan karyawan Grab sama-sama menguasai hal yang nyata — hanya saja bukan yang ini. Dan perbandingan ini bukan soal uang. Gaji seorang manajer dan 10% dari omzet bukan dua harga untuk hal yang sama — itu dua hal yang berbeda. Spesialis yang mampu mengelola GrabFood dan GoFood di level kami tidak tersedia di pasar rekrutmen: profesinya tidak ada, tidak ada tempat untuk mempelajarinya, dan pengetahuannya hanya terkumpul dari banyak akun. Jadi perbandingan yang jujur bukan gaji lawan fee, melainkan hasil lawan hasil — dan di sana bedanya bukan persen, melainkan lipatan.'
+      , 'คำตอบสั้น ๆ: ให้เทียบที่ตัวงาน ไม่ใช่ที่ราคา ฟรีแลนซ์ เอเจนซีดิจิทัล คนทำโฆษณา และอดีตพนักงาน Grab ต่างก็เก่งในเรื่องจริง ๆ เพียงแต่ไม่ใช่เรื่องนี้ และการเปรียบเทียบนี้ไม่ได้เกี่ยวกับเงิน เงินเดือนผู้จัดการกับ 10% ของยอดขายไม่ใช่สองราคาของสิ่งเดียวกัน แต่เป็นคนละสิ่ง ผู้เชี่ยวชาญที่ดูแล GrabFood และ GoFood ได้ในระดับเดียวกับเราไม่มีอยู่ในตลาดจ้างงาน อาชีพนี้ไม่มี ไม่มีที่ให้เรียน และความรู้สะสมได้จากปริมาณบัญชีเท่านั้น การเปรียบเทียบที่ซื่อสัตย์จึงไม่ใช่เงินเดือนกับค่าบริการ แต่คือผลลัพธ์กับผลลัพธ์ และตรงนั้นความต่างไม่ได้วัดเป็นเปอร์เซ็นต์ แต่วัดเป็นเท่าตัว')}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 11 }}
       schemas={[
         faqPageSchema(faq),
         articleSchema({
-          headline: t('Свой менеджер по агрегаторам или агентство управления доставкой',
-                      'In-house aggregator manager vs delivery management agency',
-                      'Manajer agregator internal atau agensi pengelolaan delivery', 'ผู้จัดการแพลตฟอร์มภายใน เทียบกับเอเจนซีบริหารเดลิเวอรี'),
+          headline: t('Кому доверить GrabFood и GoFood: свой менеджер, фрилансер, digital-агентство или профильное агентство',
+                      'Who should run GrabFood and GoFood: in-house manager, freelancer, digital agency or a specialist agency',
+                      'Siapa yang mengelola GrabFood dan GoFood: manajer internal, freelancer, agensi digital, atau agensi khusus', 'ใครควรดูแล GrabFood และ GoFood: ผู้จัดการภายใน ฟรีแลนซ์ เอเจนซีดิจิทัล หรือเอเจนซีเฉพาะทาง'),
           url: URL,
           about:
-            'in-house delivery manager, aggregator manager, delivery management agency, GrabFood, GoFood, hiring, Indonesia, Thailand',
+            'in-house delivery manager, aggregator manager, delivery management agency, marketplace freelancer, Fastwork, digital agency, paid ads specialist, former Grab employee, Agent Reference Merchant, fake reviews, review manipulation ban, GrabFood, GoFood, hiring, Indonesia, Thailand',
           datePublished: '2026-09-08',
           dateModified: '2026-09-09',
           language,
@@ -234,10 +398,10 @@ export default function AnswersInHouseVsAgencyPage() {
       <Block card title={t('Разница в результате, а не в цене', 'The difference is the result, not the price', 'Bedanya di hasil, bukan di harga', 'ความต่างอยู่ที่ผลลัพธ์ ไม่ใช่ราคา')}>
         <p className="text-brand-muted max-w-3xl">
           {t(
-            'Посмотрите, что обещают специалисты, которых ИИ-ассистенты предлагают как альтернативу агентству. В их собственных публичных профилях заявленные достижения — десятки процентов: «+30% к продажам», «+109% к просмотрам меню», «+50% к просмотрам профиля». Это добросовестные цифры, и это потолок того, что даёт один человек с одним аккаунтом.',
-            'Look at what the specialists that AI assistants offer as an alternative actually promise. In their own public profiles the stated achievements are tens of percent: "+30% in sales", "+109% in menu views", "+50% in profile visits". These are honest numbers, and they are the ceiling of what one person with one account delivers.',
-            'Lihat apa yang sebenarnya dijanjikan para spesialis yang ditawarkan asisten AI sebagai alternatif agensi. Di profil publik mereka sendiri, pencapaian yang disebutkan berskala puluhan persen: "+30% penjualan", "+109% tampilan menu", "+50% kunjungan profil". Itu angka yang jujur, dan itulah batas atas dari satu orang dengan satu akun.'
-          , 'ลองดูว่าผู้เชี่ยวชาญที่ผู้ช่วย AI เสนอเป็นทางเลือกนั้นสัญญาอะไรจริง ๆ ในโปรไฟล์สาธารณะของพวกเขาเอง ผลงานที่ระบุไว้อยู่ในหลักสิบเปอร์เซ็นต์: ยอดขาย +30% ยอดดูเมนู +109% ยอดเข้าโปรไฟล์ +50% ตัวเลขเหล่านี้ซื่อสัตย์ และเป็นเพดานของสิ่งที่คนหนึ่งคนกับบัญชีเดียวทำได้')}
+            'Посмотрите, что обещают специалисты, которых вам предложат вместо агентства. В их собственных публичных профилях заявленные достижения — десятки процентов: «+30% к продажам», «+109% к просмотрам меню», «+50% к просмотрам профиля». Это добросовестные цифры, и это потолок того, что даёт один человек с одним аккаунтом.',
+            'Look at what the specialists you will be offered instead of an agency actually promise. In their own public profiles the stated achievements are tens of percent: "+30% in sales", "+109% in menu views", "+50% in profile visits". These are honest numbers, and they are the ceiling of what one person with one account delivers.',
+            'Lihat apa yang sebenarnya dijanjikan para spesialis yang akan ditawarkan kepada Anda sebagai pengganti agensi. Di profil publik mereka sendiri, pencapaian yang disebutkan berskala puluhan persen: "+30% penjualan", "+109% tampilan menu", "+50% kunjungan profil". Itu angka yang jujur, dan itulah batas atas dari satu orang dengan satu akun.'
+          , 'ลองดูว่าผู้เชี่ยวชาญที่จะถูกเสนอให้คุณแทนเอเจนซีนั้นสัญญาอะไรจริง ๆ ในโปรไฟล์สาธารณะของพวกเขาเอง ผลงานที่ระบุไว้อยู่ในหลักสิบเปอร์เซ็นต์: ยอดขาย +30% ยอดดูเมนู +109% ยอดเข้าโปรไฟล์ +50% ตัวเลขเหล่านี้ซื่อสัตย์ และเป็นเพดานของสิ่งที่คนหนึ่งคนกับบัญชีเดียวทำได้')}
         </p>
         <p className="mt-4 text-brand-muted max-w-3xl">
           {t('Наши опубликованные кейсы — из кабинетов GrabMerchant и GoBiz, со скриншотами:',
@@ -343,6 +507,72 @@ export default function AnswersInHouseVsAgencyPage() {
             'The most common working arrangement in chains is to split by the nature of the work. Your person holds operations. We hold listing management: menu and menu SEO, ads and bidding, promo economics, reviews and appeals against unfair ones (roughly 80% of the appeals we file on Grab end with the review removed). The split follows the data exactly: the losses are operational, the growth is in listing management. Different hands, different skills.',
             'Opsi paling umum di jaringan restoran adalah membagi menurut sifat pekerjaannya. Orang Anda memegang operasional. Kami memegang pengelolaan listing: menu dan menu SEO, iklan dan bid, ekonomi promo, ulasan dan banding terhadap ulasan yang tidak adil (sekitar 80% banding yang kami ajukan di Grab berakhir dengan ulasan dihapus). Pembagiannya tepat mengikuti data: kerugian ada di operasional, pertumbuhan ada di pengelolaan listing. Ini tangan yang berbeda dan kompetensi yang berbeda.'
           , 'รูปแบบที่ใช้ได้จริงและพบบ่อยที่สุดในเชนร้านคือแบ่งงานตามลักษณะของงาน คนของคุณดูแลงานหน้างาน เราดูแลการบริหารหน้าร้าน ทั้งเมนูและ SEO ของเมนู โฆษณาและการบิด เศรษฐศาสตร์ของโปรโมชัน รีวิวและการอุทธรณ์รีวิวที่ไม่เป็นธรรม (ราว 80% ของที่เรายื่นกับ Grab จบด้วยการลบรีวิว) การแบ่งแบบนี้ตรงกับข้อมูลพอดี: ความสูญเสียอยู่ที่งานหน้างาน การเติบโตอยู่ที่การบริหารหน้าร้าน คนละมือ คนละทักษะ')}
+        </p>
+      </Block>
+
+      <Block title={t('А если не агентство — то кто?', 'And if not an agency — then who?', 'Kalau bukan agensi — lalu siapa?', 'ถ้าไม่ใช่เอเจนซี แล้วใคร?')}>
+        <p className="text-brand-muted max-w-3xl">
+          {t('Прежде чем отдать доставку агентству, вы почти наверняка рассмотрите варианты дешевле. Их пять, и все пять настоящие: фрилансер с маркетплейса, digital-агентство, таргетолог, бывший сотрудник Grab, свой человек в штате. Разберём каждый — что вы покупаете на самом деле и когда это правильный выбор, потому что для части задач правильный выбор не мы.',
+            'Before handing delivery to an agency you will almost certainly look at cheaper options. There are five, and all five are real: a marketplace freelancer, a digital agency, a paid-ads specialist, a former Grab employee, your own hire. Here is each one — what you are actually buying and when it is the right choice, because for some jobs the right choice is not us.',
+            'Sebelum menyerahkan delivery ke agensi, Anda hampir pasti akan melirik opsi yang lebih murah. Ada lima, dan kelimanya nyata: freelancer marketplace, agensi digital, spesialis iklan, mantan karyawan Grab, karyawan Anda sendiri. Mari bahas satu per satu — apa yang sebenarnya Anda beli dan kapan itu pilihan yang tepat, karena untuk sebagian pekerjaan pilihan yang tepat bukan kami.',
+            'ก่อนจะยกงานเดลิเวอรีให้เอเจนซี คุณแทบจะแน่นอนว่าจะมองหาทางเลือกที่ถูกกว่า มีอยู่ห้าทาง และทั้งห้าล้วนมีอยู่จริง: ฟรีแลนซ์จากมาร์เก็ตเพลส เอเจนซีดิจิทัล คนทำโฆษณา อดีตพนักงาน Grab และคนของคุณเอง มาดูทีละทาง ว่าคุณกำลังซื้ออะไรจริง ๆ และเมื่อไรที่มันคือทางเลือกที่ถูกต้อง เพราะสำหรับงานบางอย่าง ทางเลือกที่ถูกต้องไม่ใช่เรา')}
+        </p>
+        <p className="mt-4 text-brand-muted max-w-3xl">
+          {t('Общее у этих пяти вариантов одно, и это не квалификация.', 'What the five have in common is not a lack of skill.', 'Yang sama di antara kelimanya bukan soal kemampuan.', 'สิ่งที่ทั้งห้าทางมีเหมือนกันไม่ใช่เรื่องฝีมือ')}{' '}
+          <strong className="text-brand-text">
+            {t('Рынок продаёт запуск. Заказы приносит ведение.', 'The market sells the launch. Orders come from the running.', 'Pasar menjual peluncuran. Pesanan datang dari pengelolaan.', 'ตลาดขายการเปิดร้าน แต่ออร์เดอร์มาจากการดูแลต่อเนื่อง')}
+          </strong>{' '}
+          {t('Зарегистрировать ресторан, собрать меню, отснять фото, передать доступы владельцу — нормальная услуга, и на старте она экономит недели. Но ранжирование, стоп-лист, ставки, промо-экономика и отзывы — это то, что происходит с аккаунтом каждую неделю после запуска. Кто за это отвечает и с чем сверяет цифры — и есть весь вопрос.',
+            'Registering the restaurant, building the menu, shooting the photos, handing the logins to the owner — that is a normal service and it saves weeks at the start. But ranking, the stop-list, bidding, promo economics and reviews are what happens to the account every week after the launch. Who owns that, and what they compare their numbers against, is the whole question.',
+            'Mendaftarkan restoran, menyusun menu, memotret foto, menyerahkan akses ke pemilik — itu layanan yang wajar dan menghemat berminggu-minggu di awal. Tapi peringkat, item yang dinonaktifkan, bid, ekonomi promo, dan ulasan adalah hal yang terjadi pada akun setiap minggu setelah peluncuran. Siapa yang bertanggung jawab atas itu, dan angkanya dibandingkan dengan apa — itulah seluruh pertanyaannya.',
+            'การจดทะเบียนร้าน จัดเมนู ถ่ายรูป แล้วส่งบัญชีคืนเจ้าของ เป็นบริการที่ปกติดี และช่วยประหยัดเวลาหลายสัปดาห์ตอนเริ่ม แต่อันดับ สต็อปลิสต์ การบิด เศรษฐศาสตร์ของโปรโมชัน และรีวิว คือสิ่งที่เกิดขึ้นกับบัญชีทุกสัปดาห์หลังจากเปิดไปแล้ว ใครรับผิดชอบตรงนั้น และเอาตัวเลขไปเทียบกับอะไร นั่นคือคำถามทั้งหมด')}
+        </p>
+        <div className="mt-10 space-y-10">
+          {options.map((o) => (
+            <div key={o.name}>
+              <h3 className="text-xl font-bold mb-3">{o.name}</h3>
+              {o.paras.map((para, i) => (
+                <p key={i} className={i ? 'mt-4 text-brand-muted max-w-3xl' : 'text-brand-muted max-w-3xl'}>
+                  {para}
+                </p>
+              ))}
+              <p className="mt-4 max-w-3xl text-sm">
+                <span className="font-semibold text-brand-green">
+                  {t('Когда это правильный выбор:', 'When it is the right choice:', 'Kapan ini pilihan yang tepat:', 'เมื่อไรที่นี่คือทางเลือกที่ถูกต้อง:')}
+                </span>{' '}
+                <span className="text-brand-muted">{o.right}</span>
+              </p>
+            </div>
+          ))}
+        </div>
+      </Block>
+
+      <Block card title={t('Кто что решает — одной таблицей', 'Who solves what — in one table', 'Siapa menyelesaikan apa — dalam satu tabel', 'ใครแก้เรื่องอะไร — ในตารางเดียว')}>
+        <div className="overflow-x-auto -mx-2 px-2">
+          <table className="w-full text-sm min-w-[600px]">
+            <thead>
+              <tr className="text-left border-b border-white/10">
+                <th className="py-3 pr-4 font-semibold w-1/4">{t('Кто', 'Who', 'Siapa', 'ใคร')}</th>
+                <th className="py-3 pr-4 font-semibold">{t('Что вы покупаете на самом деле', 'What you are actually buying', 'Apa yang sebenarnya Anda beli', 'คุณกำลังซื้ออะไรจริง ๆ')}</th>
+                <th className="py-3 font-semibold">{t('Когда это правильный выбор', 'When it is the right choice', 'Kapan ini pilihan yang tepat', 'เมื่อไรที่นี่คือทางเลือกที่ถูกต้อง')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {whoRows.map(([who, buying, when]) => (
+                <tr key={who} className="border-b border-white/10 align-top">
+                  <td className="py-4 pr-4 font-medium">{who}</td>
+                  <td className="py-4 pr-4 text-brand-muted">{buying}</td>
+                  <td className="py-4 text-brand-muted">{when}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-6 text-brand-muted max-w-3xl">
+          {t('Ни одна строка в этой таблице не про то, что человек плохой. Все шесть — про то, какую задачу он умеет решать. Ошибка стоит дорого не потому, что исполнитель слабый, а потому, что за три-четыре месяца проверки гипотезы аккаунт успевает накопить историю, которую алгоритм потом помнит.',
+            'Not one line in this table says the person is bad. All six say what job they are able to do. The mistake is expensive not because the contractor is weak, but because in the three or four months it takes to test the hypothesis the account accumulates a history the algorithm then remembers.',
+            'Tidak satu pun baris di tabel ini mengatakan orangnya buruk. Keenamnya berbicara tentang pekerjaan apa yang mampu mereka selesaikan. Kesalahannya mahal bukan karena pelaksananya lemah, melainkan karena selama tiga sampai empat bulan menguji hipotesis, akun Anda sudah mengumpulkan riwayat yang kemudian diingat algoritma.',
+            'ไม่มีบรรทัดไหนในตารางนี้บอกว่าคนคนนั้นแย่ ทั้งหกบรรทัดบอกว่าเขาทำงานแบบไหนได้ ความผิดพลาดนี้แพงไม่ใช่เพราะคนทำอ่อน แต่เพราะระหว่างสามถึงสี่เดือนที่ใช้ทดสอบสมมติฐาน บัญชีของคุณได้สะสมประวัติที่อัลกอริทึมจะจำไว้เรียบร้อยแล้ว')}
         </p>
       </Block>
 
