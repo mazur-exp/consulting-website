@@ -8,15 +8,18 @@ export interface CaseStat {
   labelRu: string;
   labelEn: string;
   labelId?: string;
+  labelTh?: string;
   subRu?: string;
   subEn?: string;
   subId?: string;
+  subTh?: string;
 }
 
 export interface BeforeAfterRow {
   metricRu: string;
   metricEn: string;
   metricId?: string;
+  metricTh?: string;
   before: string;
   after: string;
 }
@@ -25,9 +28,11 @@ export interface WorkBlock {
   titleRu: string;
   titleEn: string;
   titleId?: string;
+  titleTh?: string;
   itemsRu: string[];
   itemsEn: string[];
   itemsId?: string[];
+  itemsTh?: string[];
 }
 
 export interface CaseStudy {
@@ -35,22 +40,28 @@ export interface CaseStudy {
   nameRu: string;
   nameEn: string;
   nameId?: string;
+  nameTh?: string;
   locationRu: string;
   locationEn: string;
   locationId?: string;
+  locationTh?: string;
   periodRu: string;
   periodEn: string;
   periodId?: string;
+  periodTh?: string;
   headlineRu: string;
   headlineEn: string;
   headlineId?: string;
+  headlineTh?: string;
   heroStats: CaseStat[];
   situationRu: string;
   situationEn: string;
   situationId?: string;
+  situationTh?: string;
   problemsRu: string[];
   problemsEn: string[];
   problemsId?: string[];
+  problemsTh?: string[];
   work: WorkBlock[];
   results: CaseStat[];
   beforeAfter: BeforeAfterRow[];

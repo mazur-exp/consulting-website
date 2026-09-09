@@ -320,7 +320,7 @@ export const KeepReading = ({ currentHref }: { currentHref: string }) => {
             className="text-brand-green hover:underline text-sm"
             data-testid={`keep-reading-${m.href}`}
           >
-            {t(m.titleRu, m.titleEn, m.titleId)}
+            {t(m.titleRu, m.titleEn, m.titleId, m.titleTh)}
           </a>
         ))}
       </div>

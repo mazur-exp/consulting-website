@@ -10,12 +10,15 @@ export interface CaseCard {
   labelRu: string;
   labelEn: string;
   labelId?: string;
+  labelTh?: string;
   nameRu: string;
   nameEn: string;
   nameId?: string;
+  nameTh?: string;
   detailRu: string;
   detailEn: string;
   detailId?: string;
+  detailTh?: string;
   /** Slug of a full case study page under /cases/<slug> */
   caseSlug?: string;
 }
@@ -28,23 +31,28 @@ export interface CountryConfig {
   nameRu: string;
   nameEn: string;
   nameId?: string;
+  nameTh?: string;
   /** "на Бали", "в Таиланде" — used inside sentences */
   inCountryRu: string;
   inCountryEn: string;
   inCountryId?: string;
+  inCountryTh?: string;
   /** Main city / hub shown in SEO + schema */
   cityRu: string;
   cityEn: string;
   cityId?: string;
+  cityTh?: string;
   /** Delivery platforms served in this market */
   platformsRu: string;
   platformsEn: string;
   platformsId?: string;
+  platformsTh?: string;
   /** Short platform token for FAQ/pricing, e.g. "GoJek/Grab" */
   platformsShort: string;
   socialProofRu: string;
   socialProofEn: string;
   socialProofId?: string;
+  socialProofTh?: string;
   cases: CaseCard[];
   caseImages: { src: string; alt: string }[];
   /** Named clients shown as chips; null hides the section */
@@ -52,6 +60,7 @@ export interface CountryConfig {
   clientsTitleRu: string;
   clientsTitleEn: string;
   clientsTitleId?: string;
+  clientsTitleTh?: string;
   /** Bali-specific blocks — testimonials and the Bali market video */
   showTestimonials: boolean;
   showVideo: boolean;

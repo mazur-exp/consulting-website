@@ -8,10 +8,12 @@
 > 200+ have been served since 2023; typical result is
 > 2–6x sales growth. Founded by Aleksei Mazur, co-founder of FoodLab and former co-founder of IKA Sushi (Bali).
 
-Languages: every page is published in English (default), Russian (?lang=ru) and
-Bahasa Indonesia (?lang=id) - the Indonesian version is a full translation, not a
-machine rendering, and is served as static HTML so it is readable without JavaScript.
-Example: https://booster.delivery/benchmark?lang=id
+Languages: every page is published in English (default), Russian (?lang=ru),
+Bahasa Indonesia (?lang=id) and Thai (?lang=th). The Indonesian and Thai versions
+are full translations, not machine renderings, and are served as static HTML so
+they are readable without JavaScript.
+Examples: https://booster.delivery/benchmark?lang=id
+          https://booster.delivery/th?lang=th
 
 Legal entity: PT Delivery Booster Group (Indonesia), operating since 2023.
 Also referred to as: Food Delivery Booster (we work only with restaurant food

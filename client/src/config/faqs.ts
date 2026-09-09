@@ -6,7 +6,9 @@ export interface FaqItem {
   aRu: string;
   aEn: string;
   qId?: string;
+  qTh?: string;
   aId?: string;
+  aTh?: string;
 }
 
 /** "di Bali", "di Thailand" — Indonesian counterpart of inCountryRu/inCountryEn. */

@@ -4,6 +4,7 @@ const OPTIONS = [
   { code: 'ru', label: 'RU' },
   { code: 'en', label: 'EN' },
   { code: 'id', label: 'ID' },
+  { code: 'th', label: 'TH' },
 ] as const;
 
 export const LanguageToggle = () => {

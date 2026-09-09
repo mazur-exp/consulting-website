@@ -76,13 +76,13 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // Language variants: bots do not run JS, so ?lang=id must serve a Bahasa
-  // snapshot rather than the English one. Prerender writes them to
+  // Language variants: bots do not run JS, so ?lang=id / ?lang=th must serve the
+  // Bahasa or Thai snapshot rather than the English one. Prerender writes them to
   // public/lang-<code>/<route>.html; if the variant is missing we fall through
   // to the default snapshot below.
   app.use((req, res, next) => {
     const lang = typeof req.query.lang === 'string' ? req.query.lang : '';
-    if (!/^(id|ru)$/.test(lang)) return next();
+    if (!/^(id|ru|th)$/.test(lang)) return next();
     const clean = req.path.replace(/\/+$/, '') || '/index';
     const rel = (clean === '/index' ? '/index' : clean) + '.html';
     const candidate = path.resolve(distPath, `lang-${lang}`, '.' + rel);

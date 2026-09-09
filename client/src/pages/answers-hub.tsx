@@ -43,8 +43,8 @@ export default function AnswersHubPage() {
       '@type': 'ListItem',
       position: i + 1,
       url: `https://booster.delivery${m.href}`,
-      name: t(m.titleRu, m.titleEn, m.titleId),
-      description: t(m.gistRu, m.gistEn, m.gistId),
+      name: t(m.titleRu, m.titleEn, m.titleId, m.titleTh),
+      description: t(m.gistRu, m.gistEn, m.gistId, m.gistTh),
     })),
   };
 

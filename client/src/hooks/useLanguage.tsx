@@ -1,15 +1,17 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-type Language = 'ru' | 'en' | 'id';
+type Language = 'ru' | 'en' | 'id' | 'th';
 
-const LANGS: Language[] = ['ru', 'en', 'id'];
+const LANGS: Language[] = ['ru', 'en', 'id', 'th'];
 const isLang = (v: unknown): v is Language => LANGS.includes(v as Language);
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  /** t(ru, en, id?) — Bahasa falls back to English until a page is translated. */
-  t: (ru: string, en: string, id?: string) => string;
+  /** t(ru, en, id?, th?) — Bahasa and Thai fall back to English until a page is
+   *  translated. Adding a language means adding an optional argument, never
+   *  touching the 600+ existing call sites. */
+  t: (ru: string, en: string, id?: string, th?: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -17,7 +19,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const detectBrowserLanguage = (): Language => {
   if (typeof window === 'undefined') return 'ru';
 
-  // Priority 1: URL parameter (?lang=en / ?lang=ru / ?lang=id)
+  // Priority 1: URL parameter (?lang=en / ?lang=ru / ?lang=id / ?lang=th)
   const urlLang = new URLSearchParams(window.location.search).get('lang');
   if (isLang(urlLang)) {
     localStorage.setItem('preferredLanguage', urlLang);
@@ -33,6 +35,7 @@ const detectBrowserLanguage = (): Language => {
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith('ru')) return 'ru';
   if (browserLang.startsWith('id') || browserLang.startsWith('in')) return 'id';
+  if (browserLang.startsWith('th')) return 'th';
   return 'en';
 };
 
@@ -51,6 +54,7 @@ const syncCanonicalAndAlternates = (language: Language) => {
     ['en', base],
     ['ru', `${base}?lang=ru`],
     ['id', `${base}?lang=id`],
+    ['th', `${base}?lang=th`],
     ['x-default', base],
   ];
   document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
@@ -82,9 +86,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     syncCanonicalAndAlternates(language);
   }, [language]);
 
-  const t = (ru: string, en: string, id?: string): string => {
+  const t = (ru: string, en: string, id?: string, th?: string): string => {
     if (language === 'ru') return ru;
     if (language === 'id') return id ?? en;
+    if (language === 'th') return th ?? en;
     return en;
   };
 

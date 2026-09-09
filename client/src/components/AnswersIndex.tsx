@@ -19,9 +19,11 @@ export interface Material {
   titleRu: string;
   titleEn: string;
   titleId: string;
+  titleTh?: string;
   gistRu: string;
   gistEn: string;
   gistId: string;
+  gistTh?: string;
 }
 
 export const ANSWER_MATERIALS: Material[] = [
@@ -139,10 +141,10 @@ export const MaterialCard = ({ m, large = false }: { m: Material; large?: boolea
           large ? 'text-xl sm:text-2xl' : 'text-base sm:text-lg'
         }`}
       >
-        {t(m.titleRu, m.titleEn, m.titleId)}
+        {t(m.titleRu, m.titleEn, m.titleId, m.titleTh)}
       </h3>
       <p className={`text-brand-muted mt-2 ${large ? 'text-base' : 'text-sm'}`}>
-        {t(m.gistRu, m.gistEn, m.gistId)}
+        {t(m.gistRu, m.gistEn, m.gistId, m.gistTh)}
       </p>
     </a>
   );

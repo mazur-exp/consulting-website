@@ -70,18 +70,18 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
 
               <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                 <p className="text-brand-green font-medium mb-3 uppercase tracking-wide text-sm">
-                  {t('Кейс · GrabFood ·', 'Case study · GrabFood ·', 'Studi kasus · GrabFood ·')} {t(c.locationRu, c.locationEn, c.locationId)}
+                  {t('Кейс · GrabFood ·', 'Case study · GrabFood ·', 'Studi kasus · GrabFood ·')} {t(c.locationRu, c.locationEn, c.locationId, c.locationTh)}
                 </p>
                 <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-4" data-testid="text-case-title">
-                  {t(c.nameRu, c.nameEn, c.nameId)}: {t(c.headlineRu, c.headlineEn, c.headlineId)}
+                  {t(c.nameRu, c.nameEn, c.nameId, c.nameTh)}: {t(c.headlineRu, c.headlineEn, c.headlineId, c.headlineTh)}
                 </h1>
-                <p className="text-brand-muted text-lg mb-8">{t(c.periodRu, c.periodEn, c.periodId)}</p>
+                <p className="text-brand-muted text-lg mb-8">{t(c.periodRu, c.periodEn, c.periodId, c.periodTh)}</p>
 
                 <div className="grid grid-cols-3 gap-4 max-w-xl">
                   {c.heroStats.map((s, i) => (
                     <div key={i} className="glass-card rounded-xl p-4 text-center">
                       <p className="text-2xl sm:text-3xl font-bold text-brand-green">{s.value}</p>
-                      <p className="text-sm text-brand-muted mt-1">{t(s.labelRu, s.labelEn, s.labelId)}</p>
+                      <p className="text-sm text-brand-muted mt-1">{t(s.labelRu, s.labelEn, s.labelId, s.labelTh)}</p>
                     </div>
                   ))}
                 </div>
@@ -93,7 +93,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
           <section className="py-14 border-t border-white/10">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-bold mb-4">{t('Ситуация до начала работы', 'The situation before we started', 'Situasi sebelum kami mulai')}</h2>
-              <p className="text-brand-muted text-lg mb-8 max-w-3xl">{t(c.situationRu, c.situationEn, c.situationId)}</p>
+              <p className="text-brand-muted text-lg mb-8 max-w-3xl">{t(c.situationRu, c.situationEn, c.situationId, c.situationTh)}</p>
               <ul className="space-y-3 max-w-3xl">
                 {(language === 'ru' ? c.problemsRu : language === 'id' ? c.problemsId ?? c.problemsEn : c.problemsEn).map((p, i) => (
                   <li key={i} className="flex items-start gap-3 text-brand-muted">
@@ -119,7 +119,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                     <div className="w-9 h-9 brand-gradient rounded-lg flex items-center justify-center text-white font-bold mb-4">
                       {i + 1}
                     </div>
-                    <h3 className="font-semibold text-lg mb-4">{t(w.titleRu, w.titleEn, w.titleId)}</h3>
+                    <h3 className="font-semibold text-lg mb-4">{t(w.titleRu, w.titleEn, w.titleId, w.titleTh)}</h3>
                     <ul className="space-y-2.5">
                       {(language === 'ru' ? w.itemsRu : language === 'id' ? w.itemsId ?? w.itemsEn : w.itemsEn).map((item, j) => (
                         <li key={j} className="flex items-start gap-2 text-sm text-brand-muted">
@@ -142,7 +142,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                 {c.results.map((r, i) => (
                   <div key={i} className="glass-card rounded-2xl p-6 text-center" data-testid={`case-result-${i}`}>
                     <p className="text-3xl sm:text-4xl font-bold text-brand-green mb-2">{r.value}</p>
-                    <p className="text-brand-text font-medium">{t(r.labelRu, r.labelEn, r.labelId)}</p>
+                    <p className="text-brand-text font-medium">{t(r.labelRu, r.labelEn, r.labelId, r.labelTh)}</p>
                     {r.subRu && <p className="text-sm text-brand-muted mt-1">{t(r.subRu, r.subEn || r.subRu, r.subId)}</p>}
                   </div>
                 ))}
@@ -161,7 +161,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                   <tbody>
                     {c.beforeAfter.map((row, i) => (
                       <tr key={i} className="border-b border-white/5 last:border-0">
-                        <td className="px-6 py-3.5 text-brand-text">{t(row.metricRu, row.metricEn, row.metricId)}</td>
+                        <td className="px-6 py-3.5 text-brand-text">{t(row.metricRu, row.metricEn, row.metricId, row.metricTh)}</td>
                         <td className="px-6 py-3.5 text-red-400">{row.before}</td>
                         <td className="px-6 py-3.5 text-brand-green font-semibold">{row.after}</td>
                       </tr>

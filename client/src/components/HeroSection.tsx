@@ -33,7 +33,7 @@ export const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-brand-muted text-center lg:text-left" data-testid="text-hero-social-proof">
-              {t(country.socialProofRu, country.socialProofEn, country.socialProofId)}
+              {t(country.socialProofRu, country.socialProofEn, country.socialProofId, country.socialProofTh)}
             </p>
 
             <p className="text-xl text-brand-muted leading-relaxed" data-testid="text-hero-subtitle">

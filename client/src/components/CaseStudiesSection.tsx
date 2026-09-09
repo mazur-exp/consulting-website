@@ -90,10 +90,10 @@ export const CaseStudiesSection = () => {
               data-testid={`card-case-stat-${index}`}
             >
               <p className="text-3xl font-bold text-brand-green mb-2">{c.value}</p>
-              <p className="text-brand-muted">{t(c.labelRu, c.labelEn, c.labelId)}</p>
-              <p className="text-sm text-brand-muted mt-2">{t(c.nameRu, c.nameEn, c.nameId)}</p>
+              <p className="text-brand-muted">{t(c.labelRu, c.labelEn, c.labelId, c.labelTh)}</p>
+              <p className="text-sm text-brand-muted mt-2">{t(c.nameRu, c.nameEn, c.nameId, c.nameTh)}</p>
               {(c.detailRu || c.detailEn) && (
-                <p className="text-xs text-brand-muted mt-1">{t(c.detailRu, c.detailEn, c.detailId)}</p>
+                <p className="text-xs text-brand-muted mt-1">{t(c.detailRu, c.detailEn, c.detailId, c.detailTh)}</p>
               )}
               {c.caseSlug && (
                 <Link

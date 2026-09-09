@@ -74,9 +74,11 @@ try {
 
   // 'en' writes the default snapshots bots get on the bare URL; every other
   // language writes a parallel tree under lang-<code>/ that the server hands
-  // out for ?lang=<code>. Without this, a Bahasa page exists only after JS runs
-  // — i.e. never, for the crawlers we care about.
-  const LANGS = ['en', 'id'];
+  // out for ?lang=<code>. Without this, a Bahasa or Thai page exists only after
+  // JS runs — i.e. never, for the crawlers we care about.
+  // Тайский добавлен 09.09: замер показал 0 из 8 упоминаний на тайском языке
+  // при 15 тайских клиентах. Дыра была не в контенте, а в языке.
+  const LANGS = ['en', 'id', 'th'];
   let count = 0;
 
   for (const lang of LANGS)
