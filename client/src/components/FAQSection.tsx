@@ -16,13 +16,13 @@ export const FAQSection = () => {
   const platforms = country.platformsShort;
 
   const extendedFaqs = getCountryFaqs(country).map((f) => ({
-    q: { ru: f.qRu, en: f.qEn, id: f.qId ?? f.qEn },
-    a: { ru: f.aRu, en: f.aEn, id: f.aId ?? f.aEn },
+    q: { ru: f.qRu, en: f.qEn, id: f.qId ?? f.qEn, th: f.qTh ?? f.qEn },
+    a: { ru: f.aRu, en: f.aEn, id: f.aId ?? f.aEn, th: f.aTh ?? f.aEn },
   }));
 
   const faqs = [
     {
-      q: { ru: "Сколько стоит?", en: "How much does it cost?", id: "Berapa biayanya?" },
+      q: { ru: "Сколько стоит?", en: "How much does it cost?", id: "Berapa biayanya?", th: "ราคาเท่าไหร่?" },
       a: {
         ru: (
           <>
@@ -41,11 +41,17 @@ export const FAQSection = () => {
             Praktis gratis - cari tahu caranya di <a href="https://wa.me/79520029077" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
             {'\n'}10% dari omzet {platforms}. Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.
           </>
+        ),
+        th: (
+          <>
+            แทบจะฟรี — ถามวิธีได้ใน<a href="https://wa.me/79520029077" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">แชท</a>
+            {'\n'}10% ของรายได้จาก {platforms} เฉลี่ย $400-800/เดือน ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า
+          </>
         )
       }
     },
     {
-      q: { ru: "Как быстро результат?", en: "How fast are results?", id: "Seberapa cepat hasilnya?" },
+      q: { ru: "Как быстро результат?", en: "How fast are results?", id: "Seberapa cepat hasilnya?", th: "เห็นผลเร็วแค่ไหน?" },
       a: {
         ru: "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении и 200+, прошедшими через агентство с 2023 года.",
         en: "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management and 200+ served since 2023.",
@@ -54,7 +60,7 @@ export const FAQSection = () => {
       }
     },
     {
-      q: { ru: "Есть гарантия?", en: "Is there a guarantee?", id: "Ada garansi?" },
+      q: { ru: "Есть гарантия?", en: "Is there a guarantee?", id: "Ada garansi?", th: "มีการรับประกันไหม?" },
       a: {
         ru: "Да. Целевые продажи за 6 месяцев или возврат комиссии.",
         en: "Yes. Target sales in 6 months or commission refund.",
@@ -63,15 +69,16 @@ export const FAQSection = () => {
       }
     },
     {
-      q: { ru: "Что входит?", en: "What's included?", id: "Apa saja yang termasuk?" },
+      q: { ru: "Что входит?", en: "What's included?", id: "Apa saja yang termasuk?", th: "ครอบคลุมอะไรบ้าง?" },
       a: {
         ru: `Полное управление ${platforms}. Вы тратите 0 часов, получаете отчеты.`,
         en: `Full ${platforms} management. You spend 0 hours, get reports.`,
-        id: `Pengelolaan penuh ${platforms}. Anda habiskan 0 jam, laporan tetap Anda terima.`
+        id: `Pengelolaan penuh ${platforms}. Anda habiskan 0 jam, laporan tetap Anda terima.`,
+        th: `ดูแล ${platforms} แบบครบวงจร คุณใช้เวลา 0 ชั่วโมง และยังได้รับรายงานตามปกติ`
       }
     },
     {
-      q: { ru: "Почему не делать самому?", en: "Why not do it yourself?", id: "Kenapa tidak dikerjakan sendiri?" },
+      q: { ru: "Почему не делать самому?", en: "Why not do it yourself?", id: "Kenapa tidak dikerjakan sendiri?", th: "ทำไมไม่ทำเองล่ะ?" },
       a: {
         ru: "Можете! Самостоятельное обучение займёт 3-6 месяцев, а ошибки в процессе обойдутся в $5-10k упущенной прибыли и времени.",
         en: "You can! Self-learning will take 3-6 months, and mistakes along the way will cost you $5-10k in lost profits and time.",
@@ -117,7 +124,9 @@ export const FAQSection = () => {
                       ? faq.q.ru
                       : language === 'id'
                         ? faq.q.id
-                        : faq.q.en}
+                        : language === 'th'
+                          ? faq.q.th
+                          : faq.q.en}
                 </AccordionTrigger>
                 <AccordionContent className="text-brand-muted text-base pt-2 whitespace-pre-line">
                   {typeof faq.a === 'object' && 'ru' in faq.a
@@ -125,7 +134,9 @@ export const FAQSection = () => {
                       ? faq.a.ru
                       : language === 'id'
                         ? faq.a.id
-                        : faq.a.en
+                        : language === 'th'
+                          ? faq.a.th
+                          : faq.a.en
                     : faq.a}
                 </AccordionContent>
               </AccordionItem>
