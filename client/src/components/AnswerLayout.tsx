@@ -73,8 +73,8 @@ export const ArticleMeta = ({
       <span aria-hidden="true">·</span>
       <time dateTime={updated ? dateModified : datePublished}>
         {updated
-          ? t(`Обновлено ${fmt(dateModified!)}`, `Updated ${fmt(dateModified!)}`, `Diperbarui ${fmt(dateModified!)}`)
-          : t(`Опубликовано ${fmt(datePublished)}`, `Published ${fmt(datePublished)}`, `Dipublikasikan ${fmt(datePublished)}`)}
+          ? t(`Обновлено ${fmt(dateModified!)}`, `Updated ${fmt(dateModified!)}`, `Diperbarui ${fmt(dateModified!)}`, `อัปเดต ${fmt(dateModified!)}`)
+          : t(`Опубликовано ${fmt(datePublished)}`, `Published ${fmt(datePublished)}`, `Dipublikasikan ${fmt(datePublished)}`, `เผยแพร่ ${fmt(datePublished)}`)}
       </time>
       {minutes ? (
         <>

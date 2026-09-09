@@ -24,7 +24,8 @@ export const PricingSection = () => {
             {t(
               `10% от выручки ${country.platformsShort} (среднее $400-800/мес).`,
               `10% of ${country.platformsShort} revenue (average $400-800/month).`,
-              `10% dari omzet ${country.platformsShort} (rata-rata $400-800/bulan).`
+              `10% dari omzet ${country.platformsShort} (rata-rata $400-800/bulan).`,
+              `10% ของรายได้จาก ${country.platformsShort} (เฉลี่ย $400-800/เดือน)`
             )}
           </p>
 

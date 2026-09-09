@@ -109,16 +109,16 @@ export const ASSET_MATERIALS: Material[] = [
   },
 ];
 
-const KIND_LABEL: Record<MaterialKind, [string, string, string]> = {
-  answer: ['Ответ', 'Answer', 'Jawaban'],
-  data: ['Данные', 'Data', 'Data'],
-  method: ['Метод', 'Method', 'Metode'],
+const KIND_LABEL: Record<MaterialKind, [string, string, string, string]> = {
+  answer: ['Ответ', 'Answer', 'Jawaban', 'คำตอบ'],
+  data: ['Данные', 'Data', 'Data', 'ข้อมูล'],
+  method: ['Метод', 'Method', 'Metode', 'เมธอด'],
 };
 
 /** Card for one material. Uses a real <a href> so crawlers follow it without JS. */
 export const MaterialCard = ({ m, large = false }: { m: Material; large?: boolean }) => {
   const { t } = useLanguage();
-  const [lr, le, li] = KIND_LABEL[m.kind];
+  const [lr, le, li, lt] = KIND_LABEL[m.kind];
 
   return (
     <a
@@ -130,7 +130,7 @@ export const MaterialCard = ({ m, large = false }: { m: Material; large?: boolea
     >
       <div className="flex items-center gap-2 mb-3">
         <span className="text-[11px] uppercase tracking-wider text-brand-green/90 border border-brand-green/30 rounded px-2 py-0.5">
-          {t(lr, le, li)}
+          {t(lr, le, li, lt)}
         </span>
         <span className="text-[11px] text-brand-muted">
           {m.minutes} {t('мин', 'min', 'menit', 'นาที')}

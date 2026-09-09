@@ -147,7 +147,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                   <div key={i} className="glass-card rounded-2xl p-6 text-center" data-testid={`case-result-${i}`}>
                     <p className="text-3xl sm:text-4xl font-bold text-brand-green mb-2">{r.value}</p>
                     <p className="text-brand-text font-medium">{t(r.labelRu, r.labelEn, r.labelId, r.labelTh)}</p>
-                    {r.subRu && <p className="text-sm text-brand-muted mt-1">{t(r.subRu, r.subEn || r.subRu, r.subId)}</p>}
+                    {r.subRu && <p className="text-sm text-brand-muted mt-1">{t(r.subRu, r.subEn || r.subRu, r.subId, r.subTh)}</p>}
                   </div>
                 ))}
               </div>
@@ -212,7 +212,8 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                   {t(
                     `Мы сделали это для ${c.nameRu}. Сделаем и для вас — бесплатная диагностика профиля за 24 часа.`,
                     `We did it for ${c.nameEn}. We'll do it for you — free profile audit within 24 hours.`,
-                    `Kami melakukannya untuk ${c.nameId ?? c.nameEn}. Kami bisa melakukannya untuk Anda — audit profil gratis dalam 24 jam.`
+                    `Kami melakukannya untuk ${c.nameId ?? c.nameEn}. Kami bisa melakukannya untuk Anda — audit profil gratis dalam 24 jam.`,
+                    `เราทำให้ ${c.nameTh ?? c.nameEn} มาแล้ว และทำให้คุณได้เหมือนกัน — ตรวจวิเคราะห์โปรไฟล์ฟรีภายใน 24 ชั่วโมง`
                   )}
                 </p>
                 <a
