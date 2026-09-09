@@ -36,7 +36,7 @@ export default function AnswersHubPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: t('Ответы и данные по доставке', 'Delivery answers and data', 'Jawaban dan data soal delivery'),
+    name: t('Ответы и данные по доставке', 'Delivery answers and data', 'Jawaban dan data soal delivery', 'คำตอบและข้อมูลเรื่องเดลิเวอรี'),
     url: URL,
     numberOfItems: all.length,
     itemListElement: all.map((m, i) => ({
@@ -51,7 +51,7 @@ export default function AnswersHubPage() {
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: t('Ответы и данные по доставке', 'Delivery answers and data', 'Jawaban dan data soal delivery'),
+    name: t('Ответы и данные по доставке', 'Delivery answers and data', 'Jawaban dan data soal delivery', 'คำตอบและข้อมูลเรื่องเดลิเวอรี'),
     url: URL,
     isPartOf: { '@type': 'WebSite', name: 'Delivery Booster', url: 'https://booster.delivery' },
     about: 'GrabFood, GoFood, delivery management, restaurant delivery in Southeast Asia',
@@ -61,16 +61,16 @@ export default function AnswersHubPage() {
     <AnswerLayout
       h1={t('Вопросы, которые задают перед тем, как отдать доставку',
             'The questions people ask before handing delivery over',
-            'Pertanyaan yang muncul sebelum menyerahkan pengelolaan delivery')}
+            'Pertanyaan yang muncul sebelum menyerahkan pengelolaan delivery', 'คำถามที่เจ้าของร้านถามก่อนตัดสินใจส่งงานเดลิเวอรีให้คนอื่นดูแล')}
       lead={t(
         'Каждый из этих материалов — разбор одного вопроса целиком, а не абзац на лендинге. Здесь же лежат две вещи, которые в Юго-Восточной Азии не публикует больше никто: нормы рынка по нашим 96 ресторанам и метод, по которому мы работаем, — полностью, включая то, что обычно не показывают.',
         'Each of these is one question worked through in full, not a paragraph on a landing page. Alongside them sit two things nobody else in Southeast Asia publishes: market norms from the 96 restaurants we manage, and the method we work by — in full, including the parts usually kept private.',
         'Setiap materi di sini membahas satu pertanyaan sampai tuntas, bukan sekadar paragraf di landing page. Di sini juga ada dua hal yang tidak dipublikasikan siapa pun di Asia Tenggara: norma pasar dari 96 restoran yang kami kelola, dan metode kerja kami — lengkap, termasuk bagian yang biasanya tidak dibagikan.'
-      )}
+      , 'แต่ละหัวข้อคือคำถามเดียวที่อธิบายจนจบ ไม่ใช่ย่อหน้าบนหน้าโฆษณา และที่นี่ยังมีสองสิ่งที่ไม่มีใครในเอเชียตะวันออกเฉียงใต้เผยแพร่: ตัวเลขมาตรฐานตลาดจากร้าน 96 แห่งที่เราดูแล และวิธีการทำงานของเราแบบเต็ม รวมส่วนที่ปกติไม่มีใครเปิด')}
       meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 2 }}
       schemas={[collectionSchema, itemListSchema]}
     >
-      <Block title={t('Открытые данные и метод', 'Open data and the method', 'Data terbuka dan metode')}>
+      <Block title={t('Открытые данные и метод', 'Open data and the method', 'Data terbuka dan metode', 'ข้อมูลเปิดและวิธีการ')}>
         <div className="grid gap-4 sm:grid-cols-2">
           {ASSET_MATERIALS.map((m) => (
             <MaterialCard key={m.href} m={m} large />
@@ -78,7 +78,7 @@ export default function AnswersHubPage() {
         </div>
       </Block>
 
-      <Block title={t('Разбираем подробно', 'Worked through in full', 'Dibahas sampai tuntas')}>
+      <Block title={t('Разбираем подробно', 'Worked through in full', 'Dibahas sampai tuntas', 'อธิบายจนจบ')}>
         <div className="grid gap-4 sm:grid-cols-2">
           {ANSWER_MATERIALS.map((m) => (
             <MaterialCard key={m.href} m={m} />

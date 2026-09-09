@@ -34,7 +34,7 @@ export const ConsentBanner = () => {
     <div
       className="fixed bottom-0 inset-x-0 z-50 border-t border-white/10 bg-[#0B140D]/95 backdrop-blur"
       role="region"
-      aria-label={t('Согласие на аналитику', 'Analytics consent', 'Persetujuan analitik')}
+      aria-label={t('Согласие на аналитику', 'Analytics consent', 'Persetujuan analitik', 'ความยินยอมด้านการวิเคราะห์ข้อมูล')}
       data-testid="consent-banner"
     >
       <div className="max-w-5xl mx-auto px-4 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center gap-3">
@@ -43,7 +43,7 @@ export const ConsentBanner = () => {
             'Мы считаем визиты, чтобы понимать, откуда к нам приходят. Базовая аналитика работает без кук. Google Analytics включаем только с вашего согласия.',
             'We count visits to understand where people find us. Our basic analytics works without cookies. Google Analytics runs only if you agree.',
             'Kami menghitung kunjungan untuk tahu dari mana pengunjung datang. Analitik dasar berjalan tanpa cookie. Google Analytics hanya aktif jika Anda setuju.'
-          )}
+          , 'เรานับจำนวนการเข้าชมเพื่อให้รู้ว่าผู้เข้าชมมาจากไหน การวิเคราะห์พื้นฐานทำงานโดยไม่ใช้คุกกี้ ส่วน Google Analytics จะเปิดใช้เมื่อคุณยินยอมเท่านั้น')}
         </p>
         <div className="flex gap-2 shrink-0">
           <button
@@ -51,14 +51,14 @@ export const ConsentBanner = () => {
             className="px-4 py-2 rounded-lg text-xs sm:text-sm border border-white/15 text-brand-muted hover:text-white hover:border-white/30 transition-colors"
             data-testid="consent-deny"
           >
-            {t('Только необходимые', 'Essential only', 'Hanya yang penting')}
+            {t('Только необходимые', 'Essential only', 'Hanya yang penting', 'เฉพาะที่จำเป็น')}
           </button>
           <button
             onClick={() => decide('granted')}
             className="px-4 py-2 rounded-lg text-xs sm:text-sm brand-gradient font-medium"
             data-testid="consent-accept"
           >
-            {t('Принять', 'Accept', 'Terima')}
+            {t('Принять', 'Accept', 'Terima', 'ยอมรับ')}
           </button>
         </div>
       </div>

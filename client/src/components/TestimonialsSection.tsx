@@ -112,7 +112,7 @@ export const TestimonialsSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-testimonials-title">
-            {t("Отзывы", "Testimonials", "Ulasan")}
+            {t("Отзывы", "Testimonials", "Ulasan", 'เสียงจากลูกค้า')}
           </h2>
         </motion.div>
 

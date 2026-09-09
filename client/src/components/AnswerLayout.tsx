@@ -64,11 +64,11 @@ export const ArticleMeta = ({
   return (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-brand-muted mb-6">
       <span>
-        {t('Автор: ', 'By ', 'Oleh ')}
+        {t('Автор: ', 'By ', 'Oleh ', 'โดย ')}
         <a href="/about" className="text-brand-text hover:text-brand-green transition-colors">
           Aleksei Mazur
         </a>
-        {t(', основатель Delivery Booster', ', founder of Delivery Booster', ', pendiri Delivery Booster')}
+        {t(', основатель Delivery Booster', ', founder of Delivery Booster', ', pendiri Delivery Booster', ' ผู้ก่อตั้ง Delivery Booster')}
       </span>
       <span aria-hidden="true">·</span>
       <time dateTime={updated ? dateModified : datePublished}>
@@ -79,7 +79,7 @@ export const ArticleMeta = ({
       {minutes ? (
         <>
           <span aria-hidden="true">·</span>
-          <span>{minutes} {t('мин чтения', 'min read', 'menit baca')}</span>
+          <span>{minutes} {t('мин чтения', 'min read', 'menit baca', 'นาทีในการอ่าน')}</span>
         </>
       ) : null}
     </div>
@@ -130,7 +130,7 @@ export const AnswerLayout = ({
                 data-testid="link-back-home"
               >
                 <ArrowLeft className="w-4 h-4" />
-                {t('На главную', 'Home', 'Beranda')}
+                {t('На главную', 'Home', 'Beranda', 'หน้าแรก')}
               </Link>
 
               <motion.div {...fadeIn}>
@@ -226,56 +226,56 @@ export const AnswerCta = () => {
   return (
     <Block card>
       <h2 className="text-2xl font-bold mb-2 text-center">
-        {t('Два способа двигаться дальше', 'Two ways to go from here', 'Dua cara untuk melanjutkan')}
+        {t('Два способа двигаться дальше', 'Two ways to go from here', 'Dua cara untuk melanjutkan', 'ไปต่อได้สองทาง')}
       </h2>
       <p className="text-brand-muted mb-8 max-w-2xl mx-auto text-center">
         {t(
           'Оба рабочие. Первый ничего не стоит и не требует нас.',
           'Both work. The first costs nothing and does not require us.',
           'Keduanya berhasil. Yang pertama gratis dan tidak membutuhkan kami.'
-        )}
+        , 'ได้ผลทั้งคู่ ทางแรกไม่เสียเงินและไม่ต้องพึ่งเรา')}
       </p>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-white/10 p-6 flex flex-col">
           <div className="text-[11px] uppercase tracking-wider text-brand-muted mb-2">
-            {t('Сами', 'Do it yourself', 'Sendiri')}
+            {t('Сами', 'Do it yourself', 'Sendiri', 'ทำเอง')}
           </div>
           <h3 className="text-lg font-semibold mb-2">
             {t('Метод и нормы — открыто и бесплатно',
                'The method and the norms — open and free',
-               'Metode dan norma — terbuka dan gratis')}
+               'Metode dan norma — terbuka dan gratis', 'วิธีการและตัวเลขมาตรฐาน — เปิดเผยและฟรี')}
           </h3>
           <p className="text-sm text-brand-muted mb-5 flex-1">
             {t(
               'Пять этапов, по которым мы ведём каждый аккаунт, опубликованы целиком. Рядом — нормы рынка по 96 ресторанам, чтобы было с чем сравнить свои цифры.',
               'The five stages we run on every account, published in full. Alongside them, market norms from 96 restaurants so you have something to compare your numbers against.',
               'Lima tahap yang kami jalankan di setiap akun, dipublikasikan lengkap. Di sampingnya, norma pasar dari 96 restoran sebagai pembanding angka Anda.'
-            )}
+            , 'ห้าขั้นตอนที่เราใช้กับทุกบัญชี เผยแพร่ทั้งหมด พร้อมตัวเลขมาตรฐานจากร้าน 96 แห่ง เพื่อให้คุณมีอะไรเทียบกับตัวเลขของตัวเอง')}
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="/method" className="text-brand-green hover:underline text-sm font-medium">
-              {t('Метод целиком', 'The full method', 'Metode lengkap')} →
+              {t('Метод целиком', 'The full method', 'Metode lengkap', 'ดูวิธีการทั้งหมด')} →
             </a>
             <a href="/benchmark" className="text-brand-green hover:underline text-sm font-medium">
-              {t('Бенчмарк 2026', 'Benchmark 2026', 'Benchmark 2026')} →
+              {t('Бенчмарк 2026', 'Benchmark 2026', 'Benchmark 2026', 'Benchmark 2026')} →
             </a>
           </div>
         </div>
 
         <div className="rounded-xl border border-brand-green/40 bg-brand-green/[0.06] p-6 flex flex-col">
           <div className="text-[11px] uppercase tracking-wider text-brand-green mb-2">
-            {t('С нами', 'With us', 'Bersama kami')}
+            {t('С нами', 'With us', 'Bersama kami', 'ให้เราดูแล')}
           </div>
           <h3 className="text-lg font-semibold mb-2">
-            {t('Разбор вашей карточки', 'An audit of your listing', 'Audit halaman Anda')}
+            {t('Разбор вашей карточки', 'An audit of your listing', 'Audit halaman Anda', 'วิเคราะห์หน้าร้านของคุณ')}
           </h3>
           <p className="text-sm text-brand-muted mb-5 flex-1">
             {t(
               'Вставьте ссылку на ресторан в Grab — отчёт придёт за пару минут: меню и поиск, фото по категориям, отзывы, цены против соседей. Бесплатно и без обязательств; дальше 10% от выручки доставки и без предоплаты.',
               'Paste your restaurant’s Grab link and the report comes back in a couple of minutes: menu and search, photo coverage, reviews, prices against the neighbours. Free, no strings; after that it is 10% of delivery revenue with no upfront payment.',
               'Tempel link restoran Anda di Grab dan laporannya datang dalam beberapa menit: menu dan pencarian, kelengkapan foto, ulasan, harga dibanding tetangga. Gratis, tanpa ikatan; setelahnya 10% dari omzet delivery tanpa pembayaran di muka.'
-            )}
+            , 'วางลิงก์ร้านของคุณบน Grab แล้วรับรายงานภายในไม่กี่นาที: เมนูกับการค้นหา ความครบของรูปภาพ รีวิว และราคาเทียบกับร้านข้างเคียง ฟรีและไม่มีข้อผูกมัด หลังจากนั้นคิด 10% ของยอดขายเดลิเวอรี ไม่ต้องจ่ายล่วงหน้า')}
           </p>
           <a
             href={diagnosticUrl('answer-cta', language)}
@@ -284,7 +284,7 @@ export const AnswerCta = () => {
             className="inline-block brand-gradient px-6 py-3 rounded-lg font-semibold text-center"
             data-testid="cta-diagnostic"
           >
-            {t('Разобрать мою карточку', 'Diagnose my listing', 'Analisa halaman saya')}
+            {t('Разобрать мою карточку', 'Diagnose my listing', 'Analisa halaman saya', 'วิเคราะห์ร้านของฉัน')}
           </a>
           <a
             href={messengerUrl(language)}
@@ -293,7 +293,7 @@ export const AnswerCta = () => {
             className="text-xs text-brand-muted hover:text-brand-green mt-3 text-center"
             data-testid="cta-messenger"
           >
-            {t('или напишите нам напрямую', 'or message us directly', 'atau hubungi kami langsung')} →
+            {t('или напишите нам напрямую', 'or message us directly', 'atau hubungi kami langsung', 'หรือทักหาเราโดยตรง')} →
           </a>
         </div>
       </div>
@@ -311,7 +311,7 @@ export const KeepReading = ({ currentHref }: { currentHref: string }) => {
   const { t } = useLanguage();
   const items = [...ANSWER_MATERIALS, ...ASSET_MATERIALS].filter((m) => m.href !== currentHref);
   return (
-    <Block title={t('Читайте дальше', 'Keep reading', 'Baca juga')}>
+    <Block title={t('Читайте дальше', 'Keep reading', 'Baca juga', 'อ่านต่อ')}>
       <div className="grid gap-2 sm:grid-cols-2">
         {items.map((m) => (
           <a

@@ -72,7 +72,7 @@ export const TargetAudienceSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-audience-title">
-            {t("Кому мы помогаем", "Who we help", "Untuk siapa layanan ini")}
+            {t("Кому мы помогаем", "Who we help", "Untuk siapa layanan ini", 'เราช่วยใครได้บ้าง')}
           </h2>
         </motion.div>
         

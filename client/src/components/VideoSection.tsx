@@ -61,7 +61,7 @@ export const VideoSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 whitespace-pre-line" data-testid="text-video-title">
-            {t("Платформы доставки еды Gojek и Grab на Бали.\nКак подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali.\nHow to connect and profit from it.", "Platform delivery makanan Gojek dan Grab di Bali.\nCara bergabung dan mendapat untung darinya.")}
+            {t("Платформы доставки еды Gojek и Grab на Бали.\nКак подключиться и заработать на этом.", "Gojek and Grab food delivery platforms in Bali.\nHow to connect and profit from it.", "Platform delivery makanan Gojek dan Grab di Bali.\nCara bergabung dan mendapat untung darinya.", 'แพลตฟอร์มเดลิเวอรี Gojek และ Grab ในบาหลี\nเชื่อมต่ออย่างไรและทำกำไรได้อย่างไร')}
           </h2>
         </motion.div>
 
@@ -96,7 +96,7 @@ export const VideoSection = () => {
                           "Платформы доставки еды Gojek и Grab на Бали",
                           "Gojek and Grab food delivery platforms in Bali",
                           "Platform delivery makanan Gojek dan Grab di Bali"
-                        )}
+                        , 'แพลตฟอร์มเดลิเวอรี Gojek และ Grab ในบาหลี')}
                       </p>
                     </div>
                   </div>

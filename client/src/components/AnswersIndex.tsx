@@ -133,7 +133,7 @@ export const MaterialCard = ({ m, large = false }: { m: Material; large?: boolea
           {t(lr, le, li)}
         </span>
         <span className="text-[11px] text-brand-muted">
-          {m.minutes} {t('мин', 'min', 'menit')}
+          {m.minutes} {t('мин', 'min', 'menit', 'นาที')}
         </span>
       </div>
       <h3

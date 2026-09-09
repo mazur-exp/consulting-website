@@ -22,7 +22,7 @@ export const Header = () => {
               className="hidden sm:inline text-sm text-brand-muted hover:text-brand-green transition-colors"
               data-testid="link-header-answers"
             >
-              {t("Ответы", "Answers", "Jawaban")}
+              {t("Ответы", "Answers", "Jawaban", 'คำตอบ')}
             </a>
             <a
               href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
@@ -31,7 +31,7 @@ export const Header = () => {
               className="brand-gradient text-white px-4 py-2 rounded-lg text-sm font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               data-testid="link-header-audit"
             >
-              {t("Написать", "Contact us", "Hubungi kami")}
+              {t("Написать", "Contact us", "Hubungi kami", 'ติดต่อเรา')}
             </a>
             <CountryToggle />
             <LanguageToggle />

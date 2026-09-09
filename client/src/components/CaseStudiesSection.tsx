@@ -68,7 +68,7 @@ export const CaseStudiesSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-cases-title">
-            {t("Кейсы", "Case studies", "Studi Kasus")}
+            {t("Кейсы", "Case studies", "Studi Kasus", 'ผลงานที่ผ่านมา')}
           </h2>
         </motion.div>
 
@@ -101,7 +101,7 @@ export const CaseStudiesSection = () => {
                   className="inline-block mt-3 text-sm text-brand-green hover:text-brand-green-light underline transition-colors"
                   data-testid={`link-case-${c.caseSlug}`}
                 >
-                  {t('Читать кейс полностью →', 'Read the full case study →', 'Baca studi kasus lengkap →')}
+                  {t('Читать кейс полностью →', 'Read the full case study →', 'Baca studi kasus lengkap →', 'อ่านเคสฉบับเต็ม →')}
                 </Link>
               )}
             </div>

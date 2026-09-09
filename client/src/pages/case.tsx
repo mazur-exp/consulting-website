@@ -65,12 +65,12 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                 data-testid="link-back"
               >
                 <ArrowLeft className="w-4 h-4" />
-                {t('Все кейсы', 'All case studies', 'Semua studi kasus')}
+                {t('Все кейсы', 'All case studies', 'Semua studi kasus', 'เคสทั้งหมด')}
               </Link>
 
               <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                 <p className="text-brand-green font-medium mb-3 uppercase tracking-wide text-sm">
-                  {t('Кейс · GrabFood ·', 'Case study · GrabFood ·', 'Studi kasus · GrabFood ·')} {t(c.locationRu, c.locationEn, c.locationId, c.locationTh)}
+                  {t('Кейс · GrabFood ·', 'Case study · GrabFood ·', 'Studi kasus · GrabFood ·', 'เคส · GrabFood ·')} {t(c.locationRu, c.locationEn, c.locationId, c.locationTh)}
                 </p>
                 <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-4" data-testid="text-case-title">
                   {t(c.nameRu, c.nameEn, c.nameId, c.nameTh)}: {t(c.headlineRu, c.headlineEn, c.headlineId, c.headlineTh)}
@@ -92,7 +92,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
           {/* Situation before */}
           <section className="py-14 border-t border-white/10">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold mb-4">{t('Ситуация до начала работы', 'The situation before we started', 'Situasi sebelum kami mulai')}</h2>
+              <h2 className="text-3xl font-bold mb-4">{t('Ситуация до начала работы', 'The situation before we started', 'Situasi sebelum kami mulai', 'สถานการณ์ก่อนเราเริ่มงาน')}</h2>
               <p className="text-brand-muted text-lg mb-8 max-w-3xl">{t(c.situationRu, c.situationEn, c.situationId, c.situationTh)}</p>
               <ul className="space-y-3 max-w-3xl">
                 {(language === 'ru' ? c.problemsRu : language === 'id' ? c.problemsId ?? c.problemsEn : c.problemsEn).map((p, i) => (
@@ -112,7 +112,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                 'Что мы сделали — стратегия из 4 направлений',
                 'What we did — a 4-track strategy',
                 'Apa yang kami lakukan — strategi di 4 arah'
-              )}</h2>
+              , 'สิ่งที่เราทำ — กลยุทธ์สี่ด้าน')}</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {c.work.map((w, i) => (
                   <div key={i} className="glass-card rounded-2xl p-6">
@@ -137,7 +137,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
           {/* Results */}
           <section className="py-14 border-t border-white/10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold mb-10">{t('Ключевые результаты', 'Key results', 'Hasil utama')}</h2>
+              <h2 className="text-3xl font-bold mb-10">{t('Ключевые результаты', 'Key results', 'Hasil utama', 'ผลลัพธ์สำคัญ')}</h2>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 {c.results.map((r, i) => (
                   <div key={i} className="glass-card rounded-2xl p-6 text-center" data-testid={`case-result-${i}`}>
@@ -153,9 +153,9 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                 <table className="w-full text-left min-w-[560px]">
                   <thead>
                     <tr className="border-b border-white/10 text-sm text-brand-muted">
-                      <th className="px-6 py-4 font-medium">{t('Показатель', 'Metric', 'Indikator')}</th>
-                      <th className="px-6 py-4 font-medium">{t('До', 'Before', 'Sebelum')}</th>
-                      <th className="px-6 py-4 font-medium">{t('После', 'After', 'Sesudah')}</th>
+                      <th className="px-6 py-4 font-medium">{t('Показатель', 'Metric', 'Indikator', 'ตัวชี้วัด')}</th>
+                      <th className="px-6 py-4 font-medium">{t('До', 'Before', 'Sebelum', 'ก่อน')}</th>
+                      <th className="px-6 py-4 font-medium">{t('После', 'After', 'Sesudah', 'หลัง')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -175,7 +175,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
           {/* Screenshots */}
           <section className="py-14 border-t border-white/10">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold mb-8">{t('Данные из GrabFood', 'The GrabFood data', 'Data dari GrabFood')}</h2>
+              <h2 className="text-3xl font-bold mb-8">{t('Данные из GrabFood', 'The GrabFood data', 'Data dari GrabFood', 'ข้อมูลจาก GrabFood')}</h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {c.images.map((img, i) => (
                   <div key={i} className="glass-card rounded-2xl p-3">
@@ -188,7 +188,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                   'Данные реального клиента из GrabMerchant.',
                   'Real client data from GrabMerchant.',
                   'Data nyata klien dari GrabMerchant.'
-                )}
+                , 'ข้อมูลจริงของลูกค้าจาก GrabMerchant')}
               </p>
             </div>
           </section>
@@ -202,7 +202,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                     'Хотите такой же рост вашего ресторана?',
                     'Want the same growth for your restaurant?',
                     'Ingin pertumbuhan yang sama untuk restoran Anda?'
-                  )}
+                  , 'อยากให้ร้านของคุณโตแบบนี้ไหม')}
                 </h2>
                 <p className="text-brand-muted text-lg mb-8">
                   {t(
@@ -218,7 +218,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                   className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"
                   data-testid="button-case-cta"
                 >
-                  {t('Получить бесплатную диагностику', 'Book a free audit', 'Dapatkan audit gratis')}
+                  {t('Получить бесплатную диагностику', 'Book a free audit', 'Dapatkan audit gratis', 'ขอวิเคราะห์ร้านฟรี')}
                 </a>
               </div>
             </div>

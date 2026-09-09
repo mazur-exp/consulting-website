@@ -36,7 +36,7 @@ export const FounderSection = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold" data-testid="text-founder-title">
-              {t("Алексей Мазур", "Aleksei Mazur", "Aleksei Mazur")}
+              {t("Алексей Мазур", "Aleksei Mazur", "Aleksei Mazur", 'Aleksei Mazur')}
             </h2>
             <p className="text-brand-muted text-lg leading-relaxed whitespace-pre-line" data-testid="text-founder-description">
               {t(
@@ -53,7 +53,7 @@ export const FounderSection = () => {
                 data-testid="button-founder-audit"
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300"
               >
-                {t("Записаться на бесплатный аудит", "Book a free audit", "Jadwalkan audit gratis")}
+                {t("Записаться на бесплатный аудит", "Book a free audit", "Jadwalkan audit gratis", 'ขอวิเคราะห์ร้านฟรี')}
               </a>
             </div>
           </motion.div>

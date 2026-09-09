@@ -42,7 +42,7 @@ export const Footer = () => {
               "© Delivery Booster. Bali & Thailand.",
               "© Delivery Booster. Bali & Thailand.",
               "© Delivery Booster. Bali & Thailand."
-            )}
+            , '© Delivery Booster บาหลีและประเทศไทย')}
           </p>
         </div>
       </div>
