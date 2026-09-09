@@ -28,6 +28,16 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
             : `Case study ${caseStudy.nameEn}: ${caseStudy.headlineEn} — Delivery Booster`;
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = `https://booster.delivery/cases/${caseStudy.slug}`;
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description)
+      description.content =
+        language === 'ru'
+          ? caseStudy.situationRu
+          : language === 'id'
+            ? caseStudy.situationId ?? caseStudy.situationEn
+            : language === 'th'
+              ? caseStudy.situationTh ?? caseStudy.situationEn
+              : caseStudy.situationEn;
     syncOpenGraph();
   }, [language, caseStudy]);
 

@@ -261,7 +261,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { metricRu: 'Заказы в месяц', metricEn: 'Monthly orders', metricId: 'Pesanan per bulan', metricTh: 'ออร์เดอร์ต่อเดือน', before: '34', after: '167' },
       { metricRu: 'Offline Rate', metricEn: 'Offline rate', metricId: 'Waktu offline', metricTh: 'อัตราออฟไลน์', before: '73–109%', after: '0%' },
       { metricRu: 'Отмены заказов', metricEn: 'Order cancellations', metricId: 'Pembatalan pesanan', metricTh: 'การยกเลิกออร์เดอร์', before: '3–7.5%', after: '0%' },
-      { metricRu: 'Время ожидания водителя', metricEn: 'Driver waiting time', metricId: 'Waktu tunggu driver', metricTh: 'เวลารอของคนขับ', before: '437 сек / sec', after: '135 сек / sec' },
+      { metricRu: 'Время ожидания водителя', metricEn: 'Driver waiting time', metricId: 'Waktu tunggu driver', metricTh: 'เวลารอของคนขับ', before: '437 s', after: '135 s' },
       { metricRu: 'Показы в поиске (месяц)', metricEn: 'Search impressions (month)', metricId: 'Impresi pencarian (bulan)', metricTh: 'อิมเพรสชันในการค้นหา (ต่อเดือน)', before: '7 038', after: '25 543' },
       { metricRu: 'Рекламный ROAS', metricEn: 'Ads ROAS', metricId: 'ROAS iklan', metricTh: 'ROAS ของโฆษณา', before: '—', after: '27.5x' },
     ],

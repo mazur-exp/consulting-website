@@ -32,6 +32,14 @@ export default function AboutPage() {
             : 'About Delivery Booster — delivery management agency in Southeast Asia';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = 'https://booster.delivery/about';
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description)
+      description.content = t(
+        'PT Delivery Booster Group, основана в 2023 году: агентство управления доставкой на GrabFood и GoFood в Юго-Восточной Азии. 110+ ресторанов на сопровождении, 200+ прошло через агентство. Основатель — Алексей Мазур.',
+        'PT Delivery Booster Group, founded in 2023: a delivery management agency for GrabFood and GoFood in Southeast Asia. 110+ restaurants under management, 200+ served in total. Founded by Aleksei Mazur.',
+        'PT Delivery Booster Group, didirikan pada 2023: agensi pengelolaan delivery untuk GrabFood dan GoFood di Asia Tenggara. 110+ restoran dalam pengelolaan, 200+ ditangani secara keseluruhan. Pendiri: Aleksei Mazur.',
+        'PT Delivery Booster Group ก่อตั้งเมื่อปี 2023: เอเจนซี่ดูแลเดลิเวอรี่บน GrabFood และ GoFood ในเอเชียตะวันออกเฉียงใต้ ดูแลร้านอาหารกว่า 110 แห่ง และผ่านมือเรามาแล้วกว่า 200 แห่ง ผู้ก่อตั้งคือ Aleksei Mazur'
+      );
     syncOpenGraph();
   }, [language]);
 
