@@ -18,17 +18,20 @@ export const TestimonialsSection = () => {
       name: {
         ru: "Арина",
         en: "Arina",
-        id: "Arina"
+        id: "Arina",
+        th: "Arina"
       },
       restaurant: {
         ru: "Only Eggs",
         en: "Only Eggs",
-        id: "Only Eggs"
+        id: "Only Eggs",
+        th: "Only Eggs"
       },
       text: {
         ru: "За первый месяц работы количество заказов выросло на 40%. Особенно впечатлила работа с меню и позиционированием.",
         en: "Orders increased by 40% in the first month. Menu optimization and positioning were especially impressive.",
-        id: "Dalam bulan pertama kerja sama, jumlah pesanan naik 40%. Yang paling berkesan adalah penataan menu dan positioning."
+        id: "Dalam bulan pertama kerja sama, jumlah pesanan naik 40%. Yang paling berkesan adalah penataan menu dan positioning.",
+        th: "เดือนแรกที่ร่วมงานกัน ออร์เดอร์เพิ่มขึ้น 40% สิ่งที่ประทับใจที่สุดคือการจัดโครงสร้างเมนูและการวางตำแหน่งร้าน"
       },
       rating: 5
     },
@@ -36,17 +39,20 @@ export const TestimonialsSection = () => {
       name: {
         ru: "Алексей",
         en: "Aleksei",
-        id: "Aleksei"
+        id: "Aleksei",
+        th: "Aleksei"
       },
       restaurant: {
         ru: "Prana Kitchen",
         en: "Prana Kitchen",
-        id: "Prana Kitchen"
+        id: "Prana Kitchen",
+        th: "Prana Kitchen"
       },
       text: {
         ru: "Профессиональный подход и быстрые результаты. Теперь понимаем, как правильно работать с Gojek и Grab и увеличивать прибыль. Сняли большую головную боль по работе с платформами — наконец появилось время заниматься развитием бизнеса.",
         en: "Professional approach and quick results. Now we understand how to work with Gojek and Grab properly and increase profits. Removed a huge headache from working with platforms — finally have time to focus on business development.",
-        id: "Pendekatan yang profesional dan hasil yang cepat. Sekarang kami paham cara bekerja dengan Gojek dan Grab dengan benar dan menaikkan laba. Beban besar dalam mengurus platform sudah diambil alih — akhirnya kami punya waktu untuk mengembangkan bisnis."
+        id: "Pendekatan yang profesional dan hasil yang cepat. Sekarang kami paham cara bekerja dengan Gojek dan Grab dengan benar dan menaikkan laba. Beban besar dalam mengurus platform sudah diambil alih — akhirnya kami punya waktu untuk mengembangkan bisnis.",
+        th: "ทำงานเป็นมืออาชีพและเห็นผลเร็ว ตอนนี้เราเข้าใจแล้วว่าต้องทำงานกับ Gojek และ Grab อย่างไรให้ถูกต้องและเพิ่มกำไร ภาระหนักในการดูแลแพลตฟอร์มถูกยกไป เราจึงมีเวลาไปพัฒนาธุรกิจจริง ๆ"
       },
       rating: 5
     },
@@ -54,17 +60,20 @@ export const TestimonialsSection = () => {
       name: {
         ru: "Дмитрий П.",
         en: "Dmitry P.",
-        id: "Dmitry P."
+        id: "Dmitry P.",
+        th: "Dmitry P."
       },
       restaurant: {
         ru: "Пиццерия",
         en: "Pizzeria",
-        id: "Pizzeria"
+        id: "Pizzeria",
+        th: "ร้านพิซซ่า"
       },
       text: {
         ru: "Аудит показал неочевидные проблемы, которые мы не замечали. После внедрения рекомендаций средний чек вырос на 25%.",
         en: "The audit revealed non-obvious problems we hadn't noticed. After implementing recommendations, the average check increased by 25%.",
-        id: "Audit menunjukkan masalah yang tidak kami sadari sebelumnya. Setelah rekomendasinya diterapkan, rata-rata nilai pesanan naik 25%."
+        id: "Audit menunjukkan masalah yang tidak kami sadari sebelumnya. Setelah rekomendasinya diterapkan, rata-rata nilai pesanan naik 25%.",
+        th: "การวิเคราะห์ชี้ปัญหาที่เราไม่เคยรู้มาก่อน พอทำตามคำแนะนำ ยอดต่อบิลก็เพิ่มขึ้น 25%"
       },
       rating: 5
     }
@@ -124,7 +133,7 @@ export const TestimonialsSection = () => {
                     <Quote className="w-10 h-10 text-brand-primary mb-4 opacity-50" />
                     
                     <p className="text-brand-text mb-6 flex-grow">
-                      {t(testimonial.text.ru, testimonial.text.en, testimonial.text.id)}
+                      {t(testimonial.text.ru, testimonial.text.en, testimonial.text.id, testimonial.text.th)}
                     </p>
                     
                     <div className="flex items-center gap-1 mb-4">
@@ -142,10 +151,10 @@ export const TestimonialsSection = () => {
                     
                     <div>
                       <p className="font-semibold text-brand-text">
-                        {t(testimonial.name.ru, testimonial.name.en, testimonial.name.id)}
+                        {t(testimonial.name.ru, testimonial.name.en, testimonial.name.id, testimonial.name.th)}
                       </p>
                       <p className="text-sm text-brand-muted">
-                        {t(testimonial.restaurant.ru, testimonial.restaurant.en, testimonial.restaurant.id)}
+                        {t(testimonial.restaurant.ru, testimonial.restaurant.en, testimonial.restaurant.id, testimonial.restaurant.th)}
                       </p>
                     </div>
                   </div>

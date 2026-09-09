@@ -28,7 +28,8 @@ export const HeroSection = () => {
               {t(
                 `Увеличение продаж в 2-6 раз в ${country.platformsRu}`,
                 `2-6x sales increase in ${country.platformsEn}`,
-                `Penjualan naik 2-6x di ${country.platformsId ?? country.platformsEn}`
+                `Penjualan naik 2-6x di ${country.platformsId ?? country.platformsEn}`,
+                `ยอดขายเพิ่มขึ้น 2-6 เท่าบน ${country.platformsTh ?? country.platformsEn}`
               )}
             </h1>
 
@@ -40,7 +41,8 @@ export const HeroSection = () => {
               {t(
                 "Управление вашей доставкой «под ключ» (меню, реклама, обучение команды, статистика, отчеты и многое другое)",
                 "Turnkey delivery management (menu, ads, team training, analytics, reports and more)",
-                "Pengelolaan akun delivery Anda secara menyeluruh (menu, iklan, pelatihan tim, analitik, laporan, dan lainnya)"
+                "Pengelolaan akun delivery Anda secara menyeluruh (menu, iklan, pelatihan tim, analitik, laporan, dan lainnya)",
+                "ดูแลการขายเดลิเวอรีให้ครบวงจร (เมนู โฆษณา อบรมทีมงาน วิเคราะห์ข้อมูล รายงาน และอื่น ๆ)"
               )}
             </p>
 
@@ -55,7 +57,8 @@ export const HeroSection = () => {
                 {t(
                   "Получить бесплатную диагностику",
                   "Book a free audit",
-                  "Dapatkan audit gratis"
+                  "Dapatkan audit gratis",
+                  "ขอวิเคราะห์ร้านฟรี"
                 )}
               </a>
             </div>

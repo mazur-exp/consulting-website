@@ -49,7 +49,8 @@ export const FAQSection = () => {
       a: {
         ru: "Первый рост: 2-4 недели. Полная раскачка: 3-6 месяцев. Подтверждено 110+ ресторанами на сопровождении и 200+, прошедшими через агентство с 2023 года.",
         en: "First growth: 2-4 weeks. Full ramp-up: 3-6 months. Confirmed by 110+ restaurants under management and 200+ served since 2023.",
-        id: "Pertumbuhan pertama: 2-4 minggu. Ramp-up penuh: 3-6 bulan. Terbukti pada 110+ restoran dalam pengelolaan dan 200+ yang ditangani sejak 2023."
+        id: "Pertumbuhan pertama: 2-4 minggu. Ramp-up penuh: 3-6 bulan. Terbukti pada 110+ restoran dalam pengelolaan dan 200+ yang ditangani sejak 2023.",
+        th: "เห็นผลแรก 2-4 สัปดาห์ เต็มกำลัง 3-6 เดือน พิสูจน์แล้วกับร้านกว่า 110 แห่งที่ดูแลอยู่ และกว่า 200 แห่งตั้งแต่ปี 2023"
       }
     },
     {
@@ -57,7 +58,8 @@ export const FAQSection = () => {
       a: {
         ru: "Да. Целевые продажи за 6 месяцев или возврат комиссии.",
         en: "Yes. Target sales in 6 months or commission refund.",
-        id: "Ya. Target penjualan dalam 6 bulan atau komisi dikembalikan."
+        id: "Ya. Target penjualan dalam 6 bulan atau komisi dikembalikan.",
+        th: "ใช่ ทำยอดขายไม่ถึงเป้าใน 6 เดือน เราคืนค่าคอมมิชชัน"
       }
     },
     {
@@ -73,7 +75,8 @@ export const FAQSection = () => {
       a: {
         ru: "Можете! Самостоятельное обучение займёт 3-6 месяцев, а ошибки в процессе обойдутся в $5-10k упущенной прибыли и времени.",
         en: "You can! Self-learning will take 3-6 months, and mistakes along the way will cost you $5-10k in lost profits and time.",
-        id: "Bisa saja. Belajar sendiri butuh 3-6 bulan, dan kesalahan di prosesnya menghabiskan $5-10k potensi profit dan waktu Anda."
+        id: "Bisa saja. Belajar sendiri butuh 3-6 bulan, dan kesalahan di prosesnya menghabiskan $5-10k potensi profit dan waktu Anda.",
+        th: "ทำเองก็ได้ แต่การเรียนรู้เองใช้เวลา 3-6 เดือน และความผิดพลาดระหว่างทางกินกำไรที่ควรได้ไป 5-10 พันดอลลาร์ บวกกับเวลาของคุณ"
       }
     },
     ...extendedFaqs
@@ -90,7 +93,7 @@ export const FAQSection = () => {
           viewport={{ once: true }}
           data-testid="text-faq-title"
         >
-          {t("Вопросы", "Questions", "Pertanyaan")}
+          {t("Вопросы", "Questions", "Pertanyaan", 'คำถามที่พบบ่อย')}
         </motion.h2>
 
         <motion.div
@@ -138,10 +141,10 @@ export const FAQSection = () => {
         <div className="mt-14">
           <div className="flex items-end justify-between gap-4 mb-6">
             <h3 className="text-xl sm:text-2xl font-bold">
-              {t('Разбираем подробно', 'Worked through in full', 'Dibahas sampai tuntas')}
+              {t('Разбираем подробно', 'Worked through in full', 'Dibahas sampai tuntas', 'อธิบายแบบละเอียด')}
             </h3>
             <a href="/answers" className="text-brand-green hover:underline text-sm whitespace-nowrap">
-              {t('Все ответы', 'All answers', 'Semua jawaban')} →
+              {t('Все ответы', 'All answers', 'Semua jawaban', 'คำตอบทั้งหมด')} →
             </a>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

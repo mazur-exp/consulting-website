@@ -15,32 +15,38 @@ export const VideoSection = () => {
     {
       ru: "Объемы рынка доставки на Бали и его особенности",
       en: "Bali delivery market volumes and features",
-      id: "Ukuran pasar delivery di Bali dan karakteristiknya"
+      id: "Ukuran pasar delivery di Bali dan karakteristiknya",
+      th: "ขนาดตลาดเดลิเวอรีในบาหลีและลักษณะเฉพาะของมัน"
     },
     {
       ru: "Нужно ли вашему бизнесу заниматься доставкой?",
       en: "Does your business need delivery services?",
-      id: "Apakah bisnis Anda perlu masuk ke layanan delivery?"
+      id: "Apakah bisnis Anda perlu masuk ke layanan delivery?",
+      th: "ธุรกิจของคุณจำเป็นต้องเข้าสู่บริการเดลิเวอรีหรือไม่"
     },
     {
       ru: "Как настроить аккаунты в Gojek и Grab и правильно оформить меню",
       en: "How to set up Gojek and Grab accounts and design menu properly",
-      id: "Cara menyiapkan akun Gojek dan Grab serta menyusun menu dengan benar"
+      id: "Cara menyiapkan akun Gojek dan Grab serta menyusun menu dengan benar",
+      th: "วิธีตั้งค่าบัญชี Gojek และ Grab และจัดเมนูให้ถูกต้อง"
     },
     {
       ru: "Советы по повышению среднего чека и формированию товаров-локомотивов",
       en: "Tips for increasing average order value and creating bestsellers",
-      id: "Tips menaikkan rata-rata nilai pesanan dan membentuk item penarik pesanan"
+      id: "Tips menaikkan rata-rata nilai pesanan dan membentuk item penarik pesanan",
+      th: "เคล็ดลับเพิ่มยอดต่อบิลและสร้างเมนูที่ดึงออร์เดอร์"
     },
     {
       ru: "Рекомендации по ведению рекламных кампаний и работе с аккаунт-менеджерами",
       en: "Recommendations for advertising campaigns and account manager relationships",
-      id: "Rekomendasi menjalankan kampanye iklan dan bekerja dengan account manager"
+      id: "Rekomendasi menjalankan kampanye iklan dan bekerja dengan account manager",
+      th: "คำแนะนำการยิงโฆษณาและการทำงานกับ account manager"
     },
     {
       ru: "Как эффективно управлять рейтингами на платформах доставки",
       en: "How to effectively manage ratings on delivery platforms",
-      id: "Cara mengelola rating di platform delivery secara efektif"
+      id: "Cara mengelola rating di platform delivery secara efektif",
+      th: "วิธีดูแลเรตติ้งบนแพลตฟอร์มเดลิเวอรีให้ได้ผล"
     }
   ];
 
@@ -133,7 +139,7 @@ export const VideoSection = () => {
                   <span className="text-white text-xs font-bold">✓</span>
                 </div>
                 <p className="text-brand-muted leading-relaxed">
-                  {t(point.ru, point.en, point.id)}
+                  {t(point.ru, point.en, point.id, point.th)}
                 </p>
               </motion.div>
             ))}

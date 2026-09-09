@@ -16,14 +16,14 @@ export const CTASection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6" data-testid="text-cta-title">
-            {t("Готовы увеличить заказы?", "Ready to increase orders?", "Siap menambah pesanan?")}
+            {t("Готовы увеличить заказы?", "Ready to increase orders?", "Siap menambah pesanan?", 'พร้อมเพิ่มออร์เดอร์แล้วหรือยัง')}
           </h2>
           <p className="text-brand-muted text-lg mb-8 max-w-2xl mx-auto" data-testid="text-cta-description">
             {t(
               "Получите бесплатную диагностику вашего профиля и узнайте, как увеличить доходы на 50-600%",
               "Get a free profile audit and learn how to increase revenue by 50-600%",
               "Dapatkan audit gratis untuk profil Anda dan pelajari cara menaikkan omzet 50-600%"
-            )}
+            , 'รับวิเคราะห์ร้านฟรี แล้วดูว่าจะเพิ่มยอดขาย 50-600% ได้อย่างไร')}
           </p>
           <a
             href={diagnosticUrl('landing-bottom', language)}
@@ -32,7 +32,7 @@ export const CTASection = () => {
             data-testid="button-cta-main"
             className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"
           >
-            {t("Получить бесплатную диагностику", "Get a free audit", "Dapatkan audit gratis")}
+            {t("Получить бесплатную диагностику", "Get a free audit", "Dapatkan audit gratis", 'ขอวิเคราะห์ร้านฟรี')}
           </a>
         </motion.div>
       </div>

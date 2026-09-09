@@ -30,7 +30,8 @@ export const WorkProcessSection = () => {
       title: {
         ru: "Вводная консультация",
         en: "Intro call",
-        id: "Konsultasi awal"
+        id: "Konsultasi awal",
+        th: "ปรึกษาครั้งแรก"
       },
       description: {
         ru: `Экспресс-диагностика профиля ${country.platformsShort} и приоритеты на 30 дней.`,
@@ -43,12 +44,14 @@ export const WorkProcessSection = () => {
       title: {
         ru: "Индивидуальный план",
         en: "Plan",
-        id: "Rencana kerja"
+        id: "Rencana kerja",
+        th: "แผนงาน"
       },
       description: {
         ru: "Согласуем цели и объём работ — без типовых «пакетов».",
         en: "Agree on goals and scope — no generic packages.",
-        id: "Kami sepakati target dan lingkup kerja — tanpa paket standar."
+        id: "Kami sepakati target dan lingkup kerja — tanpa paket standar.",
+        th: "ตกลงเป้าหมายและขอบเขตงานร่วมกัน — ไม่มีแพ็กเกจสำเร็จรูป"
       }
     },
     {
@@ -56,12 +59,14 @@ export const WorkProcessSection = () => {
       title: {
         ru: "Запуск и спринты",
         en: "Sprints",
-        id: "Peluncuran dan sprint"
+        id: "Peluncuran dan sprint",
+        th: "เริ่มงานและรอบสปรินต์"
       },
       description: {
         ru: "Еженедельные итерации с отчётами и рекомендациями.",
         en: "Weekly iterations with reports and recommendations.",
-        id: "Iterasi mingguan dengan laporan dan rekomendasi."
+        id: "Iterasi mingguan dengan laporan dan rekomendasi.",
+        th: "ทำซ้ำเป็นรอบรายสัปดาห์ พร้อมรายงานและข้อเสนอแนะ"
       }
     }
   ];
@@ -77,7 +82,7 @@ export const WorkProcessSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4" data-testid="text-process-title">
-            {t("Как мы работаем", "How we work", "Cara kami bekerja")}
+            {t("Как мы работаем", "How we work", "Cara kami bekerja", 'เราทำงานอย่างไร')}
           </h2>
         </motion.div>
         
@@ -99,10 +104,10 @@ export const WorkProcessSection = () => {
                 {step.number}
               </div>
               <h3 className="text-xl font-semibold mb-4">
-                {t(step.title.ru, step.title.en, step.title.id)}
+                {t(step.title.ru, step.title.en, step.title.id, step.title.th)}
               </h3>
               <p className="text-brand-muted">
-                {t(step.description.ru, step.description.en, step.description.id)}
+                {t(step.description.ru, step.description.en, step.description.id, step.description.th)}
               </p>
             </motion.div>
           ))}

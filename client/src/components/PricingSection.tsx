@@ -17,7 +17,7 @@ export const PricingSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6" data-testid="text-pricing-title">
-            {t("Стоимость - бесплатно*", "Pricing - free*", "Biaya - gratis*")}
+            {t("Стоимость - бесплатно*", "Pricing - free*", "Biaya - gratis*", 'ค่าบริการ - ฟรี*')}
           </h2>
 
           <p className="text-xl text-brand-text mb-4" data-testid="text-pricing-main">
@@ -33,7 +33,7 @@ export const PricingSection = () => {
               "Нет рисков. Нет предоплаты. ROI 5-12x.",
               "No risk. No upfront payment. ROI 5-12x.",
               "Tanpa risiko. Tanpa biaya di muka. ROI 5-12x."
-            )}
+            , 'ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า ROI 5-12 เท่า')}
           </p>
 
           <p className="text-sm text-brand-muted italic mb-8" data-testid="text-pricing-footnote">
@@ -41,7 +41,7 @@ export const PricingSection = () => {
               "* - свяжитесь с нами, чтобы узнать как можно получить услугу абсолютно бесплатно.",
               "* - contact us to learn how you can get the service absolutely free.",
               "* - hubungi kami untuk mengetahui cara mendapatkan layanan ini sepenuhnya gratis."
-            )}
+            , '* - ติดต่อเราเพื่อดูว่าคุณจะใช้บริการได้ฟรีอย่างไร')}
           </p>
 
           <motion.div
@@ -58,7 +58,7 @@ export const PricingSection = () => {
               className="brand-gradient text-white px-8 py-4 rounded-xl font-semibold text-lg brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               data-testid="button-pricing-cta"
             >
-              {t("Узнать подробнее", "Learn more", "Pelajari lebih lanjut")}
+              {t("Узнать подробнее", "Learn more", "Pelajari lebih lanjut", 'ดูรายละเอียด')}
             </a>
           </motion.div>
         </motion.div>
