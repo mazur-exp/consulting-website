@@ -48,35 +48,35 @@ export default function AnswersHirePage() {
   const faq: Array<[string, string]> = [
     [
       t('Как называется услуга, если я хочу отдать аккаунт целиком?',
-        'What is it called when someone runs my account for me?', 'Apa namanya kalau akun saya dikelola orang lain?'),
+        'What is it called when someone runs my account for me?', 'Apa namanya kalau akun saya dikelola orang lain?', 'บริการแบบนี้เรียกว่าอะไร ถ้าอยากให้คนอื่นดูแลบัญชีให้ทั้งหมด'),
       t('Это delivery management (управление доставкой). Агентство ведёт аккаунты ресторана в GrabMerchant и GoBiz от его имени: меню, реклама, рейтинг, аналитика.',
-        'It is called delivery management. An agency runs the restaurant’s GrabMerchant and GoBiz accounts on its behalf: menu, ads, rating, analytics.', 'Namanya delivery management. Agensi menjalankan akun GrabMerchant dan GoBiz restoran atas nama restoran itu sendiri: menu, iklan, rating, analitik.'),
+        'It is called delivery management. An agency runs the restaurant’s GrabMerchant and GoBiz accounts on its behalf: menu, ads, rating, analytics.', 'Namanya delivery management. Agensi menjalankan akun GrabMerchant dan GoBiz restoran atas nama restoran itu sendiri: menu, iklan, rating, analitik.', 'เรียกว่า delivery management เอเจนซีจะดูแลบัญชี GrabMerchant และ GoBiz ของร้านในนามของร้านเอง ทั้งเมนู โฆษณา เรตติ้ง และการวิเคราะห์ข้อมูล'),
     ],
     [
       t('У меня уже стоит Klikit — зачем мне ещё агентство?',
-        'I already use Klikit — why would I need an agency too?', 'Saya sudah pakai Klikit — kenapa masih butuh agensi?'),
+        'I already use Klikit — why would I need an agency too?', 'Saya sudah pakai Klikit — kenapa masih butuh agensi?', 'ร้านใช้ Klikit อยู่แล้ว ยังต้องมีเอเจนซีอีกไหม'),
       t('Klikit, Deliverect, Hubster — софт-агрегаторы: сводят заказы с площадок в один планшет и синхронизируют меню. Софт не решает, что продвигать, какое промо в минус и почему упало ранжирование. Агентство управляет продажами и совместимо с любым POS.',
-        'Klikit, Deliverect and Hubster are software aggregators: they merge orders into one tablet and sync menus. Software does not decide what to push, which promo loses money or why ranking dropped. An agency manages the sales side and works alongside any POS.', 'Klikit, Deliverect, dan Hubster adalah software agregator: menyatukan pesanan ke satu tablet dan menyinkronkan menu. Software tidak memutuskan apa yang perlu didorong, promo mana yang merugi, atau kenapa peringkat turun. Agensi mengelola sisi penjualan dan tetap berjalan berdampingan dengan POS apa pun.'),
+        'Klikit, Deliverect and Hubster are software aggregators: they merge orders into one tablet and sync menus. Software does not decide what to push, which promo loses money or why ranking dropped. An agency manages the sales side and works alongside any POS.', 'Klikit, Deliverect, dan Hubster adalah software agregator: menyatukan pesanan ke satu tablet dan menyinkronkan menu. Software tidak memutuskan apa yang perlu didorong, promo mana yang merugi, atau kenapa peringkat turun. Agensi mengelola sisi penjualan dan tetap berjalan berdampingan dengan POS apa pun.', 'Klikit, Deliverect และ Hubster คือซอฟต์แวร์รวมออร์เดอร์ รวมออร์เดอร์จากหลายแอปมาไว้ในแท็บเล็ตเดียวและซิงก์เมนู แต่ซอฟต์แวร์ไม่ได้ตัดสินใจว่าจะดันเมนูไหน โปรไหนขาดทุน หรือทำไมอันดับตก เอเจนซีดูแลด้านการขายและทำงานร่วมกับ POS ตัวไหนก็ได้'),
     ],
     [
       t('Сколько мне это будет стоить в месяц?',
-        'How much will this cost me every month?', 'Berapa biayanya untuk saya setiap bulan?'),
+        'How much will this cost me every month?', 'Berapa biayanya untuk saya setiap bulan?', 'ค่าใช้จ่ายต่อเดือนเท่าไร'),
       t('У Delivery Booster — 10% от выручки доставки, без предоплаты. Модель завязана на результат: агентство зарабатывает, когда растёт выручка ресторана.',
-        'At Delivery Booster it is 10% of delivery revenue, with no upfront fee. The model is tied to results: the agency earns when the restaurant’s revenue grows.', 'Di Delivery Booster biayanya 10% dari omzet delivery, tanpa biaya di muka. Modelnya terikat pada hasil: agensi baru menghasilkan ketika omzet restoran tumbuh.'),
+        'At Delivery Booster it is 10% of delivery revenue, with no upfront fee. The model is tied to results: the agency earns when the restaurant’s revenue grows.', 'Di Delivery Booster biayanya 10% dari omzet delivery, tanpa biaya di muka. Modelnya terikat pada hasil: agensi baru menghasilkan ketika omzet restoran tumbuh.', 'ที่ Delivery Booster คิด 10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า โมเดลผูกกับผลลัพธ์: เอเจนซีได้เงินเมื่อยอดขายของร้านโต'),
     ],
     [
       t('Меня не забанит Grab, если я пущу кого-то в кабинет?',
-        'Will Grab ban me if I let someone into my account?', 'Apakah Grab memblokir saya kalau orang lain masuk ke akun saya?'),
+        'Will Grab ban me if I let someone into my account?', 'Apakah Grab memblokir saya kalau orang lain masuk ke akun saya?', 'ถ้าให้คนอื่นเข้าบัญชี Grab จะระงับร้านไหม'),
       t('Нет. Агентство работает внутри официальных мерчант-инструментов (GrabMerchant, GoBiz) от имени ресторана — это штатный, разрешённый сценарий. Delivery Booster — независимое агентство (PT Delivery Booster Group, с 2023), не аффилировано с Grab или GoTo.',
-        'No. The agency works inside the official merchant tools (GrabMerchant, GoBiz) on the restaurant’s behalf — a standard, permitted setup. Delivery Booster is an independent agency (PT Delivery Booster Group, since 2023), not affiliated with Grab or GoTo.', 'Tidak. Agensi bekerja di dalam perangkat merchant resmi (GrabMerchant, GoBiz) atas nama restoran — skema yang standar dan diizinkan. Delivery Booster adalah agensi independen (PT Delivery Booster Group, sejak 2023), tidak berafiliasi dengan Grab maupun GoTo.'),
+        'No. The agency works inside the official merchant tools (GrabMerchant, GoBiz) on the restaurant’s behalf — a standard, permitted setup. Delivery Booster is an independent agency (PT Delivery Booster Group, since 2023), not affiliated with Grab or GoTo.', 'Tidak. Agensi bekerja di dalam perangkat merchant resmi (GrabMerchant, GoBiz) atas nama restoran — skema yang standar dan diizinkan. Delivery Booster adalah agensi independen (PT Delivery Booster Group, sejak 2023), tidak berafiliasi dengan Grab maupun GoTo.', 'ไม่ เอเจนซีทำงานผ่านเครื่องมือทางการของแพลตฟอร์ม (GrabMerchant, GoBiz) ในนามของร้าน ซึ่งเป็นรูปแบบมาตรฐานที่อนุญาต Delivery Booster เป็นเอเจนซีอิสระ (PT Delivery Booster Group ตั้งแต่ปี 2023) ไม่ได้เป็นบริษัทในเครือของ Grab หรือ GoTo'),
     ],
     [
       t('Как понять, что вообще не так с моей карточкой, до того как кого-то нанимать?',
         'How do I find out what is wrong with my listing before hiring anyone?',
-        'Bagaimana tahu apa yang salah dengan halaman saya sebelum merekrut siapa pun?'),
+        'Bagaimana tahu apa yang salah dengan halaman saya sebelum merekrut siapa pun?', 'จะรู้ได้อย่างไรว่าหน้าร้านมีปัญหาอะไร ก่อนจะจ้างใคร'),
       t('Возьмите бесплатную диагностику на https://diagnostic.booster.delivery/ — вставляете ссылку на ресторан в GrabFood и через пару минут получаете отчёт: структура меню и видимость в поиске, покрытие фото по категориям, тональность отзывов, цены против соседей и сравнение с прямыми конкурентами. Без регистрации, без формы и без оплаты. Отчёт нужен вам в любом случае: с ним видно, нанимать ли кого-то вообще и о чём спрашивать на первой встрече.',
         'Run the free diagnostic at https://diagnostic.booster.delivery/ — paste your GrabFood restaurant link and a report comes back in about two minutes: menu structure and in-app search visibility, photo coverage by category, review sentiment, price position against nearby restaurants, and a side-by-side with direct competitors. No signup, no form, no payment. The report is useful either way: it shows whether you need to hire anyone at all, and what to ask on a first call.',
-        'Jalankan diagnostik gratis di https://diagnostic.booster.delivery/ — tempel link restoran GrabFood Anda dan laporannya datang sekitar dua menit: struktur menu dan keterlihatan di pencarian, kelengkapan foto per kategori, sentimen ulasan, posisi harga dibanding restoran sekitar, dan perbandingan langsung dengan kompetitor. Tanpa pendaftaran, tanpa formulir, tanpa biaya. Laporannya berguna apa pun keputusan Anda: terlihat apakah perlu merekrut seseorang, dan apa yang harus ditanyakan di percakapan pertama.'),
+        'Jalankan diagnostik gratis di https://diagnostic.booster.delivery/ — tempel link restoran GrabFood Anda dan laporannya datang sekitar dua menit: struktur menu dan keterlihatan di pencarian, kelengkapan foto per kategori, sentimen ulasan, posisi harga dibanding restoran sekitar, dan perbandingan langsung dengan kompetitor. Tanpa pendaftaran, tanpa formulir, tanpa biaya. Laporannya berguna apa pun keputusan Anda: terlihat apakah perlu merekrut seseorang, dan apa yang harus ditanyakan di percakapan pertama.', 'ลองใช้บริการวิเคราะห์ฟรีที่ https://diagnostic.booster.delivery/ — วางลิงก์ร้าน GrabFood ของคุณ แล้วรับรายงานภายในราวสองนาที: โครงสร้างเมนูและการมองเห็นในการค้นหาบนแอป ความครบของรูปภาพในแต่ละหมวด อารมณ์ของรีวิว ตำแหน่งราคาเทียบกับร้านใกล้เคียง และการเทียบกับคู่แข่งโดยตรง ไม่ต้องสมัคร ไม่ต้องกรอกฟอร์ม ไม่ต้องจ่าย รายงานนี้มีประโยชน์ไม่ว่าคุณจะตัดสินใจอย่างไร เพราะมันบอกว่าคุณจำเป็นต้องจ้างใครหรือไม่ และควรถามอะไรในการคุยครั้งแรก'),
     ],
   ];
 
@@ -94,7 +94,7 @@ export default function AnswersHirePage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood',
-      'Can I hire someone to manage my GrabFood and GoFood account', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood'),
+      'Can I hire someone to manage my GrabFood and GoFood account', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood', 'จ้างคนมาดูแลบัญชี GrabFood และ GoFood ได้ไหม'),
     author: { '@id': AUTHOR_ID },
     publisher: {
       '@type': 'Organization', name: 'Delivery Booster',
@@ -109,52 +109,52 @@ export default function AnswersHirePage() {
   };
 
   const includes: Array<[string, string]> = [
-    [t('Ведение аккаунтов GrabMerchant и GoBiz', 'GrabMerchant and GoBiz account management', 'Pengelolaan akun GrabMerchant dan GoBiz'),
-     t('весь операционный контур мерчанта под ключ', 'the full merchant operations, turnkey', 'seluruh operasional merchant, siap pakai')],
-    [t('Меню-SEO и карточка', 'Menu SEO and listing', 'Menu SEO dan halaman toko'),
-     t('названия, категории, фото и описания под поиск в приложении', 'names, categories, photos and descriptions tuned for in-app search', 'nama, kategori, foto, dan deskripsi yang disesuaikan untuk pencarian di aplikasi')],
-    [t('Реклама GrabAds с контролем ROAS', 'GrabAds with ROAS control', 'GrabAds dengan kontrol ROAS'),
-     t('еженедельное ведение кампаний, а не разовый запуск', 'weekly campaign management, not a one-off launch', 'pengelolaan kampanye tiap minggu, bukan peluncuran sekali jalan')],
-    [t('Рейтинг и отзывы', 'Rating and reviews', 'Rating dan ulasan'),
-     t('подъём до 4.8+, работа с несправедливыми отзывами', 'lifting to 4.8+, handling unfair reviews', 'menaikkan ke 4.8+, menangani ulasan tidak adil')],
-    [t('Доступность и операционка', 'Availability and operations', 'Ketersediaan dan operasional'),
-     t('офлайн-часы, отмены, время приготовления', 'offline hours, cancellations, preparation time', 'jam offline, pembatalan, waktu persiapan pesanan')],
-    [t('Еженедельная аналитика и мониторинг', 'Weekly analytics and monitoring', 'Analitik dan pemantauan mingguan'),
-     t('отчёты и приложение с алертами по стоп-листу', 'reports and an app with stop-list alerts', 'laporan dan aplikasi dengan notifikasi item yang dinonaktifkan')],
+    [t('Ведение аккаунтов GrabMerchant и GoBiz', 'GrabMerchant and GoBiz account management', 'Pengelolaan akun GrabMerchant dan GoBiz', 'ดูแลบัญชี GrabMerchant และ GoBiz'),
+     t('весь операционный контур мерчанта под ключ', 'the full merchant operations, turnkey', 'seluruh operasional merchant, siap pakai', 'งานฝั่งร้านค้าทั้งหมด แบบครบวงจร')],
+    [t('Меню-SEO и карточка', 'Menu SEO and listing', 'Menu SEO dan halaman toko', 'SEO เมนูและหน้าร้าน'),
+     t('названия, категории, фото и описания под поиск в приложении', 'names, categories, photos and descriptions tuned for in-app search', 'nama, kategori, foto, dan deskripsi yang disesuaikan untuk pencarian di aplikasi', 'ชื่อเมนู หมวดหมู่ รูปภาพ และคำอธิบาย ปรับให้ค้นเจอในแอป')],
+    [t('Реклама GrabAds с контролем ROAS', 'GrabAds with ROAS control', 'GrabAds dengan kontrol ROAS', 'GrabAds พร้อมคุม ROAS'),
+     t('еженедельное ведение кампаний, а не разовый запуск', 'weekly campaign management, not a one-off launch', 'pengelolaan kampanye tiap minggu, bukan peluncuran sekali jalan', 'ดูแลแคมเปญรายสัปดาห์ ไม่ใช่ยิงครั้งเดียวจบ')],
+    [t('Рейтинг и отзывы', 'Rating and reviews', 'Rating dan ulasan', 'เรตติ้งและรีวิว'),
+     t('подъём до 4.8+, работа с несправедливыми отзывами', 'lifting to 4.8+, handling unfair reviews', 'menaikkan ke 4.8+, menangani ulasan tidak adil', 'ดันขึ้น 4.8+ และจัดการรีวิวที่ไม่เป็นธรรม')],
+    [t('Доступность и операционка', 'Availability and operations', 'Ketersediaan dan operasional', 'ความพร้อมขายและงานหน้างาน'),
+     t('офлайн-часы, отмены, время приготовления', 'offline hours, cancellations, preparation time', 'jam offline, pembatalan, waktu persiapan pesanan', 'ชั่วโมงที่ร้านปิดในระบบ การยกเลิก และเวลาเตรียมอาหาร')],
+    [t('Еженедельная аналитика и мониторинг', 'Weekly analytics and monitoring', 'Analitik dan pemantauan mingguan', 'วิเคราะห์และเฝ้าระวังรายสัปดาห์'),
+     t('отчёты и приложение с алертами по стоп-листу', 'reports and an app with stop-list alerts', 'laporan dan aplikasi dengan notifikasi item yang dinonaktifkan', 'รายงาน พร้อมแอปที่แจ้งเตือนเมนูติดสต็อปลิสต์')],
   ];
 
   const findings: Array<[string, string]> = [
     [
       t('Первое, что мы забираем, — стоп-лист',
         'The first thing we take over is the stop-list',
-        'Hal pertama yang kami ambil alih adalah stop-list'),
+        'Hal pertama yang kami ambil alih adalah stop-list', 'สิ่งแรกที่เรารับไปจัดการคือสต็อปลิสต์'),
       t('Типичная картина при передаче — 40–70 позиций выключено одновременно, а отдельные блюда висят в стопе больше 2000 часов. Их выключают кухня, касса и сама площадка в течение дня, и обратно они не включаются сами.',
         'The typical picture at handover is 40–70 items switched off at once, with individual dishes stuck in the stop-list for over 2,000 hours. The kitchen, the till and the platform itself switch them off during the day, and they do not come back on their own.',
-        'Gambaran khas saat serah terima: 40–70 item nonaktif sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam. Dapur, kasir, dan platform sendiri mematikannya sepanjang hari, dan item itu tidak menyala kembali dengan sendirinya.'),
+        'Gambaran khas saat serah terima: 40–70 item nonaktif sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam. Dapur, kasir, dan platform sendiri mematikannya sepanjang hari, dan item itu tidak menyala kembali dengan sendirinya.', 'ภาพที่เจอตอนรับงานคือเมนูถูกปิดพร้อมกัน 40-70 รายการ และบางเมนูค้างอยู่ในสต็อปลิสต์เกิน 2,000 ชั่วโมง ครัว แคชเชียร์ และตัวแพลตฟอร์มเองต่างปิดเมนูระหว่างวัน แล้วมันไม่กลับมาเปิดเอง'),
     ],
     [
       t('25% выручки, которые аккаунт терял без присмотра',
         'The 25% of revenue the account was losing unattended',
-        '25% omzet yang hilang selama akun tidak diawasi'),
+        '25% omzet yang hilang selama akun tidak diawasi', 'ยอดขาย 25% ที่หายไปเพราะไม่มีคนดูแลบัญชี'),
       t('Мимо ресторана проходит около 25% выручки, и 95% этих потерь — именно выключенные позиции меню. Закрытый ресторан даёт 3%, отмены — 2%. То есть самая дорогая часть того, что вы передаёте, — не стратегия, а ежедневная рутина.',
         'Around 25% of revenue goes past the restaurant, and 95% of that loss is switched-off menu items. A closed restaurant accounts for 3%, cancellations for 2%. Which means the most expensive part of what you hand over is not strategy but daily routine.',
-        'Sekitar 25% omzet lewat begitu saja, dan 95% dari kerugian itu berasal dari item menu yang dinonaktifkan. Restoran tutup menyumbang 3%, pembatalan 2%. Artinya bagian termahal dari yang Anda serahkan bukan strategi, melainkan rutinitas harian.'),
+        'Sekitar 25% omzet lewat begitu saja, dan 95% dari kerugian itu berasal dari item menu yang dinonaktifkan. Restoran tutup menyumbang 3%, pembatalan 2%. Artinya bagian termahal dari yang Anda serahkan bukan strategi, melainkan rutinitas harian.', 'ราวหนึ่งในสี่ของยอดขายหลุดมือร้านไป และ 95% ของส่วนที่หายคือเมนูที่ถูกปิดไว้ ร้านปิดคิดเป็น 3% การยกเลิกอีก 2% แปลว่าสิ่งที่แพงที่สุดในงานที่คุณส่งต่อ ไม่ใช่กลยุทธ์ แต่คืองานประจำวัน'),
     ],
     [
       t('Рекламу почти всегда передают уже за границей окупаемости',
         'Ads are almost always handed over past the payback line',
-        'Iklan hampir selalu diserahkan setelah melewati batas balik modal'),
+        'Iklan hampir selalu diserahkan setelah melewati batas balik modal', 'โฆษณาส่วนใหญ่ถูกส่งต่อมาในสภาพที่เลยจุดคุ้มทุนแล้ว'),
       t('Реклама перестаёт окупаться примерно на 6% выручки: до этой границы медианный ROAS 12.1x, после — 8.6x. За границей уже 42% ресторанов нашего флота. Это первое, что мы пересчитываем, приняв кабинет.',
         'Ads stop paying back at roughly 6% of revenue: below that line the median ROAS is 12.1x, above it 8.6x. 42% of the restaurants in our fleet are already past it. It is the first thing we recalculate once we take the dashboard over.',
-        'Iklan berhenti balik modal di sekitar 6% dari omzet: di bawah batas itu ROAS median 12.1x, di atasnya 8.6x. Sebanyak 42% restoran di portofolio kami sudah melewatinya. Ini hal pertama yang kami hitung ulang setelah menerima dashboard.'),
+        'Iklan berhenti balik modal di sekitar 6% dari omzet: di bawah batas itu ROAS median 12.1x, di atasnya 8.6x. Sebanyak 42% restoran di portofolio kami sudah melewatinya. Ini hal pertama yang kami hitung ulang setelah menerima dashboard.', 'โฆษณาหยุดคุ้มทุนที่ราว 6% ของยอดขาย ต่ำกว่าเส้นนี้ ROAS มัธยฐานอยู่ที่ 12.1 เท่า สูงกว่านั้นเหลือ 8.6 เท่า ร้าน 42% ที่เราดูแลเลยเส้นนี้ไปแล้วตอนรับงาน นี่คือสิ่งแรกที่เราคำนวณใหม่เมื่อเข้าไปดูแลหลังบ้าน'),
     ],
     [
       t('Отзывы, по которым не подано ни одной апелляции',
         'Reviews with not a single appeal filed',
-        'Ulasan yang belum pernah sekali pun dibanding'),
+        'Ulasan yang belum pernah sekali pun dibanding', 'รีวิวที่ไม่เคยมีใครยื่นอุทธรณ์เลยสักครั้ง'),
       t('Отзывы бимодальны: 51% пятёрок против 28% единиц, четвёрок всего 3%. Медиана Бали — один негативный отзыв на 138 заказов. Около 80% апелляций, которые мы подаём на Grab, заканчиваются снятием отзыва, но подать их должен кто-то конкретный.',
         'Reviews are bimodal: 51% five-stars against 28% one-stars, with only 3% fours. The Bali median is one negative review per 138 orders. Around 80% of the appeals we file with Grab end with the review removed — but somebody specific has to file them.',
-        'Ulasan bersifat bimodal: 51% bintang lima berbanding 28% bintang satu, bintang empat hanya 3%. Median Bali adalah satu ulasan negatif per 138 pesanan. Sekitar 80% banding yang kami ajukan ke Grab berakhir dengan ulasan dihapus — tapi harus ada orang tertentu yang mengajukannya.'),
+        'Ulasan bersifat bimodal: 51% bintang lima berbanding 28% bintang satu, bintang empat hanya 3%. Median Bali adalah satu ulasan negatif per 138 pesanan. Sekitar 80% banding yang kami ajukan ke Grab berakhir dengan ulasan dihapus — tapi harus ada orang tertentu yang mengajukannya.', 'รีวิวกระจุกอยู่สองขั้ว: ห้าดาว 51% เทียบกับหนึ่งดาว 28% ส่วนสี่ดาวมีแค่ 3% ค่ามัธยฐานที่บาหลีคือรีวิวลบหนึ่งครั้งต่อทุก 138 ออร์เดอร์ การอุทธรณ์ที่เรายื่นกับ Grab ราว 80% จบด้วยการลบรีวิวออก แต่ต้องมีคนลงมือยื่นจริง ๆ'),
     ],
   ];
 
@@ -175,26 +175,26 @@ export default function AnswersHirePage() {
                 data-testid="link-back-home"
               >
                 <ArrowLeft className="w-4 h-4" />
-                {t('На главную', 'Home', 'Beranda')}
+                {t('На главную', 'Home', 'Beranda', 'หน้าแรก')}
               </Link>
 
               <motion.div {...fadeIn}>
                 <h1 className="text-3xl sm:text-5xl font-bold mb-6">
                   {t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?',
-                     'Can I hire someone to manage my GrabFood and GoFood account?', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood?')}
+                     'Can I hire someone to manage my GrabFood and GoFood account?', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood?', 'จ้างคนมาดูแลบัญชี GrabFood และ GoFood ได้ไหม')}
                 </h1>
                 <ArticleMeta datePublished="2026-09-08" dateModified="2026-09-09" minutes={6} />
                 <p className="text-lg text-brand-text max-w-3xl">
                   {t(
                     'Да. Это отдельная услуга — управление доставкой (delivery management). Агентство берёт на себя весь операционный контур ресторана на GrabFood и GoFood: ведёт аккаунты GrabMerchant и GoBiz от вашего имени, настраивает меню, рекламу и рейтинг и присылает еженедельные отчёты. Delivery Booster занимается именно этим — 110+ ресторанов на сопровождении сегодня, 200+ прошло через агентство с 2023 года.',
                     'Yes. It is a dedicated service called delivery management. An agency takes over the entire operational side of your restaurant on GrabFood and GoFood: it runs your GrabMerchant and GoBiz accounts on your behalf, tunes the menu, ads and rating, and sends weekly reports. Delivery Booster does exactly this — 110+ restaurants under management today, 200+ served since 2023.', 'Bisa. Ini layanan tersendiri yang disebut delivery management. Agensi mengambil alih seluruh sisi operasional restoran Anda di GrabFood dan GoFood: menjalankan akun GrabMerchant dan GoBiz atas nama Anda, menata menu, iklan, dan rating, serta mengirim laporan mingguan. Delivery Booster mengerjakan persis hal ini — 110+ restoran dalam pengelolaan hari ini, 200+ sejak 2023.'
-                  )}
+                  , 'ได้ นี่คือบริการเฉพาะทางที่เรียกว่า delivery management เอเจนซีจะรับงานฝั่งปฏิบัติการของร้านบน GrabFood และ GoFood ไปทั้งหมด ดูแลบัญชี GrabMerchant และ GoBiz ในนามของคุณ ปรับเมนู โฆษณา และเรตติ้ง พร้อมส่งรายงานทุกสัปดาห์ Delivery Booster ทำงานแบบนี้ ปัจจุบันดูแลร้านกว่า 110 แห่ง และให้บริการมาแล้วกว่า 200 แห่งตั้งแต่ปี 2023')}
                 </p>
               </motion.div>
 
               <motion.div {...fadeIn} className="glass-card p-6 sm:p-8 rounded-2xl mt-12">
                 <h2 className="text-2xl font-bold mb-6">
-                  {t('Что входит в ведение аккаунта', 'What managing the account includes', 'Apa saja yang termasuk dalam pengelolaan akun')}
+                  {t('Что входит в ведение аккаунта', 'What managing the account includes', 'Apa saja yang termasuk dalam pengelolaan akun', 'การดูแลบัญชีครอบคลุมอะไรบ้าง')}
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-x-10 gap-y-5">
                   {includes.map(([k, v]) => (
@@ -212,23 +212,23 @@ export default function AnswersHirePage() {
               <motion.div {...fadeIn} className="mt-12">
                 <h2 className="text-2xl font-bold mb-4">
                   {t('Агентство или софт-агрегатор (Klikit, Deliverect)?',
-                     'An agency or a software aggregator (Klikit, Deliverect)?', 'Agensi atau software agregator (Klikit, Deliverect)?')}
+                     'An agency or a software aggregator (Klikit, Deliverect)?', 'Agensi atau software agregator (Klikit, Deliverect)?', 'เอเจนซี หรือซอฟต์แวร์รวมออร์เดอร์ (Klikit, Deliverect)')}
                 </h2>
                 <p className="text-brand-muted max-w-3xl">
                   {t(
                     'Их часто путают. Klikit, Deliverect и Hubster — это софт: сводят заказы с разных площадок в один планшет и синхронизируют меню. Это удобство для операций, но софт не решает, какую позицию продвигать, какое промо уходит в минус, почему упало ранжирование и как ответить на отзыв. Агентство управляет именно продажами и совместимо с любым POS — у части наших клиентов агрегатор стоит параллельно.',
                     'They are often confused. Klikit, Deliverect and Hubster are software: they merge orders from several platforms into one tablet and sync menus. Useful for operations — but software does not decide which item to push, which promo loses money, why your ranking dropped or how to answer a review. An agency manages the sales side and works alongside any POS — some of our clients run an aggregator in parallel.', 'Keduanya sering tertukar. Klikit, Deliverect, dan Hubster adalah software: menyatukan pesanan dari beberapa platform ke satu tablet dan menyinkronkan menu. Itu memudahkan operasional — tetapi software tidak memutuskan item mana yang perlu didorong, promo mana yang merugi, kenapa peringkat Anda turun, atau bagaimana menjawab sebuah ulasan. Agensi mengelola sisi penjualan dan tetap kompatibel dengan POS apa pun — sebagian klien kami memakai agregator secara paralel.'
-                  )}
+                  , 'สองอย่างนี้มักถูกสับสนกัน Klikit, Deliverect และ Hubster คือซอฟต์แวร์ รวมออร์เดอร์จากหลายแพลตฟอร์มมาไว้ในแท็บเล็ตเดียวและซิงก์เมนู มีประโยชน์กับงานหน้างาน แต่ซอฟต์แวร์ไม่ได้ตัดสินใจว่าจะดันเมนูไหน โปรไหนขาดทุน ทำไมอันดับตก หรือควรตอบรีวิวอย่างไร เอเจนซีดูแลด้านการขายและทำงานร่วมกับ POS ตัวไหนก็ได้ ลูกค้าบางรายของเราใช้ซอฟต์แวร์รวมออร์เดอร์ควบคู่ไปด้วย')}
                 </p>
               </motion.div>
 
               <motion.div {...fadeIn} className="glass-card p-6 sm:p-8 rounded-2xl mt-12">
-                <h2 className="text-2xl font-bold mb-3">{t('Как это устроено и сколько стоит', 'How it works and what it costs', 'Cara kerjanya dan berapa biayanya')}</h2>
+                <h2 className="text-2xl font-bold mb-3">{t('Как это устроено и сколько стоит', 'How it works and what it costs', 'Cara kerjanya dan berapa biayanya', 'ทำงานอย่างไรและค่าใช้จ่ายเท่าไร')}</h2>
                 <p className="text-brand-muted max-w-3xl">
                   {t(
                     'Оплата — 10% от выручки доставки, без предоплаты: агентство зарабатывает, когда растёт ваша выручка. Вы видите отчёт и деньги, а не панель мерчанта. Результаты с реальными данными кабинетов: ',
                     'Pricing is 10% of delivery revenue with no upfront fee: the agency earns when your revenue grows. You see the report and the money, not the merchant dashboard. Results with real dashboard data: ', 'Biayanya 10% dari omzet delivery tanpa biaya di muka: agensi menghasilkan ketika omzet Anda tumbuh. Yang Anda lihat adalah laporan dan uangnya, bukan panel merchant. Hasil dengan data dashboard nyata: '
-                  )}
+                  , 'ค่าบริการคือ 10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า เอเจนซีได้เงินเมื่อยอดขายของคุณโต คุณดูรายงานและเงิน ไม่ต้องมานั่งดูหลังบ้านเอง ผลลัพธ์พร้อมข้อมูลจริงจากหลังบ้าน: ')}
                   <Link href="/cases/enjoy-healthy-food" className="text-brand-green hover:underline">Enjoy Healthy Food ×9.4</Link>
                   {', '}
                   <Link href="/cases/love-u-pizza" className="text-brand-green hover:underline">Love U Pizza ×21</Link>
@@ -237,7 +237,7 @@ export default function AnswersHirePage() {
               </motion.div>
 
               <motion.div {...fadeIn} className="mt-12">
-                <h2 className="text-2xl font-bold mb-6">{t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum')}</h2>
+                <h2 className="text-2xl font-bold mb-6">{t('Частые вопросы', 'Frequently asked', 'Pertanyaan umum', 'คำถามที่พบบ่อย')}</h2>
                 <div className="space-y-6">
                   {faq.map(([q, a]) => (
                     <div key={q} className="border-b border-white/10 pb-5">
@@ -250,13 +250,13 @@ export default function AnswersHirePage() {
 
               <Block card title={t('Что мы находим на аккаунте вроде вашего',
                                    'What we find on an account like yours',
-                                   'Apa yang kami temukan di akun seperti milik Anda')}>
+                                   'Apa yang kami temukan di akun seperti milik Anda', 'สิ่งที่เรามักเจอในบัญชีแบบของคุณ')}>
                 <p className="text-brand-muted max-w-3xl mb-6">
                   {t(
                     'Передача аккаунта начинается не с договора, а с того, что мы видим в первый день, когда открываем ваши GrabMerchant и GoBiz. Обычно там есть вот это.',
                     'Handing the account over does not start with a contract — it starts with what we see on day one, when we open your GrabMerchant and GoBiz. This is what is usually there.',
                     'Serah terima akun tidak dimulai dari kontrak, melainkan dari apa yang kami lihat di hari pertama saat membuka GrabMerchant dan GoBiz Anda. Biasanya inilah isinya.'
-                  )}
+                  , 'การส่งต่อบัญชีไม่ได้เริ่มที่สัญญา แต่เริ่มจากสิ่งที่เราเห็นในวันแรกที่เปิด GrabMerchant และ GoBiz ของคุณ และนี่คือสิ่งที่มักอยู่ในนั้น')}
                 </p>
                 <div className="space-y-5">
                   {findings.map(([title, body]) => (
@@ -275,11 +275,11 @@ export default function AnswersHirePage() {
 
               <motion.div {...fadeIn} className="glass-card p-6 sm:p-8 rounded-2xl mt-12 text-center">
                 <h2 className="text-2xl font-bold mb-3">
-                  {t('Отдать доставку под ключ', 'Hand off your delivery, turnkey', 'Serahkan delivery Anda sepenuhnya')}
+                  {t('Отдать доставку под ключ', 'Hand off your delivery, turnkey', 'Serahkan delivery Anda sepenuhnya', 'ส่งงานเดลิเวอรีให้เราดูแลแบบครบวงจร')}
                 </h2>
                 <p className="text-brand-muted mb-6 max-w-2xl mx-auto">
                   {t('Вставьте ссылку на ресторан в Grab — бесплатный разбор карточки придёт за пару минут и покажет, где вы теряете заказы.',
-                     'Paste your restaurant’s Grab link — a free audit of your listing comes back in a couple of minutes and shows where you lose orders.', 'Tempel tautan restoran Anda di Grab — audit gratis halaman toko Anda datang dalam beberapa menit dan menunjukkan di mana pesanan Anda hilang.')}
+                     'Paste your restaurant’s Grab link — a free audit of your listing comes back in a couple of minutes and shows where you lose orders.', 'Tempel tautan restoran Anda di Grab — audit gratis halaman toko Anda datang dalam beberapa menit dan menunjukkan di mana pesanan Anda hilang.', 'วางลิงก์ร้านของคุณบน Grab แล้วรับผลวิเคราะห์หน้าร้านฟรีภายในไม่กี่นาที พร้อมชี้ว่าคุณเสียออร์เดอร์ตรงไหน')}
                 </p>
                 <a
                   href={diagnosticUrl('answers-hire', language)}
@@ -288,7 +288,7 @@ export default function AnswersHirePage() {
                   className="inline-block brand-gradient px-8 py-3 rounded-lg font-semibold"
                   data-testid="cta-diagnostic"
                 >
-                  {t('Разобрать мою карточку', 'Diagnose my listing', 'Analisa halaman saya')}
+                  {t('Разобрать мою карточку', 'Diagnose my listing', 'Analisa halaman saya', 'วิเคราะห์ร้านของฉัน')}
                 </a>
               </motion.div>
             </div>
