@@ -17,7 +17,9 @@ export default function AnswersHubPage() {
         ? 'Ответы и данные по доставке: GrabFood и GoFood — Delivery Booster'
         : language === 'id'
           ? 'Jawaban dan data soal delivery: GrabFood dan GoFood — Delivery Booster'
-          : 'Delivery answers and data: GrabFood and GoFood — Delivery Booster';
+          : language === 'th'
+            ? 'คำตอบและข้อมูลเรื่องเดลิเวอรี่: GrabFood และ GoFood — Delivery Booster'
+            : 'Delivery answers and data: GrabFood and GoFood — Delivery Booster';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
@@ -27,7 +29,9 @@ export default function AnswersHubPage() {
           ? 'Вопросы, которые задают перед тем, как отдать доставку: делегирование аккаунта, реклама, свой менеджер или агентство. Плюс открытые данные по 96 ресторанам и метод целиком.'
           : language === 'id'
             ? 'Pertanyaan yang muncul sebelum menyerahkan pengelolaan delivery: delegasi akun, iklan, manajer internal atau agensi. Plus data terbuka dari 96 restoran dan metode lengkap.'
-            : 'The questions people ask before handing delivery over: delegating the account, ads, in-house manager or agency. Plus open data from 96 restaurants and the full method.';
+            : language === 'th'
+              ? 'คำถามที่คนถามก่อนจะยกงานเดลิเวอรี่ให้คนอื่นดูแล: การมอบหมายบัญชี โฆษณา จะใช้ผู้จัดการในร้านหรือเอเจนซี่ พร้อมข้อมูลเปิดจาก 96 ร้าน และเมธอดฉบับเต็ม'
+              : 'The questions people ask before handing delivery over: delegating the account, ads, in-house manager or agency. Plus open data from 96 restaurants and the full method.';
     syncOpenGraph();
   }, [language]);
 

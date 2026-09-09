@@ -27,7 +27,9 @@ export default function AnswersAdsNotWorkingPage() {
         ? 'Плачу за рекламу в GrabFood, а заказов больше нет — почему'
         : language === 'id'
           ? 'Saya bayar iklan GrabFood, tapi pesanan tidak bertambah — kenapa?'
-          : 'I’m paying for GrabFood ads but orders are not increasing — why?';
+          : language === 'th'
+            ? 'จ่ายค่าโฆษณา GrabFood แล้วแต่ออร์เดอร์ไม่เพิ่ม — เพราะอะไร?'
+            : 'I’m paying for GrabFood ads but orders are not increasing — why?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
@@ -37,7 +39,9 @@ export default function AnswersAdsNotWorkingPage() {
           ? 'Реклама покупает показы, а не заказы. Порядок диагностики: доступность, конверсия карточки, экономика промо, рейтинг — и только потом ставки. С реальными цифрами кабинетов: конверсия 0.5% → 1.9%, ROAS 0.25x → 15.52x.'
           : language === 'id'
             ? 'Iklan membeli tayangan, bukan pesanan. Urutan diagnosisnya: ketersediaan, konversi listing, ekonomi promo, rating — dan baru setelah itu bid. Dengan angka nyata dari dashboard: konversi 0.5% → 1.9%, ROAS 0.25x → 15.52x.'
-            : 'Ads buy impressions, not orders. The diagnostic order: availability, listing conversion, promo economics, rating — and only then bids. With real dashboard numbers: conversion 0.5% → 1.9%, ROAS 0.25x → 15.52x.';
+            : language === 'th'
+              ? 'โฆษณาซื้ออิมเพรสชัน ไม่ได้ซื้อออร์เดอร์ ลำดับการตรวจ: ความพร้อมขาย คอนเวอร์ชั่นของหน้าร้าน เศรษฐศาสตร์ของโปรโมชั่น เรตติ้ง — แล้วจึงค่อยถึงการตั้งบิด พร้อมตัวเลขจริงจากแดชบอร์ด: คอนเวอร์ชั่น 0.5% → 1.9%, ROAS 0.25x → 15.52x'
+              : 'Ads buy impressions, not orders. The diagnostic order: availability, listing conversion, promo economics, rating — and only then bids. With real dashboard numbers: conversion 0.5% → 1.9%, ROAS 0.25x → 15.52x.';
     syncOpenGraph();
   }, [language]);
 

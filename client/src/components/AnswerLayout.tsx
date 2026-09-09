@@ -51,7 +51,7 @@ export const ArticleMeta = ({
   minutes?: number;
 }) => {
   const { t, language } = useLanguage();
-  const locale = language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : 'en-GB';
+  const locale = language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : language === 'th' ? 'th-TH' : 'en-GB';
   const fmt = (d: string) =>
     new Date(d + 'T00:00:00Z').toLocaleDateString(locale, {
       day: 'numeric',
@@ -209,7 +209,7 @@ export const articleSchema = ({
   about,
   datePublished,
   dateModified,
-  inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : 'en-US',
+  inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : language === 'th' ? 'th-TH' : 'en-US',
   isPartOf: { '@type': 'WebSite', name: 'Delivery Booster', url: 'https://booster.delivery' },
 });
 

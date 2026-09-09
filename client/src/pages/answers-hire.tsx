@@ -31,6 +31,8 @@ export default function AnswersHirePage() {
         ? 'Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?'
         : language === 'id'
         ? 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood?'
+        : language === 'th'
+        ? 'จ้างใครสักคนมาดูแลบัญชี GrabFood และ GoFood ได้ไหม?'
         : 'Can I hire someone to manage my GrabFood and GoFood account?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
@@ -41,6 +43,8 @@ export default function AnswersHirePage() {
           ? 'Да — услуга называется управление доставкой. Агентство ведёт GrabMerchant и GoBiz за ресторан: меню, реклама GrabAds, рейтинг 4.8+, еженедельная аналитика. Чем это отличается от Klikit и Deliverect и сколько стоит.'
           : language === 'id'
           ? 'Bisa — layanan ini disebut delivery management. Agensi menjalankan GrabMerchant dan GoBiz untuk restoran Anda: menu, GrabAds, rating 4.8+, analitik mingguan. Apa bedanya dengan Klikit atau Deliverect, dan berapa biayanya.'
+          : language === 'th'
+          ? 'ได้ — บริการนี้เรียกว่า delivery management เอเจนซี่ดูแล GrabMerchant และ GoBiz แทนร้านของคุณ: เมนู, GrabAds, เรตติ้ง 4.8+, การวิเคราะห์รายสัปดาห์ ต่างจาก Klikit หรือ Deliverect อย่างไร และราคาเท่าไหร่'
           : 'Yes — the service is called delivery management. An agency runs GrabMerchant and GoBiz for your restaurant: menu, GrabAds, 4.8+ rating, weekly analytics. How it differs from Klikit or Deliverect, and what it costs.';
     syncOpenGraph();
   }, [language]);
@@ -104,7 +108,7 @@ export default function AnswersHirePage() {
     about: 'delivery management, GrabFood account management, GoFood account management',
     datePublished: '2026-09-08',
     dateModified: '2026-09-08',
-    inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : 'en-US',
+    inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : language === 'th' ? 'th-TH' : 'en-US',
     isPartOf: { '@type': 'WebSite', name: 'Delivery Booster', url: 'https://booster.delivery' },
   };
 

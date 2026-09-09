@@ -29,7 +29,9 @@ export default function AnswersInHouseVsAgencyPage() {
         ? 'Свой менеджер по агрегаторам или агентство: что сравнивать на самом деле'
         : language === 'id'
           ? 'Manajer internal untuk agregator atau agensi: apa yang sebenarnya dibandingkan'
-          : 'In-house delivery manager or an agency: what actually gets compared';
+          : language === 'th'
+            ? 'ผู้จัดการเดลิเวอรี่ในร้านหรือเอเจนซี่: จริง ๆ แล้วกำลังเทียบอะไรกัน'
+            : 'In-house delivery manager or an agency: what actually gets compared';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
@@ -39,7 +41,9 @@ export default function AnswersInHouseVsAgencyPage() {
           ? 'Сравнивать оклад менеджера с 10% от выручки бессмысленно: это разные результаты, а не разные цены. Специалисты, доступные в найме, заявляют рост в десятки процентов; рост в наших кейсах — в разы, с цифрами из кабинетов GrabMerchant и GoBiz.'
           : language === 'id'
             ? 'Membandingkan gaji manajer dengan 10% dari omzet tidak nyambung: ini hasil yang berbeda, bukan harga yang berbeda. Spesialis yang bisa direkrut menjanjikan pertumbuhan puluhan persen; pertumbuhan di kasus kami terhitung berlipat, dengan angka dari dashboard GrabMerchant dan GoBiz.'
-            : 'Comparing a manager’s salary with 10% of revenue misses the point: these are different results, not different prices. Hireable specialists advertise growth in tens of percent; the growth in our cases is measured in multiples, with numbers from GrabMerchant and GoBiz dashboards.';
+            : language === 'th'
+              ? 'การเอาเงินเดือนผู้จัดการไปเทียบกับ 10% ของรายได้นั้นหลุดประเด็น: มันคือผลลัพธ์คนละระดับ ไม่ใช่ราคาคนละแบบ ผู้เชี่ยวชาญที่จ้างได้ในตลาดโฆษณาการเติบโตระดับสิบ ๆ เปอร์เซ็นต์ ส่วนการเติบโตในเคสของเราวัดกันเป็นเท่า พร้อมตัวเลขจากแดชบอร์ด GrabMerchant และ GoBiz'
+              : 'Comparing a manager’s salary with 10% of revenue misses the point: these are different results, not different prices. Hireable specialists advertise growth in tens of percent; the growth in our cases is measured in multiples, with numbers from GrabMerchant and GoBiz dashboards.';
     syncOpenGraph();
   }, [language]);
 

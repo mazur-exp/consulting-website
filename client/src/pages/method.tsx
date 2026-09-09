@@ -27,6 +27,8 @@ export default function MethodPage() {
         ? 'Delivery Booster Method — как мы растим продажи на GrabFood и GoFood'
         : language === 'id'
         ? 'Delivery Booster Method — cara kami menumbuhkan penjualan di GrabFood dan GoFood'
+        : language === 'th'
+        ? 'Delivery Booster Method — เราเพิ่มยอดขายบน GrabFood และ GoFood อย่างไร'
         : 'The Delivery Booster Method — how we grow GrabFood and GoFood sales';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
@@ -37,6 +39,8 @@ export default function MethodPage() {
           ? 'Открытый метод Delivery Booster: пять этапов работы с аккаунтом ресторана на GrabFood и GoFood — доступность, карточка, меню и цены, рейтинг, реклама — с реальными цифрами кабинетов клиентов.'
           : language === 'id'
           ? 'Delivery Booster Method, dipublikasikan utuh: lima tahap pengelolaan akun restoran di GrabFood dan GoFood — ketersediaan, halaman toko, menu dan harga, rating, iklan — dengan angka nyata dari dashboard klien.'
+          : language === 'th'
+          ? 'เมธอดของ Delivery Booster แบบเปิดทั้งหมด: ห้าขั้นตอนของการดูแลบัญชีร้านอาหารบน GrabFood และ GoFood — ความพร้อมขาย หน้าร้าน เมนูและราคา เรตติ้ง โฆษณา พร้อมตัวเลขจริงจากแดชบอร์ดของลูกค้า'
           : 'The Delivery Booster Method, published in full: five stages of working a restaurant account on GrabFood and GoFood — availability, listing, menu and pricing, rating, ads — with real numbers from client dashboards.';
     syncOpenGraph();
   }, [language]);

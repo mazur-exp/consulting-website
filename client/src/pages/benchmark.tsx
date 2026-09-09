@@ -57,7 +57,9 @@ export default function BenchmarkPage() {
         ? 'Бенчмарк доставки Бали и Пхукет 2026 — данные по 96 ресторанам'
         : language === 'id'
           ? 'Benchmark Delivery Bali & Phuket 2026 — data dari 96 restoran'
-          : 'Bali & Phuket Delivery Benchmark 2026 — data from 96 restaurants';
+          : language === 'th'
+            ? 'เบนช์มาร์กเดลิเวอรี่บาหลีและภูเก็ต 2026 — ข้อมูลจาก 96 ร้านอาหาร'
+            : 'Bali & Phuket Delivery Benchmark 2026 — data from 96 restaurants';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
@@ -67,7 +69,9 @@ export default function BenchmarkPage() {
           ? 'Медианы и распределения по 96 ресторанам на GrabFood и GoFood (Бали и Пхукет, янв–авг 2026): средний чек, ROAS, отмены, доля рекламы, потери на стоп-листе, отзывы. Оригинальные данные из кабинетов мерчантов.'
           : language === 'id'
             ? 'Median dan sebaran dari 96 restoran di GrabFood dan GoFood (Bali dan Phuket, Jan–Agu 2026): rata-rata nilai pesanan, ROAS, pembatalan, porsi iklan, kerugian stok habis, ulasan. Data asli dari dasbor merchant.'
-            : 'Medians and distributions across 96 GrabFood and GoFood restaurants (Bali and Phuket, Jan–Aug 2026): average check, ROAS, cancellations, ad share, stock-out losses, reviews. Original merchant-dashboard data.';
+            : language === 'th'
+              ? 'ค่ามัธยฐานและการกระจายจาก 96 ร้านอาหารบน GrabFood และ GoFood (บาหลีและภูเก็ต ม.ค.–ส.ค. 2026): ยอดต่อบิลเฉลี่ย ROAS การยกเลิก สัดส่วนโฆษณา ความสูญเสียจากเมนูปิดขาย และรีวิว ข้อมูลต้นฉบับจากแดชบอร์ดร้านค้า'
+              : 'Medians and distributions across 96 GrabFood and GoFood restaurants (Bali and Phuket, Jan–Aug 2026): average check, ROAS, cancellations, ad share, stock-out losses, reviews. Original merchant-dashboard data.';
     syncOpenGraph();
   }, [language]);
 
@@ -167,7 +171,7 @@ export default function BenchmarkPage() {
     mainEntityOfPage: URL,
     datePublished: '2026-09-08',
     dateModified: '2026-09-08',
-    inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : 'en-US',
+    inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : language === 'th' ? 'th-TH' : 'en-US',
     isPartOf: { '@type': 'WebSite', name: 'Delivery Booster', url: 'https://booster.delivery' },
     about: 'GrabFood benchmark, GoFood benchmark, Bali restaurant delivery, Phuket restaurant delivery, ROAS, average check',
   };

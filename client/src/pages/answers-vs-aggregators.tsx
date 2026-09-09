@@ -28,6 +28,8 @@ export default function AnswersVsAggregatorsPage() {
         ? 'Агентство или Klikit/Deliverect: в чём разница для ресторана'
         : language === 'id'
         ? 'Agensi delivery atau Klikit / Deliverect: apa bedanya?'
+        : language === 'th'
+        ? 'เอเจนซี่เดลิเวอรี่ กับ Klikit / Deliverect: ต่างกันอย่างไร?'
         : 'Delivery agency vs Klikit / Deliverect: what is the difference?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
@@ -38,6 +40,8 @@ export default function AnswersVsAggregatorsPage() {
           ? 'Klikit, Deliverect и Hubster сводят заказы с площадок в один планшет. Агентство управления доставкой отвечает за выручку: ранжирование, меню, промо-экономику, ROAS. Разбор двух категорий и когда нужна каждая.'
           : language === 'id'
           ? 'Klikit, Deliverect, dan Hubster menyatukan pesanan dari aplikasi delivery ke satu tablet. Agensi pengelolaan delivery bertanggung jawab atas omzet: peringkat, menu, ekonomi promo, ROAS. Apa yang sebenarnya dilakukan masing-masing kategori, dan kapan Anda membutuhkan yang mana.'
+          : language === 'th'
+          ? 'Klikit, Deliverect และ Hubster รวมออร์เดอร์จากแอปเดลิเวอรี่มาไว้ในแท็บเล็ตเดียว ส่วนเอเจนซี่ดูแลเดลิเวอรี่รับผิดชอบรายได้: อันดับ เมนู เศรษฐศาสตร์ของโปรโมชั่น ROAS แต่ละประเภททำอะไรกันแน่ และคุณต้องการอันไหนเมื่อไหร่'
           : 'Klikit, Deliverect and Hubster merge orders from delivery apps into one tablet. A delivery management agency owns the revenue: ranking, menu, promo economics, ROAS. What each category actually does, and when you need which.';
     syncOpenGraph();
   }, [language]);

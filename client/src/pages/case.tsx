@@ -23,7 +23,9 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
         ? `Кейс ${caseStudy.nameRu}: ${caseStudy.headlineRu} — Delivery Booster`
         : language === 'id'
           ? `Studi kasus ${caseStudy.nameId ?? caseStudy.nameEn}: ${caseStudy.headlineId ?? caseStudy.headlineEn} — Delivery Booster`
-          : `Case study ${caseStudy.nameEn}: ${caseStudy.headlineEn} — Delivery Booster`;
+          : language === 'th'
+            ? `เคส ${caseStudy.nameTh ?? caseStudy.nameEn}: ${caseStudy.headlineTh ?? caseStudy.headlineEn} — Delivery Booster`
+            : `Case study ${caseStudy.nameEn}: ${caseStudy.headlineEn} — Delivery Booster`;
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = `https://booster.delivery/cases/${caseStudy.slug}`;
     syncOpenGraph();
@@ -40,7 +42,9 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
         ? `${c.nameRu}: ${c.headlineRu}`
         : language === 'id'
           ? `${c.nameId ?? c.nameEn}: ${c.headlineId ?? c.headlineEn}`
-          : `${c.nameEn}: ${c.headlineEn}`,
+          : language === 'th'
+            ? `${c.nameTh ?? c.nameEn}: ${c.headlineTh ?? c.headlineEn}`
+            : `${c.nameEn}: ${c.headlineEn}`,
     about: { '@type': 'Restaurant', name: c.nameEn, address: c.locationEn },
     author: { '@type': 'Organization', name: 'Delivery Booster', url: 'https://booster.delivery' },
     publisher: { '@type': 'Organization', name: 'Delivery Booster' },
@@ -95,7 +99,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
               <h2 className="text-3xl font-bold mb-4">{t('Ситуация до начала работы', 'The situation before we started', 'Situasi sebelum kami mulai', 'สถานการณ์ก่อนเราเริ่มงาน')}</h2>
               <p className="text-brand-muted text-lg mb-8 max-w-3xl">{t(c.situationRu, c.situationEn, c.situationId, c.situationTh)}</p>
               <ul className="space-y-3 max-w-3xl">
-                {(language === 'ru' ? c.problemsRu : language === 'id' ? c.problemsId ?? c.problemsEn : c.problemsEn).map((p, i) => (
+                {(language === 'ru' ? c.problemsRu : language === 'id' ? c.problemsId ?? c.problemsEn : language === 'th' ? c.problemsTh ?? c.problemsEn : c.problemsEn).map((p, i) => (
                   <li key={i} className="flex items-start gap-3 text-brand-muted">
                     <XIcon className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                     <span>{p}</span>
@@ -121,7 +125,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                     </div>
                     <h3 className="font-semibold text-lg mb-4">{t(w.titleRu, w.titleEn, w.titleId, w.titleTh)}</h3>
                     <ul className="space-y-2.5">
-                      {(language === 'ru' ? w.itemsRu : language === 'id' ? w.itemsId ?? w.itemsEn : w.itemsEn).map((item, j) => (
+                      {(language === 'ru' ? w.itemsRu : language === 'id' ? w.itemsId ?? w.itemsEn : language === 'th' ? w.itemsTh ?? w.itemsEn : w.itemsEn).map((item, j) => (
                         <li key={j} className="flex items-start gap-2 text-sm text-brand-muted">
                           <Check className="w-4 h-4 text-brand-green flex-shrink-0 mt-0.5" />
                           <span>{item}</span>

@@ -28,7 +28,9 @@ export default function AnswersDoingItYourselfPage() {
         ? 'Сколько времени занимает самому вести GrabFood и GoFood?'
         : language === 'id'
           ? 'Berapa banyak waktu yang dibutuhkan untuk mengelola GrabFood dan GoFood sendiri?'
-          : 'How much time does running GrabFood and GoFood yourself take?';
+          : language === 'th'
+            ? 'ดูแล GrabFood และ GoFood เองใช้เวลาเท่าไหร่?'
+            : 'How much time does running GrabFood and GoFood yourself take?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
@@ -38,7 +40,9 @@ export default function AnswersDoingItYourselfPage() {
           ? 'Это не «пара часов в неделю на аналитику», а функция полного рабочего дня: стоп-лист, отзывы и негатив, доступность, ставки, промо. И до вопроса о времени стоит вопрос знаний — стартовую настройку и рекламу без них не сделать.'
           : language === 'id'
             ? 'Ini bukan "beberapa jam seminggu untuk analitik", melainkan fungsi penuh waktu: item yang dinonaktifkan, ulasan dan keluhan, ketersediaan, bid, promo. Dan sebelum soal waktu, ada soal pengetahuan — setup awal dan iklan tidak bisa dikerjakan tanpanya.'
-            : 'It is not "a couple of hours a week on analytics" but a full-time function: stop-list, reviews and negatives, availability, bidding, promos. And before the time question comes the knowledge question — setup and ads cannot be done without it.';
+            : language === 'th'
+              ? 'ไม่ใช่ "สัปดาห์ละสองสามชั่วโมงเพื่อดูตัวเลข" แต่เป็นงานเต็มเวลา: เมนูที่ถูกปิดขาย รีวิวและคำร้องเรียน ความพร้อมขาย การตั้งบิด โปรโมชั่น และก่อนคำถามเรื่องเวลา ยังมีคำถามเรื่องความรู้ — การตั้งค่าตอนเริ่มและการยิงโฆษณาทำไม่ได้ถ้าไม่มีมัน'
+              : 'It is not "a couple of hours a week on analytics" but a full-time function: stop-list, reviews and negatives, availability, bidding, promos. And before the time question comes the knowledge question — setup and ads cannot be done without it.';
     syncOpenGraph();
   }, [language]);
 

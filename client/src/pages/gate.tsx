@@ -25,7 +25,9 @@ export default function Gate() {
         ? 'Delivery Booster — Рост продаж ресторанов на Grab и Gojek в Юго-Восточной Азии'
         : language === 'id'
           ? 'Delivery Booster — Pertumbuhan Omzet Restoran di Grab dan Gojek se-Asia Tenggara'
-          : 'Delivery Booster — Grab & Gojek Sales Growth for Restaurants in Southeast Asia';
+          : language === 'th'
+            ? 'Delivery Booster — เพิ่มยอดขายร้านอาหารบน Grab และ Gojek ทั่วเอเชียตะวันออกเฉียงใต้'
+            : 'Delivery Booster — Grab & Gojek Sales Growth for Restaurants in Southeast Asia';
     syncOpenGraph();
   }, [language]);
 

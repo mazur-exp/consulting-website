@@ -27,7 +27,9 @@ export default function AboutPage() {
         ? 'О компании Delivery Booster — агентство управления доставкой в ЮВА'
         : language === 'id'
           ? 'Tentang Delivery Booster — agensi pengelolaan delivery di Asia Tenggara'
-          : 'About Delivery Booster — delivery management agency in Southeast Asia';
+          : language === 'th'
+            ? 'เกี่ยวกับ Delivery Booster — เอเจนซี่ดูแลเดลิเวอรี่ในเอเชียตะวันออกเฉียงใต้'
+            : 'About Delivery Booster — delivery management agency in Southeast Asia';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = 'https://booster.delivery/about';
     syncOpenGraph();
