@@ -16,7 +16,7 @@ import { useLanguage } from '../hooks/useLanguage';
 const URL = 'https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect';
 
 /** Answer page for the "who can run my account" consideration set, where AI
- *  engines currently name POS/order aggregators (Klikit, Deliverect, Hubster)
+ *  engines currently name POS/order aggregators (Klikit, Runchise, Deliverect, Otter)
  *  and not delivery management agencies. Draws the line between the two
  *  categories without knocking the software — they solve different problems. */
 export default function AnswersVsAggregatorsPage() {
@@ -181,8 +181,10 @@ export default function AnswersVsAggregatorsPage() {
 : Array<[string, string, string]> = [
     [
       t('Что это', 'What it is', 'Apa ini', 'มันคืออะไร'),
-      t('Софт по подписке. Middleware между площадками и вашей кухней.',
-        'Subscription software. Middleware between the apps and your kitchen.', 'Software berlangganan. Middleware antara aplikasi dan dapur Anda.', 'ซอฟต์แวร์แบบสมาชิกรายเดือน ทำหน้าที่เป็นตัวกลางระหว่างแอปกับครัวของคุณ'),
+      t('Софт по подписке: middleware, касса или гибрид. Стоит между площадками и вашей кухней.',
+        'Subscription software: middleware, a till or a hybrid. It sits between the apps and your kitchen.',
+        'Software berlangganan: middleware, kasir, atau hibrida. Ia berdiri di antara aplikasi dan dapur Anda.',
+        'ซอฟต์แวร์แบบสมาชิกรายเดือน: มิดเดิลแวร์ แคชเชียร์ หรือลูกผสม ตั้งอยู่ระหว่างแอปกับครัวของคุณ'),
       t('Люди. Команда, которая ведёт ваши аккаунты вместо вас.',
         'People. A team that runs your accounts for you.', 'Orang. Tim yang menjalankan akun Anda untuk Anda.', 'คน ทีมงานที่เข้าไปดูแลบัญชีให้คุณ'),
     ],
@@ -341,8 +343,8 @@ export default function AnswersVsAggregatorsPage() {
               <tr className="text-left border-b border-white/10">
                 <th className="py-3 pr-4 font-medium text-brand-muted w-1/5"></th>
                 <th className="py-3 pr-4 font-semibold">
-                  {t('Софт-агрегатор', 'Aggregator software', 'Software agregator', 'ซอฟต์แวร์รวมออร์เดอร์')}
-                  <div className="text-xs font-normal text-brand-muted">Klikit, Deliverect, Hubster</div>
+                  {t('Софт', 'Software', 'Software', 'ซอฟต์แวร์')}
+                  <div className="text-xs font-normal text-brand-muted">Klikit, Runchise, Moka, Deliverect, Otter</div>
                 </th>
                 <th className="py-3 font-semibold">
                   {t('Агентство', 'Agency', 'Agensi', 'เอเจนซี')}
