@@ -1,0 +1,94 @@
+=== ЗАМЕР ./run-2026-09-10 (n=228) vs базовая ./run-2026-09-09b ===
+
+Шкала зрелости (problem):
+  1. управляемость внутри площадки                   94% (89%-97%)  120/127   было 95%  (шум)
+  2. допускает делегирование                         24% (17%-32%)  30/127   было 23%  (шум)
+  3. называет агентство по имени                      6% (3%-12%)  8/127   было 6%  (шум)
+
+Delivery Booster:
+  в category-запросах (ГЛАВНАЯ)                      39% (29%-50%)  30/77   было 32%  (шум)
+  в problem-запросах                                  5% (2%-10%)  6/127   было 4%  (шум)
+  в brand-запросах (корректно)                      100% (86%-100%)  24/24   было 100%
+
+Советы ИИ (problem):
+  platform_promos          88%
+  menu_photos              85%
+  rating_reviews           74%
+  ops_speed                72%
+  platform_ads             71%
+  pricing_commission       50%
+  own_channel              42%
+  data_analytics           32%
+  social_media             30%
+  platform_contact         23%
+  hire_agency              11%
+  other                     8%
+  pos_software              2%
+
+Названные сервисы (топ):
+   94  platform     GrabFood
+   56  agency       Delivery Booster
+   49  platform     GrabMerchant
+   44  platform     GoFood
+   34  platform     Grab
+   32  platform     LINE MAN
+   28  platform     GoBiz
+   24  platform     ShopeeFood
+   14  platform     Gojek
+   14  software_pos Klikit
+   13  platform     GrabAds
+   11  software_pos Runchise
+   10  software_pos Deliverect
+    7  platform     Wongnai Merchant App
+    7  media_blog   Instagram
+    6  platform     foodpanda
+    6  software_pos Moka POS
+    5  media_blog   TikTok
+    5  software_pos Hubster
+    5  software_pos klikit
+    5  media_blog   Facebook
+    4  platform     LINE MAN Wongnai
+    4  agency       Delivery Booster Bali
+    4  platform     GoFood Merchant
+    4  other        Fastwork
+    4  other        Fastwork.id
+    4  platform     GrabMerchant App
+    4  platform     Wongnai
+    4  platform     GrabMerchant Portal
+    4  agency       Hashmeta
+
+Наши профили в ответах (источники+текст, все слои):
+  сайт booster.delivery                              26% (21%-32%)  59/228   было 23%  (шум)
+  YouTube @DeliveryBooster                            0% (0%-2%)  0/228   было 0%
+  Instagram delivery.booster                          2% (1%-5%)  5/228   было 3%  (шум)
+  Telegram-канал @deliverybooster_asia                0% (0%-2%)  0/228   было 0%
+  Telegram-контакт @delivery_booster                  0% (0%-2%)  0/228   было 0%
+
+Цитируемые домены:
+    25%  booster.delivery  ★
+    23%  grab.com
+    18%  help.grab.com
+    12%  merchant.grab.com
+    11%  thegrabmethod.com
+    10%  klikit.io
+    10%  linkedin.com
+    10%  vertexaisearch.cloud.google.com
+     8%  apps.apple.com
+     8%  reddit.com
+     7%  food.grab.com
+     7%  play.google.com
+     6%  instagram.com
+     5%  nutapos.com
+     5%  lemon8-app.com
+     4%  id.scribd.com
+     4%  gofoodmerchant.co.id
+     4%  sapo.vn
+     4%  wongnai.com
+     4%  youtube.com
+     4%  runchise.com
+     4%  digifnb.com
+     4%  gojek.com
+     4%  merchant.shopeefood.vn
+     4%  shopeefood.vn
+
+Напоминание: в VISIBILITY_TRACKING.md записывать рост/падение только по строкам с пометкой ЗНАЧИМО.
