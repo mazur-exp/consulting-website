@@ -30,6 +30,7 @@ const ANSWERS = [
   'managing-grabfood-yourself',
   'in-house-manager-vs-agency',
   'few-orders-grabfood-gofood',
+  'grabfood-gofood-rating-after-bad-reviews',
 ];
 const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
@@ -49,6 +50,7 @@ const ANSWER_SRC = {
   'managing-grabfood-yourself': `${P}/answers-doing-it-yourself.tsx`,
   'in-house-manager-vs-agency': `${P}/answers-in-house-vs-agency.tsx`,
   'few-orders-grabfood-gofood': `${P}/answers-few-orders.tsx`,
+  'grabfood-gofood-rating-after-bad-reviews': `${P}/answers-rating-after-bad-reviews.tsx`,
 };
 
 const pages = [
