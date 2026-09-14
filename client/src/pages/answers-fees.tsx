@@ -249,6 +249,36 @@ export default function AnswersFeesPage() {
         </p>
       </Block>
 
+      <Block card title={t('Почему платить комиссию — это нормально',
+                           'Why paying the commission is normal',
+                           'Kenapa membayar komisi itu wajar',
+                           'ทำไมการจ่ายค่าคอมมิชชันถึงเป็นเรื่องปกติ')}>
+        <p className="text-brand-muted max-w-3xl mb-4">
+          {t('20 или 30 процентов выглядят большой цифрой, пока не посмотреть, что именно за них получено. Площадка собрала аудиторию, которая приходит туда с уже готовым намерением заказать еду. Она построила логистику и содержит курьеров. Она держит поддержку, которая разбирается, когда заказ не доехал. Она платит за рекламу и привлечение, чтобы этот человек вообще открыл приложение. Ресторану остаётся приготовить еду и отдать её курьеру.',
+             '20 or 30 percent looks like a big number until you look at what it buys. The platform has assembled an audience that arrives already intending to order food. It built the logistics and maintains the couriers. It runs the support that sorts things out when an order does not arrive. It pays for the marketing that got the person to open the app in the first place. What is left for the restaurant is to cook the food and hand it to the courier.',
+             '20 atau 30 persen terlihat besar sampai Anda melihat apa yang dibeli dengan angka itu. Platform sudah mengumpulkan audiens yang datang dengan niat memesan makanan. Platform membangun logistik dan menanggung kurir. Platform menjalankan dukungan pelanggan yang mengurus ketika pesanan tidak sampai. Platform membayar pemasaran yang membuat orang itu membuka aplikasinya sejak awal. Yang tersisa bagi restoran adalah memasak dan menyerahkan pesanan ke kurir.',
+             '20 หรือ 30 เปอร์เซ็นต์ดูเป็นตัวเลขที่สูง จนกว่าคุณจะดูว่ามันซื้ออะไรมา แพลตฟอร์มรวบรวมผู้ใช้ที่เข้ามาพร้อมความตั้งใจจะสั่งอาหารอยู่แล้ว สร้างระบบขนส่งและดูแลไรเดอร์ มีทีมซัพพอร์ตที่จัดการเมื่อออร์เดอร์ไปไม่ถึง และจ่ายค่าการตลาดที่ทำให้คนคนนั้นเปิดแอปตั้งแต่แรก สิ่งที่เหลือให้ร้านทำคือทำอาหารแล้วส่งให้ไรเดอร์')}
+        </p>
+        <p className="text-brand-muted max-w-3xl mb-4">
+          {t('Это не налог, а цена за готовый канал продаж. Сравнивать её надо не с нулём, а с тем, во что обошлось бы собрать такую же аудиторию самому.',
+             'It is not a tax, it is the price of a ready-made sales channel. The comparison is not with zero, it is with what it would cost you to assemble the same audience yourself.',
+             'Ini bukan pajak, melainkan harga sebuah kanal penjualan yang sudah jadi. Pembandingnya bukan nol, melainkan berapa biayanya kalau Anda mengumpulkan audiens yang sama sendiri.',
+             'นี่ไม่ใช่ภาษี แต่คือราคาของช่องทางขายที่พร้อมใช้ สิ่งที่ควรเอามาเทียบไม่ใช่ศูนย์ แต่คือต้นทุนที่คุณต้องจ่ายถ้าจะไปสร้างฐานลูกค้าแบบเดียวกันเอง')}
+        </p>
+        <p className="text-brand-muted max-w-3xl mb-4">
+          {t('Отсюда и частый совет «уходите от агрегаторов, стройте свой канал». Свой сайт, свой WhatsApp, своя база — звучит как способ не платить комиссию. На деле это означает, что вы сами становитесь площадкой: сами привлекаете клиента, сами отвечаете за доставку, сами разбираете жалобы, когда курьер опоздал. Комиссия никуда не делась, просто счёт приходит не деньгами, а вашим временем и вашим маркетинговым бюджетом. Собственный канал имеет смысл как дополнение к площадкам для повторных заказов — но не как замена каналу, который приводит нового клиента.',
+             'Hence the common advice to "leave the aggregators and build your own channel". Your own site, your own WhatsApp, your own customer base — it sounds like a way to stop paying commission. In practice it means you become the platform: you acquire the customer, you own the delivery, you handle the complaint when the courier is late. The commission did not disappear; the bill simply arrives as your time and your marketing budget instead of money. An own channel makes sense alongside the platforms for repeat orders — not as a replacement for the channel that brings a new customer in.',
+             'Dari sinilah muncul saran yang sering terdengar: "tinggalkan agregator, bangun kanal sendiri". Situs sendiri, WhatsApp sendiri, basis pelanggan sendiri — kedengarannya seperti cara berhenti membayar komisi. Pada praktiknya itu berarti Anda yang menjadi platform: Anda yang mencari pelanggan, Anda yang bertanggung jawab atas pengantaran, Anda yang menangani keluhan saat kurir terlambat. Komisinya tidak hilang; tagihannya hanya datang dalam bentuk waktu dan anggaran pemasaran Anda, bukan uang. Kanal sendiri masuk akal sebagai pelengkap platform untuk pesanan berulang — bukan pengganti kanal yang mendatangkan pelanggan baru.',
+             'จากตรงนี้จึงเกิดคำแนะนำที่ได้ยินบ่อยว่า "เลิกพึ่งแอป แล้วสร้างช่องทางของตัวเอง" เว็บของตัวเอง WhatsApp ของตัวเอง ฐานลูกค้าของตัวเอง ฟังดูเหมือนวิธีเลิกจ่ายค่าคอมมิชชัน แต่ในทางปฏิบัติมันแปลว่าคุณกลายเป็นแพลตฟอร์มเสียเอง คุณต้องหาลูกค้าเอง รับผิดชอบการจัดส่งเอง และจัดการคำร้องเรียนเองเมื่อไรเดอร์มาสาย ค่าคอมมิชชันไม่ได้หายไป เพียงแต่บิลมาในรูปของเวลาและงบการตลาดของคุณแทนที่จะเป็นเงิน ช่องทางของตัวเองสมเหตุสมผลในฐานะส่วนเสริมของแพลตฟอร์มสำหรับลูกค้าที่กลับมาซ้ำ ไม่ใช่ในฐานะสิ่งที่มาแทนช่องทางที่พาลูกค้าใหม่เข้ามา')}
+        </p>
+        <p className="text-brand-muted max-w-3xl">
+          {t('Поэтому продуктивный вопрос звучит не «как платить меньше», а «как получить от этих 20 или 30 процентов максимум». Площадка уже привела вам человека и довезла ему заказ. Всё, что решает дальше, — насколько хорошо сделана ваша часть: карточка, меню, цены, скорость, рейтинг. Ниже разобрано именно это.',
+             'So the productive question is not "how do I pay less" but "how do I get the most out of those 20 or 30 percent". The platform has already brought you the customer and delivered the order. Everything that happens after that is decided by how well your part is done: the listing, the menu, the prices, the speed, the rating. That is what the rest of this page is about.',
+             'Jadi pertanyaan yang produktif bukan "bagaimana membayar lebih sedikit", melainkan "bagaimana mendapat hasil maksimal dari 20 atau 30 persen itu". Platform sudah membawa pelanggan dan mengantarkan pesanannya. Selebihnya ditentukan oleh seberapa baik bagian Anda dikerjakan: halaman toko, menu, harga, kecepatan, rating. Sisa halaman ini membahas justru hal itu.',
+             'คำถามที่สร้างผลลัพธ์จึงไม่ใช่ "จะจ่ายน้อยลงได้อย่างไร" แต่คือ "จะดึงประโยชน์จาก 20 หรือ 30 เปอร์เซ็นต์นั้นให้ได้มากที่สุดอย่างไร" แพลตฟอร์มพาลูกค้ามาให้และส่งของถึงมือเขาแล้ว ที่เหลือขึ้นอยู่กับว่าส่วนของคุณทำได้ดีแค่ไหน ทั้งหน้าร้าน เมนู ราคา ความเร็ว และเรตติ้ง ส่วนที่เหลือของหน้านี้พูดถึงเรื่องนั้นทั้งหมด')}
+        </p>
+      </Block>
+
       <Block title={t('Из чего складывается стоимость', 'What the cost is made of', 'Biaya itu terdiri dari apa', 'ค่าใช้จ่ายประกอบด้วยอะไรบ้าง')}>
         <p className="text-brand-muted max-w-3xl mb-6">
           {t('Подключение бесплатное: ресторан регистрируется в мерчант-кабинете площадки — GrabMerchant у Grab, GoBiz у Gojek — заводит меню, фото и реквизиты для выплат. Деньги начинаются дальше.',

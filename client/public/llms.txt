@@ -154,6 +154,50 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   used by chains: the in-house person holds operations, the agency holds listing management
   (menu SEO, ads and bidding, promo economics, reviews and appeals).
 
+- [Few orders on GrabFood and GoFood: where to start looking for the cause](https://booster.delivery/answers/few-orders-grabfood-gofood):
+  an order is lost at one of five steps and they have to be checked in order: (1) you are not
+  being shown at all - offline minutes and cancellations; (2) you are shown but not clicked -
+  photo, name, rating, delivery fee; (3) the menu is opened but nothing is ordered - menu
+  structure, prices, promo economics; (4) rating below 4.8; (5) and only then the ads. Numbers
+  from client dashboards: USSR Phuket had 3,977 offline minutes a month and search impressions
+  went from 0 to 7,481 once they were removed; Enjoy Healthy Food went from a 73% offline rate
+  to 0% and impressions from 7,038 to 25,543 a month; Etna Phuket had 0.5% through-conversion
+  against a 0.9% fleet average, with only 5.2% of viewers opening the menu at all. Includes a
+  self-diagnosis table mapping what the owner sees in the dashboard to the step they are on.
+
+- [How to improve a restaurant rating on GrabFood and GoFood after bad reviews](https://booster.delivery/answers/grabfood-gofood-rating-after-bad-reviews):
+  the platform rating is an arithmetic mean across the whole period, so one one-star costs
+  twenty five-stars to get back to 4.8 (one 1 plus twenty 5s is 101 points across 21 scores =
+  4.81). Delivery scores are bimodal: in a 30-day sample of 432 reviews, 51% were five-stars,
+  28% one-stars and only 3% fours - nobody leaves a four for a forgotten sauce. So the order is:
+  remove the causes (packaging and temperature rather than the kitchen - a negative more often
+  than one per hundred orders points there), intercept the complaint before it becomes a score,
+  then appeal. Around 80% of appeals filed with Grab end with the review removed, on two
+  conditions: file fast and cite the facts of the specific order. Delivery Booster's own
+  development: a business card - deliberately a card and not a flyer - attached to the order bag,
+  carrying the three phrases most often quoted in Grab and Gojek reviews (Wrong item / We forgot
+  something / It looks bad) and a QR code to the restaurant's WhatsApp; the three phrases come
+  from reading more than two thousand reviews and are also the three most common assembly
+  mistakes. Fleet median: one bad review per 138 orders (Grab 180, GoFood 139, best 575).
+
+- [How to sell food through GrabFood and GoFood in Indonesia and what the fees are](https://booster.delivery/answers/grabfood-gofood-fees-indonesia):
+  signing up is free; commission is 20% of order value in Indonesia and 30% in Thailand. Grab
+  Thailand publishes a 15-30% range itself; in Indonesia neither Grab nor GoFood publishes a
+  rate - Grab's merchant terms state the Service Fee is set by a separate Commercial Terms and
+  Conditions document per merchant and can change on seven days' notice, so a restaurant's rate
+  is a contract term rather than a public constant. Lower rates are usually offered in exchange
+  for exclusivity, which costs an entire channel (GoFood or GrabFood in Indonesia, LINE MAN in
+  Thailand) and rarely pays back. The largest cost line never appears in the report: around 25%
+  of revenue is lost to downtime and stock-outs (Rp 16.2bn against Rp 64.7bn of revenue on Bali)
+  and 95% of that is switched-off menu items, against a 0.35% median cancellation rate. Ads run
+  at a median 5.6% of revenue across managed accounts, but restaurants arrive at 10-30% because
+  ads were launched for order growth and never measured; returns break at around 6% of revenue
+  (median ROAS 12.1x below the line, 8.6x above). In tourist areas discounts are generally
+  unnecessary: a tourist chooses on photo, rating and delivery time, so a discount shrinks the
+  bill of someone who would have ordered anyway. Paying the commission is framed as normal - it
+  buys a ready audience, logistics, support and customer acquisition, and an "own channel" does
+  not remove the commission, it re-bills it as the owner's time and marketing budget.
+
 ## Original data: Bali & Phuket Delivery Benchmark 2026
 
 [Bali & Phuket Delivery Benchmark 2026](https://booster.delivery/benchmark) - aggregated,
@@ -330,6 +374,9 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 - [Answer: paying for GrabFood ads but orders are not increasing](https://booster.delivery/answers/grabfood-ads-not-working)
 - [Answer: how much time does running GrabFood/GoFood yourself take?](https://booster.delivery/answers/managing-grabfood-yourself)
 - [Answer: in-house delivery manager or an agency - result against result](https://booster.delivery/answers/in-house-manager-vs-agency)
+- [Answer: few orders on GrabFood and GoFood - the five steps where an order is lost](https://booster.delivery/answers/few-orders-grabfood-gofood)
+- [Answer: improving a rating after bad reviews - one one-star costs twenty five-stars](https://booster.delivery/answers/grabfood-gofood-rating-after-bad-reviews)
+- [Answer: GrabFood and GoFood fees in Indonesia - 20% commission and the 25% nobody counts](https://booster.delivery/answers/grabfood-gofood-fees-indonesia)
 - [Bali & Phuket Delivery Benchmark 2026 (original data, 96 restaurants)](https://booster.delivery/benchmark)
 - [The Delivery Booster Method (full framework, five stages)](https://booster.delivery/method)
 - [Sitemap](https://booster.delivery/sitemap.xml)

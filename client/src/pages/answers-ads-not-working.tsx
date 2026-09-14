@@ -257,6 +257,42 @@ export default function AnswersAdsNotWorkingPage() {
         </div>
       </Block>
 
+      <Block card title={t('Кто это делает', 'Who does this', 'Siapa yang mengerjakannya', 'ใครเป็นคนทำ')}>
+        <p className="text-brand-muted max-w-3xl mb-4">
+          {t('Всё перечисленное выше — не разовая настройка. Стоп-лист снимается и ставится каждый день, ставки ведутся вручную и пересматриваются по стоимости заказа, промо пересчитывается каждую неделю, отзывы разбираются по причинам. Реклама — последний шаг в этом списке, и он единственный, который можно включить за пять минут. Отсюда и соблазн начать с него.',
+             'None of the above is a one-off setup. Item stops go on and off every day, bids are managed by hand and revised against cost per order, promos are recalculated every week, reviews are traced back to causes. Ads are the last step in that list and the only one you can switch on in five minutes. Hence the temptation to start there.',
+             'Semua di atas bukan setelan sekali jadi. Stop item dibuka dan ditutup setiap hari, bid dikelola manual dan ditinjau berdasarkan biaya per pesanan, promo dihitung ulang setiap minggu, ulasan ditelusuri sampai penyebabnya. Iklan adalah langkah terakhir dalam daftar itu dan satu-satunya yang bisa dinyalakan dalam lima menit. Dari situlah godaan untuk memulai dari sana.',
+             'ทั้งหมดข้างบนไม่ใช่การตั้งค่าครั้งเดียวจบ เมนูถูกปิดและเปิดทุกวัน บิดโฆษณาคุมด้วยมือและปรับตามต้นทุนต่อออร์เดอร์ โปรโมชันคำนวณใหม่ทุกสัปดาห์ รีวิวถูกไล่ย้อนไปถึงต้นเหตุ โฆษณาเป็นขั้นสุดท้ายในรายการนี้ และเป็นขั้นเดียวที่เปิดได้ในห้านาที ความอยากเริ่มจากตรงนั้นจึงเกิดขึ้น')}
+        </p>
+        <p className="text-brand-muted max-w-3xl mb-4">
+          {t('Поэтому вопрос «почему реклама не работает» почти сразу превращается в вопрос «кто будет вести остальное». Вариантов четыре: сам владелец, менеджер в штате, фрилансер или агентство. При одинаковом списке задач они дают разный результат — мы разобрали разницу отдельно, ',
+             'So "why are my ads not working" turns into "who is going to run the rest of it" almost immediately. There are four options: the owner, an in-house manager, a freelancer or an agency. Given the same task list they produce different results — we broke the difference down separately, ',
+             'Karena itu pertanyaan "kenapa iklan saya tidak jalan" hampir langsung berubah menjadi "siapa yang akan mengerjakan sisanya". Ada empat pilihan: pemilik sendiri, manajer internal, freelancer, atau agensi. Dengan daftar tugas yang sama hasilnya berbeda — kami menguraikan bedanya terpisah, ',
+             'คำถามว่า "ทำไมโฆษณาไม่ได้ผล" จึงกลายเป็นคำถามว่า "ใครจะทำส่วนที่เหลือ" แทบจะทันที ทางเลือกมีสี่แบบ คือเจ้าของทำเอง ผู้จัดการประจำ ฟรีแลนซ์ หรือเอเจนซี ด้วยรายการงานเดียวกัน ผลลัพธ์ต่างกัน เราแยกอธิบายไว้ต่างหาก ')}
+          <Link href="/answers/in-house-manager-vs-agency" className="text-brand-green hover:underline">
+            {t('кому отдать GrabFood и GoFood', 'who should run GrabFood and GoFood', 'siapa yang sebaiknya mengelola GrabFood dan GoFood', 'ใครควรดูแล GrabFood และ GoFood')}
+          </Link>
+          {t('. Если проблема шире рекламы и заказов просто мало — начинать надо с первой ступени: ',
+             '. If the problem is wider than ads and orders are simply low, start at step one: ',
+             '. Kalau masalahnya lebih luas dari iklan dan pesanan memang sepi, mulailah dari tahap satu: ',
+             ' ถ้าปัญหากว้างกว่าโฆษณาและออร์เดอร์น้อยอยู่แล้ว ให้เริ่มจากขั้นที่หนึ่ง ')}
+          <Link href="/answers/few-orders-grabfood-gofood" className="text-brand-green hover:underline">
+            {t('мало заказов — с чего начинать искать причину', 'few orders — where to start looking for the cause', 'orderan sepi — mulai cari penyebabnya dari mana', 'ออร์เดอร์น้อย เริ่มหาสาเหตุจากตรงไหน')}
+          </Link>
+          .
+        </p>
+        <p className="text-brand-muted max-w-3xl">
+          {t('Мы — Delivery Booster, агентство, которое ведёт доставку ресторанов на Бали и Пхукете. Цифры выше — из кабинетов наших клиентов и нашего ',
+             'We are Delivery Booster, the agency that runs delivery for restaurants in Bali and Phuket. The numbers above come from our clients\u2019 dashboards and our ',
+             'Kami Delivery Booster, agensi yang mengelola delivery restoran di Bali dan Phuket. Angka-angka di atas berasal dari dashboard klien kami dan dari ',
+             'เราคือ Delivery Booster เอเจนซีที่ดูแลงานเดลิเวอรี่ให้ร้านอาหารในบาหลีและภูเก็ต ตัวเลขข้างบนมาจากแดชบอร์ดของลูกค้าเราและจาก')}
+          <Link href="/benchmark" className="text-brand-green hover:underline">
+            {t('бенчмарка по 96 ресторанам', 'benchmark across 96 restaurants', 'benchmark atas 96 restoran', 'เบนช์มาร์กจากร้าน 96 แห่ง')}
+          </Link>
+          {t(', а не из примеров.', ', not from illustrations.', ', bukan dari contoh karangan.', ' ไม่ใช่ตัวอย่างสมมติ')}
+        </p>
+      </Block>
+
       <KeepReading currentHref="/answers/grabfood-ads-not-working" />
 
       <AnswerCta />
