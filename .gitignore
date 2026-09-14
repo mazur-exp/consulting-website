@@ -20,3 +20,5 @@ logs/
 # сервере после сборки рабочая копия всегда грязная и следующий git pull
 # отказывается мержить. Источник правды — генератор, не файл.
 client/public/sitemap.xml
+
+client/public/sitemap-index.xml

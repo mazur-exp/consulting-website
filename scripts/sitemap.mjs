@@ -131,4 +131,25 @@ ${body}
 `;
 
 writeFileSync('client/public/sitemap.xml', xml);
-console.log(`sitemap: ${pages.length} страниц, даты из git`);
+
+/**
+ * Индекс карт сайта. Существует потому, что запись sitemap.xml в Search Console
+ * зависла в статусе «не получено» (то же у всех карт этого ресурса), при том
+ * что живая проверка URL в самой Консоли фетчит файл успешно и curl отдаёт 200
+ * с application/xml. Отдельный файл даёт новую запись в очереди обработки.
+ *
+ * Дату здесь тоже генерируем: раньше индекс лежал в репозитории с вписанным
+ * руками lastmod 2026-09-08 и продолжал сообщать эту дату после каждой правки
+ * карты — ровно та же ошибка, из-за которой чинился сам sitemap.
+ */
+const indexLastmod = pages.map(lastmodFor).sort().at(-1);
+writeFileSync('client/public/sitemap-index.xml', `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${ORIGIN}/sitemap.xml</loc>
+    <lastmod>${indexLastmod}</lastmod>
+  </sitemap>
+</sitemapindex>
+`);
+
+console.log(`sitemap: ${pages.length} страниц, даты из git; индекс на ${indexLastmod}`);
