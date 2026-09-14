@@ -7,6 +7,22 @@ const app = express();
 // Первым делом: обходы ИИ-краулеров и заходы с внешних сайтов. JS-счётчики
 // ботов не видят вообще, а это самый ранний сигнал, что нас читают движки.
 app.use(trafficLogger());
+
+/**
+ * Канонический хост. www.booster.delivery отдавал тот же сайт с кодом 200 и
+ * без редиректа: в серверном логе есть заходы Googlebot с host
+ * www.booster.delivery, то есть краулер обходил обе версии как два разных
+ * сайта. Для ресурса типа sc-domain в Search Console оба хоста в области
+ * видимости, поэтому это не косметика — это раздвоение краулингового бюджета
+ * и дубли. 301 на голый домен, схема и путь сохраняются.
+ */
+app.use((req, res, next) => {
+  const host = req.headers.host;
+  if (host && host.toLowerCase().startsWith('www.')) {
+    return res.redirect(301, `https://${host.slice(4)}${req.originalUrl}`);
+  }
+  next();
+});
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

@@ -186,6 +186,32 @@ npm run db:push  # Push Drizzle schema changes to PostgreSQL
 
 ## Mandatory Development Rules
 
+### Грабли, на которые уже наступали — не повторять
+
+**Не коммитить то, что генерируется сборкой.** `sitemap.xml` и
+`sitemap-index.xml` лежали и в git, и генерировались первым шагом `npm run
+build`. На сервере после каждой сборки рабочая копия оказывалась грязной, и
+следующий `git pull` падал с «Please commit your changes or stash them before
+you merge» — деплой 14.09.2026 на этом встал посреди выкатки. Оба файла
+удалены из индекса и в `.gitignore`; источник правды — `scripts/sitemap.mjs`.
+Правило общее: если файл собирается скриптом, в репозитории его быть не должно.
+
+**Новая страница = шесть мест, и это проверяется автоматически.** См.
+«ЖЕЛЕЗНЫЕ ПРАВИЛА» в `ai_docs/ai-visibility/PROJECT_INSTRUCTION.md`. С
+14.09.2026 `npm run check:pages` — первый шаг сборки: берёт маршруты
+`/answers/*` из `App.tsx` и роняет билд, если слага нет в `prerender.mjs`,
+`sitemap.mjs`, `llms.txt` или `AnswersIndex.tsx`. Появился после того, как три
+статьи подряд уехали на прод без записи в `llms.txt`.
+
+**Sitemap в Search Console: не пересоздавать.** Разобрано 14.09.2026, детали в
+`ai_docs/development/DEPLOYMENT.md`. Коротко: все семь карт ресурса висят в
+статусе «Не получено» с пустой датой обработки и типом «Неизвестно» — это
+означает, что Google их ни разу не читал, а не что он пытался и не смог. В
+серверном логе настоящий Googlebot (66.249.x) за всё время не запросил
+`/sitemap.xml` ни разу, при том что ClaudeBot, GPTBot и Bingbot берут её
+постоянно с кодом 200. Файл не при чём — пересоздание карты не может помочь и
+уже не помогло около десяти раз за полтора месяца.
+
 ### When Adding New Features
 
 1. **Document first**: Create/update files in `ai_docs/development/`
