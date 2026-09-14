@@ -29,6 +29,7 @@ const ANSWERS = [
   'grabfood-ads-not-working',
   'managing-grabfood-yourself',
   'in-house-manager-vs-agency',
+  'few-orders-grabfood-gofood',
 ];
 const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
@@ -47,6 +48,7 @@ const ANSWER_SRC = {
   'grabfood-ads-not-working': `${P}/answers-ads-not-working.tsx`,
   'managing-grabfood-yourself': `${P}/answers-doing-it-yourself.tsx`,
   'in-house-manager-vs-agency': `${P}/answers-in-house-vs-agency.tsx`,
+  'few-orders-grabfood-gofood': `${P}/answers-few-orders.tsx`,
 };
 
 const pages = [
@@ -88,8 +90,12 @@ const dateOf = (file) => {
 const today = new Date().toISOString().slice(0, 10);
 
 const lastmodFor = (page) => {
-  const dates = [...page.src, ...SHARED].map(dateOf).filter(Boolean);
-  if (!dates.length) return today;
+  const own = page.src.map(dateOf).filter(Boolean);
+  // Страница, которой ещё нет в истории (новый файл, не закоммичен), — сегодняшняя.
+  // Иначе она унаследовала бы дату общих файлов и заявила бы краулеру, что новая
+  // страница старше, чем есть.
+  if (!own.length) return today;
+  const dates = [...own, ...SHARED.map(dateOf).filter(Boolean)];
   // Даты в формате YYYY-MM-DD сравниваются как строки.
   return dates.sort().at(-1);
 };

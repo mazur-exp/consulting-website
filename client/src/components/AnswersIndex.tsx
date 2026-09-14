@@ -28,6 +28,19 @@ export interface Material {
 
 export const ANSWER_MATERIALS: Material[] = [
   {
+    href: '/answers/few-orders-grabfood-gofood',
+    kind: 'answer',
+    minutes: 8,
+    titleRu: 'Мало заказов в GrabFood и GoFood — с чего начинать?',
+    titleEn: 'Few orders on GrabFood and GoFood — where do I start?',
+    titleId: 'Orderan sepi di GrabFood dan GoFood — mulai dari mana?',
+    titleTh: 'ออร์เดอร์น้อยบน GrabFood และ GoFood เริ่มจากตรงไหน',
+    gistRu: 'Пять ступеней, на которых теряется заказ, в правильном порядке: видимость, карточка, меню, рейтинг и только потом реклама.',
+    gistEn: 'The five steps where an order is lost, in the right order: visibility, listing, menu, rating — and only then ads.',
+    gistId: 'Lima tahap tempat pesanan hilang, dalam urutan yang benar: ketersediaan, listing, menu, rating — dan baru setelah itu iklan.',
+    gistTh: 'ห้าขั้นที่ออร์เดอร์หลุดหาย เรียงให้ถูกลำดับ: การมองเห็น หน้าร้าน เมนู เรตติ้ง แล้วค่อยถึงโฆษณา',
+  },
+  {
     href: '/answers/grabfood-gofood-account-management',
     kind: 'answer',
     minutes: 6,
