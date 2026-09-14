@@ -31,6 +31,7 @@ const ANSWERS = [
   'in-house-manager-vs-agency',
   'few-orders-grabfood-gofood',
   'grabfood-gofood-rating-after-bad-reviews',
+  'grabfood-gofood-fees-indonesia',
 ];
 const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
@@ -51,6 +52,7 @@ const ANSWER_SRC = {
   'in-house-manager-vs-agency': `${P}/answers-in-house-vs-agency.tsx`,
   'few-orders-grabfood-gofood': `${P}/answers-few-orders.tsx`,
   'grabfood-gofood-rating-after-bad-reviews': `${P}/answers-rating-after-bad-reviews.tsx`,
+  'grabfood-gofood-fees-indonesia': `${P}/answers-fees.tsx`,
 };
 
 const pages = [

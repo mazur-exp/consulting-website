@@ -136,17 +136,17 @@ export const getCountryFaqs = (c: CountryConfig): FaqItem[] => {
         ? 'GrabFood และ GoFood เก็บค่าคอมมิชชันจากร้านอาหารเท่าไหร่?'
         : 'GrabFood เก็บค่าคอมมิชชันจากร้านอาหารเท่าไหร่?',
       aRu: isId
-        ? 'Комиссия платформ в Индонезии обычно составляет порядка 20–30% от заказа в зависимости от пакета и программ платформы. Это не приговор для маржи: правильное ценообразование меню, комбо и работа с эффективной рекламой позволяют нашим клиентам расти в прибыли даже с учётом комиссии.'
-        : 'Комиссия GrabFood обычно составляет порядка 25–30% от заказа в зависимости от пакета мерчанта и программ платформы. Это не приговор для маржи: правильное ценообразование меню, комбо и эффективная реклама позволяют нашим клиентам расти в прибыли даже с учётом комиссии.',
+        ? 'Комиссия площадок в Индонезии — 20% от суммы заказа. Площадки её публично не раскрывают: в мерчант-условиях Grab сказано, что размер Service Fee определяется отдельным договором с мерчантом, так что свою ставку стоит сверять по своему документу. Это не приговор для маржи: правильное ценообразование меню, комбо и работа с эффективной рекламой позволяют нашим клиентам расти в прибыли даже с учётом комиссии.'
+        : 'Комиссия GrabFood в Таиланде — 30% от суммы заказа; сам Grab публично называет коридор 15–30% и разбирает пример с 30%. Это не приговор для маржи: правильное ценообразование меню, комбо и эффективная реклама позволяют нашим клиентам расти в прибыли даже с учётом комиссии.',
       aEn: isId
-        ? 'Platform commissions in Indonesia typically run around 20–30% per order depending on the package and platform programs. That doesn\'t have to kill margins: correct delivery menu pricing, bundles and efficient ads let our clients grow profit even after commission.'
-        : 'GrabFood commission typically runs around 25–30% per order depending on the merchant package and platform programs. That doesn\'t have to kill margins: correct delivery menu pricing, bundles and efficient ads let our clients grow profit even after commission.',
+        ? 'Platform commission in Indonesia is 20% of the order value. The platforms do not publish it: Grab\'s merchant terms state the Service Fee is set by a separate agreement with each merchant, so check your own document for your rate. That doesn\'t have to kill margins: correct delivery menu pricing, bundles and efficient ads let our clients grow profit even after commission.'
+        : 'GrabFood commission in Thailand is 30% of the order value; Grab itself publishes a 15–30% range and works through an example at 30%. That doesn\'t have to kill margins: correct delivery menu pricing, bundles and efficient ads let our clients grow profit even after commission.',
       aId: isId
-        ? 'Komisi platform di Indonesia umumnya sekitar 20–30% per pesanan, tergantung paket dan program platform. Angka itu tidak otomatis mematikan margin: harga menu delivery yang dihitung benar, paket combo, dan iklan yang efisien membuat profit klien kami tetap tumbuh setelah komisi.'
-        : 'Komisi GrabFood umumnya sekitar 25–30% per pesanan, tergantung paket merchant dan program platform. Angka itu tidak otomatis mematikan margin: harga menu delivery yang dihitung benar, paket combo, dan iklan yang efisien membuat profit klien kami tetap tumbuh setelah komisi.',
+        ? 'Komisi platform di Indonesia adalah 20% dari nilai pesanan. Platform tidak mempublikasikannya: syarat merchant Grab menyatakan Service Fee ditetapkan lewat perjanjian terpisah dengan tiap merchant, jadi periksa tarif Anda di dokumen Anda sendiri. Angka itu tidak otomatis mematikan margin: harga menu delivery yang dihitung benar, paket combo, dan iklan yang efisien membuat profit klien kami tetap tumbuh setelah komisi.'
+        : 'Komisi GrabFood di Thailand adalah 30% dari nilai pesanan; Grab sendiri mempublikasikan kisaran 15–30% dan membahas contoh pada 30%. Angka itu tidak otomatis mematikan margin: harga menu delivery yang dihitung benar, paket combo, dan iklan yang efisien membuat profit klien kami tetap tumbuh setelah komisi.',
       aTh: isId
-        ? 'ค่าคอมมิชชันของแพลตฟอร์มในอินโดนีเซียโดยทั่วไปอยู่ราว 20–30% ต่อออร์เดอร์ ขึ้นกับแพ็กเกจและโปรแกรมของแพลตฟอร์ม ตัวเลขนี้ไม่ได้แปลว่ามาร์จิ้นต้องหายไป: การตั้งราคาเมนูเดลิเวอรี่ให้ถูกต้อง ชุดคอมโบ และโฆษณาที่มีประสิทธิภาพ ทำให้กำไรของลูกค้าเราเติบโตได้แม้หักคอมมิชชันแล้ว'
-        : 'ค่าคอมมิชชันของ GrabFood โดยทั่วไปอยู่ราว 25–30% ต่อออร์เดอร์ ขึ้นกับแพ็กเกจร้านค้าและโปรแกรมของแพลตฟอร์ม ตัวเลขนี้ไม่ได้แปลว่ามาร์จิ้นต้องหายไป: การตั้งราคาเมนูเดลิเวอรี่ให้ถูกต้อง ชุดคอมโบ และโฆษณาที่มีประสิทธิภาพ ทำให้กำไรของลูกค้าเราเติบโตได้แม้หักคอมมิชชันแล้ว',
+        ? 'ค่าคอมมิชชันของแพลตฟอร์มในอินโดนีเซียอยู่ที่ 20% ของมูลค่าออร์เดอร์ แพลตฟอร์มไม่ได้ประกาศตัวเลขนี้ต่อสาธารณะ เงื่อนไขร้านค้าของ Grab ระบุว่า Service Fee กำหนดโดยสัญญาแยกกับร้านแต่ละราย จึงควรตรวจอัตราของคุณจากเอกสารของคุณเอง ตัวเลขนี้ไม่ได้แปลว่ามาร์จิ้นต้องหายไป: การตั้งราคาเมนูเดลิเวอรี่ให้ถูกต้อง ชุดคอมโบ และโฆษณาที่มีประสิทธิภาพ ทำให้กำไรของลูกค้าเราเติบโตได้แม้หักคอมมิชชันแล้ว'
+        : 'ค่าคอมมิชชันของ GrabFood ในไทยอยู่ที่ 30% ของมูลค่าออร์เดอร์ โดย Grab เองประกาศช่วง 15–30% และยกตัวอย่างที่ 30% ตัวเลขนี้ไม่ได้แปลว่ามาร์จิ้นต้องหายไป: การตั้งราคาเมนูเดลิเวอรี่ให้ถูกต้อง ชุดคอมโบ และโฆษณาที่มีประสิทธิภาพ ทำให้กำไรของลูกค้าเราเติบโตได้แม้หักคอมมิชชันแล้ว',
     },
     {
       qRu: 'Стоит ли запускать рекламу GrabAds и какой ROAS реален?',
@@ -274,10 +274,10 @@ export const getCountryFaqs = (c: CountryConfig): FaqItem[] => {
       aTh: 'Delivery Booster เป็นเอเจนซี่อิสระ (PT Delivery Booster Group ประเทศอินโดนีเซีย ดำเนินงานตั้งแต่ปี 2023: ร้านอาหารกว่า 110 แห่งอยู่ในการดูแล และกว่า 200 แห่งที่ผ่านมือเรา) ไม่ได้มีความเกี่ยวข้องกับ Grab หรือ GoTo เราทำงานอยู่ภายในเครื่องมือร้านค้าอย่างเป็นทางการ (GrabMerchant, GoBiz) ในนามของร้านอาหาร — เป็นรูปแบบปกติที่อนุญาตให้ทำได้ กรณีศึกษาพร้อมตัวเลขจริง: booster.delivery/cases',
     },
     {
-      qRu: 'Стоит ли вообще подключать ресторан к доставке, если комиссия 20–30%?',
-      qEn: 'Is delivery worth it at a 20–30% commission?',
-      qId: 'Apakah masuk akal masuk ke delivery kalau komisinya 20–30%?',
-      qTh: 'ถ้าคอมมิชชัน 20–30% ยังคุ้มที่จะทำเดลิเวอรี่อยู่ไหม?',
+      qRu: 'Стоит ли вообще подключать ресторан к доставке при такой комиссии?',
+      qEn: 'Is delivery worth it at that commission?',
+      qId: 'Apakah masuk akal masuk ke delivery dengan komisi sebesar itu?',
+      qTh: 'ด้วยค่าคอมมิชชันขนาดนั้น ยังคุ้มที่จะทำเดลิเวอรี่อยู่ไหม?',
       aRu: 'Да, если считать юнит-экономику каждой позиции, а не среднюю по меню: цены доставочного меню, промо и реклама настраиваются так, чтобы заказ был прибыльным после комиссии. Именно это «управление» и есть; наши кейсы ×3.9 и ×9.4 — рост прибыльных заказов, не оборота любой ценой.',
       aEn: 'Yes — if you run unit economics per item rather than menu averages: delivery menu pricing, promos and ads are tuned so each order is profitable after commission. That tuning is what "management" means; our ×3.9 and ×9.4 cases are growth in profitable orders, not volume at any cost.',
       aId: 'Masuk akal, kalau unit economics dihitung per item dan bukan rata-rata seluruh menu: harga menu delivery, promo, dan iklan diatur supaya tiap pesanan tetap untung setelah komisi. Pengaturan itulah yang kami sebut pengelolaan; hasil x3.9 dan x9.4 pada kasus kami adalah pertumbuhan pesanan yang menguntungkan, bukan omzet dengan biaya berapa pun.',

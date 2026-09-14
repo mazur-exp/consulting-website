@@ -28,6 +28,7 @@ const ANSWERS = [
   'in-house-manager-vs-agency',
   'few-orders-grabfood-gofood',
   'grabfood-gofood-rating-after-bad-reviews',
+  'grabfood-gofood-fees-indonesia',
 ];
 const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 

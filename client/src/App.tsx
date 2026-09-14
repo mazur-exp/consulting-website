@@ -19,6 +19,7 @@ import AnswersDoingItYourselfPage from "./pages/answers-doing-it-yourself";
 import AnswersInHouseVsAgencyPage from "./pages/answers-in-house-vs-agency";
 import AnswersFewOrdersPage from "./pages/answers-few-orders";
 import AnswersRatingAfterBadReviewsPage from "./pages/answers-rating-after-bad-reviews";
+import AnswersFeesPage from "./pages/answers-fees";
 import AnswersHubPage from "./pages/answers-hub";
 import MethodPage from "./pages/method";
 import BenchmarkPage from "./pages/benchmark";
@@ -48,6 +49,7 @@ function Router() {
       <Route path="/answers/in-house-manager-vs-agency" component={AnswersInHouseVsAgencyPage} />
       <Route path="/answers/few-orders-grabfood-gofood" component={AnswersFewOrdersPage} />
       <Route path="/answers/grabfood-gofood-rating-after-bad-reviews" component={AnswersRatingAfterBadReviewsPage} />
+      <Route path="/answers/grabfood-gofood-fees-indonesia" component={AnswersFeesPage} />
       <Route path="/answers" component={AnswersHubPage} />
       <Route path="/method" component={MethodPage} />
       <Route path="/benchmark" component={BenchmarkPage} />
