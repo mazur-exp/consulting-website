@@ -45,6 +45,24 @@ ssh myserver "cd /root/consulting-website \
   && sleep 2 && systemctl is-active consulting-website"
 ```
 
+**Урок 15.09.2026 — сборка должна жить на сервере, а не в ssh-сессии.** Деплой
+выше запущен через `nohup ssh ... &` с Mac; ssh-сессия оборвалась на середине
+пререндера (после 6 из 9 ru-страниц), вместе с ней умерла сборка, и
+`systemctl restart` не выполнился — сервис остался на версии предыдущего дня,
+хотя `git log` на сервере показывал свежий коммит. Симптом: ru-снимки новых
+страниц отсутствуют, `systemctl show consulting-website -p ActiveEnterTimestamp`
+старее коммита. Правильно — отвязать сборку от ssh:
+
+```bash
+ssh myserver "cd /root/consulting-website && git pull origin main && npm install --no-audit --no-fund \
+  && nohup sh -c 'npm run build && systemctl restart consulting-website' > /root/deploy.log 2>&1 < /dev/null & disown"
+# потом опрашивать: ssh myserver "tail -2 /root/deploy.log; systemctl show consulting-website -p ActiveEnterTimestamp"
+```
+
+После деплоя всегда сверять `ActiveEnterTimestamp` с временем коммита и считать
+снимки: `ls dist/public/lang-ru/answers | wc -l` должно равняться
+`ls dist/public/answers | wc -l`.
+
 ## Sitemap в Search Console: «Не получено». Разобрано 14.09.2026 — НЕ ПЕРЕСОЗДАВАТЬ
 
 Полтора месяца карта сайта пересоздавалась около десяти раз, и каждый раз
