@@ -149,6 +149,10 @@ curl -sA "GPTBot" "https://booster.delivery/<route>?lang=id" | grep -o '<html la
 - Карта профилей и взаимных ссылок: `SOCIAL_LINKING.md`
 - Конкуренты и источники, которые видно в ответах ИИ: `COMPETITORS_AND_SOURCES.md`
   (ведётся после каждого замера)
+- **Замер: как запускать и что делать после — `AUDIT_METHOD.md`, раздел «Порядок
+  прогона»** (screen, `--extra`, `--resume`, `report_page.py`, четыре шага после);
+  скрипты — `audit/audit.py`, `audit/report_page.py`; промпты — `audit/prompts_v1.json`
+  (заморожен) и `audit/prompts_extra.json`
 - **Аналитика (кто приходит, откуда, какие ИИ-краулеры нас читают):
   `ANALYTICS.md`** — счётчики, идентификаторы, согласие на куки, серверный лог
   обходов и как его читать. Рядом `ANALYTICS_GUIDE.html` — то же самое для

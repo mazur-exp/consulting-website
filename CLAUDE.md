@@ -23,6 +23,12 @@ for AI crawlers.
 **В конце каждой сессии по сайту:** дописать запись в SESSION_LOG.md и обновить
 BACKLOG.md — иначе следующая сессия потеряет контекст.
 
+**Прогон замера — только по runbook** `ai_docs/ai-visibility/AUDIT_METHOD.md`,
+раздел «Порядок прогона»: screen на Mac через desktop-commander, `run --extra`
+(предполётная проверка встроена), judge дважды, два report.txt, проверка
+полноты (≈826/840), `report_page.py` → report.html артефактом, четыре
+обязательных шага после прогона. Не импровизировать команды заново.
+
 ---
 
 ## Project Documentation (Auto-loaded)
