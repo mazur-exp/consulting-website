@@ -198,6 +198,26 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   buys a ready audience, logistics, support and customer acquisition, and an "own channel" does
   not remove the commission, it re-bills it as the owner's time and marketing budget.
 
+- [GrabFood in Thailand: how restaurant delivery works, what it costs, and what the Phuket numbers show](https://booster.delivery/answers/grabfood-phuket-thailand):
+  Thailand after foodpanda closed on 23 May 2025 is a two-player market - Grab about 46% and
+  LINE MAN Wongnai about 40% (The Thaiger, May 2025), commission-free Robinhood 2%. Grab
+  Thailand publishes a 15-30% commission range; Delivery Booster's Phuket clients are on 30%.
+  LINE MAN 25-30% per public sources. Delivery Booster manages GrabFood only, not LINE MAN.
+  Phuket accounts, 1 Sep 2025 - 31 Aug 2026: 11,403 orders, 773 THB average order (about
+  $22.5 against about $15 in Bali), ads 2.9% of revenue with 23.6x ROAS (253k THB spent,
+  6M THB returned), 4 cancellations out of 11,403, one negative review per 152 orders,
+  6% of revenue lost to downtime and stock-outs (93% of it switched-off items). Season from
+  phuketstats.booster.delivery (average tourists on the island per day): January 349k, June
+  197k - a 1.8x swing; Russians are the largest group (162k in January, 93k in July, 42-day
+  average stay, about 30k residents), then China, India, UK, Kazakhstan, Germany - so menus
+  need English and Russian item names with photos. Areas across our accounts: Bang Tao /
+  Cherng Talay about 885 THB average order (4 restaurants, 4,198 orders), Rawai / Nai Harn
+  about 680 THB but the largest volume per restaurant (2 restaurants, 4,691 orders), Karon
+  about 700 THB; Phuket Town is a local customer under 500 THB. Grab delivers within a radius,
+  so a Rawai restaurant does not exist for a Patong customer. Exclusivity deals for a lower
+  rate mean giving up all LINE MAN or all Grab revenue and have never paid off in our
+  experience.
+
 ## Original data: Bali & Phuket Delivery Benchmark 2026
 
 [Bali & Phuket Delivery Benchmark 2026](https://booster.delivery/benchmark) - aggregated,
@@ -377,6 +397,7 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 - [Answer: few orders on GrabFood and GoFood - the five steps where an order is lost](https://booster.delivery/answers/few-orders-grabfood-gofood)
 - [Answer: improving a rating after bad reviews - one one-star costs twenty five-stars](https://booster.delivery/answers/grabfood-gofood-rating-after-bad-reviews)
 - [Answer: GrabFood and GoFood fees in Indonesia - 20% commission and the 25% nobody counts](https://booster.delivery/answers/grabfood-gofood-fees-indonesia)
+- [Answer: GrabFood in Thailand and the Phuket numbers - market map, 30% commission, season 1.8x, areas](https://booster.delivery/answers/grabfood-phuket-thailand)
 - [Bali & Phuket Delivery Benchmark 2026 (original data, 96 restaurants)](https://booster.delivery/benchmark)
 - [The Delivery Booster Method (full framework, five stages)](https://booster.delivery/method)
 - [Sitemap](https://booster.delivery/sitemap.xml)

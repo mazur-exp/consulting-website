@@ -28,6 +28,19 @@ export interface Material {
 
 export const ANSWER_MATERIALS: Material[] = [
   {
+    href: '/answers/grabfood-phuket-thailand',
+    kind: 'answer',
+    minutes: 9,
+    titleRu: 'GrabFood в Таиланде: как устроена доставка и что показывают цифры Пхукета?',
+    titleEn: 'GrabFood in Thailand: how delivery works and what the Phuket numbers show?',
+    titleId: 'GrabFood di Thailand: cara kerja delivery dan apa yang ditunjukkan angka Phuket?',
+    titleTh: 'GrabFood ในไทย: เดลิเวอรี่ทำงานอย่างไร และตัวเลขภูเก็ตบอกอะไร',
+    gistRu: 'Grab ≈46% и LINE MAN ≈40% после ухода foodpanda, комиссия 30%; Пхукет — чек 773 THB, ROAS 23.6x, сезон январь/июнь 1,8x, районы с цифрами.',
+    gistEn: 'Grab ≈46% and LINE MAN ≈40% after foodpanda left, 30% commission; Phuket — 773 THB basket, 23.6x ROAS, a 1.8x January/June swing, areas with numbers.',
+    gistId: 'Grab ≈46% dan LINE MAN ≈40% setelah foodpanda pergi, komisi 30%; Phuket — nilai pesanan 773 THB, ROAS 23.6x, musim Januari/Juni 1,8x, area dengan angka.',
+    gistTh: 'Grab ≈46% และ LINE MAN ≈40% หลัง foodpanda ถอนตัว ค่าคอมมิชชัน 30% ภูเก็ต: ยอดต่อบิล 773 บาท ROAS 23.6 เท่า ฤดูกาลมกราคม/มิถุนายน 1.8 เท่า ย่านพร้อมตัวเลข',
+  },
+  {
     href: '/answers/few-orders-grabfood-gofood',
     kind: 'answer',
     minutes: 8,
