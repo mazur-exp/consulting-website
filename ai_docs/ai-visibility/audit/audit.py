@@ -245,7 +245,15 @@ async def cmd_run(a):
         prev = json.load(open(f"{a.out}/raw.json"))
         todo = [r for r in prev["rows"] if not r["ok"]]
         keep = [r for r in prev["rows"] if r["ok"]]
-        jobs_rows = [(r["engine"], r) for r in todo if r["engine"] in engines]
+        # В строке raw.json поле text — это ОТВЕТ движка (у сбойной строки пустой),
+        # текст промпта надо брать по id из спецификаций. Первый resume 15.09b
+        # ушёл с пустыми промптами: 213 × 400 «input is empty», 55 минут впустую.
+        by_id = {p["id"]: p["text"] for p, _ in jobs}
+        jobs_rows = []
+        for r in todo:
+            if r["engine"] not in engines: continue
+            if r["id"] not in by_id: raise SystemExit(f"resume: промпт {r['id']} не найден в --prompts/--extra")
+            jobs_rows.append((r["engine"], dict(r, text=by_id[r["id"]])))
         print(f"resume: перезапрашиваем {len(jobs_rows)} строк с ошибкой, {len(keep)} оставляем")
     else:
         keep = []
@@ -412,7 +420,7 @@ def metrics(rows):
         if has_src(r): eng_src[r["engine"]] += 1
     m["search_rate"] = {e: (eng_src[e], eng[e]) for e in sorted(eng)}
     mm = Counter((r["engine"], r.get("model") or "?") for r in rows if r["engine"] in ("gemini", "openai"))
-    m["model_mix"] = {e: {md: (n, eng[e]) for (ee, md), n in mm.items() if ee == e} for e in ("gemini", "openai")}
+    m["model_mix"] = {e: {md: (n, eng[e]) for (ee, md), n in mm.items() if ee == e} for e in ("gemini", "openai") if eng[e]}
     # Category по рынкам — раньше считалось руками для каждого замера.
     mk = Counter(); mk_db = Counter()
     for r in cat:
@@ -466,7 +474,7 @@ def cmd_report(a):
     print("\nМодели (что реально отвечало):")
     for e, mix in cur["model_mix"].items():
         parts = [f"{md} {n}/{tot}" for md, (n, tot) in sorted(mix.items(), key=lambda x: -x[1][0])]
-        primary = GEMINI_MODELS[0] if e == "gemini" else OPENAI_MODEL
+        primary = GEMINI_MODELS[0] if e == "gemini" else OPENAI_CONTROL_MODEL
         tot = sum(n for n, _ in mix.values()) or 1
         if set(mix) == {"?"}:
             print(f"  {e:10s} модель не записывалась (прогоны до 15.09.2026)"); continue
@@ -533,8 +541,11 @@ async def _pf_aio(cl):
     повтора» на первый вызов. Три разных запроса; сервис жив, если хоть один
     вернул JSON (текст AIO может быть пустым — это не поломка, см. ask_aio)."""
     last = ""
+    # Bright Data на SERP-зоне ai_analytics (trial с 01.09) периодически отдаёт
+    # 200 с пустым телом — не поломка, а капризы зоны; пять попыток с паузой.
     for q in (PREFLIGHT_Q, "how to increase GrabFood orders for a restaurant in Bali",
-              "GrabFood commission for restaurants in Indonesia"):
+              "GrabFood commission for restaurants in Indonesia",
+              "grabfood phuket restaurants delivery tips", "gofood merchant tips bali"):
         t = time.time()
         try:
             txt, srcs = await ask_aio(cl, q)
@@ -546,8 +557,8 @@ async def _pf_aio(cl):
             return "google_aio (Bright Data)", False, f"{e.response.status_code} {why}: {e.response.text[:200]}", ""
         except Exception as e:
             last = str(e)[:200]
-            await asyncio.sleep(3)
-    return "google_aio (Bright Data)", False, f"три запроса подряд без ответа: {last}", ""
+            await asyncio.sleep(8)
+    return "google_aio (Bright Data)", False, f"пять запросов подряд без ответа: {last}", ""
 
 async def _pf_judge(cl):
     t = time.time()
