@@ -32,17 +32,31 @@ async def ask_perplexity(cl, text):
             for s in (d.get("search_results") or [])]
     return d["choices"][0]["message"]["content"] or "", srcs
 
-# Пиннутые версии, без alias. Проверено 15.09.2026 прямыми вызовами:
-# gemini-3.6-flash — 200 за 16.7с, 10 источников grounding
-# gemini-3-flash-preview — 200 за 11.6с, 12 источников
-# gemini-3.5-flash — 200 за 41.8с, 14 источников
-# gemini-flash-latest, gemini-pro-latest, gemini-3.1-flash-lite — 503 UNAVAILABLE
-# gemini-2.5-flash — 404, снят для новых пользователей, сам советует 3.6-flash
+# ПРИНЦИП ВЫБОРА МОДЕЛЕЙ (решено с Алексом 15.09.2026): меряем то, что видит
+# ресторатор в бесплатном приложении, а не «самую сильную» и не «ту, что
+# работает». Пересматривать раз в квартал; смена модели = смена условий
+# замера, записывается отдельной строкой в VISIBILITY_TRACKING.md.
+#
+# Gemini: бесплатный тариф приложения Gemini = Gemini 3.6 Flash (платные и
+# Google AI Mode = 3.8 Flash; источники в AUDIT_METHOD.md). Primary — 3.6-flash;
+# откат при перегрузке — НОВЕЕ (3.7 → 3.8, то, что видят платные), а не старее.
+# Какая модель реально ответила — пишется в row["model"], отчёт показывает
+# долю откатов; >10% откатов = прогон помечать.
 #
 # ВАЖНО: alias вида *-latest здесь не место. Во-первых, именно он и был
 # перегружен (503 на 55 вызовах из 58 в прогоне 14.09). Во-вторых, alias молча
 # меняет модель между замерами — а замер тем и ценен, что сравним во времени.
-GEMINI_MODELS = ["gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash"]
+# Проверено 15.09.2026 прямыми вызовами (model_probe.py): 3.6-flash 200/16с,
+# 3.8-flash 200/9с, 3.7-flash в момент проверки 503 (перегружен), *-latest 503,
+# 2.5-flash 404 (снят).
+GEMINI_MODELS = ["gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.8-flash"]
+
+# OpenAI: бесплатный ChatGPT (Free и Go) с 06.08.2026 = GPT-5.6 Luna, платные =
+# GPT-5.6 Sol. В API это gpt-5.6-luna / gpt-5.6-sol. До 15.09 замер ходил на
+# gpt-4.1 — на два поколения старше того, что видят люди; gpt-4.1 в каталоге
+# моделей уже не значится. Переключение = смена условий; для моста один прогон
+# делается двумя моделями (см. --engines/--openai-model).
+OPENAI_MODEL = "gpt-5.6-luna"
 
 async def ask_gemini(cl, text):
     last = ""
@@ -69,13 +83,13 @@ async def ask_gemini(cl, text):
         srcs = [{"url": (ch.get("web") or {}).get("uri", ""),
                  "title": (ch.get("web") or {}).get("title", "")}
                 for ch in (gm.get("groundingChunks") or [])]
-        return out, srcs
+        return out, srcs, m
     raise RuntimeError(f"gemini: нет модели ({last})")
 
 async def ask_openai(cl, text):
     r = await cl.post("https://api.openai.com/v1/responses",
         headers={"Authorization": f"Bearer {ENV('OPENAI_API_KEY')}"},
-        json={"model": "gpt-4.1", "input": text,
+        json={"model": OPENAI_MODEL, "input": text,
               "tools": [{"type": "web_search",
                          "user_location": {"type": "approximate", "country": "ID"}}]},
         timeout=T)
@@ -89,7 +103,7 @@ async def ask_openai(cl, text):
                     srcs += [{"url": a.get("url", ""), "title": a.get("title", "")}
                              for a in (c.get("annotations") or [])
                              if a.get("type") == "url_citation"]
-    return txt, srcs
+    return txt, srcs, OPENAI_MODEL
 
 async def ask_aio(cl, text):
     """Google AI Overview через SERP-зону Bright Data. Пустой блок — это
@@ -186,6 +200,9 @@ def sig(k1, n1, k0, n0):
 # ── команды ─────────────────────────────────────────────────────────────────
 
 async def cmd_run(a):
+    global OPENAI_MODEL
+    if a.openai_model: OPENAI_MODEL = a.openai_model
+    engines = {k: v for k, v in ENGINES.items() if not a.engines or k in a.engines.split(",")}
     spec = json.load(open(a.prompts))
     prompts, runs = spec["prompts"], spec.get("runs_per_prompt", 2)
     os.makedirs(a.out, exist_ok=True)
@@ -194,10 +211,12 @@ async def cmd_run(a):
 
     async def one(eng, fn, p, i):
         async with sem:
-            row = dict(p, engine=eng, run=i, ok=False, text="", sources=[], error="")
+            row = dict(p, engine=eng, run=i, ok=False, text="", sources=[], error="", model="")
             for att in range(3):
                 try:
-                    row["text"], row["sources"] = await fn(cl, p["text"])
+                    res = await fn(cl, p["text"])
+                    row["text"], row["sources"] = res[0], res[1]
+                    row["model"] = res[2] if len(res) > 2 else ""
                     row["ok"] = True
                     break
                 except Exception as e:
@@ -205,11 +224,11 @@ async def cmd_run(a):
                     await asyncio.sleep(2 * (att + 1))
             out.append(row)
             if len(out) % 20 == 0:
-                print(f"  {len(out)}/{len(prompts)*runs*len(ENGINES)}", flush=True)
+                print(f"  {len(out)}/{len(prompts)*runs*len(engines)}", flush=True)
 
     t0 = time.time()
     async with httpx.AsyncClient(follow_redirects=True) as cl:
-        await asyncio.gather(*(one(e, f, p, i) for e, f in ENGINES.items()
+        await asyncio.gather(*(one(e, f, p, i) for e, f in engines.items()
                                for p in prompts for i in range(runs)))
     json.dump({"prompt_version": spec["version"], "date": time.strftime("%Y-%m-%d"),
                "rows": out}, open(f"{a.out}/raw.json", "w"), ensure_ascii=False)
@@ -303,6 +322,8 @@ def metrics(rows):
         eng[r["engine"]] += 1
         if has_src(r): eng_src[r["engine"]] += 1
     m["search_rate"] = {e: (eng_src[e], eng[e]) for e in sorted(eng)}
+    mm = Counter((r["engine"], r.get("model") or "?") for r in rows if r["engine"] in ("gemini", "openai"))
+    m["model_mix"] = {e: {md: (n, eng[e]) for (ee, md), n in mm.items() if ee == e} for e in ("gemini", "openai")}
     # Category по рынкам — раньше считалось руками для каждого замера.
     mk = Counter(); mk_db = Counter()
     for r in cat:
@@ -344,6 +365,16 @@ def cmd_report(a):
     line("problem — из памяти, без источников", "db_problem_memory")
     print("  доля ответов с источниками по движкам: "
           + ", ".join(f"{e} {k}/{n}" for e, (k, n) in cur["search_rate"].items()))
+    print("\nМодели (что реально отвечало):")
+    for e, mix in cur["model_mix"].items():
+        parts = [f"{md} {n}/{tot}" for md, (n, tot) in sorted(mix.items(), key=lambda x: -x[1][0])]
+        primary = GEMINI_MODELS[0] if e == "gemini" else OPENAI_MODEL
+        tot = sum(n for n, _ in mix.values()) or 1
+        if set(mix) == {"?"}:
+            print(f"  {e:10s} модель не записывалась (прогоны до 15.09.2026)"); continue
+        fb = sum(n for md, (n, _) in mix.items() if md != primary)
+        flag = "  ← ОТКАТОВ >10%, прогон помечать" if fb / tot > 0.10 else ""
+        print(f"  {e:10s} " + ", ".join(parts) + (f"  (откат {fb}/{tot})" if fb else "") + flag)
     print("\nCategory по рынкам (назвали нас):")
     for mkt, (k, n) in cur["cat_by_market"].items():
         p_, lo, hi = wilson(k, n)
@@ -371,6 +402,8 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run"); r.add_argument("--prompts", required=True); r.add_argument("--out", required=True)
+    r.add_argument("--engines", help="подмножество через запятую, напр. openai (для мостовых прогонов)")
+    r.add_argument("--openai-model", help="переопределить OPENAI_MODEL, напр. gpt-4.1 для моста")
     j = sub.add_parser("judge"); j.add_argument("--dir", required=True)
     p = sub.add_parser("report"); p.add_argument("--dir", required=True); p.add_argument("--baseline")
     a = ap.parse_args()
