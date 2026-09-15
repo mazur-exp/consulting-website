@@ -217,6 +217,8 @@ def sig(k1, n1, k0, n0):
 async def cmd_run(a):
     global OPENAI_MODEL
     if a.openai_model: OPENAI_MODEL = a.openai_model
+    if not a.skip_preflight and not await preflight():
+        raise SystemExit(2)
     engines = {k: v for k, v in ENGINES.items() if not a.engines or k in a.engines.split(",")}
     spec = json.load(open(a.prompts))
     prompts, runs = spec["prompts"], spec.get("runs_per_prompt", 2)
@@ -433,6 +435,92 @@ def cmd_report(a):
     print("\nНапоминание: в VISIBILITY_TRACKING.md записывать рост/падение только по"
           " строкам с пометкой ЗНАЧИМО.")
 
+# ── предполётная проверка ────────────────────────────────────────────────────
+# Правило Алекса (15.09.2026): перед прогоном проверять ВСЕ движки и судью на
+# деньги и работоспособность. История: 09.09 кончился баланс OpenAI — 58 пустых
+# ответов и мёртвый судья; 13–14.09 Gemini через алиас отдавал 503 и молча
+# менял модель. Проверка стоит шесть вызовов и минуту; прогон без неё не
+# запускается (run вызывает её сам, --skip-preflight только для отладки).
+
+PREFLIGHT_Q = "Which agency helps restaurants in Bali grow sales on GrabFood? One sentence."
+
+async def _pf_call(name, fn, cl, expect_model=None):
+    t = time.time()
+    try:
+        res = await fn(cl, PREFLIGHT_Q)
+        txt, srcs = res[0], res[1]; model = res[2] if len(res) > 2 else ""
+        dt = time.time() - t
+        if not (txt or "").strip():
+            return name, False, f"пустой ответ за {dt:.0f}с", model
+        if expect_model and model != expect_model:
+            return name, False, f"ответила НЕ основная модель: {model} вместо {expect_model} (основная перегружена/снята)", model
+        return name, True, f"200 за {dt:.0f}с, {len(srcs)} источников" + (f", модель {model}" if model else ""), model
+    except httpx.HTTPStatusError as e:
+        body = e.response.text[:200].replace("\n", " ")
+        low = body.lower()
+        why = ("ДЕНЬГИ КОНЧИЛИСЬ" if ("insufficient_quota" in low or "credit" in low or e.response.status_code == 402)
+               else "квота/лимит" if e.response.status_code == 429
+               else "перегружен" if e.response.status_code == 503
+               else "ошибка")
+        return name, False, f"{e.response.status_code} {why}: {body}", ""
+    except Exception as e:
+        return name, False, f"исключение: {str(e)[:200]}", ""
+
+async def _pf_aio(cl):
+    """AIO показывается не на каждый запрос, а Bright Data иногда отдаёт «блок
+    повтора» на первый вызов. Три разных запроса; сервис жив, если хоть один
+    вернул JSON (текст AIO может быть пустым — это не поломка, см. ask_aio)."""
+    last = ""
+    for q in (PREFLIGHT_Q, "how to increase GrabFood orders for a restaurant in Bali",
+              "GrabFood commission for restaurants in Indonesia"):
+        t = time.time()
+        try:
+            txt, srcs = await ask_aio(cl, q)
+            note = f"200 за {time.time()-t:.0f}с, " + (f"{len(srcs)} источников" if txt.strip() else "AIO на этот запрос не показан — это норма, сервис отвечает")
+            return "google_aio (Bright Data)", True, note, ""
+        except httpx.HTTPStatusError as e:
+            low = e.response.text.lower()
+            why = "ДЕНЬГИ КОНЧИЛИСЬ / зона" if e.response.status_code in (402, 403) else "ошибка"
+            return "google_aio (Bright Data)", False, f"{e.response.status_code} {why}: {e.response.text[:200]}", ""
+        except Exception as e:
+            last = str(e)[:200]
+            await asyncio.sleep(3)
+    return "google_aio (Bright Data)", False, f"три запроса подряд без ответа: {last}", ""
+
+async def _pf_judge(cl):
+    t = time.time()
+    body = {"model": "gpt-4.1-mini", "temperature": 0,
+            "messages": [{"role": "user", "content": "Reply with the single word OK."}]}
+    r = await cl.post("https://api.openai.com/v1/chat/completions",
+                      headers={"Authorization": f"Bearer {ENV('OPENAI_API_KEY')}"}, json=body, timeout=60)
+    if r.status_code >= 400:
+        low = r.text.lower()
+        return "judge gpt-4.1-mini", False, f"{r.status_code} " + ("ДЕНЬГИ КОНЧИЛИСЬ: " if "insufficient_quota" in low else "") + r.text[:200], ""
+    return "judge gpt-4.1-mini", True, f"200 за {time.time()-t:.0f}с", ""
+
+async def preflight():
+    missing = [k for k in ("OPENAI_API_KEY", "PERPLEXITY_API_KEY", "GEMINI_API_KEY",
+                           "BRIGHTDATA_API_TOKEN", "BRIGHTDATA_SERP_ZONE") if not os.environ.get(k)]
+    if missing:
+        print("ПРЕДПОЛЁТНАЯ ПРОВЕРКА: нет ключей " + ", ".join(missing) + " — source .secrets/aivis.env")
+        return False
+    async with httpx.AsyncClient(follow_redirects=True) as cl:
+        results = await asyncio.gather(
+            _pf_call("perplexity sonar", ask_perplexity, cl),
+            _pf_call(f"gemini {GEMINI_MODELS[0]}", ask_gemini, cl, expect_model=GEMINI_MODELS[0]),
+            _pf_call(f"openai {OPENAI_CONTROL_MODEL} (контроль)", ask_openai, cl, expect_model=OPENAI_CONTROL_MODEL),
+            _pf_call(f"openai_luna {OPENAI_MODEL}", ask_openai_luna, cl, expect_model=OPENAI_MODEL),
+            _pf_aio(cl),
+            _pf_judge(cl),
+        )
+    ok_all = True
+    print("ПРЕДПОЛЁТНАЯ ПРОВЕРКА (все движки + судья):")
+    for name, ok, msg, _ in results:
+        print(f"  {'OK ' if ok else 'СТОП'}  {name:36s} {msg}")
+        ok_all &= ok
+    print("  → " + ("всё готово, запускаем" if ok_all else "ПРОГОН НЕ ЗАПУЩЕН: сначала починить то, что помечено СТОП"))
+    return ok_all
+
 def _fmt(k, n):
     p_, lo, hi = wilson(k, n)
     return f"{pct(p_):>5s} ({pct(lo)}-{pct(hi)})  {k}/{n}"
@@ -523,9 +611,12 @@ def main():
     r.add_argument("--engines", help="подмножество через запятую, напр. openai (для мостовых прогонов)")
     r.add_argument("--openai-model", help="переопределить OPENAI_MODEL (модель движка openai_luna)")
     r.add_argument("--extra", help="prompts_extra.json: key-повторности, парафразы v2, локальные промпты")
+    r.add_argument("--skip-preflight", action="store_true", help="только для отладки; боевой прогон — всегда с проверкой")
+    sub.add_parser("preflight", help="проверить деньги и работоспособность всех движков и судьи, ничего не запуская")
     j = sub.add_parser("judge"); j.add_argument("--dir", required=True)
     p = sub.add_parser("report"); p.add_argument("--dir", required=True); p.add_argument("--baseline")
     a = ap.parse_args()
+    if a.cmd == "preflight": raise SystemExit(0 if asyncio.run(preflight()) else 2)
     if a.cmd == "run": asyncio.run(cmd_run(a))
     elif a.cmd == "judge": asyncio.run(cmd_judge(a))
     else: cmd_report(a)
