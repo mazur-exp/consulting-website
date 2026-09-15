@@ -212,6 +212,13 @@ you merge» — деплой 14.09.2026 на этом встал посреди 
 постоянно с кодом 200. Файл не при чём — пересоздание карты не может помочь и
 уже не помогло около десяти раз за полтора месяца.
 
+**Git — только из шелла Mac (desktop-commander), не из VM-шелла Cowork.** VM
+монтирует папку без права удаления: `git add`/`commit` там создаёт
+`index.lock`, `HEAD.lock` и `tmp_obj_*` в `.git/objects`, снять их не может, и
+репозиторий остаётся заблокированным до ручного `rm`. Случилось 15.09.2026. В
+VM-шелле можно читать, править файлы, гонять `git status`/`log`/`diff`; всё,
+что пишет в `.git`, — через `desktop-commander` на самом Mac.
+
 ### When Adding New Features
 
 1. **Document first**: Create/update files in `ai_docs/development/`
