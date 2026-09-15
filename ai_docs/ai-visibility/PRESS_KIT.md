@@ -164,6 +164,41 @@ averages, anonymised at restaurant level.
 
 ---
 
+## 2.5 Follow-up (один, через 7 дней, ответом в тот же тред)
+
+Шаблон — тот, что ушёл в The Bali Sun 15.09: не повторять цифры из первого
+письма, дать один новый конкретный материал, который можно получить завтра, и
+строку «одно “нет” — и больше не пишу». Не раньше 22.09 для пяти писем от 15.09.
+
+```
+Hello,
+
+Following up on the {benchmark / story lead} I sent last week, in case it got buried.
+
+{Одна строка под издание — см. ниже.} I can have it ready by tomorrow, plus a
+two-line quote on the method or the numbers whenever needed.
+
+If it is not a fit, a one-line no is completely fine and I will not follow up again.
+
+Aleksei Mazur
+Founder, Delivery Booster (PT Delivery Booster Group), Bali
+booster.delivery
+```
+
+Строка под издание:
+- **Databoks / Katadata:** «If a Data Story format suits you, I can send the
+  full set of medians as a CSV with the nine Bali areas broken out.»
+- **Tech in Asia:** «If the unit-economics angle is of interest, I can send a
+  one-chart breakdown of where 25% of delivery revenue goes (95% switched-off
+  items, 3% closures, 2% cancellations) and the ad-spend curve past 6% of revenue.»
+- **The Phuket News:** «If the Phuket angle works, I can send a Phuket-only
+  table: 773 THB average order against about $15 in Bali, 23.6x ad payback, and
+  a season swing of 1.8x between January and June from our tourist tracker.»
+- **The Thaiger:** та же строка, что для Phuket News, плюс «and the nationality
+  mix by month, if useful».
+- **NOW! Bali:** «For Resto & Bars, I can send the nine-area breakdown so the
+  piece can name Canggu, Seminyak or Ubud rather than “Bali” in general.»
+
 ## 3. Куда ещё, кроме прессы
 
 - **Google Business Profile** — пост со ссылкой на бенчмарк (Бали; Пхукет — когда будет адрес).

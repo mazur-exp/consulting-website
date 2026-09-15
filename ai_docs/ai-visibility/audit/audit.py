@@ -184,16 +184,20 @@ async def judge_one(cl, text):
             "messages": [{"role": "user", "content": JUDGE_PROMPT.format(answer=text[:9000])}],
             "response_format": {"type": "json_schema",
                 "json_schema": {"name": "b2b", "strict": True, "schema": SCHEMA}}}
-    for i in range(3):
+    # 429 у OpenAI — общий лимит на ключ; после прогона с двумя OpenAI-движками
+    # судья упирается в него первым. Выдержка растёт до минуты; строки, которые
+    # не удалось разобрать, остаются без "j" и досуживаются повторным `judge`.
+    for i in range(6):
         try:
             r = await cl.post("https://api.openai.com/v1/chat/completions",
                 headers={"Authorization": f"Bearer {ENV('OPENAI_API_KEY')}"},
                 json=body, timeout=90)
             if r.status_code < 400:
                 return json.loads(r.json()["choices"][0]["message"]["content"])
+            wait = (5, 10, 20, 40, 60, 60)[i] if r.status_code == 429 else 3 * (i + 1)
         except Exception:
-            pass
-        await asyncio.sleep(2 + i)
+            wait = 3 * (i + 1)
+        await asyncio.sleep(wait)
     return None
 
 # ── статистика ──────────────────────────────────────────────────────────────
@@ -231,41 +235,96 @@ async def cmd_run(a):
         key = set(ex.get("key_prompt_ids") or []); kr = ex.get("key_runs", runs)
         jobs = [(p, kr if p["id"] in key else n) for p, n in jobs]
         jobs += [(dict(p), ex.get("runs_per_prompt", runs)) for p in ex["prompts"]]
-    total = sum(n for _, n in jobs) * len(engines)
     os.makedirs(a.out, exist_ok=True)
-    sem = asyncio.Semaphore(10)
-    out = []
+    # --resume: перезапросить только строки с ошибкой из уже лежащего raw.json
+    # (урок прогона 15.09b: 840 вызовов с общим семафором 10 положили luna в 429
+    # и Bright Data в мусор; 225 строк без текста). Легитимно пустые ответы AIO
+    # (ok=True, text="") не трогаем — это «AIO не показан», не ошибка.
+    prev = None
+    if a.resume:
+        prev = json.load(open(f"{a.out}/raw.json"))
+        todo = [r for r in prev["rows"] if not r["ok"]]
+        keep = [r for r in prev["rows"] if r["ok"]]
+        jobs_rows = [(r["engine"], r) for r in todo if r["engine"] in engines]
+        print(f"resume: перезапрашиваем {len(jobs_rows)} строк с ошибкой, {len(keep)} оставляем")
+    else:
+        keep = []
+        jobs_rows = [(e, dict(p, run=i)) for e in engines for p, n in jobs for i in range(n)]
+    total = len(jobs_rows)
+    # Семафор на каждый движок отдельно: у OpenAI лимит общий на оба движка,
+    # Bright Data под нагрузкой отдаёт не-JSON. 429 → выдержка 5/10/20/40/60 с.
+    LIMITS = {"perplexity": 4, "gemini": 4, "openai": 3, "openai_luna": 3, "google_aio": 3}
+    sems = {e: asyncio.Semaphore(LIMITS.get(e, 3)) for e in engines}
+    out = []; done = 0
+    # Кончились деньги у провайдера — все его движки останавливаются сразу
+    # (прогон 15.09b: баланс OpenAI кончился на середине, ещё 150 вызовов ушли
+    # в 429 и полчаса времени). Строки помечаются ошибкой и добираются --resume.
+    broke = set()
+    PROVIDER = {"openai": "openai", "openai_luna": "openai", "perplexity": "perplexity",
+                "gemini": "gemini", "google_aio": "brightdata"}
 
-    async def one(eng, fn, p, i):
-        async with sem:
-            row = dict(p, engine=eng, run=i, ok=False, text="", sources=[], error="", model="")
-            for att in range(3):
+    async def one(eng, fn, p):
+        nonlocal done
+        async with sems[eng]:
+            row = dict(p, engine=eng, ok=False, text="", sources=[], error="", model="")
+            row.setdefault("run", 0)
+            for att in range(6):
+                if PROVIDER[eng] in broke:
+                    row["error"] = f"пропущено: у {PROVIDER[eng]} кончились деньги"; break
                 try:
                     res = await fn(cl, p["text"])
                     row["text"], row["sources"] = res[0], res[1]
                     row["model"] = res[2] if len(res) > 2 else ""
-                    row["ok"] = True
+                    row["ok"] = True; row["error"] = ""
                     break
+                except httpx.HTTPStatusError as e:
+                    body = e.response.text[:300]
+                    row["error"] = f"{e.response.status_code}: {body[:180]}"
+                    if any(x in body for x in ("insufficient_quota", "credit_balance_exhausted", "no credits")) \
+                            or e.response.status_code == 402:
+                        broke.add(PROVIDER[eng])
+                        print(f"  !!! у {PROVIDER[eng]} КОНЧИЛИСЬ ДЕНЬГИ — его движки остановлены, остальные доходят", flush=True)
+                        break
+                    await asyncio.sleep((5, 10, 20, 40, 60, 60)[att] if e.response.status_code == 429 else 3 * (att + 1))
                 except Exception as e:
                     row["error"] = str(e)[:200]
-                    await asyncio.sleep(2 * (att + 1))
-            out.append(row)
-            if len(out) % 20 == 0:
-                print(f"  {len(out)}/{total}", flush=True)
+                    await asyncio.sleep(3 * (att + 1))
+            out.append(row); done += 1
+            if done % 20 == 0:
+                print(f"  {done}/{total}", flush=True)
 
     t0 = time.time()
     async with httpx.AsyncClient(follow_redirects=True) as cl:
-        await asyncio.gather(*(one(e, f, p, i) for e, f in engines.items()
-                               for p, n in jobs for i in range(n)))
-    json.dump({"prompt_version": spec["version"], "date": time.strftime("%Y-%m-%d"),
-               "rows": out}, open(f"{a.out}/raw.json", "w"), ensure_ascii=False)
-    ok = sum(1 for r in out if r["ok"] and r["text"].strip())
-    print(f"готово за {int(time.time()-t0)}с: {len(out)} вызовов, {ok} с текстом → {a.out}/raw.json")
+        await asyncio.gather(*(one(e, engines[e], r) for e, r in jobs_rows))
+    rows = keep + out
+    json.dump({"prompt_version": (prev or {}).get("prompt_version", spec["version"]),
+               "date": (prev or {}).get("date", time.strftime("%Y-%m-%d")),
+               "rows": rows}, open(f"{a.out}/raw.json", "w"), ensure_ascii=False)
+    ok = sum(1 for r in rows if r["ok"] and r["text"].strip())
+    bad = sum(1 for r in rows if not r["ok"])
+    print(f"готово за {int(time.time()-t0)}с: {len(rows)} строк, {ok} с текстом, {bad} с ошибкой → {a.out}/raw.json")
+    if broke:
+        print(f"  ПРОГОН НЕПОЛНЫЙ: кончились деньги у {', '.join(sorted(broke))}. Пополнить и запустить с --resume.")
+    if bad:
+        print("  ОШИБКИ по движкам: " + ", ".join(f"{e} {n}" for e, n in Counter(r["engine"] for r in rows if not r["ok"]).most_common())
+              + "\n  → python3 audit.py run ... --resume (перезапросит только их)")
 
 async def cmd_judge(a):
     data = json.load(open(f"{a.dir}/raw.json"))
     rows = [r for r in data["rows"] if r["ok"] and r["text"].strip()]
-    print("судья разбирает:", len(rows))
+    # Уже разобранные строки (после --resume) не судим второй раз: ключ —
+    # (set, id, engine, run) + текст.
+    done = {}
+    if os.path.exists(f"{a.dir}/judged.json.gz"):
+        with gzip.open(f"{a.dir}/judged.json.gz", "rt", encoding="utf-8") as f:
+            for r in json.load(f)["rows"]:
+                if r.get("j"): done[(r.get("set") or "v1", r["id"], r["engine"], r["run"], r["text"])] = r["j"]
+    todo = []
+    for r in rows:
+        j = done.get((r.get("set") or "v1", r["id"], r["engine"], r["run"], r["text"]))
+        if j: r["j"] = j
+        else: todo.append(r)
+    print(f"судья разбирает: {len(todo)} (уже разобрано {len(rows) - len(todo)})")
     sem = asyncio.Semaphore(8)
 
     async def one(r):
@@ -273,11 +332,14 @@ async def cmd_judge(a):
             r["j"] = await judge_one(cl, r["text"])
 
     async with httpx.AsyncClient() as cl:
-        await asyncio.gather(*(one(r) for r in rows))
+        await asyncio.gather(*(one(r) for r in todo))
     data["rows"] = rows
     with gzip.open(f"{a.dir}/judged.json.gz", "wt", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False)
-    print("готово:", sum(1 for r in rows if r.get("j")), f"→ {a.dir}/judged.json.gz")
+    nj = sum(1 for r in rows if r.get("j"))
+    print("готово:", nj, f"→ {a.dir}/judged.json.gz")
+    if nj < len(rows):
+        print(f"  БЕЗ ВЕРДИКТА {len(rows) - nj} строк (лимиты OpenAI) — повторить `judge`, он досудит только их")
 
 def load_judged(d):
     with gzip.open(f"{d}/judged.json.gz", "rt", encoding="utf-8") as f:
@@ -515,6 +577,8 @@ async def preflight():
         )
     ok_all = True
     print("ПРЕДПОЛЁТНАЯ ПРОВЕРКА (все движки + судья):")
+    print("  Баланс через API не виден. Ориентир по прогону 15.09b: полный прогон с --extra ≈ $12–15 на OpenAI"
+          " (336 вызовов с веб-поиском + судья), ≈ $3 Perplexity, ≈ $2 Bright Data. Сверить с кабинетом OpenAI глазами.")
     for name, ok, msg, _ in results:
         print(f"  {'OK ' if ok else 'СТОП'}  {name:36s} {msg}")
         ok_all &= ok
@@ -612,6 +676,7 @@ def main():
     r.add_argument("--openai-model", help="переопределить OPENAI_MODEL (модель движка openai_luna)")
     r.add_argument("--extra", help="prompts_extra.json: key-повторности, парафразы v2, локальные промпты")
     r.add_argument("--skip-preflight", action="store_true", help="только для отладки; боевой прогон — всегда с проверкой")
+    r.add_argument("--resume", action="store_true", help="перезапросить только строки с ошибкой из --out/raw.json")
     sub.add_parser("preflight", help="проверить деньги и работоспособность всех движков и судьи, ничего не запуская")
     j = sub.add_parser("judge"); j.add_argument("--dir", required=True)
     p = sub.add_parser("report"); p.add_argument("--dir", required=True); p.add_argument("--baseline")
