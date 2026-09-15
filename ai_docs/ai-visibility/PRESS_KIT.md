@@ -178,12 +178,12 @@ averages, anonymised at restaurant level.
 
 | Издание | Адрес | Статус письма | Угол |
 |---|---|---|---|
-| **Databoks / Katadata** | `databoks@katadata.co.id` | черновик готов | Сильнейшее совпадение: у них есть формат «Data Stories», они публикуют чужие датасеты как контент |
-| **Tech in Asia** | `editors@techinasia.com` | черновик готов | Прямо просят story leads. Угол — юнит-экономика GoFood/GrabFood |
-| **The Phuket News** | `execeditor@classactmedia.co.th` (Chris Husted, exec. editor), копия `editor3@classactmedia.co.th` | черновик готов | Именной контакт, самый высокий шанс ответа. Угол — Пхукет против Бали |
-| **The Thaiger** | `info@thethaiger.com` | черновик готов | Обещают ответ за сутки. Угол — Пхукет и тайский рынок |
-| **NOW! Bali** | `nowbali@phoenix.co.id` | черновик готов | Лайфстайл-журнал, заходит через раздел Resto & Bars |
-| **The Bali Sun** | `admin@thebalisun.com` | **отправлено 2026-09-08** | Главное англоязычное издание Бали |
+| **Databoks / Katadata** | `databoks@katadata.co.id` | отправлено 2026-09-15; follow-up не раньше 22.09 | Сильнейшее совпадение: у них есть формат «Data Stories», они публикуют чужие датасеты как контент |
+| **Tech in Asia** | `editors@techinasia.com` | отправлено 2026-09-15; follow-up не раньше 22.09 | Прямо просят story leads. Угол — юнит-экономика GoFood/GrabFood |
+| **The Phuket News** | `execeditor@classactmedia.co.th` (Chris Husted, exec. editor), копия `editor3@classactmedia.co.th` | отправлено 2026-09-15; follow-up не раньше 22.09 | Именной контакт, самый высокий шанс ответа. Угол — Пхукет против Бали |
+| **The Thaiger** | `info@thethaiger.com` | отправлено 2026-09-15; follow-up не раньше 22.09 | Обещают ответ за сутки. Угол — Пхукет и тайский рынок |
+| **NOW! Bali** | `nowbali@phoenix.co.id` | отправлено 2026-09-15; follow-up не раньше 22.09 | Лайфстайл-журнал, заходит через раздел Resto & Bars |
+| **The Bali Sun** | `admin@thebalisun.com` | отправлено 2026-09-08, follow-up 2026-09-15 (ответом в тред, предложены график потерь и разбивка по 9 районам) | Главное англоязычное издание Бали |
 | **The Bali Times** | почты на сайте нет вообще | только форма `thebalitimes.com/contact-us/` | Издание живое, форма читается — отправлять руками |
 | ~~Coconuts~~ | — | **не питчить** | Издание закрыто 31 декабря 2023, сайт заморожен |
 

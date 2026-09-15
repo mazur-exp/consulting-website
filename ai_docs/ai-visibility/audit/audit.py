@@ -32,7 +32,17 @@ async def ask_perplexity(cl, text):
             for s in (d.get("search_results") or [])]
     return d["choices"][0]["message"]["content"] or "", srcs
 
-GEMINI_MODELS = ["gemini-flash-latest", "gemini-3.6-flash", "gemini-2.0-flash"]
+# Пиннутые версии, без alias. Проверено 15.09.2026 прямыми вызовами:
+# gemini-3.6-flash — 200 за 16.7с, 10 источников grounding
+# gemini-3-flash-preview — 200 за 11.6с, 12 источников
+# gemini-3.5-flash — 200 за 41.8с, 14 источников
+# gemini-flash-latest, gemini-pro-latest, gemini-3.1-flash-lite — 503 UNAVAILABLE
+# gemini-2.5-flash — 404, снят для новых пользователей, сам советует 3.6-flash
+#
+# ВАЖНО: alias вида *-latest здесь не место. Во-первых, именно он и был
+# перегружен (503 на 55 вызовах из 58 в прогоне 14.09). Во-вторых, alias молча
+# меняет модель между замерами — а замер тем и ценен, что сравним во времени.
+GEMINI_MODELS = ["gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash"]
 
 async def ask_gemini(cl, text):
     last = ""
@@ -42,8 +52,16 @@ async def ask_gemini(cl, text):
             headers={"x-goog-api-key": ENV("GEMINI_API_KEY")},
             json={"contents": [{"role": "user", "parts": [{"text": text}]}],
                   "tools": [{"google_search": {}}]}, timeout=T)
-        if r.status_code == 404:
-            last = r.text[:120]; continue
+        # Переходим к следующей модели не только на 404 (модель снята), но и на
+        # 503/429/500: перегруженная модель — такая же непригодная, как снятая.
+        # Раньше фолбэк ловил только 404, а 503 улетал в raise_for_status, и
+        # внешний ретрай начинал заново С ТОЙ ЖЕ первой модели. Из-за этого в
+        # прогоне 14.09 живые модели не пробовались ни разу: 55 вызовов из 58
+        # ушли в перегруженный alias и вернули 503.
+        if r.status_code in (404, 429, 500, 502, 503):
+            last = f"{r.status_code}: {r.text[:120]}"
+            await asyncio.sleep(1.5)
+            continue
         r.raise_for_status()
         c = (r.json().get("candidates") or [{}])[0]
         out = "".join(p.get("text", "") for p in (c.get("content") or {}).get("parts") or [])
@@ -270,6 +288,27 @@ def metrics(rows):
         return any(x in blob for x in needles)
     for k, needles in OURS.items():
         m[k] = (sum(1 for r in rows if _hit(r, needles)), len(rows))
+    # ПАМЯТЬ vs ПОИСК (добавлено 15.09.2026, ревизия подхода). Ответ без источников =
+    # движок не искал (или не отдал цитат) и отвечал из параметрической памяти; туда
+    # сайт не попадает никак. Считаем бренд-упоминание отдельно в двух знаменателях —
+    # это две разные игры: «поиск» двигает сайт, «память» двигают внешние упоминания.
+    has_src = lambda r: bool(r.get("sources"))
+    db = lambda r: r["j"]["delivery_booster"] == "correct_agency"
+    for lname, sub in (("category", cat), ("problem", prob)):
+        srch = [r for r in sub if has_src(r)]; mem = [r for r in sub if not has_src(r)]
+        m[f"db_{lname}_search"] = (sum(1 for r in srch if db(r)), len(srch))
+        m[f"db_{lname}_memory"] = (sum(1 for r in mem if db(r)), len(mem))
+    eng = Counter(); eng_src = Counter()
+    for r in rows:
+        eng[r["engine"]] += 1
+        if has_src(r): eng_src[r["engine"]] += 1
+    m["search_rate"] = {e: (eng_src[e], eng[e]) for e in sorted(eng)}
+    # Category по рынкам — раньше считалось руками для каждого замера.
+    mk = Counter(); mk_db = Counter()
+    for r in cat:
+        mk[r["market"]] += 1
+        if db(r): mk_db[r["market"]] += 1
+    m["cat_by_market"] = {k: (mk_db[k], mk[k]) for k in ("ID", "SG", "TH", "VN") if mk[k]}
     return m
 
 def cmd_report(a):
@@ -298,6 +337,17 @@ def cmd_report(a):
     if cur["confused"]:
         print("  путаница бренда:")
         for c in cur["confused"]: print("   •", c)
+    print("\nПамять vs поиск (бренд назван; знаменатель — ответы с источниками / без):")
+    line("category — движок искал", "db_category_search")
+    line("category — из памяти, без источников", "db_category_memory")
+    line("problem — движок искал", "db_problem_search")
+    line("problem — из памяти, без источников", "db_problem_memory")
+    print("  доля ответов с источниками по движкам: "
+          + ", ".join(f"{e} {k}/{n}" for e, (k, n) in cur["search_rate"].items()))
+    print("\nCategory по рынкам (назвали нас):")
+    for mkt, (k, n) in cur["cat_by_market"].items():
+        p_, lo, hi = wilson(k, n)
+        print(f"  {mkt}  {k}/{n} = {pct(p_)} ({pct(lo)}-{pct(hi)})")
     print("\nСоветы ИИ (problem):")
     for k, (v, n) in cur["advice"].items():
         print(f"  {k:22s} {pct(v/n):>5s}")
