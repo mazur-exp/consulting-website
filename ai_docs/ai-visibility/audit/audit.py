@@ -57,6 +57,12 @@ GEMINI_MODELS = ["gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.8-flash"]
 # моделей уже не значится. Переключение = смена условий; для моста один прогон
 # делается двумя моделями (см. --engines/--openai-model).
 OPENAI_MODEL = "gpt-5.6-luna"
+# Контроль для непрерывности ряда: движок "openai" остаётся gpt-4.1 (как во всех
+# замерах с 25.08), новая модель ходит отдельным движком "openai_luna". Колонка
+# v1 в трекинге считается по контролю, колонка «новые модели» — по luna. Период
+# перекрытия — минимум три прогона; дальше контроль можно оставить навсегда
+# (58 вызовов на прогон).
+OPENAI_CONTROL_MODEL = "gpt-4.1"
 
 async def ask_gemini(cl, text):
     last = ""
@@ -86,10 +92,11 @@ async def ask_gemini(cl, text):
         return out, srcs, m
     raise RuntimeError(f"gemini: нет модели ({last})")
 
-async def ask_openai(cl, text):
+async def ask_openai(cl, text, model=None):
+    model = model or OPENAI_CONTROL_MODEL
     r = await cl.post("https://api.openai.com/v1/responses",
         headers={"Authorization": f"Bearer {ENV('OPENAI_API_KEY')}"},
-        json={"model": OPENAI_MODEL, "input": text,
+        json={"model": model, "input": text,
               "tools": [{"type": "web_search",
                          "user_location": {"type": "approximate", "country": "ID"}}]},
         timeout=T)
@@ -103,7 +110,10 @@ async def ask_openai(cl, text):
                     srcs += [{"url": a.get("url", ""), "title": a.get("title", "")}
                              for a in (c.get("annotations") or [])
                              if a.get("type") == "url_citation"]
-    return txt, srcs, OPENAI_MODEL
+    return txt, srcs, model
+
+async def ask_openai_luna(cl, text):
+    return await ask_openai(cl, text, OPENAI_MODEL)
 
 async def ask_aio(cl, text):
     """Google AI Overview через SERP-зону Bright Data. Пустой блок — это
@@ -128,7 +138,12 @@ async def ask_aio(cl, text):
     return "\n".join(chunks), srcs  # текст может быть пустым → empty
 
 ENGINES = {"perplexity": ask_perplexity, "gemini": ask_gemini,
-           "openai": ask_openai, "google_aio": ask_aio}
+           "openai": ask_openai, "openai_luna": ask_openai_luna, "google_aio": ask_aio}
+# Составы движков для метрик. V1 — ровно тот, что с 25.08. STABLE — движки,
+# которые не менялись никогда (якорь при спорах «мы или прибор»).
+ENGINES_V1 = ("perplexity", "gemini", "openai", "google_aio")
+ENGINES_NEW = ("perplexity", "gemini", "openai_luna", "google_aio")
+ENGINES_STABLE = ("perplexity", "google_aio")
 
 # ── судья ───────────────────────────────────────────────────────────────────
 
@@ -205,6 +220,16 @@ async def cmd_run(a):
     engines = {k: v for k, v in ENGINES.items() if not a.engines or k in a.engines.split(",")}
     spec = json.load(open(a.prompts))
     prompts, runs = spec["prompts"], spec.get("runs_per_prompt", 2)
+    # Каждому промпту — набор (set) и число прогонов. v1: set="v1", runs=2;
+    # key-промпты v1 — key_runs (прогоны 0–1 идут в v1-метрики, 2+ — в блок n=6);
+    # extra-промпты — свои set и runs. Ничто из extra в v1-метрики не попадает.
+    jobs = [(dict(p, set="v1"), runs) for p in prompts]
+    if a.extra:
+        ex = json.load(open(a.extra))
+        key = set(ex.get("key_prompt_ids") or []); kr = ex.get("key_runs", runs)
+        jobs = [(p, kr if p["id"] in key else n) for p, n in jobs]
+        jobs += [(dict(p), ex.get("runs_per_prompt", runs)) for p in ex["prompts"]]
+    total = sum(n for _, n in jobs) * len(engines)
     os.makedirs(a.out, exist_ok=True)
     sem = asyncio.Semaphore(10)
     out = []
@@ -224,12 +249,12 @@ async def cmd_run(a):
                     await asyncio.sleep(2 * (att + 1))
             out.append(row)
             if len(out) % 20 == 0:
-                print(f"  {len(out)}/{len(prompts)*runs*len(engines)}", flush=True)
+                print(f"  {len(out)}/{total}", flush=True)
 
     t0 = time.time()
     async with httpx.AsyncClient(follow_redirects=True) as cl:
         await asyncio.gather(*(one(e, f, p, i) for e, f in engines.items()
-                               for p in prompts for i in range(runs)))
+                               for p, n in jobs for i in range(n)))
     json.dump({"prompt_version": spec["version"], "date": time.strftime("%Y-%m-%d"),
                "rows": out}, open(f"{a.out}/raw.json", "w"), ensure_ascii=False)
     ok = sum(1 for r in out if r["ok"] and r["text"].strip())
@@ -332,9 +357,18 @@ def metrics(rows):
     m["cat_by_market"] = {k: (mk_db[k], mk[k]) for k in ("ID", "SG", "TH", "VN") if mk[k]}
     return m
 
+def _set(r): return r.get("set") or "v1"
+
+def v1_rows(rows, engines=ENGINES_V1, runs=2):
+    """Ровно тот срез, что считался с 25.08: промпты v1, первые два прогона,
+    четыре движка. Всё, что добавлено 15.09 (контроль/luna, key-повторности,
+    v2, local), сюда не попадает — колонка v1 в трекинге не меняется."""
+    return [r for r in rows if _set(r) == "v1" and r["engine"] in engines and r["run"] < runs]
+
 def cmd_report(a):
-    cur = metrics(load_judged(a.dir))
-    base = metrics(load_judged(a.baseline)) if a.baseline else None
+    rows_all = load_judged(a.dir)
+    cur = metrics(v1_rows(rows_all))
+    base = metrics(v1_rows(load_judged(a.baseline))) if a.baseline else None
 
     def line(label, key):
         k, n = cur[key]; p, lo, hi = wilson(k, n)
@@ -395,15 +429,100 @@ def cmd_report(a):
     for d, (n, tot) in cur["domains"].items():
         star = "  ★" if "booster.delivery" in d else ""
         print(f"  {pct(n/tot):>5s}  {d[:55]}{star}")
+    _extra_blocks(rows_all, a)
     print("\nНапоминание: в VISIBILITY_TRACKING.md записывать рост/падение только по"
           " строкам с пометкой ЗНАЧИМО.")
+
+def _fmt(k, n):
+    p_, lo, hi = wilson(k, n)
+    return f"{pct(p_):>5s} ({pct(lo)}-{pct(hi)})  {k}/{n}"
+
+def _extra_blocks(rows_all, a):
+    """Блоки, добавленные 15.09.2026. Печатаются только если в прогоне есть
+    соответствующие данные; старые прогоны отчёт не меняют."""
+    db = lambda r: r["j"]["delivery_booster"] == "correct_agency"
+    def trio(rows):
+        cat = [r for r in rows if r["layer"] == "category"]
+        prob = [r for r in rows if r["layer"] == "problem"]
+        site = [r for r in rows if "booster.delivery" in " ".join(s.get("url", "") for s in (r.get("sources") or [])).lower()]
+        return (sum(map(db, cat)), len(cat)), (sum(map(db, prob)), len(prob)), (len(site), len(rows))
+    engines_present = {r["engine"] for r in rows_all}
+
+    # A. Стабильные движки — якорь, не менялись никогда
+    st = v1_rows(rows_all, ENGINES_STABLE)
+    if st:
+        c, p_, s_ = trio(st)
+        print("\nСтабильные движки (Perplexity + Google AIO, не менялись с 25.08 — сравнимо со всеми замерами):")
+        print(f"  category {_fmt(*c)}   problem {_fmt(*p_)}   сайт в цитатах {_fmt(*s_)}")
+
+    # B. Новые модели: тот же срез, но openai → openai_luna
+    if "openai_luna" in engines_present:
+        nw = v1_rows(rows_all, ENGINES_NEW)
+        c, p_, s_ = trio(nw)
+        print("\nНовые модели (v1-срез, OpenAI = gpt-5.6-luna вместо контроля gpt-4.1):")
+        print(f"  category {_fmt(*c)}   problem {_fmt(*p_)}   сайт в цитатах {_fmt(*s_)}")
+        for lay in ("category", "problem"):
+            old = [r for r in v1_rows(rows_all) if r["engine"] == "openai" and r["layer"] == lay]
+            new = [r for r in v1_rows(rows_all, ENGINES_NEW) if r["engine"] == "openai_luna" and r["layer"] == lay]
+            print(f"  OpenAI {lay:9s} gpt-4.1 {sum(map(db, old))}/{len(old)}  ·  luna {sum(map(db, new))}/{len(new)}"
+                  f"  ·  искал: 4.1 {sum(1 for r in old if r.get('sources'))}/{len(old)}, luna {sum(1 for r in new if r.get('sources'))}/{len(new)}")
+
+    # C. Ключевые промпты с расширенными повторностями
+    key_rows = [r for r in rows_all if _set(r) == "v1" and r["run"] >= 2]
+    if key_rows:
+        ids = sorted({r["id"] for r in key_rows})
+        full = [r for r in rows_all if _set(r) == "v1" and r["id"] in ids and r["engine"] in ENGINES_V1]
+        two = [r for r in full if r["run"] < 2]
+        c6, _, _ = trio(full); c2, _, _ = trio(two)
+        print(f"\nКлючевые промпты ({len(ids)} category) с повторностями: n=2 (как в v1) против всех прогонов:")
+        print(f"  n=2  category {_fmt(*c2)}\n  все  category {_fmt(*c6)}   ← интервал уже, это и есть цель")
+        # Разброс между прогонами одного промпта — прямая мера шума
+        flips = 0; tot = 0
+        for pid in ids:
+            for e in ENGINES_V1:
+                rr = [db(r) for r in full if r["id"] == pid and r["engine"] == e]
+                if len(rr) >= 2:
+                    tot += 1
+                    if 0 < sum(rr) < len(rr): flips += 1
+        print(f"  пар промпт×движок с РАЗНЫМ ответом между прогонами: {flips}/{tot} — это шум, который прячется за n=2")
+
+    # D. Парафразы v2 против исходных формулировок
+    v2 = [r for r in rows_all if _set(r) == "v2" and r["engine"] in ENGINES_V1]
+    if v2:
+        ofs = {r.get("of") for r in v2}
+        orig = [r for r in v1_rows(rows_all) if r["id"] in ofs and r["layer"] == "category"]
+        c_v2, _, s_v2 = trio(v2); c_o, _, s_o = trio(orig)
+        print("\nПарафразы v2 (по 3 на каждый category-промпт v1) против исходных формулировок:")
+        print(f"  исходные v1  category {_fmt(*c_o)}   сайт в цитатах {_fmt(*s_o)}")
+        print(f"  парафразы v2 category {_fmt(*c_v2)}   сайт в цитатах {_fmt(*s_v2)}")
+        by_m = Counter(); by_m_db = Counter()
+        for r in v2:
+            by_m[r["market"]] += 1
+            if db(r): by_m_db[r["market"]] += 1
+        print("  v2 по рынкам: " + ", ".join(f"{m} {by_m_db[m]}/{by_m[m]}" for m in ("ID", "SG", "TH", "VN") if by_m[m]))
+        print("  Если v2 заметно ниже v1 — видимость привязана к нашим формулировкам (overfit), и это меняет, что писать.")
+
+    # E. Локальные промпты — под GBP и каталоги
+    loc = [r for r in rows_all if _set(r) == "local" and r["engine"] in ENGINES_V1]
+    if loc:
+        c_l, _, s_l = trio(loc)
+        dom = Counter()
+        for r in loc:
+            for d in {urlparse(s.get("url", "")).netloc.lower().removeprefix("www.") for s in (r.get("sources") or [])}:
+                if d: dom[d] += 1
+        print("\nЛокальные промпты («агентство в Бали/Пхукете»):")
+        print(f"  category {_fmt(*c_l)}   сайт в цитатах {_fmt(*s_l)}")
+        print("  домены: " + ", ".join(f"{d} {n}" for d, n in dom.most_common(8)))
+        maps = sum(1 for r in loc if any("google.com/maps" in s.get("url", "") or "maps.app" in s.get("url", "") for s in (r.get("sources") or [])))
+        print(f"  ответов с Google Maps в источниках: {maps}/{len(loc)}")
 
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run"); r.add_argument("--prompts", required=True); r.add_argument("--out", required=True)
     r.add_argument("--engines", help="подмножество через запятую, напр. openai (для мостовых прогонов)")
-    r.add_argument("--openai-model", help="переопределить OPENAI_MODEL, напр. gpt-4.1 для моста")
+    r.add_argument("--openai-model", help="переопределить OPENAI_MODEL (модель движка openai_luna)")
+    r.add_argument("--extra", help="prompts_extra.json: key-повторности, парафразы v2, локальные промпты")
     j = sub.add_parser("judge"); j.add_argument("--dir", required=True)
     p = sub.add_parser("report"); p.add_argument("--dir", required=True); p.add_argument("--baseline")
     a = ap.parse_args()
