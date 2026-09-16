@@ -229,12 +229,17 @@ export default function AnswersPhuketThailandPage() {
           name: 'Phuket restaurant delivery, 12 months — Delivery Booster accounts',
           description: 'Orders, average order value, ad spend, ROAS, cancellations and negative-review frequency across GrabFood restaurants managed by Delivery Booster in Phuket, 1 September 2025 – 31 August 2026, plus average daily tourists on the island by month.',
           creator: { '@type': 'Organization', name: 'Delivery Booster', url: 'https://booster.delivery' },
+          // Search Console 16.09: «недопустимый тип в spatialCoverage» (Country) и
+          // «нет поля license». Только Place; лицензия CC BY 4.0 — данные открыты,
+          // условие переиспользования — ссылка на Delivery Booster.
           spatialCoverage: [
             { '@type': 'Place', name: 'Phuket, Thailand' },
-            { '@type': 'Country', name: 'Thailand' },
+            { '@type': 'Place', name: 'Thailand' },
           ],
           temporalCoverage: '2025-09-01/2026-08-31',
           url: URL,
+          license: 'https://creativecommons.org/licenses/by/4.0/',
+          isAccessibleForFree: true,
           isBasedOn: 'https://phuketstats.booster.delivery/phuket-tourists',
         },
       ]}

@@ -153,7 +153,7 @@ export default function BenchmarkPage() {
       'average check', 'GrabAds ROAS', 'ad spend share of revenue',
       'cancellation rate', 'stock-out revenue loss', 'orders per bad review',
     ],
-    license: 'https://booster.delivery/benchmark',
+    license: 'https://creativecommons.org/licenses/by/4.0/', // было: ссылка на себя; CC BY = свободно с указанием источника
     isAccessibleForFree: true,
   };
 
