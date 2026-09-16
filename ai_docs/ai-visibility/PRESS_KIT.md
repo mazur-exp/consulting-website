@@ -215,7 +215,7 @@ booster.delivery
 |---|---|---|---|
 | **Databoks / Katadata** | `databoks@katadata.co.id` | отправлено 2026-09-15; follow-up не раньше 22.09 | Сильнейшее совпадение: у них есть формат «Data Stories», они публикуют чужие датасеты как контент |
 | **Tech in Asia** | `editors@techinasia.com` | отправлено 2026-09-15; follow-up не раньше 22.09 | Прямо просят story leads. Угол — юнит-экономика GoFood/GrabFood |
-| **The Phuket News** | `execeditor@classactmedia.co.th` (Chris Husted, exec. editor), копия `editor3@classactmedia.co.th` | отправлено 2026-09-15; follow-up не раньше 22.09 | Именной контакт, самый высокий шанс ответа. Угол — Пхукет против Бали |
+| **The Phuket News** | `execeditor@classactmedia.co.th` (Chris Husted, exec. editor), копия `editor3@classactmedia.co.th` | **ОТВЕТИЛ 15.09 через 3 часа:** 12 заведений — мало для новости, предложил авторскую колонку (вывод + совет владельцу на Grab), текст и фото с нас. 16.09 согласие + черновик 820 слов + 2 графика в фирменном стиле отправлены (`press/phuket-news-2026-09/`); фото от Алекса отдельно. Просьбы: подпись «Aleksei Mazur, founder of Delivery Booster» и ссылка на booster.delivery/benchmark как источник | Именной контакт, самый высокий шанс ответа. Угол — Пхукет против Бали |
 | **The Thaiger** | `info@thethaiger.com` | отправлено 2026-09-15; follow-up не раньше 22.09 | Обещают ответ за сутки. Угол — Пхукет и тайский рынок |
 | **NOW! Bali** | `nowbali@phoenix.co.id` | отправлено 2026-09-15; follow-up не раньше 22.09 | Лайфстайл-журнал, заходит через раздел Resto & Bars |
 | **The Bali Sun** | `admin@thebalisun.com` | отправлено 2026-09-08, follow-up 2026-09-15 (ответом в тред, предложены график потерь и разбивка по 9 районам) | Главное англоязычное издание Бали |
