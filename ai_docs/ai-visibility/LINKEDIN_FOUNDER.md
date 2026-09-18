@@ -206,6 +206,7 @@ Indonesia · Thailand · Southeast Asia
 | # | Тема | Актив, на который ведёт | Формат | Статус |
 |---|---|---|---|---|
 | 1 | Бенчмарк: где утекает выручка | `/benchmark` | Документ-PDF 10 стр. | **Опубликован 2026-09-08** |
+| 1b | Колонка в The Phuket News: теряют не на комиссии | thephuketnews.com + `/answers/grabfood-phuket-thailand` | Текст + 2 графика, ссылки первым комментарием | **Опубликован 2026-09-18**, https://www.linkedin.com/feed/update/urn:li:activity:7506600101318975488/ |
 | 2 | Grab и Gojek — не рекламные площадки | `/method` | Текст | Готов |
 | 3 | Стоп-лист: 2 000 часов | `/benchmark` | Текст | Готов |
 | 4 | Эту профессию нельзя нанять | `/answers/in-house-manager-vs-agency` | Текст | Готов |

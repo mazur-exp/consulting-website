@@ -4,6 +4,12 @@
 `https://booster.delivery/answers/grabfood-phuket-thailand`. Все ссылки в текстах постов - с https://, иначе они не кликаются. Все цифры из колонки и с наших
 страниц. Канон-пара 110+ / 200+ стоит. Имя: Aleksei Mazur. Длинных тире в текстах нет.
 
+## Статус публикации (18.09.2026)
+
+- Telegram: опубликовал Алекс сам, 18.09.
+- LinkedIn: опубликовано 18.09 с обеих картинок, первый комментарий с двумя https-ссылками стоит. https://www.linkedin.com/feed/update/urn:li:activity:7506600101318975488/
+- Instagram @delivery.booster: карусель 6 слайдов 4:5 + кэпшн опубликованы 18.09. Ссылка в bio на /answers/grabfood-phuket-thailand НЕ поставлена: веб-версия Instagram не даёт редактировать ссылки (только приложение), bio-текст 144/150 символов. Сделать с телефона: Edit profile -> Links -> добавить https://booster.delivery/answers/grabfood-phuket-thailand (лимит 5 ссылок, сейчас занято 5, одну заменить).
+
 ## План
 
 | Когда | Канал | Формат | Файлы |
