@@ -1,7 +1,7 @@
 # Пакет постов: колонка в The Phuket News
 
 Актив: внешняя публикация thephuketnews.com (17.09) + наша страница
-`booster.delivery/answers/grabfood-phuket-thailand`. Все цифры из колонки и с наших
+`https://booster.delivery/answers/grabfood-phuket-thailand`. Все ссылки в текстах постов - с https://, иначе они не кликаются. Все цифры из колонки и с наших
 страниц. Канон-пара 110+ / 200+ стоит. Имя: Aleksei Mazur. Длинных тире в текстах нет.
 
 ## План
@@ -43,8 +43,8 @@ The Phuket News (15 лет, печать и сайт, издание номер 
 
 😳 Одна фраза из колонки: «Перестаньте спорить с комиссией и начните читать отчёт по стоп-листу. Первое - цена бизнеса. Второе - деньги, которые вы уже заработали и отдали».
 
-🔗 Колонка целиком (EN): thephuketnews.com/the-money-phuket-restaurants-lose-on-grab-is-not-the-commission-101653.php
-🔗 Наша страница про рынок Таиланда с теми же цифрами и разбивкой по районам Пхукета: booster.delivery/answers/grabfood-phuket-thailand
+🔗 Колонка целиком (EN): https://www.thephuketnews.com/the-money-phuket-restaurants-lose-on-grab-is-not-the-commission-101653.php
+🔗 Наша страница про рынок Таиланда с теми же цифрами и разбивкой по районам Пхукета: https://booster.delivery/answers/grabfood-phuket-thailand
 
 Delivery Booster: 110+ ресторанов на сопровождении сегодня, 200+ прошло через агентство с 2023 года.
 ```
@@ -100,14 +100,14 @@ Full column: link in bio. Data from 200+ restaurants through Delivery Booster si
 #GrabFood #Phuket #Thailand #RestaurantBusiness #FoodDelivery #DeliveryBooster
 ```
 
-Ссылка в bio на время поста: booster.delivery/answers/grabfood-phuket-thailand
+Ссылка в bio на время поста: https://booster.delivery/answers/grabfood-phuket-thailand
 
 ---
 
 ## 4. Короткий вариант, RU, для чатов и комментариев
 
 ```
-Рестораны на Пхукете теряют не на 30% комиссии Grab, а на выключенных позициях меню: 95% потерь на Бали, 93% на Пхукете. Реклама там окупается 23x, и именно поэтому тратить больше 6% выручки не надо. Разбор рынка Таиланда с цифрами по районам Пхукета: booster.delivery/answers/grabfood-phuket-thailand
+Рестораны на Пхукете теряют не на 30% комиссии Grab, а на выключенных позициях меню: 95% потерь на Бали, 93% на Пхукете. Реклама там окупается 23x, и именно поэтому тратить больше 6% выручки не надо. Разбор рынка Таиланда с цифрами по районам Пхукета: https://booster.delivery/answers/grabfood-phuket-thailand
 ```
 
 ---

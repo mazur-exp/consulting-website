@@ -240,7 +240,7 @@ What share of your delivery revenue currently goes to ads? If it is over 6%, the
 #GrabFood #GoFood #Bali #RestaurantMarketing #FoodDelivery
 ```
 
-**Первый комментарий:** `The five stages we run on every account, published in full: booster.delivery/method`
+**Первый комментарий:** `The five stages we run on every account, published in full: https://booster.delivery/method`
 
 ---
 
@@ -269,7 +269,7 @@ How many did you find? I have yet to meet an owner who guessed the number correc
 #GrabFood #GoFood #RestaurantOperations #Bali #FoodDelivery
 ```
 
-**Первый комментарий:** `Full report with medians and method, free: booster.delivery/benchmark`
+**Первый комментарий:** `Full report with medians and method, free: https://booster.delivery/benchmark`
 
 ---
 
@@ -301,7 +301,7 @@ If you have hired for this role: what did you actually screen for?
 #GrabFood #GoFood #Hiring #RestaurantMarketing #Bali
 ```
 
-**Первый комментарий:** `The full comparison, including where hiring in-house is genuinely the better call: booster.delivery/answers/in-house-manager-vs-agency`
+**Первый комментарий:** `The full comparison, including where hiring in-house is genuinely the better call: https://booster.delivery/answers/in-house-manager-vs-agency`
 
 ---
 
@@ -327,7 +327,7 @@ When did you last appeal a review rather than just answer it?
 #GrabFood #GoFood #ReputationManagement #RestaurantMarketing #Bali
 ```
 
-**Первый комментарий:** `Medians across 96 restaurants and 270,568 orders, free: booster.delivery/benchmark`
+**Первый комментарий:** `Medians across 96 restaurants and 270,568 orders, free: https://booster.delivery/benchmark`
 
 ---
 
