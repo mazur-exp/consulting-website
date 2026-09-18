@@ -112,6 +112,8 @@ Full column: link in bio. Data from 200+ restaurants through Delivery Booster si
 
 ## 4. Короткий вариант, RU, для чатов и комментариев
 
+Картинка: `short-post-ru.png` (прикладывать всегда). RU-версии графиков для Telegram: `chart1-lost-revenue-ru.png`, `chart2-ad-payback-ru.png`.
+
 ```
 Рестораны на Пхукете теряют не на 30% комиссии Grab, а на выключенных позициях меню: 95% потерь на Бали, 93% на Пхукете. Реклама там окупается 23x, и именно поэтому тратить больше 6% выручки не надо. Разбор рынка Таиланда с цифрами по районам Пхукета: https://booster.delivery/answers/grabfood-phuket-thailand
 ```
