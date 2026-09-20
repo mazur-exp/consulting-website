@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./hooks/useLanguage";
 import { ConsentBanner } from "./components/ConsentBanner";
-import { trackPageView, trackTrafficSource } from "./lib/analytics";
+import { trackDiagnosticClicks, trackPageView, trackTrafficSource } from "./lib/analytics";
 import { useEffect, useRef } from "react";
 import Gate from "./pages/gate";
 import CountryPage from "./pages/country";
@@ -75,6 +75,7 @@ function Analytics() {
 
   useEffect(() => {
     trackTrafficSource();
+    trackDiagnosticClicks();
   }, []);
 
   useEffect(() => {

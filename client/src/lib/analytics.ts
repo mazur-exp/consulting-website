@@ -30,6 +30,15 @@ export const UMAMI_HOST = 'https://analytics.booster.delivery';
 
 const CONSENT_KEY = 'db_consent';
 const SOURCE_SENT_KEY = 'db_source_sent';
+/**
+ * Первое касание сессии в одну строку: «referral/thephuketnews.com»,
+ * «ai/ChatGPT», «search/Google», «direct». Уезжает в диагностику параметром
+ * utm_term, чтобы уведомление о лиде отвечало на вопрос «откуда он вообще
+ * пришёл на сайт», а не только «с какой кнопки». Добавлено 20.09.2026 после
+ * первого лида с колонки в The Phuket News, который пришлось сшивать руками
+ * из серверного лога и базы диагностики.
+ */
+const ORIGIN_KEY = 'db_origin';
 
 export type Consent = 'granted' | 'denied';
 
@@ -185,12 +194,53 @@ const send = (name: string, data: Record<string, unknown>) => {
   }
 };
 
+const formatOrigin = (kind: SourceKind, source: string, referrerDomain: string): string => {
+  if (kind === 'direct') return 'direct';
+  if (kind === 'referral') return `referral/${referrerDomain || source}`;
+  return `${kind}/${source}`;
+};
+
+/** Первое касание текущей сессии (см. ORIGIN_KEY) или пустая строка. */
+export const getOrigin = (): string => safeGet(sessionStorage, ORIGIN_KEY) ?? '';
+
+/**
+ * Клик по любой ссылке на диагностику: слот из utm_content и первое касание.
+ * Вешается один раз на документ, ссылки рендерятся в десятке компонентов.
+ */
+export const trackDiagnosticClicks = () => {
+  document.addEventListener(
+    'click',
+    (e) => {
+      const a = (e.target as Element | null)?.closest?.('a[href]') as HTMLAnchorElement | null;
+      if (!a || !a.href.startsWith('https://diagnostic.booster.delivery')) return;
+      const origin = getOrigin();
+      let slot = '';
+      try {
+        const url = new URL(a.href);
+        slot = url.searchParams.get('utm_content') ?? '';
+        // Ссылки рендерятся до того, как первое касание записано в sessionStorage
+        // (эффект в App срабатывает после первого рендера), поэтому дописываем
+        // utm_term прямо в момент клика, если его ещё нет.
+        if (origin && !url.searchParams.get('utm_term')) {
+          url.searchParams.set('utm_term', origin);
+          a.href = url.toString();
+        }
+      } catch {
+        slot = '';
+      }
+      send('cta-click', { target: 'diagnostic', slot, origin, page: window.location.pathname });
+    },
+    { capture: true },
+  );
+};
+
 /** Один раз за сессию: откуда человек пришёл и на какую страницу попал. */
 export const trackTrafficSource = () => {
   if (safeGet(sessionStorage, SOURCE_SENT_KEY)) return;
   const { kind, source, referrerDomain } = classifySource(document.referrer, window.location.search);
   if (kind === 'internal') return; // переход внутри экосистемы — не источник
   safeSet(sessionStorage, SOURCE_SENT_KEY, '1');
+  safeSet(sessionStorage, ORIGIN_KEY, formatOrigin(kind, source, referrerDomain));
   send('traffic-source', {
     kind,
     source,

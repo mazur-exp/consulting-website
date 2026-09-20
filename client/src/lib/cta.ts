@@ -11,6 +11,8 @@
  * разбор / диагностику / аудит, ведёт СЮДА. Мессенджер остаётся только для
  * CTA «написать нам» — то есть для тех, кто хочет человека, а не отчёт.
  */
+import { getOrigin } from './analytics';
+
 export const DIAGNOSTIC_URL = 'https://diagnostic.booster.delivery/';
 
 /**
@@ -25,6 +27,10 @@ export const diagnosticUrl = (slot: string, lang?: string) => {
     utm_campaign: 'free_audit',
     utm_content: slot,
   });
+  // Первое касание сессии («referral/thephuketnews.com», «ai/ChatGPT») едет
+  // дальше в диагностику: там оно попадает в Umami и в уведомление о лиде.
+  const origin = getOrigin();
+  if (origin) params.set('utm_term', origin);
   // Диагностика — отдельное Rails-приложение, язык у неё в `locale`, а не в
   // `lang`, как на основном сайте. Проверено: `?lang=id` там молча игнорируется.
   if (lang) params.set('locale', lang);
