@@ -194,15 +194,15 @@ export const CLIENTS: Client[] = [
   { slug: "sensorica-karon", name: "Sensorica", market: "TH", district: "Karon", active: true, grab: "https://r.grab.com/g/6-20260910_155759_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7EWVAE3CKKBSE", logo: "/clients/sensorica-karon.webp" },
   { slug: "swag-food", name: "Swag Food", market: "TH", active: true, grab: "https://r.grab.com/g/6-20260910_155856_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7TUUCDVEKB1EA", logo: "/clients/swag-food.webp" },
   { slug: "ussr-patong", name: "USSR Phuket", market: "TH", district: "Patong", active: true, grab: "https://r.grab.com/g/6-20260910_155913_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C66DCTUVLTWYJX" },
-  { slug: "ab-house-burger-steak-old-town", name: "Ab House Burger & Steak", market: "TH", district: "Old Town", active: false, grab: "https://r.grab.com/g/6-20260910_161015_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7DUV74AERAXLJ", logo: "/clients/ab-house-burger-steak-old-town.webp" },
-  { slug: "alma-ata-reastaurant-chalong", name: "Alma-Ata", market: "TH", district: "Chalong", active: false, grab: "https://r.grab.com/g/6-20260910_161035_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C6LZLN3ERLJCET", logo: "/clients/alma-ata-reastaurant-chalong.webp" },
-  { slug: "enjoy-healthy-food-boat-avenue", name: "Enjoy healthy food", market: "TH", district: "Boat Avenue", active: false, logo: "/clients/enjoy-healthy-food-boat-avenue.webp" },
-  { slug: "enjoy-your-meal-phuket", name: "Enjoy Your Meal", market: "TH", district: "Phuket", active: false, logo: "/clients/enjoy-your-meal-phuket.webp" },
+  { slug: "ab-house-burger-steak-old-town", name: "Ab House Burger & Steak", market: "TH", district: "Old Town", active: true, grab: "https://r.grab.com/g/6-20260910_161015_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7DUV74AERAXLJ", logo: "/clients/ab-house-burger-steak-old-town.webp" },
+  { slug: "alma-ata-reastaurant-chalong", name: "Alma-Ata", market: "TH", district: "Chalong", active: true, grab: "https://r.grab.com/g/6-20260910_161035_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C6LZLN3ERLJCET", logo: "/clients/alma-ata-reastaurant-chalong.webp" },
+  { slug: "enjoy-healthy-food-boat-avenue", name: "Enjoy healthy food", market: "TH", district: "Boat Avenue", active: true, logo: "/clients/enjoy-healthy-food-boat-avenue.webp" },
+  { slug: "enjoy-your-meal-phuket", name: "Enjoy Your Meal", market: "TH", district: "Phuket", active: true, logo: "/clients/enjoy-your-meal-phuket.webp" },
   { slug: "gorilla-sushi-phuket", name: "Gorilla sushi", market: "TH", district: "Phuket", active: false },
-  { slug: "legourmet", name: "LeGourmet", market: "TH", active: false, logo: "/clients/legourmet.webp" },
+  { slug: "legourmet", name: "LeGourmet", market: "TH", active: true, logo: "/clients/legourmet.webp" },
   { slug: "shawerma-king-phuket", name: "Shawerma King", market: "TH", district: "Phuket", active: false },
-  { slug: "surf-point", name: "Surf Point", market: "TH", active: false, grab: "https://r.grab.com/g/6-20260910_160129_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C6NKL2JJNXBFCA", logo: "/clients/surf-point.webp" },
-  { slug: "yuuhi-bang-tao", name: "Yuuhi", market: "TH", district: "Bang Tao", active: false, grab: "https://r.grab.com/g/6-20260910_161058_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7DBAVKGSFEJTT", logo: "/clients/yuuhi-bang-tao.webp" },
+  { slug: "surf-point", name: "Surf Point", market: "TH", active: true, grab: "https://r.grab.com/g/6-20260910_160129_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C6NKL2JJNXBFCA", logo: "/clients/surf-point.webp" },
+  { slug: "yuuhi-bang-tao", name: "Yuuhi", market: "TH", district: "Bang Tao", active: true, grab: "https://r.grab.com/g/6-20260910_161058_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7DBAVKGSFEJTT", logo: "/clients/yuuhi-bang-tao.webp" },
 ];
 
 /** District labels used in the section subtitle, in display order. */
