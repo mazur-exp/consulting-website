@@ -31,7 +31,7 @@ GA4 — надстройка ради Search Console и привычных от�
 | Сайт | Umami website_id | GA4 |
 |---|---|---|
 | booster.delivery | `a3060360-a401-4885-af8c-e0ecf802cd14` | `G-GYK9V931F2` |
-| diagnostic.booster.delivery | `2fa78088-8a97-4dbf-af0f-dae89091be50` | тот же |
+| diagnostic.booster.delivery | `a3060360-...` (общий с сайтом, с 20.09; свой `2fa78088-8a97-4dbf-af0f-dae89091be50` заведён, но не используется) | нет (см. «Цепочка лида») |
 | app.booster.delivery (только лендинг) | `94f4ca24-10ad-4f98-8a8e-e76063af20cc` | тот же |
 | balistats.booster.delivery | `f49238d5-7a96-4327-b025-33a585644e66` | нет |
 
@@ -126,6 +126,49 @@ node scripts/traffic-digest.mjs 30     # за 30
   порекомендовали». За этой строкой в сводке и надо следить.
 
 Реферал из ChatGPT — это уже результат. Обход краулера — предсказание.
+
+---
+
+## Цепочка лида: от первого касания до WhatsApp
+
+Заведено 20.09.2026 после первого лида с колонки в The Phuket News. Вопрос
+Алекса: «могу ли я увидеть, откуда пришёл лид?» Ответ до этого дня: нет,
+только руками (серверный лог сайта + база диагностики + совпадение user agent).
+Причина: на диагностике не было счётчиков вообще, а Umami не сшивает сессии
+между хостами (сессия = website + hostname + ip + ua), и куки GA туда тоже
+не долетали, потому что GA там не стоял.
+
+Как устроено теперь:
+
+1. Сайт при первом касании сессии пишет `sessionStorage.db_origin` в одну
+   строку: `referral/thephuketnews.com`, `ai/ChatGPT`, `search/Google`,
+   `social/Facebook`, `direct`. Это то же, что уходит событием `traffic-source`.
+2. Любой клик по ссылке на diagnostic.booster.delivery шлёт событие
+   `cta-click {target, slot, origin, page}` и дописывает `origin` в ссылку
+   параметром `utm_term` (в момент клика, потому что ссылки рендерятся раньше,
+   чем origin записан).
+3. Диагностика (партиал `app/views/diagnostics/_analytics.html.erb` в
+   delivery-monitor) читает `utm_term`, кладёт в свой `sessionStorage` и шлёт в
+   ТОТ ЖЕ website Umami события `diagnostic-landing {slot, origin}`,
+   `diagnostic-report {platform, score, origin}`,
+   `diagnostic-contact {kind, origin}`. В PDF-режиме партиал не подключён.
+4. База диагностики: `utm_term` в таблицу и в Telegram-уведомление о лиде
+   добавляет разработчик, ТЗ в `ai_docs/development/DEV_BRIEF_DIAGNOSTIC_ORIGIN.md`.
+
+Где смотреть: Umami, сайт booster.delivery, вкладка Events. Событие
+`diagnostic-contact`, свойство `origin` отвечает на вопрос «откуда лиды»,
+`cta-click` по `slot` отвечает на «какая кнопка работает». Хосты различаются
+фильтром по host.
+
+Почему диагностика без GA и без полосы согласия: это инструмент на два экрана,
+полоса согласия там съест половину экрана ради куки, которая цепочку всё равно
+не сшивает (utm_term делает это без кук). Это осознанное отступление от
+правила «новый поддомен = оба счётчика» ниже.
+
+Чего слой не видит: встроенный браузер Facebook/Instagram не отдаёт реферер,
+такой визит на сайте уедет в `direct`. Единственный след: `FB_IAB` в user
+agent, он хранится в базе диагностики, и печатать его в уведомлении тоже
+входит в ТЗ разработчику.
 
 ---
 
