@@ -73,7 +73,7 @@ export default function CountryPage({ code }: { code: CountryCode }) {
           <WorkProcessSection />
           <PricingSection />
           <CaseStudiesSection />
-          {country.clients && <ClientsSection />}
+          <ClientsSection />
           {country.showTestimonials && <TestimonialsSection />}
           <FounderSection />
           <FAQSection />
