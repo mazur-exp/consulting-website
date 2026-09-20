@@ -1,0 +1,135 @@
+=== ЗАМЕР ./run-2026-09-20 (n=229) vs базовая ./baseline-2026-08-25 ===
+
+Шкала зрелости (problem):
+  1. управляемость внутри площадки                   96% (91%-98%)  123/128   было 97%  (шум)
+  2. допускает делегирование                         18% (12%-26%)  23/128   было 16%  (шум)
+  3. называет агентство по имени                      6% (3%-12%)  8/128   было 2%  (шум)
+
+Delivery Booster:
+  в category-запросах (ГЛАВНАЯ)                      35% (25%-46%)  27/78   было 0%  ← ЗНАЧИМО
+  в problem-запросах                                  5% (2%-10%)  6/128   было 1%  (шум)
+  в brand-запросах (корректно)                      100% (86%-100%)  23/23   было 83%  (шум)
+
+Память vs поиск (бренд назван; знаменатель — ответы с источниками / без):
+  category — движок искал                            38% (28%-50%)  27/71   было 0%  ← ЗНАЧИМО
+  category — из памяти, без источников                0% (0%-35%)  0/7   было 0%  (шум)
+  problem — движок искал                              8% (4%-17%)  6/71   было 2%  (шум)
+  problem — из памяти, без источников                 0% (0%-6%)  0/57   было 0%  (шум)
+  доля ответов с источниками по движкам: gemini 32/58, google_aio 50/55, openai 25/58, perplexity 58/58
+
+Модели (что реально отвечало):
+  gemini     gemini-3.6-flash 58/58
+  openai     gpt-4.1 58/58
+
+Category по рынкам (назвали нас):
+  ID  14/31 = 45% (29%-62%)
+  SG  9/16 = 56% (33%-77%)
+  TH  4/15 = 27% (11%-52%)
+  VN  0/16 = 0% (0%-19%)
+
+Советы ИИ (problem):
+  platform_promos          87%
+  menu_photos              83%
+  ops_speed                78%
+  rating_reviews           76%
+  platform_ads             73%
+  pricing_commission       53%
+  social_media             36%
+  own_channel              32%
+  data_analytics           29%
+  platform_contact         19%
+  hire_agency               8%
+  other                     8%
+  pos_software              2%
+
+Названные сервисы (топ):
+  108  platform     GrabFood
+   55  agency       Delivery Booster
+   50  platform     GoFood
+   42  platform     GrabMerchant
+   28  platform     LINE MAN
+   24  platform     GoBiz
+   22  platform     Grab
+   22  platform     ShopeeFood
+   20  platform     GrabAds
+   16  software_pos Klikit
+   10  platform     Gojek
+    9  platform     foodpanda
+    8  software_pos Deliverect
+    5  software_pos GrabMerchant
+    5  media_blog   Instagram
+    5  platform     GrabMerchant Portal
+    5  software_pos Wongnai Merchant App
+    5  platform     Wongnai Merchant App
+    5  software_pos Sapo
+    4  platform     Instagram
+    4  media_blog   TikTok
+    4  platform     Ressto
+    4  platform     Google Maps
+    4  platform     GrabExpress
+    4  software_pos KiotViet
+    4  software_pos Hubster
+    4  platform     Facebook
+    3  other        Fastwork.id
+    3  other        Sribu.com
+    3  media_blog   Facebook
+
+Наши профили в ответах (источники+текст, все слои):
+  сайт booster.delivery                              29% (24%-35%)  67/229   было 7%  ← ЗНАЧИМО
+  YouTube @DeliveryBooster                            0% (0%-2%)  0/229   было 0%  (шум)
+  Instagram delivery.booster                          1% (0%-4%)  3/229   было 0%  (шум)
+  Telegram-канал @deliverybooster_asia                0% (0%-2%)  0/229   было 0%  (шум)
+  Telegram-контакт @delivery_booster                  0% (0%-2%)  0/229   было 0%  (шум)
+
+Цитируемые домены:
+    28%  booster.delivery  ★
+    21%  grab.com
+    16%  help.grab.com
+    14%  vertexaisearch.cloud.google.com
+    14%  thegrabmethod.com
+    12%  klikit.io
+    11%  merchant.grab.com
+     7%  linkedin.com
+     6%  play.google.com
+     5%  lemon8-app.com
+     5%  nutapos.com
+     4%  gojek.com
+     4%  gofoodmerchant.co.id
+     4%  vc.ru
+     4%  reddit.com
+     4%  instagram.com
+     3%  sapo.vn
+     3%  merchant.shopeefood.vn
+     3%  posapp.vn
+     3%  foodshot.ai
+     3%  wongnai.com
+     3%  desanaob.id
+     3%  merchants.ubereats.com
+     3%  app.myrestaurantstrategist.com
+     3%  today.line.me
+
+Стабильные движки (Perplexity + Google AIO, не менялись с 25.08 — сравнимо со всеми замерами):
+  category   26% (15%-42%)  10/38   problem    2% (0%-8%)  1/64   сайт в цитатах   37% (29%-46%)  42/113
+
+Новые модели (v1-срез, OpenAI = gpt-5.6-luna вместо контроля gpt-4.1):
+  category   33% (24%-44%)  26/78   problem    3% (1%-8%)  4/128   сайт в цитатах   27% (22%-33%)  62/229
+  OpenAI category  gpt-4.1 13/20  ·  luna 12/20  ·  искал: 4.1 15/20, luna 18/20
+  OpenAI problem   gpt-4.1 4/32  ·  luna 2/32  ·  искал: 4.1 4/32, luna 31/32
+
+Ключевые промпты (10 category) с повторностями: n=2 (как в v1) против всех прогонов:
+  n=2  category   35% (25%-46%)  27/78
+  все  category   35% (29%-41%)  82/236   ← интервал уже, это и есть цель
+  пар промпт×движок с РАЗНЫМ ответом между прогонами: 10/40 — это шум, который прячется за n=2
+
+Парафразы v2 (по 3 на каждый category-промпт v1) против исходных формулировок:
+  исходные v1  category   35% (25%-46%)  27/78   сайт в цитатах   36% (26%-47%)  28/78
+  парафразы v2 category   41% (35%-47%)  97/239   сайт в цитатах   36% (31%-43%)  87/239
+  v2 по рынкам: ID 58/96, SG 19/47, TH 18/48, VN 2/48
+  Если v2 заметно ниже v1 — видимость привязана к нашим формулировкам (overfit), и это меняет, что писать.
+
+Локальные промпты («агентство в Бали/Пхукете»):
+  category   90% (76%-96%)  35/39   сайт в цитатах   59% (43%-73%)  23/39
+  домены: booster.delivery 23, grab.com 12, vertexaisearch.cloud.google.com 10, klikit.io 8, opsfood.co 8, garasifood.com 8, food.grab.com 7, izzibali.com 5
+  ответов с Google Maps в источниках: 2/39
+
+Напоминание: в VISIBILITY_TRACKING.md записывать рост/падение только по строкам с пометкой ЗНАЧИМО.
