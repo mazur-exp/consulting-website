@@ -38,6 +38,14 @@ JSON-LD WebApplication с potentialAction/urlTemplate и строка-подск
 отчёт и админку. Собранные данные по лиду из ChatGPT: utm_source «chatgpt.com», iPhone,
 locale en, контакт через Telegram-бота через 33 секунды после старта.
 
+Позже 24.09 (PΔ.431.4-431.5): в уведомлении о лиде имя и @username из Telegram
+(колонка `diagnostic_contacts.label`, из `from` при /start или через getChat), ссылка на
+человека `tg://user?id=` и https://t.me/<username>. Ошибка сессии: демо-уведомление ушло с
+выдуманным @username из LinkedIn-адреса и вело на чужого человека; правило теперь в коде
+и в RISK-MAP диагностики: подпись контакта только из API, догадок нет. Канон по диагностике
+обновлён в репозитории diagnostic-docs (CURRENT сессия 5, BACKLOG, RISK-MAP, architecture
+§ 8, 9, 11), указатель в CLAUDE.md монитора.
+
 Урок: sitemap.xml генерируется (scripts/sitemap.mjs) и в .gitignore; новую страницу
 добавлять в sitemap.mjs, не в xml. Мысль про MCP и «у клиента нет ссылки» Алекс отклонил:
 ссылка у владельца есть всегда, интеграций не делаем.
