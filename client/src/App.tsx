@@ -21,6 +21,7 @@ import AnswersFewOrdersPage from "./pages/answers-few-orders";
 import AnswersRatingAfterBadReviewsPage from "./pages/answers-rating-after-bad-reviews";
 import AnswersFeesPage from "./pages/answers-fees";
 import AnswersPhuketThailandPage from "./pages/answers-phuket-thailand";
+import AnswersAiAssistantCheckPage from "./pages/answers-ai-assistant-check";
 import AnswersHubPage from "./pages/answers-hub";
 import MethodPage from "./pages/method";
 import BenchmarkPage from "./pages/benchmark";
@@ -52,6 +53,7 @@ function Router() {
       <Route path="/answers/grabfood-gofood-rating-after-bad-reviews" component={AnswersRatingAfterBadReviewsPage} />
       <Route path="/answers/grabfood-gofood-fees-indonesia" component={AnswersFeesPage} />
       <Route path="/answers/grabfood-phuket-thailand" component={AnswersPhuketThailandPage} />
+      <Route path="/answers/ai-assistant-grabfood-check" component={AnswersAiAssistantCheckPage} />
       <Route path="/answers" component={AnswersHubPage} />
       <Route path="/method" component={MethodPage} />
       <Route path="/benchmark" component={BenchmarkPage} />

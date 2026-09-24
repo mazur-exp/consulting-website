@@ -33,6 +33,7 @@ const ANSWERS = [
   'grabfood-gofood-rating-after-bad-reviews',
   'grabfood-gofood-fees-indonesia',
   'grabfood-phuket-thailand',
+  'ai-assistant-grabfood-check',
 ];
 const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
@@ -55,6 +56,7 @@ const ANSWER_SRC = {
   'grabfood-gofood-rating-after-bad-reviews': `${P}/answers-rating-after-bad-reviews.tsx`,
   'grabfood-gofood-fees-indonesia': `${P}/answers-fees.tsx`,
   'grabfood-phuket-thailand': `${P}/answers-phuket-thailand.tsx`,
+  'ai-assistant-grabfood-check': `${P}/answers-ai-assistant-check.tsx`,
 };
 
 const pages = [

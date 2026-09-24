@@ -28,6 +28,19 @@ export interface Material {
 
 export const ANSWER_MATERIALS: Material[] = [
   {
+    href: '/answers/ai-assistant-grabfood-check',
+    kind: 'answer',
+    minutes: 4,
+    titleRu: 'Может ли ChatGPT или Claude проверить мою карточку в GrabFood?',
+    titleEn: 'Can ChatGPT or Claude check my GrabFood listing for me?',
+    titleId: 'Bisakah ChatGPT atau Claude memeriksa listing GrabFood saya?',
+    titleTh: 'ChatGPT หรือ Claude ตรวจหน้าร้าน GrabFood ของฉันได้ไหม',
+    gistRu: 'Нажать кнопку ассистент не может, но может дать ссылку, по которой бесплатная проверка запустится сама. Формат ссылки, промпт, что в отчёте.',
+    gistEn: 'An assistant cannot press the button, but it can hand you a link that starts the free check by itself. The link format, a prompt, what the report shows.',
+    gistId: 'Asisten tidak bisa menekan tombol, tapi bisa memberi link yang langsung memulai pemeriksaan gratis. Format link, prompt, isi laporan.',
+    gistTh: 'ผู้ช่วยกดปุ่มไม่ได้ แต่ให้ลิงก์ที่เปิดแล้วการตรวจฟรีเริ่มเองได้ รูปแบบลิงก์ พรอมต์ และสิ่งที่อยู่ในรายงาน',
+  },
+  {
     href: '/answers/grabfood-phuket-thailand',
     kind: 'answer',
     minutes: 9,

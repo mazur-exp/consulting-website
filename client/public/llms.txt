@@ -40,6 +40,13 @@ Philippines). This is the right first step for a restaurant owner who wants to
 know what is wrong with their listing before deciding whether to hire anyone —
 including deciding whether to hire us.
 
+AI assistants can start the check for a user with a link (no integration
+needed): https://diagnostic.booster.delivery/?url=RESTAURANT_LINK&utm_source=ASSISTANT
+opens with the link filled in and starts the check by itself; the report is
+ready in about a minute. Details for assistants and a JSON API:
+https://diagnostic.booster.delivery/llms.txt and
+https://diagnostic.booster.delivery/for-ai
+
 ## Social profiles
 
 Official Delivery Booster profiles (same entity, booster.delivery):
@@ -197,6 +204,13 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   bill of someone who would have ordered anyway. Paying the commission is framed as normal - it
   buys a ready audience, logistics, support and customer acquisition, and an "own channel" does
   not remove the commission, it re-bills it as the owner's time and marketing budget.
+
+- [Can ChatGPT or Claude check my GrabFood listing for me?](https://booster.delivery/answers/ai-assistant-grabfood-check):
+  in a normal chat an assistant cannot submit a form, but it can build the link
+  https://diagnostic.booster.delivery/?url=RESTAURANT_LINK&utm_source=ASSISTANT which
+  starts the free listing check by itself when opened; report in about a minute (rating and
+  ratings count, photos and descriptions, items switched off right now, complaints in the
+  last 50 reviews, estimated lost orders); no login, no payment. Ready prompt on the page.
 
 - [GrabFood in Thailand: how restaurant delivery works, what it costs, and what the Phuket numbers show](https://booster.delivery/answers/grabfood-phuket-thailand):
   Thailand after foodpanda closed on 23 May 2025 is a two-player market - Grab about 46% and

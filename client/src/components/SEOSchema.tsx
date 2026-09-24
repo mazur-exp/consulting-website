@@ -104,7 +104,16 @@ export const SEOSchema = () => {
           "วิเคราะห์หน้าร้านจากลิงก์: เมนูและการค้นหา ความครบของรูปภาพในแต่ละหมวด โทนของรีวิว ราคาเทียบกับร้านข้างเคียง รายงานเสร็จในไม่กี่นาที ฟรีและไม่ต้องกรอกฟอร์ม"
         ),
         "provider": { "@id": "https://booster.delivery/#organization" },
-        "url": "https://diagnostic.booster.delivery/"
+        "url": "https://diagnostic.booster.delivery/",
+        "potentialAction": {
+          "@type": "Action",
+          "name": "Run a free GrabFood / GoFood listing check",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://diagnostic.booster.delivery/?url={restaurant_url}&utm_source={assistant}"
+          },
+          "object": { "@type": "PropertyValueSpecification", "valueName": "restaurant_url", "valueRequired": true }
+        }
       }
     },
     "priceRange": "$400-$800/month"

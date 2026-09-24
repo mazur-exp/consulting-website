@@ -30,6 +30,7 @@ const ANSWERS = [
   'grabfood-gofood-rating-after-bad-reviews',
   'grabfood-gofood-fees-indonesia',
   'grabfood-phuket-thailand',
+  'ai-assistant-grabfood-check',
 ];
 const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
