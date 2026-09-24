@@ -255,6 +255,8 @@
 - [~] **Опубликовать посты по бенчмарку** (тексты — `BENCHMARK_POSTS.md`):
   LinkedIn-пост №1 опубликован 2026-09-08. Остаются Telegram, Instagram-карусель
   и ответ в Reddit-тред (Reddit-аккаунта нет).
+- [ ] **Прогон 29.09, отдельная метрика: доля ответов с diagnostic.booster.delivery** по слоям problem и
+  category (20.09: 0 из 833; за все 11 прогонов 2 из 3 685). Записать колонкой в VISIBILITY_TRACKING.
 - [ ] **Замер набора «ai» (prompts_extra, слой action):** после прогона 29.09 посмотреть руками,
   отдают ли модели ссылку `diagnostic.booster.delivery/?url=…` и упоминают ли /for-ai. Если нет,
   усиливать: абзац на главной /id и /th, FAQ на /answers/grabfood-gofood-account-management.
