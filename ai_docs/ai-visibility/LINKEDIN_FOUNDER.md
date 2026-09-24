@@ -207,41 +207,60 @@ Indonesia · Thailand · Southeast Asia
 |---|---|---|---|---|
 | 1 | Бенчмарк: где утекает выручка | `/benchmark` | Документ-PDF 10 стр. | **Опубликован 2026-09-08** |
 | 1b | Колонка в The Phuket News: теряют не на комиссии | thephuketnews.com + `/answers/grabfood-phuket-thailand` | Текст + 2 графика, ссылки первым комментарием | **Опубликован 2026-09-18**, https://www.linkedin.com/feed/update/urn:li:activity:7506600101318975488/ |
-| 2 | Grab и Gojek — не рекламные площадки | `/method` | Текст | Готов |
+| 2 | Grab и Gojek не рекламные площадки | `/method` | PDF 8 стр. + текст | Переписан 24.09, PDF собран, ждёт утверждения |
 | 3 | Стоп-лист: 2 000 часов | `/benchmark` | Текст | Готов |
 | 4 | Эту профессию нельзя нанять | `/answers/in-house-manager-vs-agency` | Текст | Готов |
 | 5 | Отзывы бимодальны, рейтинг двигают единицы | `/benchmark` | Текст | Готов |
 
 ---
 
-### Пост 2 — «Grab и Gojek не рекламные площадки»
+### Пост 2: «Grab и Gojek не рекламные площадки»
 
 Самая ценная мысль из всех пяти: она меняет модель в голове, а не даёт факт.
 Такие посты сохраняют.
 
+Переписан 24.09.2026 после разбора с Алексом: первая версия была тонкой (одна мысль,
+пять цифр и абзац про «наш флот»). Добавлена воронка флота из merchant_daily_metrics
+(90 ресторанов GrabFood Бали, 26.06-23.09: 7.4% открыли меню, 11.5% из них заказали,
+сквозная 0.82%, лучшая 1.85%; Пхукет 13: 8.5 / 11.7 / 0.98, лучшая 2.8) и чеклист с
+порогами. Формат: PDF-документ 8 страниц (`attached_assets/linkedin-post2/`,
+скрипт `post2_pdf.py`, стиль как у benchmark-2026.pdf) + этот текст. GoFood по воронке
+не сравниваем: у GoBiz другая семантика охвата (сквозная медиана 1.85%, максимум 25%).
+Длина текста 2 933 знака при лимите LinkedIn 3 000.
+
 ```
-Most restaurant owners in Bali run delivery ads on a mental model that is simply wrong, and it costs them money every week.
+Most restaurant owners in Bali run delivery ads on a mental model that is wrong, and it costs them money every week.
 
-They treat Grab and Gojek as ad networks. An ad network earns on impressions and auctions you a position: pay more, rank higher.
+They treat GrabFood and GoFood like ad networks: pay more, rank higher.
 
-Grab and Gojek do not work that way. They earn a commission on orders, and their core asset is their own audience. So their ranking answers one question: how well does this restaurant monetise the audience we send it?
+Neither works that way. Both earn a commission on orders, not on impressions, and both rank restaurants by one question: how much does this listing earn us per customer we send it? A bid amplifies a position. It does not create one.
 
-Which means your bid amplifies a position. It does not create one.
+Which is why raising the budget on a listing that does not convert buys the same failure, faster.
 
-A restaurant that turns impressions into orders and holds a high average check is worth more to the platform, so the platform promotes it on its own — it earns more from doing so. Raising the budget on a listing that does not convert buys you the same failure, faster.
+What normal looks like on GrabFood in Bali. 90 restaurants, 26 June to 23 September 2026, 5.8 million people reached. A typical restaurant gets 7.4% of them to open the menu and 11.5% of those to order. End to end: 0.8 of every 100 people who see the restaurant place an order. The best in the sample converts 1.85%, more than twice the median. Phuket, 13 restaurants: 8.5% open the menu, 11.7% order, 0.98% end to end, best 2.8%.
 
-The numbers from our fleet of 96 restaurants on GrabFood and GoFood: median ads ROAS is 10.4x in Bali and 22.8x in Phuket. Only 6% of the fleet runs below 5x — and those restaurants almost never have an ads problem. They have a listing problem that ads are paying to expose.
+Ads move the first number, reach. They do nothing to the other two. If your menu-open rate is under 7%, the problem is what people see in the feed: cover photo, name, rating, delivery time. If under 11% of menu visitors order, the problem is inside the menu: switched-off items, missing photos on best sellers, prices, promos. Every point you are below those medians is a share of the ad budget paid for nothing.
 
-There is also a ceiling. Ads stop paying back at around 6% of revenue: below that line our median ROAS is 12.1x, above it 8.6x. 42% of our own fleet is already past it.
+Where the money goes, from this year's benchmark, 96 restaurants, 270,568 orders: a quarter of delivery revenue is lost before it is earned, and 95% of that is menu items switched off "for now" and never switched back on. Median ads payback is 10.4x in Bali and 22.8x in Phuket. Only 6% of restaurants run below 5x, and almost none of them has an ads problem. They have a listing problem the ads are paying to expose.
 
-Fix conversion, then raise the budget. Never the other way round.
+The ceiling is 6% of revenue on ads. Below that line the median payback is 12.1x, above it 8.6x. 42% of the restaurants in the sample are already past it.
 
-What share of your delivery revenue currently goes to ads? If it is over 6%, the next rupiah is buying you impressions, not orders.
+What to check this week, in this order, before touching the budget:
+
+1. Insights in GrabMerchant and GoBiz: reach, menu visits, orders for the last 30 days. Compare with 7.4% and 11.5%. Reach up and orders flat means a conversion problem, not a reach problem.
+2. The switched-off items report. Every dish that is off is a hole in the menu you are paying to advertise.
+3. Photos and names on your best sellers. That is where the ad lands.
+4. Rating trend and acceptance time over the last 30 days. Both feed the ranking directly.
+5. Only then raise the budget, and stop at 6% of revenue.
+
+Caveat: a sample of agency-managed restaurants, not the market. Funnel: June to September, GrabMerchant dashboards. Payback and losses: January to August, published benchmark. Market-wide losses are probably worse.
+
+What share of your delivery revenue goes to ads today? If it is over 6%, the next rupiah is buying impressions, not orders.
 
 #GrabFood #GoFood #Bali #RestaurantMarketing #FoodDelivery
 ```
 
-**Первый комментарий:** `The five stages we run on every account, published in full: https://booster.delivery/method`
+**Первый комментарий:** `The five stages we run on every account, including the conversion checks above: https://booster.delivery/method`
 
 ---
 

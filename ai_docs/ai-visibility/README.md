@@ -15,6 +15,14 @@
 3. Если задача касается кода — прочитай «Карту кодовой базы» ниже.
 4. Если нужен деплой — строго по `ai_docs/development/DEPLOYMENT.md` (актуализирован 2026-08-25).
 
+**Первичный источник цифр для контента (правило Алекса 24.09.2026):** org-дашборды
+`https://app.booster.delivery/o/delivery-booster-indo` и `.../delivery-booster-thai`
+(вход через Telegram, расширение Chrome на домен не пускает). Те же данные без входа:
+таблица `merchant_daily_metrics` в delivery-monitor (`customer_reach`, `customer_visits`,
+`orders`, `ads_spend`, `ads_sales`, `out_of_stock`...), запрос через
+`ssh myserver` + `docker exec <web> bin/rails runner`. Образец запроса и снятые
+цифры воронки: `FUNNEL_DATA_2026-09-24.md`.
+
 ## Как закончить сессию (обязательно)
 
 1. **Допиши запись в `SESSION_LOG.md`**: дата, что сделано (кратко, с сутью, не процессом),
