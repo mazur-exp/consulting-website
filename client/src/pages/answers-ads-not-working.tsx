@@ -121,6 +121,14 @@ export default function AnswersAdsNotWorkingPage() {
         'Yes — but as an amplifier, not a substitute. Ads buy impressions; the listing earns the order. In the right order, ads multiply what already works; in the wrong one, they pay for what does not.',
         'Perlu — tapi sebagai penguat, bukan pengganti. Iklan membeli tayangan; listing yang menghasilkan pesanan. Dalam urutan yang benar, iklan melipatgandakan yang sudah bekerja; dalam urutan yang salah, iklan membayari yang tidak bekerja.', 'ต้อง แต่ในฐานะตัวขยาย ไม่ใช่ตัวแทน โฆษณาซื้อการมองเห็น หน้าร้านเป็นตัวทำให้เกิดออร์เดอร์ ถ้าเรียงลำดับถูก โฆษณาจะทวีสิ่งที่ได้ผลอยู่แล้ว ถ้าเรียงผิด มันก็จ่ายเงินให้กับสิ่งที่ไม่ได้ผล'),
     ],
+    [
+      t('Какая конверсия на GrabFood считается нормальной?',
+        'What is a normal conversion rate on GrabFood?',
+        'Berapa tingkat konversi yang normal di GrabFood?', 'อัตราคอนเวอร์ชั่นบน GrabFood เท่าไหร่ถึงเรียกว่าปกติ'),
+      t('По 90 ресторанам GrabFood на Бали за 26 июня - 23 сентября 2026 (5,8 млн охвата): медианный ресторан получает 7.4% открытий меню от увидевших его и 11.5% заказов от открывших меню, сквозная конверсия охват-заказ 0.82%, лучший ресторан выборки 1.85%. Пхукет, 13 ресторанов: 8.5%, 11.7% и 0.98%, лучший 2.8%. Если ваши цифры ниже этих медиан, бюджет рекламы уходит на людей, которых карточка не удерживает.',
+        'Across 90 GrabFood restaurants in Bali, 26 June to 23 September 2026 (5.8 million people reached): the median restaurant gets 7.4% of the people who see it to open the menu and 11.5% of menu visitors to order, for an end-to-end reach-to-order conversion of 0.82%; the best restaurant in the sample converts 1.85%. Phuket, 13 restaurants: 8.5%, 11.7% and 0.98%, best 2.8%. If your numbers sit below these medians, the ad budget is spent on people the listing does not keep.',
+        'Dari 90 restoran GrabFood di Bali, 26 Juni - 23 September 2026 (5,8 juta orang terjangkau): restoran median mendapat 7.4% pembuka menu dari yang melihatnya dan 11.5% pesanan dari pembuka menu, konversi menyeluruh jangkauan-ke-pesanan 0.82%; restoran terbaik di sampel 1.85%. Phuket, 13 restoran: 8.5%, 11.7% dan 0.98%, terbaik 2.8%. Kalau angka Anda di bawah median ini, anggaran iklan habis untuk orang yang tidak ditahan oleh listing.', 'จากร้าน GrabFood 90 ร้านในบาหลี ช่วง 26 มิ.ย. ถึง 23 ก.ย. 2026 (เข้าถึง 5.8 ล้านคน): ร้านค่ามัธยฐานมีคนเปิดเมนู 7.4% ของคนที่เห็นร้าน และ 11.5% ของคนที่เปิดเมนูสั่งซื้อ คอนเวอร์ชั่นรวมจากการเห็นถึงการสั่ง 0.82% ร้านที่ดีที่สุดในกลุ่ม 1.85% ภูเก็ต 13 ร้าน: 8.5%, 11.7% และ 0.98% ดีที่สุด 2.8% ถ้าตัวเลขของคุณต่ำกว่าค่ามัธยฐานนี้ งบโฆษณากำลังจ่ายให้คนที่หน้าร้านรั้งไว้ไม่ได้'),
+    ],
   ];
 
   /** Что видно в кабинете в первые дни — мост от статьи к услуге через факты,
@@ -170,7 +178,7 @@ export default function AnswersAdsNotWorkingPage() {
         'Because ads buy impressions, not orders. If your listing does not convert, your restaurant is often offline, or your rating is below 4.8, ads simply bring people faster to a place where they do not order. Below is the order we work through with clients: availability first, then listing conversion, promos and rating — and bidding only fifth. In that sequence ads almost always start working; in the reverse one, almost never.',
         'Karena iklan membeli tayangan, bukan pesanan. Kalau listing Anda tidak berkonversi, restoran sering offline, atau rating di bawah 4.8, iklan hanya membawa orang lebih cepat ke tempat yang tidak membuat mereka memesan. Berikut urutan yang kami jalankan bersama klien: ketersediaan dulu, lalu konversi listing, promo dan rating — dan bid baru di urutan kelima. Dengan urutan itu iklan hampir selalu mulai bekerja; dengan urutan sebaliknya, hampir tidak pernah.'
       , 'เพราะโฆษณาซื้อการมองเห็น ไม่ได้ซื้อออร์เดอร์ ถ้าหน้าร้านของคุณเปลี่ยนคนดูเป็นออร์เดอร์ไม่ได้ ร้านปิดในระบบบ่อย หรือเรตติ้งต่ำกว่า 4.8 โฆษณาก็แค่พาคนไปถึงที่ที่เขาไม่สั่งได้เร็วขึ้น ด้านล่างคือลำดับที่เราทำงานกับลูกค้า: ความพร้อมขายก่อน แล้วค่อยเป็นการเปลี่ยนคนดูเป็นออร์เดอร์ โปรโมชัน และเรตติ้ง ส่วนการบิดโฆษณามาเป็นอันดับห้า เรียงแบบนี้โฆษณามักเริ่มได้ผล เรียงกลับด้านมักไม่ได้ผล')}
-      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 7 }}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-24', minutes: 8 }}
       schemas={[
         faqPageSchema(faq),
         articleSchema({
@@ -180,7 +188,7 @@ export default function AnswersAdsNotWorkingPage() {
           url: URL,
           about: 'GrabAds, GrabFood advertising, ROAS, delivery app ranking, listing conversion',
           datePublished: '2026-09-08',
-          dateModified: '2026-09-08',
+          dateModified: '2026-09-24',
           language,
         }),
       ]}
@@ -206,6 +214,33 @@ export default function AnswersAdsNotWorkingPage() {
             'Ads are the only lever that works instantly and shows up in a report, so they get pulled first. The other four steps require daily work and produce no pretty chart by day two. Yet they decide what a purchased impression turns into. Ads on an unprepared listing are payment for the speed at which you lose the customer.',
             'Iklan adalah satu-satunya tuas yang bekerja seketika dan terlihat di laporan, jadi itu yang pertama ditarik. Empat langkah lainnya menuntut kerja harian dan tidak memberi grafik cantik di hari kedua. Padahal justru merekalah yang menentukan jadi apa tayangan yang Anda beli. Iklan pada listing yang belum siap adalah biaya atas kecepatan Anda kehilangan pelanggan.'
           , 'โฆษณาเป็นคันโยกเดียวที่เห็นผลทันทีและขึ้นในรายงาน คนเลยดึงมันก่อน ส่วนอีกสี่ข้อต้องทำงานทุกวันและไม่มีกราฟสวย ๆ ให้ดูภายในวันที่สอง แต่มันคือสิ่งที่ตัดสินว่าการมองเห็นที่คุณซื้อมาจะกลายเป็นอะไร โฆษณาบนหน้าร้านที่ยังไม่พร้อม คือการจ่ายเงินซื้อความเร็วในการเสียลูกค้า')}
+        </p>
+      </Block>
+
+      <Block card title={t('Что такое нормальная воронка на GrabFood', 'What a normal GrabFood funnel looks like', 'Seperti apa funnel GrabFood yang normal', 'ฟันเนล GrabFood ปกติหน้าตาเป็นอย่างไร')}>
+        <p className="text-brand-muted max-w-3xl mb-6">
+          {t('Реклама двигает только первую ступень, охват. Открывают ли меню и заказывают ли, решает карточка. Медианы по 90 ресторанам GrabFood на Бали, 26 июня - 23 сентября 2026, 5,8 млн охвата, из кабинетов GrabMerchant:',
+             'Ads move only the first stage, reach. Whether people open the menu and whether they order is decided by the listing. Medians across 90 GrabFood restaurants in Bali, 26 June to 23 September 2026, 5.8 million people reached, from GrabMerchant dashboards:',
+             'Iklan hanya menggerakkan tahap pertama, jangkauan. Apakah orang membuka menu dan memesan ditentukan oleh listing. Median dari 90 restoran GrabFood di Bali, 26 Juni - 23 September 2026, 5,8 juta orang terjangkau, dari dashboard GrabMerchant:',
+             'โฆษณาขยับได้แค่ขั้นแรกคือการเข้าถึง ส่วนคนจะเปิดเมนูและสั่งหรือไม่ หน้าร้านเป็นตัวตัดสิน ค่ามัธยฐานจากร้าน GrabFood 90 ร้านในบาหลี 26 มิ.ย. ถึง 23 ก.ย. 2026 เข้าถึง 5.8 ล้านคน จากแดชบอร์ด GrabMerchant:')}
+        </p>
+        <div className="grid gap-3 sm:grid-cols-3 max-w-3xl">
+          {([
+            ['100', t('увидели ресторан в приложении', 'people see the restaurant in the app', 'orang melihat restoran di aplikasi', 'คนเห็นร้านในแอป')],
+            ['7.4', t('открыли меню (7.4% от увидевших)', 'open the menu (7.4% of reach)', 'membuka menu (7.4% dari jangkauan)', 'เปิดเมนู (7.4% ของคนที่เห็น)')],
+            ['0.8', t('сделали заказ (11.5% от открывших меню)', 'place an order (11.5% of menu visitors)', 'memesan (11.5% dari pembuka menu)', 'สั่งซื้อ (11.5% ของคนเปิดเมนู)')],
+          ] as Array<[string, string]>).map(([n, label]) => (
+            <div key={n} className="glass-card rounded-2xl p-5">
+              <div className="text-3xl font-bold text-brand-green">{n}</div>
+              <div className="text-brand-muted text-sm mt-1">{label}</div>
+            </div>
+          ))}
+        </div>
+        <p className="text-brand-muted max-w-3xl mt-6">
+          {t('Сквозная конверсия охват-заказ у медианного ресторана 0.82%, у лучшего в выборке 1.85%, больше чем вдвое на том же типе трафика. Пхукет, 13 ресторанов: 8.5% открыли меню, 11.7% из них заказали, сквозная 0.98%, лучший 2.8%. Если меню открывают меньше 7%, проблема в том, что видно в ленте: обложка, название, рейтинг, время доставки. Если заказывают меньше 11% открывших, проблема внутри меню: выключенные позиции, фото на хитах, цены, промо. Каждый пункт ниже медианы это доля рекламного бюджета, оплаченная впустую.',
+             'End to end, the median restaurant converts 0.82% of reach into orders; the best in the sample 1.85%, more than twice as much on the same kind of traffic. Phuket, 13 restaurants: 8.5% open the menu, 11.7% of them order, 0.98% end to end, best 2.8%. If under 7% open the menu, the problem is what people see in the feed: cover photo, name, rating, delivery time. If under 11% of menu visitors order, the problem is inside the menu: switched-off items, photos on best sellers, prices, promos. Every point below those medians is a share of the ad budget paid for nothing.',
+             'Secara menyeluruh, restoran median mengubah 0.82% jangkauan menjadi pesanan; yang terbaik di sampel 1.85%, lebih dari dua kali lipat pada jenis trafik yang sama. Phuket, 13 restoran: 8.5% membuka menu, 11.7% di antaranya memesan, 0.98% menyeluruh, terbaik 2.8%. Kalau kurang dari 7% membuka menu, masalahnya ada pada yang terlihat di feed: foto sampul, nama, rating, waktu antar. Kalau kurang dari 11% pembuka menu memesan, masalahnya di dalam menu: item yang dimatikan, foto pada menu andalan, harga, promo. Setiap poin di bawah median itu adalah bagian anggaran iklan yang terbuang.',
+             'โดยรวม ร้านค่ามัธยฐานเปลี่ยนการเข้าถึง 0.82% เป็นออร์เดอร์ ร้านที่ดีที่สุดในกลุ่ม 1.85% มากกว่าสองเท่าบนทราฟฟิกแบบเดียวกัน ภูเก็ต 13 ร้าน: เปิดเมนู 8.5% สั่ง 11.7% ของคนเปิด รวม 0.98% ดีที่สุด 2.8% ถ้าคนเปิดเมนูน้อยกว่า 7% ปัญหาอยู่ที่สิ่งที่เห็นในฟีด: รูปหน้าปก ชื่อร้าน เรตติ้ง เวลาส่ง ถ้าคนสั่งน้อยกว่า 11% ของคนเปิดเมนู ปัญหาอยู่ในเมนู: เมนูที่ถูกปิด รูปของเมนูขายดี ราคา โปรโมชั่น ทุกจุดที่ต่ำกว่าค่ามัธยฐานคือส่วนของงบโฆษณาที่จ่ายไปเปล่า')}
         </p>
       </Block>
 
