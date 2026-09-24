@@ -233,7 +233,7 @@ export default function CasePage({ caseStudy }: { caseStudy: CaseStudy | undefin
                   className="brand-gradient text-white px-8 py-4 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105 text-lg inline-block"
                   data-testid="button-case-cta"
                 >
-                  {t('Получить бесплатную диагностику', 'Book a free audit', 'Dapatkan audit gratis', 'ขอวิเคราะห์ร้านฟรี')}
+                  {t('Проверить карточку бесплатно', 'Check my listing free', 'Cek listing saya gratis', 'ตรวจหน้าร้านฟรี')}
                 </a>
               </div>
             </div>

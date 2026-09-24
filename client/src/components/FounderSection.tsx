@@ -55,7 +55,7 @@ export const FounderSection = () => {
                 data-testid="button-founder-audit"
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300"
               >
-                {t("Записаться на бесплатный аудит", "Book a free audit", "Jadwalkan audit gratis", 'ขอวิเคราะห์ร้านฟรี')}
+                {t("Проверить карточку бесплатно", "Check my listing free", "Cek listing saya gratis", 'ตรวจหน้าร้านฟรี')}
               </a>
             </div>
           </motion.div>
