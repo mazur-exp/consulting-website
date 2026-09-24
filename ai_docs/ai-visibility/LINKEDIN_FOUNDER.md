@@ -207,7 +207,7 @@ Indonesia · Thailand · Southeast Asia
 |---|---|---|---|---|
 | 1 | Бенчмарк: где утекает выручка | `/benchmark` | Документ-PDF 10 стр. | **Опубликован 2026-09-08** |
 | 1b | Колонка в The Phuket News: теряют не на комиссии | thephuketnews.com + `/answers/grabfood-phuket-thailand` | Текст + 2 графика, ссылки первым комментарием | **Опубликован 2026-09-18**, https://www.linkedin.com/feed/update/urn:li:activity:7506600101318975488/ |
-| 2 | Grab и Gojek не рекламные площадки | `/method` | PDF 8 стр. + текст | Переписан 24.09, PDF собран, ждёт утверждения |
+| 2 | Grab и Gojek не рекламные площадки | `/answers/grabfood-ads-not-working` (воронка добавлена 24.09) | PDF 8 стр. + текст, пакет 5 каналов | **Опубликован 2026-09-24**, https://www.linkedin.com/feed/update/urn:li:activity:7508750272257519616/ |
 | 3 | Стоп-лист: 2 000 часов | `/benchmark` | Текст | Готов |
 | 4 | Эту профессию нельзя нанять | `/answers/in-house-manager-vs-agency` | Текст | Готов |
 | 5 | Отзывы бимодальны, рейтинг двигают единицы | `/benchmark` | Текст | Готов |
@@ -224,7 +224,7 @@ Indonesia · Thailand · Southeast Asia
 (90 ресторанов GrabFood Бали, 26.06-23.09: 7.4% открыли меню, 11.5% из них заказали,
 сквозная 0.82%, лучшая 1.85%; Пхукет 13: 8.5 / 11.7 / 0.98, лучшая 2.8) и чеклист с
 порогами. Формат: PDF-документ 8 страниц (`attached_assets/linkedin-post2/`,
-скрипт `post2_pdf.py`, стиль как у benchmark-2026.pdf) + этот текст. GoFood по воронке
+скрипт `post2_pdf.py`, стиль как у benchmark-2026.pdf, ссылка в футере на страницу-ответ) + этот текст. GoFood по воронке
 не сравниваем: у GoBiz другая семантика охвата (сквозная медиана 1.85%, максимум 25%).
 Длина текста 2 933 знака при лимите LinkedIn 3 000.
 
@@ -260,7 +260,9 @@ What share of your delivery revenue goes to ads today? If it is over 6%, the nex
 #GrabFood #GoFood #Bali #RestaurantMarketing #FoodDelivery
 ```
 
-**Первый комментарий:** `The five stages we run on every account, including the conversion checks above: https://booster.delivery/method`
+**Первый комментарий:** `The full write-up with every number, free: https://booster.delivery/answers/grabfood-ads-not-working`
+
+Пакет по остальным каналам (Telegram RU, Instagram 6 слайдов, короткий RU, Reddit): `POST2_PACKAGE.md`.
 
 ---
 

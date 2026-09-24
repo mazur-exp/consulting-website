@@ -28,8 +28,8 @@ GREEN = HexColor("#2fd36f")
 GREEN_D = HexColor("#1f8f4c")
 AMBER = HexColor("#e5b84a")
 RED = HexColor("#d96f45")
-LINK = "https://booster.delivery/method"
-FOOT = "booster.delivery/method"
+LINK = "https://booster.delivery/answers/grabfood-ads-not-working"
+FOOT = "booster.delivery/answers/grabfood-ads-not-working"
 LOGO = "/root/.claude/uploads/c42c15b0-0cbe-5463-9eec-c901e5e05cf6/c055ff64-image.png"
 OUT = "/mnt/user-data/outputs/post2-ads-not-ad-networks.pdf"
 TOTAL = 8
@@ -267,13 +267,14 @@ def page8(c):
     y = para(c, 72, y - 10, "Two periods, two sources, both ours: the funnel is June to September 2026 from GrabMerchant dashboards; payback and losses are January to August 2026 from the published benchmark.", "P", 22, MUTED2)
     y -= 60
     card(c, 72, y - 300, W - 144, 300, fill=BG2)
-    c.setFont("PS", 30); c.setFillColor(WHITE); c.drawCentredString(W / 2, y - 80, "The five stages we run on every account")
-    c.setFont("PB", 40); c.setFillColor(GREEN); c.drawCentredString(W / 2, y - 140, "booster.delivery/method")
-    tw = pdfmetrics.stringWidth("booster.delivery/method", "PB", 40)
-    c.linkURL(LINK, (W / 2 - tw / 2, y - 150, W / 2 + tw / 2, y - 100), relative=0)
-    c.setStrokeColor(GREEN); c.setLineWidth(2); c.line(W / 2 - tw / 2, y - 150, W / 2 + tw / 2, y - 150)
-    c.setFont("P", 22); c.setFillColor(MUTED2); c.drawCentredString(W / 2, y - 200, "Published in full, with the numbers behind each stage.")
-    c.drawCentredString(W / 2, y - 236, "Benchmark: booster.delivery/benchmark, updated every quarter.")
+    c.setFont("PS", 30); c.setFillColor(WHITE); c.drawCentredString(W / 2, y - 80, "The full write-up, free, with every number")
+    lbl = "booster.delivery/answers/grabfood-ads-not-working"
+    c.setFont("PB", 30); c.setFillColor(GREEN); c.drawCentredString(W / 2, y - 136, lbl)
+    tw = pdfmetrics.stringWidth(lbl, "PB", 30)
+    c.linkURL(LINK, (W / 2 - tw / 2, y - 146, W / 2 + tw / 2, y - 100), relative=0)
+    c.setStrokeColor(GREEN); c.setLineWidth(2); c.line(W / 2 - tw / 2, y - 146, W / 2 + tw / 2, y - 146)
+    c.setFont("P", 22); c.setFillColor(MUTED2); c.drawCentredString(W / 2, y - 196, "The five stages we run on every account: booster.delivery/method")
+    c.drawCentredString(W / 2, y - 232, "Benchmark: booster.delivery/benchmark, updated every quarter.")
     footer(c, 8)
 
 
