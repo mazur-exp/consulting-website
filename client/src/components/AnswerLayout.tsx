@@ -268,14 +268,14 @@ export const AnswerCta = () => {
             {t('С нами', 'With us', 'Bersama kami', 'ให้เราดูแล')}
           </div>
           <h3 className="text-lg font-semibold mb-2">
-            {t('Разбор вашей карточки', 'An audit of your listing', 'Audit halaman Anda', 'วิเคราะห์หน้าร้านของคุณ')}
+            {t('Проверка вашей карточки за минуту', 'Your listing checked in a minute', 'Listing Anda diperiksa dalam semenit', 'วิเคราะห์หน้าร้านของคุณ')}
           </h3>
           <p className="text-sm text-brand-muted mb-5 flex-1">
             {t(
-              'Вставьте ссылку на ресторан в Grab — отчёт придёт за пару минут: меню и поиск, фото по категориям, отзывы, цены против соседей. Бесплатно и без обязательств; дальше 10% от выручки доставки и без предоплаты.',
-              'Paste your restaurant’s Grab link and the report comes back in a couple of minutes: menu and search, photo coverage, reviews, prices against the neighbours. Free, no strings; after that it is 10% of delivery revenue with no upfront payment.',
-              'Tempel link restoran Anda di Grab dan laporannya datang dalam beberapa menit: menu dan pencarian, kelengkapan foto, ulasan, harga dibanding tetangga. Gratis, tanpa ikatan; setelahnya 10% dari omzet delivery tanpa pembayaran di muka.'
-            , 'วางลิงก์ร้านของคุณบน Grab แล้วรับรายงานภายในไม่กี่นาที: เมนูกับการค้นหา ความครบของรูปภาพ รีวิว และราคาเทียบกับร้านข้างเคียง ฟรีและไม่มีข้อผูกมัด หลังจากนั้นคิด 10% ของยอดขายเดลิเวอรี ไม่ต้องจ่ายล่วงหน้า')}
+              'Автоматическая проверка на diagnostic.booster.delivery: вставьте ссылку на ресторан в Grab или GoFood, через минуту отчёт: рейтинг и число оценок, фото и описания, выключенные сейчас позиции, жалобы в последних 50 отзывах, оценка потерянных заказов. Без логина и оплаты.',
+              'An automated check at diagnostic.booster.delivery: paste your Grab or GoFood restaurant link and in about a minute you get the report: rating and ratings count, photos and descriptions, items switched off right now, complaints in the last 50 reviews, an estimate of lost orders. No login, no payment.',
+              'Pemeriksaan otomatis di diagnostic.booster.delivery: tempel link restoran Anda di Grab atau GoFood, semenit kemudian laporan siap: rating dan jumlah penilaian, foto dan deskripsi, item yang sedang dimatikan, keluhan di 50 ulasan terakhir, perkiraan pesanan yang hilang. Tanpa login dan tanpa bayar.'
+            , 'ตัวตรวจอัตโนมัติที่ diagnostic.booster.delivery: วางลิงก์ร้านของคุณบน Grab หรือ GoFood อีกราวหนึ่งนาทีได้รายงาน: เรตติ้งและจำนวนคะแนน รูปและคำอธิบาย เมนูที่ถูกปิดอยู่ตอนนี้ คำบ่นใน 50 รีวิวล่าสุด ประมาณการออร์เดอร์ที่เสียไป ไม่ต้องล็อกอิน ไม่ต้องจ่าย')}
           </p>
           <a
             href={diagnosticUrl('answer-cta', language)}
@@ -284,7 +284,7 @@ export const AnswerCta = () => {
             className="inline-block brand-gradient px-6 py-3 rounded-lg font-semibold text-center"
             data-testid="cta-diagnostic"
           >
-            {t('Разобрать мою карточку', 'Diagnose my listing', 'Analisa halaman saya', 'วิเคราะห์ร้านของฉัน')}
+            {t('Проверить карточку бесплатно', 'Check my listing free', 'Cek listing saya gratis', 'วิเคราะห์ร้านของฉัน')}
           </a>
           <a
             href={messengerUrl(language)}

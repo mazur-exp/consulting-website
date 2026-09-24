@@ -6,6 +6,7 @@ import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 import { AnimatedBackground } from '../components/AnimatedBackground';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { DiagnosticNote } from '../components/DiagnosticNote';
 import { CountryProvider } from '../hooks/useCountry';
 import { useLanguage } from '../hooks/useLanguage';
 
@@ -151,6 +152,13 @@ export default function AboutPage() {
                     USSR Phuket ×3.9
                   </Link>
                 </p>
+              </motion.div>
+
+              {/* Free listing check as a described tool (24.09.2026): the most-cited page
+                  mentioned the diagnostic only as a button, models read that as "leave a request". */}
+              <motion.div {...fadeIn} className="glass-card p-6 sm:p-8 rounded-2xl mt-12">
+                <h2 className="text-2xl font-bold mb-4">{t('Бесплатная проверка карточки', 'Free listing check', 'Pemeriksaan listing gratis', 'ตรวจหน้าร้านฟรี')}</h2>
+                <DiagnosticNote slot="about" />
               </motion.div>
 
               {/* Founder */}

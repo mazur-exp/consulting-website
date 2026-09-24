@@ -12,6 +12,7 @@ import {
   syncOpenGraph,
 } from '../components/AnswerLayout';
 import { useLanguage } from '../hooks/useLanguage';
+import { DiagnosticNote } from '../components/DiagnosticNote';
 
 const URL = 'https://booster.delivery/answers/grabfood-ads-not-working';
 
@@ -193,6 +194,10 @@ export default function AnswersAdsNotWorkingPage() {
         }),
       ]}
     >
+      <Block title={t('Прежде чем трогать бюджет', 'Before touching the budget', 'Sebelum menyentuh anggaran', 'ก่อนแตะงบ')}>
+        <DiagnosticNote slot="ads-not-working" />
+      </Block>
+
       <Block card title={t('Порядок диагностики', 'The diagnostic order', 'Urutan diagnosis', 'ลำดับการวินิจฉัย')}>
         <div className="space-y-6">
           {steps.map(([title, body]) => (

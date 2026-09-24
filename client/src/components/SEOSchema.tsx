@@ -98,9 +98,9 @@ export const SEOSchema = () => {
           "ตรวจวิเคราะห์หน้าร้านอาหารบน GrabFood"
         ),
         "description": pick(
-          "Разбор карточки по ссылке: меню и поиск, покрытие фото по категориям, тональность отзывов, цены против соседей. Отчёт за пару минут, бесплатно и без формы.",
-          "A listing audit from a link: menu and search, photo coverage by category, review sentiment, prices against neighbours. Report in a couple of minutes, free and with no form.",
-          "Audit halaman dari sebuah link: menu dan pencarian, kelengkapan foto per kategori, sentimen ulasan, harga dibanding tetangga. Laporan dalam beberapa menit, gratis dan tanpa formulir.",
+          "Автоматическая проверка карточки по ссылке: рейтинг и число оценок, фото и описания, выключенные сейчас позиции, жалобы в последних 50 отзывах, оценка потерянных заказов. Отчёт за минуту, бесплатно, без логина.",
+          "An automated listing check from a link: rating and ratings count, photos and descriptions, items switched off right now, complaints in the last 50 reviews, an estimate of lost orders. Report in about a minute, free, no login.",
+          "Pemeriksaan listing otomatis dari sebuah link: rating dan jumlah penilaian, foto dan deskripsi, item yang sedang dimatikan, keluhan di 50 ulasan terakhir, perkiraan pesanan yang hilang. Laporan dalam semenit, gratis, tanpa login.",
           "วิเคราะห์หน้าร้านจากลิงก์: เมนูและการค้นหา ความครบของรูปภาพในแต่ละหมวด โทนของรีวิว ราคาเทียบกับร้านข้างเคียง รายงานเสร็จในไม่กี่นาที ฟรีและไม่ต้องกรอกฟอร์ม"
         ),
         "provider": { "@id": "https://booster.delivery/#organization" },

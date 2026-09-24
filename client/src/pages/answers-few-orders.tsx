@@ -12,6 +12,7 @@ import {
   syncOpenGraph,
 } from '../components/AnswerLayout';
 import { useLanguage } from '../hooks/useLanguage';
+import { DiagnosticNote } from '../components/DiagnosticNote';
 
 const URL = 'https://booster.delivery/answers/few-orders-grabfood-gofood';
 
@@ -195,6 +196,10 @@ export default function AnswersFewOrdersPage() {
         }),
       ]}
     >
+      <Block title={t('Сначала минута на проверку', 'A minute of checking first', 'Semenit untuk memeriksa dulu', 'ตรวจหนึ่งนาทีก่อน')}>
+        <DiagnosticNote slot="few-orders" />
+      </Block>
+
       <Block card title={t('Пять ступеней, на которых теряется заказ',
                            'The five steps where an order is lost',
                            'Lima tahap tempat pesanan hilang', 'ห้าขั้นที่ออร์เดอร์หลุดหายไป')}>

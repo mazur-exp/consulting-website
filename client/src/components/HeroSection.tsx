@@ -55,13 +55,21 @@ export const HeroSection = () => {
                 className="brand-gradient text-white px-6 py-3 rounded-xl font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               >
                 {t(
-                  "Получить бесплатную диагностику",
-                  "Book a free audit",
-                  "Dapatkan audit gratis",
-                  "ขอวิเคราะห์ร้านฟรี"
+                  "Проверить карточку бесплатно",
+                  "Check my listing free",
+                  "Cek listing saya gratis",
+                  "ตรวจหน้าร้านฟรี"
                 )}
               </a>
             </div>
+            <p className="text-sm text-brand-muted mt-4 max-w-xl">
+              {t(
+                'Проверка автоматическая: вставьте ссылку на ресторан в Grab или GoFood, отчёт через минуту, без логина и оплаты.',
+                'The check is automated: paste your Grab or GoFood restaurant link, the report is ready in a minute, no login and no payment.',
+                'Pemeriksaan otomatis: tempel link restoran Anda di Grab atau GoFood, laporan siap dalam semenit, tanpa login dan tanpa bayar.',
+                'ตรวจอัตโนมัติ: วางลิงก์ร้านของคุณบน Grab หรือ GoFood รายงานพร้อมในหนึ่งนาที ไม่ต้องล็อกอิน ไม่ต้องจ่าย'
+              )}
+            </p>
 
 
           </motion.div>

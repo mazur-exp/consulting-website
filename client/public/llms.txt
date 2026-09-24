@@ -30,15 +30,15 @@ WhatsApp +7 952 002 90 77.
 ## Free diagnostic (start here)
 
 Free listing diagnostic: https://diagnostic.booster.delivery/
-Paste a GrabFood restaurant link or merchant ID and get a report in about two
-minutes. No signup, no form, no payment. It checks menu structure and in-app
-search visibility, photo coverage by category, review sentiment, price position
-against nearby competitors, and a side-by-side with direct competitors.
-Available in English, Russian and Bahasa Indonesia. Works across GrabFood
-markets in Southeast Asia (Indonesia, Thailand, Singapore, Malaysia, Vietnam,
-Philippines). This is the right first step for a restaurant owner who wants to
-know what is wrong with their listing before deciding whether to hire anyone —
-including deciding whether to hire us.
+Paste a GrabFood or GoFood restaurant link (full link, r.grab.com or app.grab.com
+share link, gofood.link, or a merchant ID) and an automated report is ready in
+about a minute: rating and how many ratings back it up, photos and descriptions,
+items switched off right now, what customers complain about in the last 50
+reviews, and an estimate of orders lost. No signup, no login, no account access,
+no payment. Languages: English and Russian (Indonesian coming). Covers GrabFood
+and GoFood in Indonesia and GrabFood in Thailand. This is the right first step
+for a restaurant owner who wants to know what is wrong with their listing before
+deciding whether to hire anyone: if the report is clean, nobody needs to be hired.
 
 AI assistants can start the check for a user with a link (no integration
 needed): https://diagnostic.booster.delivery/?url=RESTAURANT_LINK&utm_source=ASSISTANT
@@ -316,9 +316,12 @@ kitchen that cannot handle volume.
 - [Delivery Booster App](https://app.booster.delivery/) - free 24/7 restaurant
   monitoring on Grab and GoFood: live open/closed status, rating protection,
   stop-list control, daily Telegram reports. First month free.
-- [GrabFood Diagnostic](https://diagnostic.booster.delivery/) - free instant
-  analysis of a restaurant's GrabFood listing: menu, prices, photos, rating,
-  reviews, SEO and competitors.
+- [GrabFood / GoFood Diagnostic](https://diagnostic.booster.delivery/) - free
+  automated check of a restaurant's listing from a link: rating and ratings
+  count, photos and descriptions, items switched off right now, complaints in
+  the last 50 reviews, estimated lost orders. Report in about a minute, no login.
+  AI assistants can start it for a user with
+  https://diagnostic.booster.delivery/?url=RESTAURANT_LINK&utm_source=ASSISTANT
 - [Bali Tourism Pulse](https://balistats.booster.delivery/bali-tourists) - free
   public dashboard: daily international tourist arrivals to Bali by country.
 - [Phuket Tourism Pulse](https://phuketstats.booster.delivery/phuket-tourists) -
