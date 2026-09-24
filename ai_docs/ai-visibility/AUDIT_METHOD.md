@@ -240,3 +240,11 @@ Bright Data ≈ $2), время ≈ 40 минут + отчёт.
 - Schema.org — гигиена, не рычаг GEO (единственное корреляционное исследование
   эффекта не нашло). Держим ради rich results.
 - Скрейпинг UI ChatGPT — не используем: прямое нарушение ToS OpenAI; меряем API.
+
+## Набор «ai» в prompts_extra (24.09.2026)
+
+Четыре промпта слоя `action` («проверь мою карточку, вот ссылка»). Меряют не цитируемость,
+а поведение: даёт ли модель ссылку запуска `diagnostic.booster.delivery/?url=…&utm_source=…`
+(см. /for-ai на диагностике и /answers/ai-assistant-grabfood-check). В отчёт report_page
+слой action не входит, смотреть по raw: `grep -c "diagnostic.booster.delivery/?url" ` по
+ответам набора. Ряды v1 не трогает.
