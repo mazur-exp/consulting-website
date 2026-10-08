@@ -180,9 +180,15 @@ screen -dmS aivis bash -c 'set -a; source ../../../.secrets/aivis.env; set +a; D
 ```
 
 Перед запуском поднять туннель на сервер для Bright Data (с 08.10 зона принимает
-только IP сервера, подробности в шаге 3): `ssh -fN -D 1080 -o ServerAliveInterval=30
-myserver`, проверка `curl -s --socks5-hostname 127.0.0.1:1080 https://api.ipify.org`
-→ 46.62.195.19. Без туннеля Google AIO не соберётся (предполётная проверка это поймает).
+только IP сервера, подробности в шаге 3), в screen с автоперезапуском, потому что
+одиночный `ssh -fN` умирает при любой смене сети (08.10: выключенный VPN убил
+туннель на середине добора, 109 строк «All connection attempts failed»):
+```bash
+export SSH_AUTH_SOCK=$(ls /private/tmp/com.apple.launchd.*/Listeners | head -1)
+screen -dmS tunnel bash -c 'while true; do ssh -N -D 1080 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o ExitOnForwardFailure=yes myserver; sleep 3; done'
+curl -s --socks5-hostname 127.0.0.1:1080 https://api.ipify.org   # → 46.62.195.19
+```
+Без туннеля Google AIO не соберётся (предполётная проверка это поймает).
 Перед `screen` на Mac запустить `nohup caffeinate -i -t 5400 >/dev/null 2>&1 &`: 20.09
 Mac уснул на середине сбора, прогон растянулся с 30 до 91 минуты.
 
@@ -222,8 +228,8 @@ IPs зоны вписан один адрес, 46.62.195.19 (наш сервер
 работает вообще. VPN не подходит: 08.10 проверено, выходной адрес VPN сменился
 через 20 минут. Поэтому `audit.py` ходит к Bright Data через SSH-туннель на
 сервер (переменная `BRIGHTDATA_PROXY=socks5://127.0.0.1:1080` в `aivis.env`,
-остальные движки напрямую). Перед прогоном поднять туннель:
-`ssh -fN -D 1080 -o ServerAliveInterval=30 myserver` и проверить
+остальные движки напрямую). Перед прогоном поднять туннель в screen с
+автоперезапуском (команда в шаге 2) и проверить
 `curl -s --socks5-hostname 127.0.0.1:1080 https://api.ipify.org` → 46.62.195.19.
 Нужен пакет `socksio` (`pip install socksio`, на Маке стоит). Токен API прав на
 настройки зоны не имеет; менять Allowed IPs только в кабинете (Configuration →
