@@ -40,8 +40,16 @@ curl GPTBot по 7 адресам).
 5. **prompts_extra:** набор «software» (sw-001…004, слой category, EN/RU/ID) под страницу
    про Klikit. Прогон теперь 920 строк.
 
-Не сделано из плана: профиль LinkedIn (30 цитат) и запрос индексации
-`/answers/ai-assistant-grabfood-check` в GSC, оба руками в браузере. Следующий полный прогон
+Руками в браузере (Chrome Алекса): (а) GSC: запрошена индексация
+`/answers/ai-assistant-grabfood-check` (статус был «URL неизвестен Google»), повторно
+отправлен `sitemap.xml`. Находка: все 7 карт сайта в GSC со статусом «Не получено», 0
+выявленных страниц, Googlebot ни разу не запрашивал `/sitemap.xml` с 01.09 по логу
+(страницы при этом сканирует: 569 запросов; 77 URL в индексе, 17 нет). Это та самая
+«старая загадка» из README, отдельная задача в бэклоге. (б) LinkedIn: About дополнен
+«Grab and LINE MAN accounts in Phuket», «GrabMerchant, GoBiz and LINE MAN Wongnai
+Merchant» и строкой про бесплатную проверку по ссылке diagnostic.booster.delivery
+(2 550 из 2 600 знаков); заголовок профиля: «GrabFood, GoFood & LINE MAN account
+management…». Следующий полный прогон
 не раньше 20.10 (переиндексация). Критерии: problem с именем > 9%, p026 > 0/29, v2-024c
 > 0/10, category > 40%.
 
