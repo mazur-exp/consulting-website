@@ -127,6 +127,14 @@ async def ask_aio(cl, text):
     r.raise_for_status()
     body = r.content or b""
     if not body.strip() or body[:10] == b"This query":
+        # Bright Data отдаёт 200 с пустым телом, а причину кладёт в заголовки.
+        # Прогон 08.10: 168 пустых ответов, причина в x-brd-error: Auth Failed
+        # (ip_blacklisted): IP Мака попал в Denylisted IPs зоны (у провайдера
+        # пул адресов, предполётная проверка прошла с другого IP).
+        code = r.headers.get("x-brd-err-code", "")
+        msg = r.headers.get("x-brd-err-msg") or r.headers.get("x-brd-error") or ""
+        if code or msg:
+            raise RuntimeError(f"brightdata: {code} {msg[:160]}".strip())
         raise RuntimeError("brightdata: пустой ответ / блок повтора")
     aio = (r.json() or {}).get("ai_overview") or {}
     chunks, srcs = [], []
@@ -296,6 +304,15 @@ async def cmd_run(a):
                     await asyncio.sleep((5, 10, 20, 40, 60, 60)[att] if e.response.status_code == 429 else 3 * (att + 1))
                 except Exception as e:
                     row["error"] = str(e)[:200]
+                    # Отказ в доступе у Bright Data (IP в Denylisted IPs зоны,
+                    # неверный токен) повторами не лечится: 08.10 на это ушло
+                    # 168 строк по 6 попыток и 40 минут. Останавливаем провайдера.
+                    if "client_10050" in row["error"] or "ip_blacklisted" in row["error"] \
+                            or "Auth Failed" in row["error"]:
+                        broke.add(PROVIDER[eng])
+                        print(f"  !!! {PROVIDER[eng]} ОТКАЗЫВАЕТ В ДОСТУПЕ: {row['error']}\n"
+                              f"      движок остановлен, остальные доходят; починить зону и запустить --resume", flush=True)
+                        break
                     await asyncio.sleep(3 * (att + 1))
             out.append(row); done += 1
             if done % 20 == 0:
@@ -312,7 +329,7 @@ async def cmd_run(a):
     bad = sum(1 for r in rows if not r["ok"])
     print(f"готово за {int(time.time()-t0)}с: {len(rows)} строк, {ok} с текстом, {bad} с ошибкой → {a.out}/raw.json")
     if broke:
-        print(f"  ПРОГОН НЕПОЛНЫЙ: кончились деньги у {', '.join(sorted(broke))}. Пополнить и запустить с --resume.")
+        print(f"  ПРОГОН НЕПОЛНЫЙ: остановлен провайдер {', '.join(sorted(broke))} (кончились деньги или отказ в доступе, см. выше). Починить и запустить с --resume.")
     if bad:
         print("  ОШИБКИ по движкам: " + ", ".join(f"{e} {n}" for e, n in Counter(r["engine"] for r in rows if not r["ok"]).most_common())
               + "\n  → python3 audit.py run ... --resume (перезапросит только их)")
