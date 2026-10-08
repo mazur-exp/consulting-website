@@ -4,6 +4,49 @@
 
 ---
 
+## 2026-10-08 (30) - Шаги 1-5 плана по промахам: имя в цитируемых абзацах, Таиланд на Grab + LINE MAN, FAQ, гейт
+
+Решение Алекса: LINE MAN ведём, делать всё. Задеплоено (b83361c, 116 снапшотов, проверка
+curl GPTBot по 7 адресам).
+
+1. **Имя внутри текста** шести страниц-ответов (few-orders, ads, rating, fees, Phuket,
+   in-house), 64 замены на 4 языках: «Клиенты Delivery Booster держат 20-27x», «По 90
+   ресторанам GrabFood под управлением Delivery Booster», «По бенчмарку Delivery Booster
+   (96 ресторанов, 270 568 заказов, январь-август 2026)», «По опыту Delivery Booster на
+   110+ ресторанах», «USSR Phuket, ресторан под управлением Delivery Booster», «Delivery
+   Booster: 10% от выручки доставки». Было: имя только в 0-2% и после 67% текста; стало:
+   few-orders 8% и 21%, ads 45-63%. dateModified 2026-10-08. Цифры не менялись, только
+   подписаны.
+2. **Таиланд.** `countries.ts` th: платформы «Grab и LINE MAN» (RU/EN/ID/TH, short
+   «Grab · LINE MAN»). Тайский title страниц стран: «บริการดูแลร้านอาหารบน … เพิ่มยอดขาย
+   2-6 เท่า», description на тайском начинается с «Delivery Booster คือเอเจนซีที่รับดูแลบัญชี».
+   В тайских строках общих ответов (hire, few-orders, ads, rating, in-house,
+   doing-it-yourself, AnswersIndex, гейт) «GrabFood และ GoFood» → «Grab และ LINE MAN»,
+   «GrabMerchant และ GoBiz» → «GrabMerchant และ LINE MAN Wongnai Merchant» (23 замены,
+   только внутри тайских литералов; fees-indonesia и факты кейсов не трогались). Ответ про
+   Пхукет и llms.txt: «LINE MAN мы не ведём» заменено на «ведём Grab и LINE MAN, одна
+   команда, один отчёт в неделю» (4 языка). Проверка: `/th?lang=th` LINE MAN 21 раз
+   (было 1), account-management на тайском «Grab และ LINE MAN» в H1.
+3. **FAQ (faqs.ts, зеркалится в FAQPage):** для всех рынков «Кто может вести аккаунт
+   ресторана в {платформы} {страна}?» (четыре варианта, Delivery Booster четвёртым с
+   условиями); для ID «Siapa yang bisa urus akun GoBiz dan GrabMerchant kalau saya tidak
+   sempat?»; для TH «มีบริการรับดูแลร้านอาหารบน Grab และ LINE MAN ในประเทศไทยไหม?». Мерчант-
+   инструменты теперь по рынку (`toolsRu/En/Id/Th`): для TH «GrabMerchant и LINE MAN
+   Wongnai Merchant».
+4. **Гейт `/`:** абзац «рынки, что входит, оплата 10% без предоплаты, диагностика по
+   ссылке, основатель» на 4 языках; 170 → 259 слов. `/answers/null`: 16 запросов, все
+   meta-externalagent с referrer booster.delivery, в нашем HTML и схемах такой ссылки нет,
+   не трогаем.
+5. **prompts_extra:** набор «software» (sw-001…004, слой category, EN/RU/ID) под страницу
+   про Klikit. Прогон теперь 920 строк.
+
+Не сделано из плана: профиль LinkedIn (30 цитат) и запрос индексации
+`/answers/ai-assistant-grabfood-check` в GSC, оба руками в браузере. Следующий полный прогон
+не раньше 20.10 (переиндексация). Критерии: problem с именем > 9%, p026 > 0/29, v2-024c
+> 0/10, category > 40%.
+
+---
+
 ## 2026-10-08 (29) - Прогон run-2026-10-08 собран целиком; Bright Data переведена на туннель через сервер
 
 Полный прогон с `--extra` и новым набором «ai» (880 вызовов): 860 с текстом, 3 ошибки
