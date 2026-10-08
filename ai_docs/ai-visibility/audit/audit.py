@@ -18,6 +18,19 @@ import httpx
 T = httpx.Timeout(150.0, connect=20.0)
 ENV = lambda k: os.getenv(k, "").strip()
 
+# Bright Data с 01.10.2026 блокирует ключ, если он ходит с разных сетей, а IP Мака
+# и VPN меняются. Поэтому запросы к Bright Data (и только они) идут через туннель
+# на наш сервер с одним IP, который вписан в Allowed IPs зоны:
+#   ssh -fN -D 1080 myserver   →   BRIGHTDATA_PROXY=socks5://127.0.0.1:1080 (в aivis.env)
+# Без переменной запросы идут напрямую (как до 08.10).
+BD_PROXY = ENV("BRIGHTDATA_PROXY") or None
+_bd_client = None
+def bd_client():
+    global _bd_client
+    if _bd_client is None:
+        _bd_client = httpx.AsyncClient(proxy=BD_PROXY, follow_redirects=True)
+    return _bd_client
+
 # ── движки ──────────────────────────────────────────────────────────────────
 
 async def ask_perplexity(cl, text):
@@ -120,7 +133,7 @@ async def ask_aio(cl, text):
     отсутствие наблюдения (empty), НЕ ноль."""
     url = (f"https://www.google.com/search?q={quote_plus(text)}"
            f"&brd_json=1&brd_ai_overview=2&gl=id&hl=en")
-    r = await cl.post("https://api.brightdata.com/request",
+    r = await bd_client().post("https://api.brightdata.com/request",
         headers={"Authorization": f"Bearer {ENV('BRIGHTDATA_API_TOKEN')}"},
         json={"zone": ENV("BRIGHTDATA_SERP_ZONE"), "url": url, "format": "raw"},
         timeout=T)
@@ -313,6 +326,12 @@ async def cmd_run(a):
                         print(f"  !!! {PROVIDER[eng]} ОТКАЗЫВАЕТ В ДОСТУПЕ: {row['error']}\n"
                               f"      движок остановлен, остальные доходят; починить зону и запустить --resume", flush=True)
                         break
+                    # «No ready cookies» (x-brd-status-code 502): у Bright Data кончился
+                    # пул сессий Google, это их сторона и проходит за минуты. Короткие
+                    # повторы бесполезны (08.10: 6 попыток за 80 с, все в ту же ошибку).
+                    if "No ready cookies" in row["error"]:
+                        await asyncio.sleep((30, 60, 90, 120, 180, 180)[att])
+                        continue
                     await asyncio.sleep(3 * (att + 1))
             out.append(row); done += 1
             if done % 20 == 0:
