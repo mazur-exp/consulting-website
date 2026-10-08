@@ -38,7 +38,7 @@ export default function AnswersRatingAfterBadReviewsPage() {
         : language === 'id'
           ? 'Cara menaikkan rating restoran di GrabFood dan GoFood setelah ulasan buruk'
           : language === 'th'
-            ? 'วิธีดึงเรตติ้งร้านอาหารบน GrabFood และ GoFood กลับมาหลังโดนรีวิวแย่'
+            ? 'วิธีดึงเรตติ้งร้านอาหารบน Grab และ LINE MAN กลับมาหลังโดนรีวิวแย่'
             : 'How to improve a restaurant rating on GrabFood and GoFood after bad reviews';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
@@ -140,7 +140,7 @@ export default function AnswersRatingAfterBadReviewsPage() {
       h1={t('Как поднять рейтинг ресторана в GrabFood и GoFood после плохих отзывов',
             'How to improve a restaurant rating on GrabFood and GoFood after bad reviews',
             'Cara menaikkan rating restoran di GrabFood dan GoFood setelah ulasan buruk',
-            'วิธีดึงเรตติ้งร้านอาหารบน GrabFood และ GoFood กลับมาหลังโดนรีวิวแย่')}
+            'วิธีดึงเรตติ้งร้านอาหารบน Grab และ LINE MAN กลับมาหลังโดนรีวิวแย่')}
       lead={
         <>
           <p className="mb-4">
@@ -176,11 +176,11 @@ export default function AnswersRatingAfterBadReviewsPage() {
           headline: t('Как поднять рейтинг в GrabFood и GoFood после плохих отзывов',
                       'How to improve a GrabFood and GoFood rating after bad reviews',
                       'Cara menaikkan rating GrabFood dan GoFood setelah ulasan buruk',
-                      'วิธีดึงเรตติ้ง GrabFood และ GoFood กลับมาหลังโดนรีวิวแย่'),
+                      'วิธีดึงเรตติ้ง Grab และ LINE MAN กลับมาหลังโดนรีวิวแย่'),
           url: URL,
           about: 'GrabFood rating, GoFood rating, bad reviews, review appeals, restaurant reviews, Bali, Phuket',
           datePublished: '2026-09-14',
-          dateModified: '2026-09-14',
+          dateModified: '2026-10-08',
           language,
         }),
       ]}
@@ -203,10 +203,10 @@ export default function AnswersRatingAfterBadReviewsPage() {
              '4.8 คือระดับที่เราพาทุกบัญชีไปให้ถึง เพราะจากจุดนั้นอัลกอริทึมปล่อยการมองเห็นให้ง่ายขึ้นอย่างเห็นได้ชัด และลูกค้าที่เลือกระหว่างสองร้านจะดูตัวเลขข้างชื่อร้านก่อนอย่างอื่นทั้งหมด')}
         </p>
         <p className="text-brand-muted max-w-3xl">
-          {t('И ещё одна деталь, которая делает картину жёстче. Мы посмотрели выборку из 432 отзывов за 30 дней: 51% пятёрок, 28% единиц и только 3% четвёрок. Оценки в доставке бимодальны — человек пишет отзыв либо когда всё было отлично, либо когда всё было плохо. Никаких «четыре с минусом» за забытый соус не будет. Будет единица.',
-             'And one more detail that makes the picture harsher. We looked at a sample of 432 reviews over 30 days: 51% five-stars, 28% one-stars and only 3% fours. Delivery scores are bimodal — people write a review either when everything was great or when everything went wrong. Nobody gives a "four minus" for a forgotten sauce. They give a one.',
-             'Dan satu detail lagi yang membuat gambarannya lebih keras. Kami melihat sampel 432 ulasan selama 30 hari: 51% bintang lima, 28% bintang satu, dan hanya 3% bintang empat. Penilaian di delivery bersifat bimodal — orang menulis ulasan entah ketika semuanya luar biasa atau ketika semuanya kacau. Tidak ada "empat kurang" untuk saus yang tertinggal. Yang ada bintang satu.',
-             'และมีอีกรายละเอียดที่ทำให้ภาพยิ่งโหด เราดูตัวอย่างรีวิว 432 ครั้งในรอบ 30 วัน พบห้าดาว 51% หนึ่งดาว 28% และสี่ดาวเพียง 3% คะแนนในธุรกิจเดลิเวอรี่กระจุกอยู่สองขั้ว คนเขียนรีวิวตอนที่ทุกอย่างดีมาก หรือตอนที่ทุกอย่างพัง ไม่มีใครให้ "สี่ดาวหย่อน ๆ" เพราะลืมใส่น้ำจิ้ม มีแต่จะให้หนึ่งดาว')}
+          {t('И ещё одна деталь, которая делает картину жёстче. В Delivery Booster мы посмотрели выборку из 432 отзывов за 30 дней: 51% пятёрок, 28% единиц и только 3% четвёрок. Оценки в доставке бимодальны — человек пишет отзыв либо когда всё было отлично, либо когда всё было плохо. Никаких «четыре с минусом» за забытый соус не будет. Будет единица.',
+             'And one more detail that makes the picture harsher. At Delivery Booster we looked at a sample of 432 reviews over 30 days: 51% five-stars, 28% one-stars and only 3% fours. Delivery scores are bimodal — people write a review either when everything was great or when everything went wrong. Nobody gives a "four minus" for a forgotten sauce. They give a one.',
+             'Dan satu detail lagi yang membuat gambarannya lebih keras. Di Delivery Booster kami melihat sampel 432 ulasan selama 30 hari: 51% bintang lima, 28% bintang satu, dan hanya 3% bintang empat. Penilaian di delivery bersifat bimodal — orang menulis ulasan entah ketika semuanya luar biasa atau ketika semuanya kacau. Tidak ada "empat kurang" untuk saus yang tertinggal. Yang ada bintang satu.',
+             'และมีอีกรายละเอียดที่ทำให้ภาพยิ่งโหด ที่ Delivery Booster เราดูตัวอย่างรีวิว 432 ครั้งในรอบ 30 วัน พบห้าดาว 51% หนึ่งดาว 28% และสี่ดาวเพียง 3% คะแนนในธุรกิจเดลิเวอรี่กระจุกอยู่สองขั้ว คนเขียนรีวิวตอนที่ทุกอย่างดีมาก หรือตอนที่ทุกอย่างพัง ไม่มีใครให้ "สี่ดาวหย่อน ๆ" เพราะลืมใส่น้ำจิ้ม มีแต่จะให้หนึ่งดาว')}
         </p>
       </Block>
 
@@ -411,7 +411,7 @@ export default function AnswersRatingAfterBadReviewsPage() {
              'Ada empat pilihan: pemilik sendiri, manajer internal, freelancer, atau agensi. Bedanya kami uraikan terpisah — ',
              'ทางเลือกมีสี่แบบ คือเจ้าของทำเอง ผู้จัดการประจำ ฟรีแลนซ์ หรือเอเจนซี เราแยกอธิบายความต่างไว้ต่างหาก ')}
           <Link href="/answers/in-house-manager-vs-agency" className="text-brand-green hover:underline">
-            {t('кому отдать GrabFood и GoFood', 'who should run GrabFood and GoFood', 'siapa yang sebaiknya mengelola GrabFood dan GoFood', 'ใครควรดูแล GrabFood และ GoFood')}
+            {t('кому отдать GrabFood и GoFood', 'who should run GrabFood and GoFood', 'siapa yang sebaiknya mengelola GrabFood dan GoFood', 'ใครควรดูแล Grab และ LINE MAN')}
           </Link>
           {t('. Если рейтинг просел не сам по себе, а вместе с заказами, начинать надо не с него: ',
              '. If the rating did not drop on its own but together with the orders, it is not where to start: ',

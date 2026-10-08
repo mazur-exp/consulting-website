@@ -94,9 +94,9 @@ export default function AnswersAdsNotWorkingPage() {
       t('Как понять, что моя реклама окупается нормально?',
         'How do I know if my ads are actually paying off?',
         'Bagaimana saya tahu iklan saya benar-benar balik modal?', 'จะรู้ได้อย่างไรว่าโฆษณาของเราคุ้มจริงหรือเปล่า'),
-      t('Наши клиенты держат 20–27x, в отдельных кампаниях выше. Но ROAS без контекста обманчив: он считается по выручке с рекламы и не учитывает скидку, комиссию площадки и то, что часть этих заказов пришла бы и без рекламы. Смотреть надо на связку ROAS + сквозная конверсия + маржа после промо.',
-        'Our clients hold 20–27x, higher in individual campaigns. But ROAS in isolation is misleading: it counts ads revenue and ignores your discount, the platform commission, and the share of those orders you would have received anyway. Read ROAS together with through-conversion and post-promo margin.',
-        'Klien kami bertahan di 20–27x, pada kampanye tertentu lebih tinggi. Tapi ROAS tanpa konteks menyesatkan: angka itu menghitung omzet dari iklan dan mengabaikan diskon Anda, komisi platform, serta bagian pesanan yang tetap datang tanpa iklan. Baca ROAS bersama konversi menyeluruh dan margin setelah promo.', 'ลูกค้าของเราอยู่ที่ 20-27 เท่า บางแคมเปญสูงกว่านั้น แต่ดู ROAS อย่างเดียวจะหลงทาง เพราะมันนับเฉพาะยอดขายจากโฆษณา และไม่นับส่วนลดของคุณ ค่าคอมมิชชันแพลตฟอร์ม และสัดส่วนออร์เดอร์ที่คุณจะได้อยู่แล้วโดยไม่ต้องยิงโฆษณา ต้องอ่าน ROAS คู่กับอัตราการเปลี่ยนคนดูเป็นออร์เดอร์และมาร์จิ้นหลังโปร'),
+      t('Клиенты Delivery Booster держат 20–27x, в отдельных кампаниях выше. Но ROAS без контекста обманчив: он считается по выручке с рекламы и не учитывает скидку, комиссию площадки и то, что часть этих заказов пришла бы и без рекламы. Смотреть надо на связку ROAS + сквозная конверсия + маржа после промо.',
+        'Delivery Booster clients hold 20–27x, higher in individual campaigns. But ROAS in isolation is misleading: it counts ads revenue and ignores your discount, the platform commission, and the share of those orders you would have received anyway. Read ROAS together with through-conversion and post-promo margin.',
+        'Klien Delivery Booster bertahan di 20–27x, pada kampanye tertentu lebih tinggi. Tapi ROAS tanpa konteks menyesatkan: angka itu menghitung omzet dari iklan dan mengabaikan diskon Anda, komisi platform, serta bagian pesanan yang tetap datang tanpa iklan. Baca ROAS bersama konversi menyeluruh dan margin setelah promo.', 'ลูกค้าของ Delivery Booster อยู่ที่ 20-27 เท่า บางแคมเปญสูงกว่านั้น แต่ดู ROAS อย่างเดียวจะหลงทาง เพราะมันนับเฉพาะยอดขายจากโฆษณา และไม่นับส่วนลดของคุณ ค่าคอมมิชชันแพลตฟอร์ม และสัดส่วนออร์เดอร์ที่คุณจะได้อยู่แล้วโดยไม่ต้องยิงโฆษณา ต้องอ่าน ROAS คู่กับอัตราการเปลี่ยนคนดูเป็นออร์เดอร์และมาร์จิ้นหลังโปร'),
     ],
     [
       t('Если я подниму бюджет на рекламу, заказов станет больше?',
@@ -110,9 +110,9 @@ export default function AnswersAdsNotWorkingPage() {
       t('Через сколько я увижу рост заказов?',
         'How soon will I see my orders start growing?',
         'Berapa lama sampai saya lihat pesanan mulai naik?', 'อีกนานแค่ไหนกว่าออร์เดอร์จะเริ่มโต'),
-      t('Первые изменения — 2–4 недели, полная раскачка — 3–6 месяцев. Быстрее всего отзываются доступность и ставки; конверсия карточки и рейтинг набираются медленнее, потому что алгоритму нужна история.',
-        'First movement in 2–4 weeks, full ramp-up in 3–6 months. Availability and bidding respond fastest; listing conversion and rating take longer because the algorithm needs history.',
-        'Perubahan pertama dalam 2–4 minggu, hasil penuh dalam 3–6 bulan. Ketersediaan dan bid paling cepat merespons; konversi listing dan rating butuh waktu lebih lama karena algoritma perlu riwayat.', 'เห็นความเคลื่อนไหวแรกใน 2-4 สัปดาห์ เต็มกำลังใน 3-6 เดือน ความพร้อมขายและการบิดตอบสนองเร็วที่สุด ส่วนการเปลี่ยนคนดูเป็นออร์เดอร์และเรตติ้งใช้เวลานานกว่า เพราะอัลกอริทึมต้องสะสมประวัติ'),
+      t('По опыту Delivery Booster на 110+ ресторанах: первые изменения — 2–4 недели, полная раскачка — 3–6 месяцев. Быстрее всего отзываются доступность и ставки; конверсия карточки и рейтинг набираются медленнее, потому что алгоритму нужна история.',
+        'Delivery Booster’s experience across 110+ restaurants: first movement in 2–4 weeks, full ramp-up in 3–6 months. Availability and bidding respond fastest; listing conversion and rating take longer because the algorithm needs history.',
+        'Pengalaman Delivery Booster di 110+ restoran: perubahan pertama dalam 2–4 minggu, hasil penuh dalam 3–6 bulan. Ketersediaan dan bid paling cepat merespons; konversi listing dan rating butuh waktu lebih lama karena algoritma perlu riwayat.', 'จากประสบการณ์ของ Delivery Booster กับร้านกว่า 110 แห่ง: เห็นความเคลื่อนไหวแรกใน 2-4 สัปดาห์ เต็มกำลังใน 3-6 เดือน ความพร้อมขายและการบิดตอบสนองเร็วที่สุด ส่วนการเปลี่ยนคนดูเป็นออร์เดอร์และเรตติ้งใช้เวลานานกว่า เพราะอัลกอริทึมต้องสะสมประวัติ'),
     ],
     [
       t('У меня хорошая карточка — мне вообще нужна реклама?',
@@ -126,9 +126,9 @@ export default function AnswersAdsNotWorkingPage() {
       t('Какая конверсия на GrabFood считается нормальной?',
         'What is a normal conversion rate on GrabFood?',
         'Berapa tingkat konversi yang normal di GrabFood?', 'อัตราคอนเวอร์ชั่นบน GrabFood เท่าไหร่ถึงเรียกว่าปกติ'),
-      t('По 90 ресторанам GrabFood на Бали за 26 июня - 23 сентября 2026 (5,8 млн охвата): медианный ресторан получает 7.4% открытий меню от увидевших его и 11.5% заказов от открывших меню, сквозная конверсия охват-заказ 0.82%, лучший ресторан выборки 1.85%. Пхукет, 13 ресторанов: 8.5%, 11.7% и 0.98%, лучший 2.8%. Если ваши цифры ниже этих медиан, бюджет рекламы уходит на людей, которых карточка не удерживает.',
-        'Across 90 GrabFood restaurants in Bali, 26 June to 23 September 2026 (5.8 million people reached): the median restaurant gets 7.4% of the people who see it to open the menu and 11.5% of menu visitors to order, for an end-to-end reach-to-order conversion of 0.82%; the best restaurant in the sample converts 1.85%. Phuket, 13 restaurants: 8.5%, 11.7% and 0.98%, best 2.8%. If your numbers sit below these medians, the ad budget is spent on people the listing does not keep.',
-        'Dari 90 restoran GrabFood di Bali, 26 Juni - 23 September 2026 (5,8 juta orang terjangkau): restoran median mendapat 7.4% pembuka menu dari yang melihatnya dan 11.5% pesanan dari pembuka menu, konversi menyeluruh jangkauan-ke-pesanan 0.82%; restoran terbaik di sampel 1.85%. Phuket, 13 restoran: 8.5%, 11.7% dan 0.98%, terbaik 2.8%. Kalau angka Anda di bawah median ini, anggaran iklan habis untuk orang yang tidak ditahan oleh listing.', 'จากร้าน GrabFood 90 ร้านในบาหลี ช่วง 26 มิ.ย. ถึง 23 ก.ย. 2026 (เข้าถึง 5.8 ล้านคน): ร้านค่ามัธยฐานมีคนเปิดเมนู 7.4% ของคนที่เห็นร้าน และ 11.5% ของคนที่เปิดเมนูสั่งซื้อ คอนเวอร์ชั่นรวมจากการเห็นถึงการสั่ง 0.82% ร้านที่ดีที่สุดในกลุ่ม 1.85% ภูเก็ต 13 ร้าน: 8.5%, 11.7% และ 0.98% ดีที่สุด 2.8% ถ้าตัวเลขของคุณต่ำกว่าค่ามัธยฐานนี้ งบโฆษณากำลังจ่ายให้คนที่หน้าร้านรั้งไว้ไม่ได้'),
+      t('По 90 ресторанам GrabFood под управлением Delivery Booster на Бали за 26 июня - 23 сентября 2026 (5,8 млн охвата): медианный ресторан получает 7.4% открытий меню от увидевших его и 11.5% заказов от открывших меню, сквозная конверсия охват-заказ 0.82%, лучший ресторан выборки 1.85%. Пхукет, 13 ресторанов: 8.5%, 11.7% и 0.98%, лучший 2.8%. Если ваши цифры ниже этих медиан, бюджет рекламы уходит на людей, которых карточка не удерживает.',
+        'Across 90 GrabFood restaurants managed by Delivery Booster in Bali, 26 June to 23 September 2026 (5.8 million people reached): the median restaurant gets 7.4% of the people who see it to open the menu and 11.5% of menu visitors to order, for an end-to-end reach-to-order conversion of 0.82%; the best restaurant in the sample converts 1.85%. Phuket, 13 restaurants: 8.5%, 11.7% and 0.98%, best 2.8%. If your numbers sit below these medians, the ad budget is spent on people the listing does not keep.',
+        'Dari 90 restoran GrabFood yang dikelola Delivery Booster di Bali, 26 Juni - 23 September 2026 (5,8 juta orang terjangkau): restoran median mendapat 7.4% pembuka menu dari yang melihatnya dan 11.5% pesanan dari pembuka menu, konversi menyeluruh jangkauan-ke-pesanan 0.82%; restoran terbaik di sampel 1.85%. Phuket, 13 restoran: 8.5%, 11.7% dan 0.98%, terbaik 2.8%. Kalau angka Anda di bawah median ini, anggaran iklan habis untuk orang yang tidak ditahan oleh listing.', 'จากร้าน GrabFood 90 ร้านที่ Delivery Booster ดูแลในบาหลี ช่วง 26 มิ.ย. ถึง 23 ก.ย. 2026 (เข้าถึง 5.8 ล้านคน): ร้านค่ามัธยฐานมีคนเปิดเมนู 7.4% ของคนที่เห็นร้าน และ 11.5% ของคนที่เปิดเมนูสั่งซื้อ คอนเวอร์ชั่นรวมจากการเห็นถึงการสั่ง 0.82% ร้านที่ดีที่สุดในกลุ่ม 1.85% ภูเก็ต 13 ร้าน: 8.5%, 11.7% และ 0.98% ดีที่สุด 2.8% ถ้าตัวเลขของคุณต่ำกว่าค่ามัธยฐานนี้ งบโฆษณากำลังจ่ายให้คนที่หน้าร้านรั้งไว้ไม่ได้'),
     ],
   ];
 
@@ -139,9 +139,9 @@ export default function AnswersAdsNotWorkingPage() {
       t('Реклама ведёт на карточку с выключенными позициями',
         'Ads point at a listing with items switched off',
         'Iklan mengarah ke listing yang itemnya dimatikan', 'โฆษณาชี้ไปที่หน้าร้านที่มีเมนูถูกปิดอยู่'),
-      t('Мимо ресторана в среднем проходит 25% выручки, и 95% этих потерь — именно выключенные позиции: не закрытый ресторан (3%) и не отмены (2%). Мы регулярно видим 40–70 позиций, выключенных одновременно, а отдельные блюда висят в стопе больше 2000 часов. Каждый оплаченный клик в это время ведёт человека в меню, где половины хитов нет.',
-        'On average 25% of revenue leaks past the restaurant, and 95% of that loss is switched-off items — not a closed restaurant (3%), not cancellations (2%). We routinely see 40–70 items off at once, and individual dishes stuck in the stop-list for over 2,000 hours. Every paid click in that window sends someone to a menu where half the bestsellers are missing.',
-        'Rata-rata 25% omzet lolos begitu saja, dan 95% kerugian itu berasal dari item yang dimatikan — bukan restoran yang tutup (3%), bukan pembatalan (2%). Kami rutin menemukan 40–70 item mati sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam. Setiap klik berbayar pada saat itu membawa orang ke menu yang kehilangan separuh menu terlarisnya.', 'โดยเฉลี่ย 25% ของยอดขายรั่วไหลออกไปจากร้าน และ 95% ของส่วนที่หายคือเมนูที่ถูกปิด ไม่ใช่ร้านปิด (3%) ไม่ใช่การยกเลิก (2%) เราเจอเมนูถูกปิดพร้อมกัน 40-70 รายการเป็นเรื่องปกติ และบางเมนูค้างในสต็อปลิสต์เกิน 2,000 ชั่วโมง ทุกคลิกที่คุณจ่ายเงินในช่วงนั้น คือการส่งคนไปเจอเมนูที่ของขายดีหายไปครึ่งหนึ่ง'),
+      t('По бенчмарку Delivery Booster (96 ресторанов, 270 568 заказов, январь-август 2026) мимо ресторана в среднем проходит 25% выручки, и 95% этих потерь — именно выключенные позиции: не закрытый ресторан (3%) и не отмены (2%). Мы регулярно видим 40–70 позиций, выключенных одновременно, а отдельные блюда висят в стопе больше 2000 часов. Каждый оплаченный клик в это время ведёт человека в меню, где половины хитов нет.',
+        'In the Delivery Booster benchmark (96 restaurants, 270,568 orders, January-August 2026), on average 25% of revenue leaks past the restaurant, and 95% of that loss is switched-off items — not a closed restaurant (3%), not cancellations (2%). We routinely see 40–70 items off at once, and individual dishes stuck in the stop-list for over 2,000 hours. Every paid click in that window sends someone to a menu where half the bestsellers are missing.',
+        'Dalam benchmark Delivery Booster (96 restoran, 270.568 pesanan, Januari-Agustus 2026), rata-rata 25% omzet lolos begitu saja, dan 95% kerugian itu berasal dari item yang dimatikan — bukan restoran yang tutup (3%), bukan pembatalan (2%). Kami rutin menemukan 40–70 item mati sekaligus, dan ada hidangan yang tertahan di stop-list lebih dari 2.000 jam. Setiap klik berbayar pada saat itu membawa orang ke menu yang kehilangan separuh menu terlarisnya.', 'จากเบนช์มาร์กของ Delivery Booster (96 ร้าน 270,568 ออร์เดอร์ ม.ค.-ส.ค. 2026) โดยเฉลี่ย 25% ของยอดขายรั่วไหลออกไปจากร้าน และ 95% ของส่วนที่หายคือเมนูที่ถูกปิด ไม่ใช่ร้านปิด (3%) ไม่ใช่การยกเลิก (2%) เราเจอเมนูถูกปิดพร้อมกัน 40-70 รายการเป็นเรื่องปกติ และบางเมนูค้างในสต็อปลิสต์เกิน 2,000 ชั่วโมง ทุกคลิกที่คุณจ่ายเงินในช่วงนั้น คือการส่งคนไปเจอเมนูที่ของขายดีหายไปครึ่งหนึ่ง'),
     ],
     [
       t('Расход на рекламу перевалил за 6% выручки',
@@ -179,7 +179,7 @@ export default function AnswersAdsNotWorkingPage() {
         'Because ads buy impressions, not orders. If your listing does not convert, your restaurant is often offline, or your rating is below 4.8, ads simply bring people faster to a place where they do not order. Below is the order we work through with clients: availability first, then listing conversion, promos and rating — and bidding only fifth. In that sequence ads almost always start working; in the reverse one, almost never.',
         'Karena iklan membeli tayangan, bukan pesanan. Kalau listing Anda tidak berkonversi, restoran sering offline, atau rating di bawah 4.8, iklan hanya membawa orang lebih cepat ke tempat yang tidak membuat mereka memesan. Berikut urutan yang kami jalankan bersama klien: ketersediaan dulu, lalu konversi listing, promo dan rating — dan bid baru di urutan kelima. Dengan urutan itu iklan hampir selalu mulai bekerja; dengan urutan sebaliknya, hampir tidak pernah.'
       , 'เพราะโฆษณาซื้อการมองเห็น ไม่ได้ซื้อออร์เดอร์ ถ้าหน้าร้านของคุณเปลี่ยนคนดูเป็นออร์เดอร์ไม่ได้ ร้านปิดในระบบบ่อย หรือเรตติ้งต่ำกว่า 4.8 โฆษณาก็แค่พาคนไปถึงที่ที่เขาไม่สั่งได้เร็วขึ้น ด้านล่างคือลำดับที่เราทำงานกับลูกค้า: ความพร้อมขายก่อน แล้วค่อยเป็นการเปลี่ยนคนดูเป็นออร์เดอร์ โปรโมชัน และเรตติ้ง ส่วนการบิดโฆษณามาเป็นอันดับห้า เรียงแบบนี้โฆษณามักเริ่มได้ผล เรียงกลับด้านมักไม่ได้ผล')}
-      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-24', minutes: 8 }}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-10-08', minutes: 8 }}
       schemas={[
         faqPageSchema(faq),
         articleSchema({
@@ -189,7 +189,7 @@ export default function AnswersAdsNotWorkingPage() {
           url: URL,
           about: 'GrabAds, GrabFood advertising, ROAS, delivery app ranking, listing conversion',
           datePublished: '2026-09-08',
-          dateModified: '2026-09-24',
+          dateModified: '2026-10-08',
           language,
         }),
       ]}
@@ -310,7 +310,7 @@ export default function AnswersAdsNotWorkingPage() {
              'Karena itu pertanyaan "kenapa iklan saya tidak jalan" hampir langsung berubah menjadi "siapa yang akan mengerjakan sisanya". Ada empat pilihan: pemilik sendiri, manajer internal, freelancer, atau agensi. Dengan daftar tugas yang sama hasilnya berbeda — kami menguraikan bedanya terpisah, ',
              'คำถามว่า "ทำไมโฆษณาไม่ได้ผล" จึงกลายเป็นคำถามว่า "ใครจะทำส่วนที่เหลือ" แทบจะทันที ทางเลือกมีสี่แบบ คือเจ้าของทำเอง ผู้จัดการประจำ ฟรีแลนซ์ หรือเอเจนซี ด้วยรายการงานเดียวกัน ผลลัพธ์ต่างกัน เราแยกอธิบายไว้ต่างหาก ')}
           <Link href="/answers/in-house-manager-vs-agency" className="text-brand-green hover:underline">
-            {t('кому отдать GrabFood и GoFood', 'who should run GrabFood and GoFood', 'siapa yang sebaiknya mengelola GrabFood dan GoFood', 'ใครควรดูแล GrabFood และ GoFood')}
+            {t('кому отдать GrabFood и GoFood', 'who should run GrabFood and GoFood', 'siapa yang sebaiknya mengelola GrabFood dan GoFood', 'ใครควรดูแล Grab และ LINE MAN')}
           </Link>
           {t('. Если проблема шире рекламы и заказов просто мало — начинать надо с первой ступени: ',
              '. If the problem is wider than ads and orders are simply low, start at step one: ',

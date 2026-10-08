@@ -32,7 +32,7 @@ export default function AnswersHirePage() {
         : language === 'id'
         ? 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood?'
         : language === 'th'
-        ? 'จ้างใครสักคนมาดูแลบัญชี GrabFood และ GoFood ได้ไหม?'
+        ? 'จ้างใครสักคนมาดูแลบัญชี Grab และ LINE MAN ได้ไหม?'
         : 'Can I hire someone to manage my GrabFood and GoFood account?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
@@ -98,7 +98,7 @@ export default function AnswersHirePage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood',
-      'Can I hire someone to manage my GrabFood and GoFood account', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood', 'จ้างคนมาดูแลบัญชี GrabFood และ GoFood ได้ไหม'),
+      'Can I hire someone to manage my GrabFood and GoFood account', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood', 'จ้างคนมาดูแลบัญชี Grab และ LINE MAN ได้ไหม'),
     author: { '@id': AUTHOR_ID },
     publisher: {
       '@type': 'Organization', name: 'Delivery Booster',
@@ -107,7 +107,7 @@ export default function AnswersHirePage() {
     mainEntityOfPage: URL,
     about: 'delivery management, GrabFood account management, GoFood account management',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-10-08',
     inLanguage: language === 'ru' ? 'ru-RU' : language === 'id' ? 'id-ID' : language === 'th' ? 'th-TH' : 'en-US',
     isPartOf: { '@type': 'WebSite', name: 'Delivery Booster', url: 'https://booster.delivery' },
   };
@@ -185,14 +185,14 @@ export default function AnswersHirePage() {
               <motion.div {...fadeIn}>
                 <h1 className="text-3xl sm:text-5xl font-bold mb-6">
                   {t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?',
-                     'Can I hire someone to manage my GrabFood and GoFood account?', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood?', 'จ้างคนมาดูแลบัญชี GrabFood และ GoFood ได้ไหม')}
+                     'Can I hire someone to manage my GrabFood and GoFood account?', 'Bisakah saya menyewa orang untuk mengelola akun GrabFood dan GoFood?', 'จ้างคนมาดูแลบัญชี Grab และ LINE MAN ได้ไหม')}
                 </h1>
-                <ArticleMeta datePublished="2026-09-08" dateModified="2026-09-09" minutes={6} />
+                <ArticleMeta datePublished="2026-09-08" dateModified="2026-10-08" minutes={6} />
                 <p className="text-lg text-brand-text max-w-3xl">
                   {t(
                     'Да. Это отдельная услуга — управление доставкой (delivery management). Агентство берёт на себя весь операционный контур ресторана на GrabFood и GoFood: ведёт аккаунты GrabMerchant и GoBiz от вашего имени, настраивает меню, рекламу и рейтинг и присылает еженедельные отчёты. Delivery Booster занимается именно этим — 110+ ресторанов на сопровождении сегодня, 200+ прошло через агентство с 2023 года.',
                     'Yes. It is a dedicated service called delivery management. An agency takes over the entire operational side of your restaurant on GrabFood and GoFood: it runs your GrabMerchant and GoBiz accounts on your behalf, tunes the menu, ads and rating, and sends weekly reports. Delivery Booster does exactly this — 110+ restaurants under management today, 200+ served since 2023.', 'Bisa. Ini layanan tersendiri yang disebut delivery management. Agensi mengambil alih seluruh sisi operasional restoran Anda di GrabFood dan GoFood: menjalankan akun GrabMerchant dan GoBiz atas nama Anda, menata menu, iklan, dan rating, serta mengirim laporan mingguan. Delivery Booster mengerjakan persis hal ini — 110+ restoran dalam pengelolaan hari ini, 200+ sejak 2023.'
-                  , 'ได้ นี่คือบริการเฉพาะทางที่เรียกว่า delivery management เอเจนซีจะรับงานฝั่งปฏิบัติการของร้านบน GrabFood และ GoFood ไปทั้งหมด ดูแลบัญชี GrabMerchant และ GoBiz ในนามของคุณ ปรับเมนู โฆษณา และเรตติ้ง พร้อมส่งรายงานทุกสัปดาห์ Delivery Booster ทำงานแบบนี้ ปัจจุบันดูแลร้านกว่า 110 แห่ง และให้บริการมาแล้วกว่า 200 แห่งตั้งแต่ปี 2023')}
+                  , 'ได้ นี่คือบริการเฉพาะทางที่เรียกว่า delivery management เอเจนซีจะรับงานฝั่งปฏิบัติการของร้านบน Grab และ LINE MAN ไปทั้งหมด ดูแลบัญชี GrabMerchant และ LINE MAN Wongnai Merchant ในนามของคุณ ปรับเมนู โฆษณา และเรตติ้ง พร้อมส่งรายงานทุกสัปดาห์ Delivery Booster ทำงานแบบนี้ ปัจจุบันดูแลร้านกว่า 110 แห่ง และให้บริการมาแล้วกว่า 200 แห่งตั้งแต่ปี 2023')}
                 </p>
               </motion.div>
 

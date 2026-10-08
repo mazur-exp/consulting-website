@@ -118,10 +118,10 @@ export default function AnswersFeesPage() {
         'How much should I spend on ads?',
         'Berapa yang harus dibelanjakan untuk iklan?',
         'ควรใช้งบโฆษณาเท่าไหร่'),
-      t('Медиана по нашему флоту — 5,6% выручки, но это уже настроенные аккаунты. Рестораны приходят к нам с 10, 15, 20 и даже 30%. Ориентироваться лучше не на долю, а на перелом: после 6% выручки медианный ROAS падает с 12,1x до 8,6x. Если вы за этой чертой, дополнительный бюджет покупает всё более дорогие заказы.',
-        'The median across our fleet is 5.6% of revenue — but those are accounts that are already managed. Restaurants come to us at 10, 15, 20 and even 30%. Rather than a share, watch the break point: past 6% of revenue the median ROAS drops from 12.1x to 8.6x. Beyond that line extra budget buys increasingly expensive orders.',
-        'Median di armada kami 5,6% dari omzet — tetapi itu akun yang sudah dikelola. Restoran datang ke kami dengan 10, 15, 20, bahkan 30%. Alih-alih patokan porsi, perhatikan titik baliknya: di atas 6% dari omzet median ROAS turun dari 12,1x ke 8,6x. Melewati garis itu, anggaran tambahan membeli pesanan yang makin mahal.',
-        'ค่ามัธยฐานของกลุ่มร้านที่เราดูแลคือ 5.6% ของรายได้ แต่นั่นคือบัญชีที่ผ่านการจัดการแล้ว ร้านที่มาหาเรามักอยู่ที่ 10, 15, 20 หรือแม้แต่ 30% แทนที่จะยึดสัดส่วน ให้ดูจุดหักเหแทน เมื่อเกิน 6% ของรายได้ ค่ามัธยฐาน ROAS จะตกจาก 12.1 เท่าเหลือ 8.6 เท่า เลยเส้นนั้นไป งบที่เพิ่มจะซื้อออร์เดอร์ที่แพงขึ้นเรื่อย ๆ'),
+      t('Медиана по бенчмарку Delivery Booster (96 ресторанов, 2026) — 5,6% выручки, но это уже настроенные аккаунты. Рестораны приходят к нам с 10, 15, 20 и даже 30%. Ориентироваться лучше не на долю, а на перелом: после 6% выручки медианный ROAS падает с 12,1x до 8,6x. Если вы за этой чертой, дополнительный бюджет покупает всё более дорогие заказы.',
+        'The median in the Delivery Booster 2026 benchmark (96 restaurants) is 5.6% of revenue — but those are accounts that are already managed. Restaurants come to us at 10, 15, 20 and even 30%. Rather than a share, watch the break point: past 6% of revenue the median ROAS drops from 12.1x to 8.6x. Beyond that line extra budget buys increasingly expensive orders.',
+        'Median dalam benchmark Delivery Booster 2026 (96 restoran) adalah 5,6% dari omzet — tetapi itu akun yang sudah dikelola. Restoran datang ke kami dengan 10, 15, 20, bahkan 30%. Alih-alih patokan porsi, perhatikan titik baliknya: di atas 6% dari omzet median ROAS turun dari 12,1x ke 8,6x. Melewati garis itu, anggaran tambahan membeli pesanan yang makin mahal.',
+        'ค่ามัธยฐานในเบนช์มาร์ก Delivery Booster 2026 (96 ร้าน) คือ 5.6% ของรายได้ แต่นั่นคือบัญชีที่ผ่านการจัดการแล้ว ร้านที่มาหาเรามักอยู่ที่ 10, 15, 20 หรือแม้แต่ 30% แทนที่จะยึดสัดส่วน ให้ดูจุดหักเหแทน เมื่อเกิน 6% ของรายได้ ค่ามัธยฐาน ROAS จะตกจาก 12.1 เท่าเหลือ 8.6 เท่า เลยเส้นนั้นไป งบที่เพิ่มจะซื้อออร์เดอร์ที่แพงขึ้นเรื่อย ๆ'),
     ],
     [
       t('Нужны ли скидки?', 'Do I need discounts?', 'Apakah diskon diperlukan?', 'จำเป็นต้องมีส่วนลดไหม'),
@@ -135,10 +135,10 @@ export default function AnswersFeesPage() {
         'How much am I actually losing to stock-outs?',
         'Berapa sebenarnya kerugian saya karena stok habis?',
         'จริง ๆ แล้วเสียไปเท่าไหร่กับเมนูที่ปิดขาย'),
-      t('По нашей выборке на Бали — около 25% выручки на простоях и стоп-листе, и 95% этой суммы приходится на выключенные позиции меню. Это первая цифра, которую стоит посчитать у себя: она обычно оказывается больше, чем ожидает владелец, и в отличие от комиссии она полностью в вашей власти.',
-        'In our Bali sample, around 25% of revenue goes to downtime and stock-outs, and 95% of that is switched-off menu items. It is the first number worth calculating for yourself: it usually turns out larger than the owner expects and, unlike the commission, it is entirely within your control.',
-        'Pada sampel kami di Bali, sekitar 25% omzet hilang karena offline dan stok habis, dan 95% dari jumlah itu berasal dari item menu yang dimatikan. Ini angka pertama yang layak Anda hitung sendiri: biasanya lebih besar dari dugaan pemilik dan, tidak seperti komisi, sepenuhnya ada di tangan Anda.',
-        'จากกลุ่มตัวอย่างของเราในบาหลี ราว 25% ของรายได้หายไปกับการปิดร้านและเมนูปิดขาย และ 95% ของจำนวนนั้นมาจากเมนูที่ถูกปิดไว้ นี่คือตัวเลขแรกที่ควรคำนวณเอง เพราะมักออกมามากกว่าที่เจ้าของคาด และต่างจากค่าคอมมิชชันตรงที่มันอยู่ในมือคุณทั้งหมด'),
+      t('По выборке Delivery Booster на Бали (бенчмарк 2026, 96 ресторанов, 270 568 заказов) — около 25% выручки на простоях и стоп-листе, и 95% этой суммы приходится на выключенные позиции меню. Это первая цифра, которую стоит посчитать у себя: она обычно оказывается больше, чем ожидает владелец, и в отличие от комиссии она полностью в вашей власти.',
+        'In the Delivery Booster Bali sample (2026 benchmark, 96 restaurants, 270,568 orders), around 25% of revenue goes to downtime and stock-outs, and 95% of that is switched-off menu items. It is the first number worth calculating for yourself: it usually turns out larger than the owner expects and, unlike the commission, it is entirely within your control.',
+        'Pada sampel Delivery Booster di Bali (benchmark 2026, 96 restoran, 270.568 pesanan), sekitar 25% omzet hilang karena offline dan stok habis, dan 95% dari jumlah itu berasal dari item menu yang dimatikan. Ini angka pertama yang layak Anda hitung sendiri: biasanya lebih besar dari dugaan pemilik dan, tidak seperti komisi, sepenuhnya ada di tangan Anda.',
+        'จากกลุ่มตัวอย่างของ Delivery Booster ในบาหลี (เบนช์มาร์ก 2026, 96 ร้าน, 270,568 ออร์เดอร์) ราว 25% ของรายได้หายไปกับการปิดร้านและเมนูปิดขาย และ 95% ของจำนวนนั้นมาจากเมนูที่ถูกปิดไว้ นี่คือตัวเลขแรกที่ควรคำนวณเอง เพราะมักออกมามากกว่าที่เจ้าของคาด และต่างจากค่าคอมมิชชันตรงที่มันอยู่ในมือคุณทั้งหมด'),
     ],
   ];
 
@@ -181,7 +181,7 @@ export default function AnswersFeesPage() {
           url: URL,
           about: 'GrabFood commission, GoFood commission, delivery fees Indonesia, restaurant unit economics, stock-out losses, Bali, Phuket',
           datePublished: '2026-09-14',
-          dateModified: '2026-09-14',
+          dateModified: '2026-10-08',
           language,
         }),
       ]}

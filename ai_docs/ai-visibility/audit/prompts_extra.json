@@ -1,6 +1,6 @@
 {
   "version": "extra-2026-09-15",
-  "note": "Дополнения к prompts_v1.json (v1 заморожен, не трогать). Три вещи: (1) key_prompt_ids — category-промпты v1, которые гоняются с бóльшим числом повторностей; в v1-метрики попадают только их первые runs_per_prompt (2) прогона, остальные — в блок «n=6». (2) set=v2 — по три перефразировки на каждый category-промпт v1 (поле of = исходный id); отдельная колонка, проверка, что видимость не привязана к нашим формулировкам. (3) set=local — локальные запросы «агентство в Бали/Пхукете»; отдельная колонка под GBP и каталоги. Ни один из этих промптов не входит в v1-метрики. | set \"ai\" (24.09.2026): слой action, проверяем, отдают ли модели ссылку запуска диагностики (diagnostic.booster.delivery/?url=). В ряды v1 не входит.",
+  "note": "Дополнения к prompts_v1.json (v1 заморожен, не трогать). Три вещи: (1) key_prompt_ids — category-промпты v1, которые гоняются с бóльшим числом повторностей; в v1-метрики попадают только их первые runs_per_prompt (2) прогона, остальные — в блок «n=6». (2) set=v2 — по три перефразировки на каждый category-промпт v1 (поле of = исходный id); отдельная колонка, проверка, что видимость не привязана к нашим формулировкам. (3) set=local — локальные запросы «агентство в Бали/Пхукете»; отдельная колонка под GBP и каталоги. Ни один из этих промптов не входит в v1-метрики. | set \"ai\" (24.09.2026): слой action, проверяем, отдают ли модели ссылку запуска диагностики (diagnostic.booster.delivery/?url=). В ряды v1 не входит. | set \"software\" (08.10.2026): слой category, вопросы «софт или агентство» под страницу /answers/delivery-agency-vs-klikit-deliverect, которая за три прогона не была процитирована ни разу, потому что ни один промпт не задавал её вопрос. В ряды v1 не входит.",
   "key_prompt_ids": [
     "p008",
     "p009",
@@ -361,6 +361,42 @@
       "layer": "action",
       "market": "ID",
       "text": "Bisa cek listing GrabFood restoran saya dan bilang apa yang salah? Ini linknya: https://food.grab.com/id/en/restaurant/warung-example-canggu-delivery/6-C6XXXXXXXXXXXX"
+    },
+    {
+      "id": "sw-001",
+      "set": "software",
+      "of": null,
+      "lang": "en",
+      "layer": "category",
+      "market": "SG",
+      "text": "Klikit or an agency: what does a restaurant in Southeast Asia actually need to grow GrabFood orders?"
+    },
+    {
+      "id": "sw-002",
+      "set": "software",
+      "of": null,
+      "lang": "en",
+      "layer": "category",
+      "market": "ID",
+      "text": "Do I need Klikit or Deliverect if I hire a delivery management agency for my GrabFood and GoFood account in Bali?"
+    },
+    {
+      "id": "sw-003",
+      "set": "software",
+      "of": null,
+      "lang": "ru",
+      "layer": "category",
+      "market": "ID",
+      "text": "Чем агентство по управлению доставкой отличается от Klikit, Deliverect или Hubster для ресторана на Бали?"
+    },
+    {
+      "id": "sw-004",
+      "set": "software",
+      "of": null,
+      "lang": "id",
+      "layer": "category",
+      "market": "ID",
+      "text": "Lebih baik pakai software seperti Klikit atau Runchise, atau jasa agensi untuk kelola GoFood dan GrabFood restoran saya?"
     }
   ]
 }

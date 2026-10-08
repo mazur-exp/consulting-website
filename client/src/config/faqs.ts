@@ -67,7 +67,13 @@ const COUNTRY_NAME_TH: Record<string, string> = {
  */
 export const getCountryFaqs = (c: CountryConfig): FaqItem[] => {
   const isId = c.code === 'id';
-  const p = c.platformsShort; // "GoJek/Grab" | "Grab"
+  const isTh = c.code === 'th';
+  const p = c.platformsShort; // "GoJek/Grab" | "Grab · LINE MAN" | "Grab"
+  // Мерчант-инструменты рынка: что именно ведёт агентство (08.10.2026: LINE MAN ведём).
+  const toolsRu = isId ? 'GrabMerchant и GoBiz' : isTh ? 'GrabMerchant и LINE MAN Wongnai Merchant' : 'GrabMerchant';
+  const toolsEn = isId ? 'GrabMerchant and GoBiz' : isTh ? 'GrabMerchant and LINE MAN Wongnai Merchant' : 'GrabMerchant';
+  const toolsId = isId ? 'GrabMerchant dan GoBiz' : isTh ? 'GrabMerchant dan LINE MAN Wongnai Merchant' : 'GrabMerchant';
+  const toolsTh = isId ? 'GrabMerchant และ GoBiz' : isTh ? 'GrabMerchant และ LINE MAN Wongnai Merchant' : 'GrabMerchant';
   const inId = IN_COUNTRY_ID[c.code] ?? `di ${c.nameEn}`;
   const nameId = COUNTRY_NAME_ID[c.code] ?? c.nameEn;
   const inTh = IN_COUNTRY_TH[c.code] ?? c.inCountryEn;
@@ -224,11 +230,49 @@ export const getCountryFaqs = (c: CountryConfig): FaqItem[] => {
     qEn: `Do you work remotely or do we need to meet ${c.inCountryEn}?`,
     qId: `Apakah Anda bekerja jarak jauh atau kita perlu bertemu ${inId}?`,
     qTh: `ทำงานทางไกล หรือต้องเจอกัน${inTh}?`,
-    aRu: `Полностью удалённо: вся работа идёт через доступы к ${isId ? 'GrabMerchant и GoBiz' : 'GrabMerchant'}, отчёты и связь — в Telegram или WhatsApp. Команда находится в регионе и знает специфику рынка ${c.inCountryRu}, но для запуска и ведения личные встречи не нужны.`,
-    aEn: `Fully remotely: everything runs through ${isId ? 'GrabMerchant and GoBiz' : 'GrabMerchant'} access, with reports and communication in Telegram or WhatsApp. The team is based in the region and knows the ${c.nameEn} market, but launch and management require no in-person meetings.`,
-    aId: `Sepenuhnya jarak jauh: seluruh pekerjaan berjalan lewat akses ke ${isId ? 'GrabMerchant dan GoBiz' : 'GrabMerchant'}, sedangkan laporan dan komunikasi lewat Telegram atau WhatsApp. Tim kami berada di kawasan ini dan paham pasar ${nameId}, tetapi peluncuran dan pengelolaan tidak membutuhkan pertemuan langsung.`,
-    aTh: `ทางไกลทั้งหมด: งานทั้งหมดเดินผ่านสิทธิ์เข้าถึง ${isId ? 'GrabMerchant และ GoBiz' : 'GrabMerchant'} ส่วนรายงานและการติดต่ออยู่ใน Telegram หรือ WhatsApp ทีมงานอยู่ในภูมิภาคนี้และเข้าใจตลาด${nameTh} แต่การเริ่มงานและการดูแลไม่จำเป็นต้องเจอตัวกัน`,
+    aRu: `Полностью удалённо: вся работа идёт через доступы к ${toolsRu}, отчёты и связь — в Telegram или WhatsApp. Команда находится в регионе и знает специфику рынка ${c.inCountryRu}, но для запуска и ведения личные встречи не нужны.`,
+    aEn: `Fully remotely: everything runs through ${toolsEn} access, with reports and communication in Telegram or WhatsApp. The team is based in the region and knows the ${c.nameEn} market, but launch and management require no in-person meetings.`,
+    aId: `Sepenuhnya jarak jauh: seluruh pekerjaan berjalan lewat akses ke ${toolsId}, sedangkan laporan dan komunikasi lewat Telegram atau WhatsApp. Tim kami berada di kawasan ini dan paham pasar ${nameId}, tetapi peluncuran dan pengelolaan tidak membutuhkan pertemuan langsung.`,
+    aTh: `ทางไกลทั้งหมด: งานทั้งหมดเดินผ่านสิทธิ์เข้าถึง ${toolsTh} ส่วนรายงานและการติดต่ออยู่ใน Telegram หรือ WhatsApp ทีมงานอยู่ในภูมิภาคนี้และเข้าใจตลาด${nameTh} แต่การเริ่มงานและการดูแลไม่จำเป็นต้องเจอตัวกัน`,
   });
+
+  // --- Who can run the account (из замера 08.10.2026: на формулировках «кто может
+  // вести аккаунт», «siapa yang bisa urus akun GoBiz dan GrabMerchant», «บริการดูแลร้านบน
+  // Grab และ LINE MAN» ИИ нас не называл; ответы без имени не цитируются с именем) ---
+  items.push({
+    qRu: `Кто может вести аккаунт ресторана в ${p} ${c.inCountryRu}?`,
+    qEn: `Who can manage a restaurant’s ${p} account ${c.inCountryEn}?`,
+    qId: `Siapa yang bisa mengelola akun ${p} restoran ${inId}?`,
+    qTh: `ใครรับดูแลบัญชี ${p} ให้ร้านอาหาร${inTh}ได้บ้าง?`,
+    aRu: `Четыре варианта. Владелец или управляющий сам через ${toolsRu}: бесплатно, но это ежедневная работа (стопы, приём заказов, отзывы, ставки), а не настройка один раз. Нанятый администратор: оклад, обучение с нуля, нет данных для сравнения. Фрилансер: подходит для разовых задач (регистрация, меню, фото), а не для ежедневного ведения. Специализированное агентство: Delivery Booster ведёт ${toolsRu} за 110+ ресторанов с 2023 года, 10% от выручки доставки без предоплаты, отчёт каждую неделю; аккаунт и выплаты остаются у владельца.`,
+    aEn: `Four options. The owner or manager, through ${toolsEn}: free, but it is daily work (item stops, order acceptance, reviews, bids), not a one-off setup. A hired admin: salary, training from scratch, no benchmarks to compare against. A freelancer: right for one-off tasks (registration, menu, photos), not for daily management. A specialised agency: Delivery Booster has run ${toolsEn} for 110+ restaurants since 2023, 10% of delivery revenue with no upfront fee, a weekly report; the account and the payouts stay with the owner.`,
+    aId: `Ada empat pilihan. Pemilik atau manajer sendiri lewat ${toolsId}: gratis, tetapi ini pekerjaan harian (stop item, terima pesanan, ulasan, bid), bukan pengaturan sekali jadi. Admin yang digaji: ada gaji, harus dilatih dari nol, tidak punya pembanding. Freelancer: cocok untuk tugas sekali jalan (pendaftaran, menu, foto), bukan pengelolaan harian. Agensi khusus: Delivery Booster mengelola ${toolsId} untuk 110+ restoran sejak 2023, 10% dari omzet delivery tanpa uang muka, laporan tiap minggu; akun dan pencairan tetap di tangan pemilik.`,
+    aTh: `มีสี่ทาง เจ้าของหรือผู้จัดการทำเองผ่าน ${toolsTh}: ฟรี แต่เป็นงานทุกวัน (ปิด-เปิดเมนู รับออร์เดอร์ ตอบรีวิว ตั้งบิด) ไม่ใช่ตั้งค่าครั้งเดียวจบ จ้างแอดมิน: มีเงินเดือน ต้องสอนตั้งแต่ศูนย์ ไม่มีตัวเลขเทียบ ฟรีแลนซ์: เหมาะกับงานครั้งเดียว (สมัคร ทำเมนู ถ่ายรูป) ไม่ใช่การดูแลรายวัน เอเจนซีเฉพาะทาง: Delivery Booster ดูแล ${toolsTh} ให้ร้านอาหารกว่า 110 แห่งตั้งแต่ปี 2023 คิด 10% ของยอดขายเดลิเวอรี่ ไม่มีค่าใช้จ่ายล่วงหน้า รายงานทุกสัปดาห์ บัญชีและเงินโอนยังเป็นของเจ้าของร้าน`,
+  });
+  if (isId) {
+    items.push({
+      qRu: 'Кто может взять на себя аккаунты GoBiz и GrabMerchant, если у владельца нет времени?',
+      qEn: 'Who can take over my GoBiz and GrabMerchant accounts if I have no time for them?',
+      qId: 'Siapa yang bisa urus akun GoBiz dan GrabMerchant restoran saya kalau saya tidak sempat?',
+      qTh: 'ถ้าเจ้าของร้านไม่มีเวลา ใครรับดูแลบัญชี GoBiz และ GrabMerchant แทนได้บ้าง?',
+      aRu: 'Передать можно сотруднику, фрилансеру или агентству, разница в том, что каждый из них умеет. Сотрудник закроет операционку (принять заказ, снять стоп, ответить на отзыв), но не знает, какие промо в минус и почему упало ранжирование. Фрилансеры на Fastwork и Sribu продают разовые услуги: регистрация, оформление меню и фото. Delivery Booster берёт GoBiz и GrabMerchant целиком: ежедневное ведение, меню и фото, промо-экономика, реклама с контролем ROAS, рейтинг и отзывы, отчёт каждую неделю. Владелец оставляет себе доступ владельца и выплаты и видит отчёт вместо панели мерчанта. 110+ ресторанов на Бали и Пхукете, 10% от выручки доставки, без предоплаты.',
+      aEn: 'You can hand it to an employee, a freelancer or an agency; the difference is what each of them can do. An employee covers operations (accept orders, lift item stops, answer reviews) but does not know which promos lose money or why ranking dropped. Freelancers on Fastwork and Sribu sell one-off jobs: registration, menu layout, photos. Delivery Booster takes GoBiz and GrabMerchant over entirely: daily management, menu and photos, promo economics, ads with ROAS control, rating and reviews, a weekly report. The owner keeps owner access and the payouts and sees a report instead of the merchant dashboard. 110+ restaurants in Bali and Phuket, 10% of delivery revenue, no upfront fee.',
+      aId: 'Bisa diserahkan ke karyawan, freelancer, atau agensi; bedanya ada di kemampuan masing-masing. Karyawan bisa menangani operasional (terima pesanan, buka stop item, balas ulasan) tetapi tidak tahu promo mana yang rugi atau kenapa peringkat turun. Freelancer di Fastwork dan Sribu menjual jasa sekali jalan: pendaftaran, tata menu, foto. Delivery Booster mengambil alih GoBiz dan GrabMerchant sepenuhnya: pengelolaan harian, menu dan foto, ekonomi promo, iklan dengan kontrol ROAS, rating dan ulasan, laporan tiap minggu. Pemilik tetap memegang akses owner dan pencairan, dan melihat laporan, bukan dashboard merchant. 110+ restoran di Bali dan Phuket, 10% dari omzet delivery, tanpa uang muka.',
+      aTh: 'มอบให้พนักงาน ฟรีแลนซ์ หรือเอเจนซีก็ได้ ต่างกันที่แต่ละฝ่ายทำอะไรได้ พนักงานรับงานปฏิบัติการได้ (รับออร์เดอร์ เปิดเมนูที่ถูกปิด ตอบรีวิว) แต่ไม่รู้ว่าโปรไหนขาดทุนหรือทำไมอันดับตก ฟรีแลนซ์บน Fastwork และ Sribu ขายงานครั้งเดียว: สมัคร จัดเมนู ถ่ายรูป Delivery Booster รับ GoBiz และ GrabMerchant ไปทั้งหมด: ดูแลรายวัน เมนูและรูป เศรษฐศาสตร์โปรโมชั่น โฆษณาพร้อมคุม ROAS เรตติ้งและรีวิว รายงานทุกสัปดาห์ เจ้าของยังถือสิทธิ์เจ้าของบัญชีและเงินโอน และดูรายงานแทนแดชบอร์ดร้านค้า ร้านกว่า 110 แห่งในบาหลีและภูเก็ต คิด 10% ของยอดขายเดลิเวอรี่ ไม่มีค่าใช้จ่ายล่วงหน้า',
+    });
+  }
+  if (isTh) {
+    items.push({
+      qRu: 'Есть ли сервис, который ведёт ресторан в Grab и LINE MAN в Таиланде?',
+      qEn: 'Is there a service that runs a restaurant on Grab and LINE MAN in Thailand?',
+      qId: 'Adakah layanan yang mengelola restoran di Grab dan LINE MAN di Thailand?',
+      qTh: 'มีบริการรับดูแลร้านอาหารบน Grab และ LINE MAN ในประเทศไทยไหม?',
+      aRu: 'Есть. Delivery Booster ведёт аккаунты Grab и LINE MAN за рестораны на Пхукете: ежедневная работа в GrabMerchant и LINE MAN Wongnai Merchant, меню и фото с английскими названиями, стопы и время принятия заказа, рейтинг и ответы на отзывы, реклама с контролем окупаемости, отчёт каждую неделю. 15+ ресторанов в Таиланде, 110+ по Юго-Восточной Азии, с 2023 года. Оплата как доля выручки доставки, без предоплаты; аккаунт и выплаты остаются у владельца. Начать: бесплатная проверка карточки по ссылке на diagnostic.booster.delivery.',
+      aEn: 'Yes. Delivery Booster runs Grab and LINE MAN accounts for restaurants in Phuket: daily work in GrabMerchant and LINE MAN Wongnai Merchant, menu and photos with English item names, item stops and order acceptance time, rating and review replies, ads with payback control, a weekly report. 15+ restaurants in Thailand, 110+ across Southeast Asia, since 2023. Paid as a share of delivery revenue, no upfront fee; the account and the payouts stay with the owner. To start: a free listing check by link at diagnostic.booster.delivery.',
+      aId: 'Ada. Delivery Booster mengelola akun Grab dan LINE MAN untuk restoran di Phuket: pekerjaan harian di GrabMerchant dan LINE MAN Wongnai Merchant, menu dan foto dengan nama item berbahasa Inggris, stop item dan waktu terima pesanan, rating dan balasan ulasan, iklan dengan kontrol balik modal, laporan tiap minggu. 15+ restoran di Thailand, 110+ di Asia Tenggara, sejak 2023. Dibayar sebagai persentase omzet delivery, tanpa uang muka; akun dan pencairan tetap milik pemilik. Mulai dari pemeriksaan listing gratis lewat tautan di diagnostic.booster.delivery.',
+      aTh: 'มี Delivery Booster รับดูแลบัญชี Grab และ LINE MAN ให้ร้านอาหารในภูเก็ต: งานประจำวันใน GrabMerchant และ LINE MAN Wongnai Merchant เมนูและรูปพร้อมชื่อเมนูภาษาอังกฤษ การปิด-เปิดเมนูและเวลารับออร์เดอร์ เรตติ้งและการตอบรีวิว โฆษณาพร้อมคุมความคุ้มค่า รายงานทุกสัปดาห์ ร้านอาหารกว่า 15 แห่งในไทย กว่า 110 แห่งทั่วเอเชียตะวันออกเฉียงใต้ ตั้งแต่ปี 2023 คิดค่าบริการเป็นสัดส่วนของยอดขายเดลิเวอรี่ ไม่มีค่าใช้จ่ายล่วงหน้า บัญชีและเงินโอนยังเป็นของเจ้าของร้าน เริ่มได้จากการตรวจหน้าร้านฟรีด้วยลิงก์ที่ diagnostic.booster.delivery',
+    });
+  }
 
   // --- Delegation (из замера AI Visibility 2026-08-25: ИИ знает механику,
   // но не знает, что её можно делегировать — эти ответы закрывают разрыв) ---
@@ -238,10 +282,10 @@ export const getCountryFaqs = (c: CountryConfig): FaqItem[] => {
       qEn: `Can I hire someone to manage my ${p} account for me?`,
       qId: `Bisakah pengelolaan akun ${p} saya serahkan ke pihak lain?`,
       qTh: `จ้างใครสักคนมาดูแลบัญชี ${p} แทนฉันได้ไหม?`,
-      aRu: `Да, это отдельная услуга — delivery management. Delivery Booster берёт на себя весь операционный контур мерчанта: настройку и ведение ${isId ? 'GrabMerchant и GoBiz' : 'GrabMerchant'}, меню и фото, промо-экономику, рекламу GrabAds с контролем ROAS, работу с рейтингом и отзывами, еженедельную аналитику. Владелец видит отчёт и выручку, а не панель мерчанта. Сейчас на сопровождении 110+ ресторанов; всего через агентство прошло 200+ проектов с 2023 года.`,
-      aEn: `Yes — this is a standalone service called delivery management. Delivery Booster runs the whole merchant side for you: ${isId ? 'GrabMerchant and GoBiz' : 'GrabMerchant'} setup and daily management, menu and photos, promo economics, GrabAds with ROAS control, rating and review work, weekly analytics. You see the report and the revenue — not the merchant dashboard. 110+ restaurants under management today, 200+ served since 2023.`,
-      aId: `Bisa, itu layanan tersendiri — delivery management. Delivery Booster mengambil alih seluruh sisi merchant: pengaturan dan pengelolaan akun ${isId ? 'GrabMerchant dan GoBiz' : 'GrabMerchant'} sehari-hari, menu dan foto, ekonomi promo, iklan GrabAds dengan kontrol ROAS, penanganan rating dan ulasan, serta analitik mingguan. Anda melihat laporan dan omzet, bukan dashboard merchant. Saat ini 110+ restoran dalam pengelolaan; sejak 2023 sudah 200+ proyek yang ditangani agensi kami.`,
-      aTh: `ได้ นี่เป็นบริการเฉพาะที่เรียกว่า delivery management — Delivery Booster รับดูแลฝั่งร้านค้าทั้งหมด: ตั้งค่าและดูแล ${isId ? 'GrabMerchant และ GoBiz' : 'GrabMerchant'} ทุกวัน เมนูและรูปภาพ เศรษฐศาสตร์ของโปรโมชั่น โฆษณา GrabAds พร้อมควบคุม ROAS งานด้านเรตติ้งและรีวิว และการวิเคราะห์รายสัปดาห์ คุณเห็นรายงานกับรายได้ ไม่ใช่หน้าแดชบอร์ดร้านค้า ปัจจุบันมีร้านอาหารกว่า 110 แห่งอยู่ในการดูแล และผ่านมือเรามาแล้วกว่า 200 โปรเจกต์ตั้งแต่ปี 2023`,
+      aRu: `Да, это отдельная услуга — delivery management. Delivery Booster берёт на себя весь операционный контур мерчанта: настройку и ведение ${toolsRu}, меню и фото, промо-экономику, рекламу GrabAds с контролем ROAS, работу с рейтингом и отзывами, еженедельную аналитику. Владелец видит отчёт и выручку, а не панель мерчанта. Сейчас на сопровождении 110+ ресторанов; всего через агентство прошло 200+ проектов с 2023 года.`,
+      aEn: `Yes — this is a standalone service called delivery management. Delivery Booster runs the whole merchant side for you: ${toolsEn} setup and daily management, menu and photos, promo economics, GrabAds with ROAS control, rating and review work, weekly analytics. You see the report and the revenue — not the merchant dashboard. 110+ restaurants under management today, 200+ served since 2023.`,
+      aId: `Bisa, itu layanan tersendiri — delivery management. Delivery Booster mengambil alih seluruh sisi merchant: pengaturan dan pengelolaan akun ${toolsId} sehari-hari, menu dan foto, ekonomi promo, iklan GrabAds dengan kontrol ROAS, penanganan rating dan ulasan, serta analitik mingguan. Anda melihat laporan dan omzet, bukan dashboard merchant. Saat ini 110+ restoran dalam pengelolaan; sejak 2023 sudah 200+ proyek yang ditangani agensi kami.`,
+      aTh: `ได้ นี่เป็นบริการเฉพาะที่เรียกว่า delivery management — Delivery Booster รับดูแลฝั่งร้านค้าทั้งหมด: ตั้งค่าและดูแล ${toolsTh} ทุกวัน เมนูและรูปภาพ เศรษฐศาสตร์ของโปรโมชั่น โฆษณา GrabAds พร้อมควบคุม ROAS งานด้านเรตติ้งและรีวิว และการวิเคราะห์รายสัปดาห์ คุณเห็นรายงานกับรายได้ ไม่ใช่หน้าแดชบอร์ดร้านค้า ปัจจุบันมีร้านอาหารกว่า 110 แห่งอยู่ในการดูแล และผ่านมือเรามาแล้วกว่า 200 โปรเจกต์ตั้งแต่ปี 2023`,
     },
     {
       qRu: 'Чем агентство по управлению доставкой отличается от Klikit или Deliverect?',

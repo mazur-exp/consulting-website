@@ -29,7 +29,7 @@ export default function AnswersDoingItYourselfPage() {
         : language === 'id'
           ? 'Berapa banyak waktu yang dibutuhkan untuk mengelola GrabFood dan GoFood sendiri?'
           : language === 'th'
-            ? 'ดูแล GrabFood และ GoFood เองใช้เวลาเท่าไหร่?'
+            ? 'ดูแล Grab และ LINE MAN เองใช้เวลาเท่าไหร่?'
             : 'How much time does running GrabFood and GoFood yourself take?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
@@ -161,7 +161,7 @@ export default function AnswersDoingItYourselfPage() {
     <AnswerLayout
       h1={t('Сколько времени занимает самому вести GrabFood и GoFood?',
             'How much time does running GrabFood and GoFood yourself take?',
-            'Berapa banyak waktu yang dibutuhkan untuk mengelola GrabFood dan GoFood sendiri?', 'ถ้าดูแล GrabFood และ GoFood เอง ต้องใช้เวลาเท่าไร')}
+            'Berapa banyak waktu yang dibutuhkan untuk mengelola GrabFood dan GoFood sendiri?', 'ถ้าดูแล Grab และ LINE MAN เอง ต้องใช้เวลาเท่าไร')}
       lead={t(
         'Короткий ответ: это не «пара часов в неделю на аналитику», а функция полного рабочего дня — если делать её целиком, а не только смотреть отчёты. Но у вопроса есть более ранняя часть, которую обычно пропускают: до того как считать часы, нужно ответить, есть ли знание. Стартовую настройку и рекламу на этих площадках без специализированных знаний не сделать вообще — не «сделать хуже», а не сделать.',
         'Short answer: it is not "a couple of hours a week on analytics" but a full-time function — if you do the whole job rather than just read reports. But there is an earlier part of the question that usually gets skipped: before counting hours, you have to answer whether the knowledge is there. Setup and ads on these platforms cannot be done without specialist knowledge at all — not done worse, not done.',
@@ -173,7 +173,7 @@ export default function AnswersDoingItYourselfPage() {
         articleSchema({
           headline: t('Сколько времени и знаний требует самостоятельное ведение GrabFood и GoFood',
                       'The time and knowledge it takes to run GrabFood and GoFood yourself',
-                      'Waktu dan pengetahuan yang dibutuhkan untuk mengelola GrabFood dan GoFood sendiri', 'เวลาและความรู้ที่ต้องใช้ ถ้าจะดูแล GrabFood และ GoFood เอง'),
+                      'Waktu dan pengetahuan yang dibutuhkan untuk mengelola GrabFood dan GoFood sendiri', 'เวลาและความรู้ที่ต้องใช้ ถ้าจะดูแล Grab และ LINE MAN เอง'),
           url: URL,
           about:
             'GrabFood account management, GoFood management, delivery operations, GrabAds, restaurant delivery ranking',

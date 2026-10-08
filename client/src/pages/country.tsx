@@ -40,7 +40,7 @@ export default function CountryPage({ code }: { code: CountryCode }) {
         : language === 'id'
           ? `Delivery Booster — Pertumbuhan Omzet di ${platformsId} untuk Restoran ${inCountryId}`
           : language === 'th'
-            ? `Delivery Booster — เพิ่มยอดขายบน ${platformsTh} สำหรับร้านอาหาร${inCountryTh}`
+            ? `Delivery Booster — บริการดูแลร้านอาหารบน ${platformsTh} ${inCountryTh} เพิ่มยอดขาย 2-6 เท่า`
             : `Delivery Booster — ${country.platformsEn} Optimization for Restaurants ${country.inCountryEn}`;
 
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
@@ -51,7 +51,7 @@ export default function CountryPage({ code }: { code: CountryCode }) {
           : language === 'id'
             ? `Delivery Booster menumbuhkan omzet restoran ${inCountryId} di ${platformsId}. Omzet naik 2-6 kali: ketersediaan, menu dan harga, rating, serta iklan dikelola dalam satu akun.`
             : language === 'th'
-              ? `Delivery Booster เพิ่มยอดขายให้ร้านอาหาร${inCountryTh}บน ${platformsTh} ยอดขายโต 2-6 เท่า: ความพร้อมขาย เมนูและราคา เรตติ้ง และโฆษณา ดูแลรวมอยู่ในบัญชีเดียว`
+              ? `Delivery Booster คือเอเจนซีที่รับดูแลบัญชี ${platformsTh} ให้ร้านอาหาร${inCountryTh} แทนเจ้าของร้าน ยอดขายโต 2-6 เท่า: ความพร้อมขาย เมนูและราคา เรตติ้ง และโฆษณา ดูแลรวมอยู่ในบัญชีเดียว คิดค่าบริการเป็นเปอร์เซ็นต์ของยอดขายเดลิเวอรี่`
               : `Delivery Booster grows restaurant sales ${country.inCountryEn} on ${country.platformsEn}. 2-6x revenue growth: availability, menu and pricing, rating and ads managed in one account.`;
 
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');

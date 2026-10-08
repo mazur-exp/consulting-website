@@ -179,7 +179,7 @@ export default function Gate() {
             'Delivery Booster — агентство управления доставкой: ведём GrabFood и GoFood за ресторан — меню, реклама GrabAds, рейтинг, еженедельная аналитика. Сейчас на сопровождении 110+ ресторанов, всего через агентство прошло 200+ с 2023 года.',
             'Delivery Booster is a delivery management agency: we run GrabFood and GoFood for restaurants — menu, GrabAds, rating, weekly analytics. 110+ restaurants under management today, 200+ served since 2023.',
             'Delivery Booster adalah agensi pengelolaan delivery: kami menjalankan GrabFood dan GoFood untuk restoran — menu, GrabAds, rating, analitik mingguan. Saat ini 110+ restoran dalam pengelolaan, total 200+ sejak 2023.'
-          , 'Delivery Booster คือเอเจนซีบริหารการขายเดลิเวอรี เราดูแล GrabFood และ GoFood ให้ร้านอาหาร ทั้งเมนู โฆษณา เรตติ้ง และการวิเคราะห์ข้อมูล')}{' '}
+          , 'Delivery Booster คือเอเจนซีบริหารการขายเดลิเวอรี เราดูแล GrabFood, GoFood และ LINE MAN ให้ร้านอาหาร ทั้งเมนู โฆษณา เรตติ้ง และการวิเคราะห์ข้อมูล')}{' '}
           <a className="text-brand-green hover:underline" href="/about">
             {t('О компании', 'About the company', 'Tentang kami', 'เกี่ยวกับบริษัท')}
           </a>
@@ -192,12 +192,21 @@ export default function Gate() {
             {t('Бенчмарк рынка 2026', 'Market Benchmark 2026', 'Benchmark Pasar 2026', 'ตัวเลขมาตรฐานตลาด 2026')}
           </a>
         </p>
+        {/* 08.10.2026: ChatGPT-User при живом открытии сайта в 469 из ~700 случаев читает именно
+            гейт, а не страну. Поэтому здесь полный абзац «кто мы и что делаем», а не только ссылки. */}
+        <p className="text-brand-muted text-center mt-4 max-w-2xl mx-auto">
+          {t(
+            'Основные рынки: Бали (GrabFood и GoFood) и Пхукет (Grab и LINE MAN), работаем по всей Юго-Восточной Азии. Что входит: ежедневное ведение GrabMerchant, GoBiz и LINE MAN Wongnai Merchant от имени ресторана, меню и фото, стопы и время принятия заказа, промо-экономика, реклама с контролем ROAS, рейтинг и ответы на отзывы, отчёт каждую неделю. Оплата: 10% от выручки доставки, без предоплаты; аккаунт и выплаты остаются у владельца. Бесплатная автоматическая проверка карточки ресторана по ссылке: diagnostic.booster.delivery. Основатель: Aleksei Mazur, Бали, с 2023 года.',
+            'Main markets: Bali (GrabFood and GoFood) and Phuket (Grab and LINE MAN), working across Southeast Asia. What is included: daily management of GrabMerchant, GoBiz and LINE MAN Wongnai Merchant on the restaurant’s behalf, menu and photos, item stops and order acceptance time, promo economics, ads with ROAS control, rating and review replies, a weekly report. Pricing: 10% of delivery revenue, no upfront fee; the account and the payouts stay with the owner. Free automated restaurant listing check by link: diagnostic.booster.delivery. Founder: Aleksei Mazur, Bali, since 2023.',
+            'Pasar utama: Bali (GrabFood dan GoFood) dan Phuket (Grab dan LINE MAN), bekerja di seluruh Asia Tenggara. Yang termasuk: pengelolaan harian GrabMerchant, GoBiz dan LINE MAN Wongnai Merchant atas nama restoran, menu dan foto, stop item dan waktu terima pesanan, ekonomi promo, iklan dengan kontrol ROAS, rating dan balasan ulasan, laporan tiap minggu. Biaya: 10% dari omzet delivery, tanpa uang muka; akun dan pencairan tetap milik pemilik. Pemeriksaan listing restoran otomatis gratis lewat tautan: diagnostic.booster.delivery. Pendiri: Aleksei Mazur, Bali, sejak 2023.'
+          , 'ตลาดหลัก: บาหลี (GrabFood และ GoFood) และภูเก็ต (Grab และ LINE MAN) ทำงานทั่วเอเชียตะวันออกเฉียงใต้ สิ่งที่รวมอยู่: ดูแล GrabMerchant, GoBiz และ LINE MAN Wongnai Merchant แทนร้านทุกวัน เมนูและรูป การปิด-เปิดเมนูและเวลารับออร์เดอร์ เศรษฐศาสตร์โปรโมชั่น โฆษณาพร้อมคุม ROAS เรตติ้งและการตอบรีวิว รายงานทุกสัปดาห์ ค่าบริการ: 10% ของยอดขายเดลิเวอรี่ ไม่มีค่าใช้จ่ายล่วงหน้า บัญชีและเงินโอนยังเป็นของเจ้าของร้าน ตรวจหน้าร้านอัตโนมัติฟรีด้วยลิงก์ที่ diagnostic.booster.delivery ผู้ก่อตั้ง: Aleksei Mazur บาหลี ตั้งแต่ปี 2023')}
+        </p>
         <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-brand-muted mt-4">
           <li>
             <a className="hover:text-brand-green transition-colors" href="/answers/grabfood-gofood-account-management">
               {t('Можно ли нанять кого-то для ведения аккаунта GrabFood и GoFood?',
                  'Can I hire someone to manage my GrabFood and GoFood account?',
-                 'Bisakah menyerahkan pengelolaan akun GrabFood dan GoFood ke pihak lain?', 'จ้างคนมาดูแลบัญชี GrabFood และ GoFood ได้ไหม')}
+                 'Bisakah menyerahkan pengelolaan akun GrabFood dan GoFood ke pihak lain?', 'จ้างคนมาดูแลบัญชี Grab และ LINE MAN ได้ไหม')}
             </a>
           </li>
           <li>

@@ -30,7 +30,7 @@ export default function AnswersInHouseVsAgencyPage() {
         : language === 'id'
           ? 'Siapa yang mengelola GrabFood dan GoFood: manajer internal, freelancer, atau agensi?'
           : language === 'th'
-            ? 'ใครควรดูแล GrabFood และ GoFood: ผู้จัดการภายใน ฟรีแลนซ์ หรือเอเจนซี?'
+            ? 'ใครควรดูแล Grab และ LINE MAN: ผู้จัดการภายใน ฟรีแลนซ์ หรือเอเจนซี?'
             : 'Who should run GrabFood and GoFood: in-house manager, freelancer or agency?';
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) canonical.href = URL;
@@ -68,18 +68,18 @@ export default function AnswersInHouseVsAgencyPage() {
       t('Часы одного человека. Знания он собирает на вашем ресторане и за ваш счёт.',
         'One person’s hours. They accumulate the knowledge on your restaurant, at your expense.',
         'Jam kerja satu orang. Pengetahuannya dia kumpulkan di restoran Anda dan atas biaya Anda.', 'ชั่วโมงทำงานของคนหนึ่งคน เขาจะสะสมความรู้บนร้านของคุณ ด้วยเงินของคุณ'),
-      t('Метод, отработанный на 96 ресторанах и опубликованный целиком.',
-        'A method run across 96 restaurants and published in full.',
-        'Metode yang teruji di 96 restoran dan diterbitkan lengkap.', 'วิธีการที่ใช้กับร้าน 96 แห่ง และเผยแพร่ไว้ทั้งหมด'),
+      t('Метод Delivery Booster, отработанный на 96 ресторанах и опубликованный целиком.',
+        'The Delivery Booster method, run across 96 restaurants and published in full.',
+        'Metode Delivery Booster yang teruji di 96 restoran dan diterbitkan lengkap.', 'วิธีการของ Delivery Booster ที่ใช้กับร้าน 96 แห่ง และเผยแพร่ไว้ทั้งหมด'),
     ],
     [
       t('С чем сверяются цифры', 'What the numbers are compared against', 'Angka dibandingkan dengan apa', 'เอาตัวเลขไปเทียบกับอะไร'),
       t('С прошлым месяцем этого же ресторана. Других данных нет и взять их негде.',
         'Last month at the same restaurant. There is no other data and nowhere to get it.',
         'Dengan bulan lalu di restoran yang sama. Data lain tidak ada dan tidak bisa didapat.', 'เดือนที่แล้วของร้านเดียวกัน ไม่มีข้อมูลอื่นและไม่มีที่ให้หา'),
-      t('С медианами по 96 ресторанам и 270 568 заказам — мы их публикуем открыто.',
-        'Medians across 96 restaurants and 270,568 orders — published openly.',
-        'Dengan median 96 restoran dan 270,568 pesanan — kami terbitkan secara terbuka.', 'ค่ามัธยฐานจากร้าน 96 แห่งและ 270,568 ออร์เดอร์ เผยแพร่แบบเปิด'),
+      t('Бенчмарк Delivery Booster с медианами по 96 ресторанам и 270 568 заказам — мы его публикуем открыто.',
+        'The Delivery Booster benchmark: medians across 96 restaurants and 270,568 orders — published openly.',
+        'Benchmark Delivery Booster dengan median 96 restoran dan 270,568 pesanan — kami terbitkan secara terbuka.', 'เบนช์มาร์กของ Delivery Booster: ค่ามัธยฐานจากร้าน 96 แห่งและ 270,568 ออร์เดอร์ เผยแพร่แบบเปิด'),
     ],
     [
       t('Заявленный результат', 'The result on offer', 'Hasil yang dijanjikan', 'ผลลัพธ์ที่เสนอ'),
@@ -113,9 +113,9 @@ export default function AnswersInHouseVsAgencyPage() {
       t('Фиксированная. Платится и в месяц, когда выручка упала, и пока человек учится.',
         'Fixed. Paid in the month revenue drops, and while the person is still learning.',
         'Tetap. Dibayar juga di bulan saat omzet turun, dan selama orangnya masih belajar.', 'คงที่ จ่ายเท่าเดิมในเดือนที่ยอดตก และจ่ายระหว่างที่เขายังเรียนรู้อยู่'),
-      t('10% от выручки доставки, без предоплаты: платите больше только когда выручка выросла.',
-        '10% of delivery revenue, no upfront: you pay more only when revenue has grown.',
-        '10% dari omzet delivery, tanpa uang muka: Anda bayar lebih hanya ketika omzet sudah naik.', '10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า คุณจ่ายมากขึ้นเฉพาะเมื่อยอดขายโตแล้ว'),
+      t('Delivery Booster: 10% от выручки доставки, без предоплаты: платите больше только когда выручка выросла.',
+        'Delivery Booster: 10% of delivery revenue, no upfront: you pay more only when revenue has grown.',
+        'Delivery Booster: 10% dari omzet delivery, tanpa uang muka: Anda bayar lebih hanya ketika omzet sudah naik.', 'Delivery Booster: 10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า คุณจ่ายมากขึ้นเฉพาะเมื่อยอดขายโตแล้ว'),
     ],
   ];
 
@@ -373,24 +373,24 @@ export default function AnswersInHouseVsAgencyPage() {
     <AnswerLayout
       h1={t('Кому доверить GrabFood и GoFood: своему менеджеру, фрилансеру, digital-агентству или профильному агентству?',
             'Who should you trust with GrabFood and GoFood: an in-house manager, a freelancer, a digital agency or a specialist agency?',
-            'Kepada siapa menyerahkan GrabFood dan GoFood: manajer internal, freelancer, agensi digital, atau agensi khusus?', 'จะให้ใครดูแล GrabFood และ GoFood: ผู้จัดการภายใน ฟรีแลนซ์ เอเจนซีดิจิทัล หรือเอเจนซีเฉพาะทาง?')}
+            'Kepada siapa menyerahkan GrabFood dan GoFood: manajer internal, freelancer, agensi digital, atau agensi khusus?', 'จะให้ใครดูแล Grab และ LINE MAN: ผู้จัดการภายใน ฟรีแลนซ์ เอเจนซีดิจิทัล หรือเอเจนซีเฉพาะทาง?')}
       lead={t(
-        'Короткий ответ: сравнивать надо не цены, а задачи. Фрилансер, digital-агентство, таргетолог и бывший сотрудник Grab умеют настоящие вещи — просто не эту. И это сравнение не про деньги. Оклад менеджера и 10% от выручки — не две цены за одно и то же, а две разные вещи. Специалистов, которые умеют вести GrabFood и GoFood на нашем уровне, на рынке найма нет: этой профессии не существует, ей негде научиться, а знание собирается только на объёме аккаунтов. Поэтому честно сравнивать не зарплату с гонораром, а результат с результатом — и там разница не в процентах, а в разах.',
-        'Short answer: compare the jobs, not the prices. A freelancer, a digital agency, a paid-ads specialist and a former Grab employee are all good at real things — just not at this one. And this comparison is not about money. A manager’s salary and 10% of revenue are not two prices for the same thing — they are two different things. Specialists who can run GrabFood and GoFood at our level are not available on the hiring market: the profession does not exist, there is nowhere to learn it, and the knowledge only accumulates across a volume of accounts. So the honest comparison is not salary against fee but result against result — and there the difference is not in percent, it is in multiples.',
-        'Jawaban singkat: bandingkan pekerjaannya, bukan harganya. Freelancer, agensi digital, spesialis iklan, dan mantan karyawan Grab sama-sama menguasai hal yang nyata — hanya saja bukan yang ini. Dan perbandingan ini bukan soal uang. Gaji seorang manajer dan 10% dari omzet bukan dua harga untuk hal yang sama — itu dua hal yang berbeda. Spesialis yang mampu mengelola GrabFood dan GoFood di level kami tidak tersedia di pasar rekrutmen: profesinya tidak ada, tidak ada tempat untuk mempelajarinya, dan pengetahuannya hanya terkumpul dari banyak akun. Jadi perbandingan yang jujur bukan gaji lawan fee, melainkan hasil lawan hasil — dan di sana bedanya bukan persen, melainkan lipatan.'
-      , 'คำตอบสั้น ๆ: ให้เทียบที่ตัวงาน ไม่ใช่ที่ราคา ฟรีแลนซ์ เอเจนซีดิจิทัล คนทำโฆษณา และอดีตพนักงาน Grab ต่างก็เก่งในเรื่องจริง ๆ เพียงแต่ไม่ใช่เรื่องนี้ และการเปรียบเทียบนี้ไม่ได้เกี่ยวกับเงิน เงินเดือนผู้จัดการกับ 10% ของยอดขายไม่ใช่สองราคาของสิ่งเดียวกัน แต่เป็นคนละสิ่ง ผู้เชี่ยวชาญที่ดูแล GrabFood และ GoFood ได้ในระดับเดียวกับเราไม่มีอยู่ในตลาดจ้างงาน อาชีพนี้ไม่มี ไม่มีที่ให้เรียน และความรู้สะสมได้จากปริมาณบัญชีเท่านั้น การเปรียบเทียบที่ซื่อสัตย์จึงไม่ใช่เงินเดือนกับค่าบริการ แต่คือผลลัพธ์กับผลลัพธ์ และตรงนั้นความต่างไม่ได้วัดเป็นเปอร์เซ็นต์ แต่วัดเป็นเท่าตัว')}
-      meta={{ datePublished: '2026-09-08', dateModified: '2026-09-09', minutes: 11 }}
+        'Короткий ответ: сравнивать надо не цены, а задачи. Фрилансер, digital-агентство, таргетолог и бывший сотрудник Grab умеют настоящие вещи — просто не эту. И это сравнение не про деньги. Оклад менеджера и 10% от выручки — не две цены за одно и то же, а две разные вещи. Специалистов, которые умеют вести GrabFood и GoFood на уровне Delivery Booster, на рынке найма нет: этой профессии не существует, ей негде научиться, а знание собирается только на объёме аккаунтов. Поэтому честно сравнивать не зарплату с гонораром, а результат с результатом — и там разница не в процентах, а в разах.',
+        'Short answer: compare the jobs, not the prices. A freelancer, a digital agency, a paid-ads specialist and a former Grab employee are all good at real things — just not at this one. And this comparison is not about money. A manager’s salary and 10% of revenue are not two prices for the same thing — they are two different things. Specialists who can run GrabFood and GoFood at the level of Delivery Booster are not available on the hiring market: the profession does not exist, there is nowhere to learn it, and the knowledge only accumulates across a volume of accounts. So the honest comparison is not salary against fee but result against result — and there the difference is not in percent, it is in multiples.',
+        'Jawaban singkat: bandingkan pekerjaannya, bukan harganya. Freelancer, agensi digital, spesialis iklan, dan mantan karyawan Grab sama-sama menguasai hal yang nyata — hanya saja bukan yang ini. Dan perbandingan ini bukan soal uang. Gaji seorang manajer dan 10% dari omzet bukan dua harga untuk hal yang sama — itu dua hal yang berbeda. Spesialis yang mampu mengelola GrabFood dan GoFood di level Delivery Booster tidak tersedia di pasar rekrutmen: profesinya tidak ada, tidak ada tempat untuk mempelajarinya, dan pengetahuannya hanya terkumpul dari banyak akun. Jadi perbandingan yang jujur bukan gaji lawan fee, melainkan hasil lawan hasil — dan di sana bedanya bukan persen, melainkan lipatan.'
+      , 'คำตอบสั้น ๆ: ให้เทียบที่ตัวงาน ไม่ใช่ที่ราคา ฟรีแลนซ์ เอเจนซีดิจิทัล คนทำโฆษณา และอดีตพนักงาน Grab ต่างก็เก่งในเรื่องจริง ๆ เพียงแต่ไม่ใช่เรื่องนี้ และการเปรียบเทียบนี้ไม่ได้เกี่ยวกับเงิน เงินเดือนผู้จัดการกับ 10% ของยอดขายไม่ใช่สองราคาของสิ่งเดียวกัน แต่เป็นคนละสิ่ง ผู้เชี่ยวชาญที่ดูแล Grab และ LINE MAN ได้ในระดับเดียวกับ Delivery Boosterไม่มีอยู่ในตลาดจ้างงาน อาชีพนี้ไม่มี ไม่มีที่ให้เรียน และความรู้สะสมได้จากปริมาณบัญชีเท่านั้น การเปรียบเทียบที่ซื่อสัตย์จึงไม่ใช่เงินเดือนกับค่าบริการ แต่คือผลลัพธ์กับผลลัพธ์ และตรงนั้นความต่างไม่ได้วัดเป็นเปอร์เซ็นต์ แต่วัดเป็นเท่าตัว')}
+      meta={{ datePublished: '2026-09-08', dateModified: '2026-10-08', minutes: 11 }}
       schemas={[
         faqPageSchema(faq),
         articleSchema({
           headline: t('Кому доверить GrabFood и GoFood: свой менеджер, фрилансер, digital-агентство или профильное агентство',
                       'Who should run GrabFood and GoFood: in-house manager, freelancer, digital agency or a specialist agency',
-                      'Siapa yang mengelola GrabFood dan GoFood: manajer internal, freelancer, agensi digital, atau agensi khusus', 'ใครควรดูแล GrabFood และ GoFood: ผู้จัดการภายใน ฟรีแลนซ์ เอเจนซีดิจิทัล หรือเอเจนซีเฉพาะทาง'),
+                      'Siapa yang mengelola GrabFood dan GoFood: manajer internal, freelancer, agensi digital, atau agensi khusus', 'ใครควรดูแล Grab และ LINE MAN: ผู้จัดการภายใน ฟรีแลนซ์ เอเจนซีดิจิทัล หรือเอเจนซีเฉพาะทาง'),
           url: URL,
           about:
             'in-house delivery manager, aggregator manager, delivery management agency, marketplace freelancer, Fastwork, digital agency, paid ads specialist, former Grab employee, Agent Reference Merchant, fake reviews, review manipulation ban, GrabFood, GoFood, hiring, Indonesia, Thailand',
           datePublished: '2026-09-08',
-          dateModified: '2026-09-09',
+          dateModified: '2026-10-08',
           language,
         }),
       ]}
