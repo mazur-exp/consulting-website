@@ -286,7 +286,7 @@ async def cmd_run(a):
             row.setdefault("run", 0)
             for att in range(6):
                 if PROVIDER[eng] in broke:
-                    row["error"] = f"пропущено: у {PROVIDER[eng]} кончились деньги"; break
+                    row["error"] = f"пропущено: провайдер {PROVIDER[eng]} остановлен (деньги или доступ)"; break
                 try:
                     res = await fn(cl, p["text"])
                     row["text"], row["sources"] = res[0], res[1]
