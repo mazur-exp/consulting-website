@@ -211,15 +211,15 @@ export const getOrigin = (): string => safeGet(sessionStorage, ORIGIN_KEY) ?? ''
 const trackMessengerClick = (a: HTMLAnchorElement, origin: string) => {
   const target = a.href.startsWith('https://wa.me/') ? 'whatsapp' : 'telegram';
   const slot = a.dataset.slot ?? '';
+  // Дописываем хвост прямо к строке, а не через URLSearchParams: тот кодирует
+  // пробелы плюсами, и часть клиентов WhatsApp показывает их буквально.
   try {
-    const url = new URL(a.href);
-    const text = url.searchParams.get('text');
-    if (origin && text && text.includes('ref: ') && !text.includes(' · via ')) {
-      url.searchParams.set('text', `${text} · via ${origin}`);
-      a.href = url.toString();
+    const text = decodeURIComponent(a.href.split('?text=')[1] ?? '');
+    if (origin && text.includes('ref: ') && !text.includes(' · via ')) {
+      a.href += encodeURIComponent(` · via ${origin}`);
     }
   } catch {
-    /* ссылка без текста, оставляем как есть */
+    /* ссылка без текста или с битой кодировкой, оставляем как есть */
   }
   send('cta-click', { target, slot, origin, page: window.location.pathname });
 };

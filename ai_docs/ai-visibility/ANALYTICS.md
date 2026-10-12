@@ -147,6 +147,16 @@ node scripts/traffic-digest.mjs 30     # за 30
    `cta-click {target, slot, origin, page}` и дописывает `origin` в ссылку
    параметром `utm_term` (в момент клика, потому что ссылки рендерятся раньше,
    чем origin записан).
+2a. С 2026-10-09 так же считаются клики по мессенджерам (wa.me и t.me):
+   событие `cta-click {target: whatsapp|telegram, slot, origin, page}`. Слоты:
+   `header` (кнопка в шапке), `pricing` (кнопка под ценой), `faq-price`
+   (ссылка «чат» в FAQ о цене), `answer-cta` (строчка «или напишите нам» внизу
+   страниц-ответов), пусто у ссылки на канал в футере. Ссылка несёт заготовленный
+   текст на языке клиента (см. `messengerUrl` в `client/src/lib/cta.ts`), последняя
+   строка текста `ref: booster.delivery/<page> · <slot> · via <origin>` приходит
+   нам в самом сообщении, так что источник лида виден без аналитики. До этого дня
+   клики по мессенджерам не считались вовсе, число WhatsApp было +7 952 002 90 77;
+   теперь +62 851 2693 9952 (EN/ID/TH), RU идёт в Telegram @delivery_booster.
 3. Диагностика (партиал `app/views/diagnostics/_analytics.html.erb` в
    delivery-monitor) читает `utm_term`, кладёт в свой `sessionStorage` и шлёт в
    ТОТ ЖЕ website Umami события `diagnostic-landing {slot, origin}`,
