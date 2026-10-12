@@ -71,7 +71,9 @@ export const SEOSchema = () => {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "sales",
-      "url": "https://t.me/delivery_booster",
+      "telephone": "+62-851-2693-9952",
+      "url": "https://wa.me/6285126939952",
+      "sameAs": "https://t.me/delivery_booster",
       "availableLanguage": ["Russian", "English", "Indonesian", "Thai"]
     },
     // Бесплатная диагностика вынесена в makesOffer отдельным Offer с price 0 и

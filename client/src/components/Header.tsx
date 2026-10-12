@@ -1,9 +1,13 @@
 import { LanguageToggle } from './LanguageToggle';
 import { CountryToggle } from './CountryToggle';
 import { useLanguage } from '../hooks/useLanguage';
+import { useCountry } from '../hooks/useCountry';
+import { messengerUrl } from '../lib/cta';
 
 export const Header = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const country = useCountry();
+  const platforms = t(country.platformsRu, country.platformsEn, country.platformsId, country.platformsTh ?? country.platformsEn);
 
   return (
     <header className="fixed top-0 w-full z-50 glass-nav">
@@ -25,11 +29,12 @@ export const Header = () => {
               {t("Ответы", "Answers", "Jawaban", 'คำตอบ')}
             </a>
             <a
-              href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
+              href={messengerUrl(language, 'header', { platforms })}
               target="_blank"
               rel="noopener noreferrer"
               className="brand-gradient text-white px-4 py-2 rounded-lg text-sm font-medium brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               data-testid="link-header-audit"
+              data-slot="header"
             >
               {t("Написать", "Contact us", "Hubungi kami", 'ติดต่อเรา')}
             </a>

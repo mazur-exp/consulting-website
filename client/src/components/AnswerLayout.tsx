@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { ArrowLeft } from 'lucide-react';
@@ -223,6 +223,13 @@ export const articleSchema = ({
  */
 export const AnswerCta = () => {
   const { t, language } = useLanguage();
+  // Заголовок статьи попадает в заготовленный текст сообщения («прочитал
+  // статью "…"»). Берём его из DOM после монтирования: h1 рендерит
+  // AnswerLayout выше по дереву, в пропсы сюда он не приходит.
+  const [title, setTitle] = useState('');
+  useEffect(() => {
+    setTitle(document.querySelector('h1')?.textContent?.trim() ?? '');
+  }, []);
   return (
     <Block card>
       <h2 className="text-2xl font-bold mb-2 text-center">
@@ -287,11 +294,12 @@ export const AnswerCta = () => {
             {t('Проверить карточку бесплатно', 'Check my listing free', 'Cek listing saya gratis', 'วิเคราะห์ร้านของฉัน')}
           </a>
           <a
-            href={messengerUrl(language)}
+            href={messengerUrl(language, 'answer-cta', { title })}
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-brand-muted hover:text-brand-green mt-3 text-center"
             data-testid="cta-messenger"
+            data-slot="answer-cta"
           >
             {t('или напишите нам напрямую', 'or message us directly', 'atau hubungi kami langsung', 'หรือทักหาเราโดยตรง')} →
           </a>

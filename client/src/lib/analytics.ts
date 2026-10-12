@@ -204,7 +204,28 @@ const formatOrigin = (kind: SourceKind, source: string, referrerDomain: string):
 export const getOrigin = (): string => safeGet(sessionStorage, ORIGIN_KEY) ?? '';
 
 /**
- * Клик по любой ссылке на диагностику: слот из utm_content и первое касание.
+ * Клик по ссылке в мессенджер (wa.me / t.me): слот из data-slot, первое
+ * касание дописывается в заготовленный текст хвостом ` · via <origin>`,
+ * чтобы в самом сообщении было видно, откуда человек пришёл на сайт.
+ */
+const trackMessengerClick = (a: HTMLAnchorElement, origin: string) => {
+  const target = a.href.startsWith('https://wa.me/') ? 'whatsapp' : 'telegram';
+  const slot = a.dataset.slot ?? '';
+  try {
+    const url = new URL(a.href);
+    const text = url.searchParams.get('text');
+    if (origin && text && text.includes('ref: ') && !text.includes(' · via ')) {
+      url.searchParams.set('text', `${text} · via ${origin}`);
+      a.href = url.toString();
+    }
+  } catch {
+    /* ссылка без текста, оставляем как есть */
+  }
+  send('cta-click', { target, slot, origin, page: window.location.pathname });
+};
+
+/**
+ * Клик по любой ссылке на диагностику или в мессенджер: слот и первое касание.
  * Вешается один раз на документ, ссылки рендерятся в десятке компонентов.
  */
 export const trackDiagnosticClicks = () => {
@@ -212,8 +233,13 @@ export const trackDiagnosticClicks = () => {
     'click',
     (e) => {
       const a = (e.target as Element | null)?.closest?.('a[href]') as HTMLAnchorElement | null;
-      if (!a || !a.href.startsWith('https://diagnostic.booster.delivery')) return;
+      if (!a) return;
       const origin = getOrigin();
+      if (a.href.startsWith('https://wa.me/') || a.href.startsWith('https://t.me/')) {
+        trackMessengerClick(a, origin);
+        return;
+      }
+      if (!a.href.startsWith('https://diagnostic.booster.delivery')) return;
       let slot = '';
       try {
         const url = new URL(a.href);

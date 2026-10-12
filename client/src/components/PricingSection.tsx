@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
 import { useCountry } from '../hooks/useCountry';
+import { messengerUrl } from '../lib/cta';
 
 export const PricingSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const country = useCountry();
 
   return (
@@ -53,11 +54,12 @@ export const PricingSection = () => {
             viewport={{ once: true }}
           >
             <a
-              href={t("https://t.me/delivery_booster", "https://wa.me/79520029077", "https://wa.me/79520029077")}
+              href={messengerUrl(language, 'pricing')}
               target="_blank"
               rel="noopener noreferrer"
               className="brand-gradient text-white px-8 py-4 rounded-xl font-semibold text-lg brand-shadow hover:brand-shadow-hover transition-all duration-300 transform hover:scale-105"
               data-testid="button-pricing-cta"
+              data-slot="pricing"
             >
               {t("Узнать подробнее", "Learn more", "Pelajari lebih lanjut", 'ดูรายละเอียด')}
             </a>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../hooks/useLanguage';
 import { useCountry } from '../hooks/useCountry';
 import { getCountryFaqs } from '../config/faqs';
+import { messengerUrl } from '../lib/cta';
 import { ANSWER_MATERIALS, ASSET_MATERIALS, MaterialCard } from './AnswersIndex';
 import {
   Accordion,
@@ -14,6 +15,7 @@ export const FAQSection = () => {
   const { t, language } = useLanguage();
   const country = useCountry();
   const platforms = country.platformsShort;
+  const faqChat = messengerUrl(language, 'faq-price');
 
   const extendedFaqs = getCountryFaqs(country).map((f) => ({
     q: { ru: f.qRu, en: f.qEn, id: f.qId ?? f.qEn, th: f.qTh ?? f.qEn },
@@ -26,25 +28,25 @@ export const FAQSection = () => {
       a: {
         ru: (
           <>
-            Условно бесплатно - узнай в <a href="https://t.me/delivery_booster" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">чате</a> как.
+            Условно бесплатно - узнай в <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">чате</a> как.
             {'\n'}10% от выручки {platforms}. Среднее $400-800/мес. Нет рисков, нет предоплаты.
           </>
         ),
         en: (
           <>
-            Conditionally free - find out how in the <a href="https://wa.me/79520029077" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
+            Conditionally free - find out how in the <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
             {'\n'}10% of {platforms} revenue. Average $400-800/month. No risk, no upfront payment.
           </>
         ),
         id: (
           <>
-            Praktis gratis - cari tahu caranya di <a href="https://wa.me/79520029077" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
+            Praktis gratis - cari tahu caranya di <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
             {'\n'}10% dari omzet {platforms}. Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.
           </>
         ),
         th: (
           <>
-            แทบจะฟรี — ถามวิธีได้ใน<a href="https://wa.me/79520029077" target="_blank" rel="noopener noreferrer" className="text-brand-green hover:text-brand-green-light underline transition-colors">แชท</a>
+            แทบจะฟรี — ถามวิธีได้ใน<a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">แชท</a>
             {'\n'}10% ของรายได้จาก {platforms} เฉลี่ย $400-800/เดือน ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า
           </>
         )
