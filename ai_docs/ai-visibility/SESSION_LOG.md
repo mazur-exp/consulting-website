@@ -25,9 +25,11 @@
 4. **Для ботов:** llms.txt, Schema.org contactPoint (telephone + wa.me, Telegram
    в sameAs), абзац на гейте в 4 языках: новый номер.
 
-Не трогал: канал t.me/deliverybooster_asia в футере, кнопки диагностики, номер
-в приложении диагностики (delivery-monitor `config/diagnostic.yml`, 6281390604722).
-Открытый вопрос Алексу: менять ли номер и в диагностике.
+Не трогал: канал t.me/deliverybooster_asia в футере и кнопки диагностики.
+12.10: решение Алекса «+62 851 2693 9952 везде основным». Диагностика тоже переведена:
+delivery-monitor `config/diagnostic.yml` contacts.whatsapp_number → 6285126939952
+(коммит f48c173 в main, `bin/deploy`, проверено на живом отчёте). Старый 6281390604722
+больше нигде не используется.
 
 Следующие шаги: через неделю посмотреть в Umami Events `cta-click` по `target` и
 `slot`; остальное без изменений (прогон не раньше 20.10, GSC sitemap, Вьетнам).
