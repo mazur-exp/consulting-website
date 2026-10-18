@@ -329,8 +329,11 @@ async def cmd_run(a):
                     # «No ready cookies» (x-brd-status-code 502): у Bright Data кончился
                     # пул сессий Google, это их сторона и проходит за минуты. Короткие
                     # повторы бесполезны (08.10: 6 попыток за 80 с, все в ту же ошибку).
-                    if "No ready cookies" in row["error"]:
-                        await asyncio.sleep((30, 60, 90, 120, 180, 180)[att])
+                    # 18.10: проверено параллельным запросом, что пул восстанавливается
+                    # за секунды (соседний запрос в ту же секунду прошёл), а паузы
+                    # 30…180 с растянули хвост прогона с 20 минут до часов. Паузы короче.
+                    if "No ready cookies" in row["error"] or "waiting for function failed" in row["error"]:
+                        await asyncio.sleep((8, 15, 25, 40, 60, 60)[att])
                         continue
                     await asyncio.sleep(3 * (att + 1))
             out.append(row); done += 1
