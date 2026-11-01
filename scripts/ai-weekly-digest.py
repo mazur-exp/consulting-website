@@ -159,43 +159,78 @@ SELECT 'D', e.event_name || '|' || coalesce(d.string_value,''), count(*), 0 FROM
     return s
 
 
+PAGE_NAMES = {
+    "/": "главная", "/about": "о нас", "/id": "Индонезия", "/th": "Таиланд", "/sg": "Сингапур",
+    "/vn": "Вьетнам", "/benchmark": "бенчмарк", "/method": "метод", "/answers": "ответы",
+    "/answers/grabfood-phuket-thailand": "Пхукет", "/answers/grabfood-gofood-fees-indonesia": "комиссии ID",
+    "/answers/grabfood-gofood-rating-after-bad-reviews": "рейтинг после отзывов",
+    "/answers/few-orders-grabfood-gofood": "мало заказов", "/answers/grabfood-ads-not-working": "реклама не работает",
+    "/answers/grabfood-gofood-account-management": "ведение аккаунта", "/answers/in-house-manager-vs-agency": "свой человек или агентство",
+    "/answers/delivery-agency-vs-klikit-deliverect": "софт или агентство", "/answers/managing-grabfood-yourself": "вести самому",
+    "/answers/ai-assistant-grabfood-check": "проверка через ИИ", "/cases/love-u-pizza": "кейс Love U Pizza",
+    "/cases/meat-point-phuket": "кейс Meat Point", "/cases/zaytun-ubud": "кейс Zaytun", "/cases/enjoy-healthy-food": "кейс Enjoy",
+}
+
+
+def page(p):
+    p = (p or "/").split("?")[0].rstrip("/") or "/"
+    return PAGE_NAMES.get(p, p.replace("/answers/", "").replace("/cases/", "кейс "))
+
+
+def esc(t):
+    return str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def trend(n, p):
+    if p is None: return ""
+    return " ↑" if n > p else (" ↓" if n < p else " =")
+
+
 def fmt(cur, prev, start, end):
-    def delta(a, b):
-        return f" ({'+' if a - b >= 0 else ''}{a - b})" if b is not None else ""
-    L = [f"🤖 ИИ и сайт, неделя {start:%d.%m}-{end:%d.%m}"]
-    L.append("")
-    L.append("Чтения страниц ассистентами во время разговоров (подлинные IP):")
-    for bot, label in (("ChatGPT-User", "ChatGPT"), ("Perplexity-User", "Perplexity"), ("Claude-User", "Claude (IP не проверяется)")):
+    MONTHS = ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"]
+    period = f"{start.day}-{end.day} {MONTHS[end.month - 1]}" if start.month == end.month else f"{start.day} {MONTHS[start.month - 1]} - {end.day} {MONTHS[end.month - 1]}"
+    L = [f"🤖 <b>ИИ и сайт · {period}</b>", ""]
+
+    L.append("📖 <b>Что читали ассистенты</b> (во время разговоров с людьми)")
+    for bot, label in (("ChatGPT-User", "ChatGPT"), ("Claude-User", "Claude"), ("Perplexity-User", "Perplexity")):
         n = cur["reads"].get(bot, 0); p = prev["reads"].get(bot, 0)
-        pages = ", ".join(f"{k} {v}" for k, v in cur["reads_pages"][bot].most_common(4)) if n else "нет"
-        L.append(f"• {label}: {n}{delta(n, p)} · {pages}")
-    if sum(cur["fake"].values()):
-        L.append(f"  отброшено подделок UA: {sum(cur['fake'].values())}")
+        if n:
+            pages = ", ".join(f"{page(k)} {v}" for k, v in cur["reads_pages"][bot].most_common(4))
+            L.append(f"{label} <b>{n}</b>{trend(n, p)} → {esc(pages)}")
+        else:
+            L.append(f"{label} 0{trend(n, p)}")
     L.append("")
+
     sc, sp = cur["sessions"], prev["sessions"]
-    L.append("Люди на сайте (Umami, сессии):")
-    for key, label in (("ai", "из ИИ"), ("search", "из Google/поиска"), ("other", "остальные")):
-        n = sc.get(key, (0, "0"))[0]; p = sp.get(key, (0, "0"))[0]
-        L.append(f"• {label}: {n}{delta(n, p)}" + (f" · глубина {sc[key][1]}" if key in sc else ""))
+    g = lambda d, k: d.get(k, (0, "0"))[0]
+    total = sum(v[0] for v in sc.values())
+    L.append(f"👥 <b>Люди на сайте: {total} сессий</b>")
+    L.append(f"из ИИ <b>{g(sc,'ai')}</b>{trend(g(sc,'ai'), g(sp,'ai'))} · Google {g(sc,'search')}{trend(g(sc,'search'), g(sp,'search'))} · остальные {g(sc,'other')}")
     if cur["ai_sessions"]:
-        L.append("  визиты из ИИ:")
+        L.append("")
+        L.append("🧑 <b>Визиты из ИИ</b>")
         for row in cur["ai_sessions"][:12]:
             t, country, landing, src = row[0], row[1], row[2], row[3]
-            L.append(f"  - {t[5:]} UTC · {country} · {landing} · {src.replace('utm_source=', '')}")
-    L.append(f"• склеено «ChatGPT прочитал → человек пришёл за 10 мин»: {cur['linked']}")
+            d = t[5:10].split("-"); day = f"{int(d[1])}.{d[0]}"
+            src_s = src.replace("utm_source=", "").replace("chatgpt.com", "ChatGPT").replace("perplexity.ai", "Perplexity")
+            L.append(f"{day} · {country} · {esc(page(landing))} · {esc(src_s)}")
+        L.append(f"{cur['linked']} из {len(cur['ai_sessions'])} пришли сразу после чтения ChatGPT (тот же разговор)")
     L.append("")
+
     ai_cta = sum(v for k, v in cur["cta"].items() if k.startswith("ai/")); all_cta = sum(cur["cta"].values())
-    L.append(f"Клики по кнопкам (диагностика, WhatsApp, Telegram): {all_cta}, из них с меткой ИИ {ai_cta}" +
-             (": " + ", ".join(f"{k} {v}" for k, v in cur["cta"].most_common(6)) if all_cta else ""))
-    dl = {k: v for k, v in cur["diag"].items()}
+    dl = cur["diag"]
     land_ai = sum(v for k, v in dl.items() if k.startswith("diagnostic-landing|ai/")); land_all = sum(v for k, v in dl.items() if k.startswith("diagnostic-landing|"))
     cont_ai = sum(v for k, v in dl.items() if k.startswith("diagnostic-contact|ai/")); cont_all = sum(v for k, v in dl.items() if k.startswith("diagnostic-contact|"))
-    L.append(f"Диагностика: переходов {land_all} (из ИИ {land_ai}), контактов {cont_all} (из ИИ {cont_ai})")
+    L.append("🎯 <b>Действия</b>")
+    L.append(f"клики по кнопкам {all_cta}, из них из ИИ <b>{ai_cta}</b>")
+    L.append(f"диагностика: переходов {land_all} (из ИИ {land_ai}), контактов {cont_all} (из ИИ {cont_ai})")
     L.append("")
+
     cr = cur["crawl"]
-    L.append("Обходы краулеров за неделю: " + ", ".join(f"{b} {n}" for b, n in cr.most_common(6)))
-    L.append("")
-    L.append("Напоминание: текст вопроса пользователя ассистенты не передают; главная = вопросы «кто может вести аккаунт» и проверка бренда, страницы-ответы = вопросы «как» и «сколько» (по данным замеров).")
+    L.append("🕷 Краулеры: " + " · ".join(f"{b} {n}" for b, n in cr.most_common(4)))
+    fake = sum(cur["fake"].values())
+    if fake:
+        L.append(f"🚫 Подделок под ChatGPT/Perplexity отброшено: {fake}")
     return "\n".join(L)
 
 
@@ -204,7 +239,7 @@ def send(text):
     for line in open("/root/.ops-telegram.env"):
         if "=" in line and not line.strip().startswith("#"):
             k, v = line.strip().split("=", 1); env[k] = v.strip().strip('"')
-    data = urllib.parse.urlencode({"chat_id": env["OPS_GROUP_CHAT_ID"], "message_thread_id": THREAD_DIGESTS, "text": text, "disable_web_page_preview": "true"}).encode()
+    data = urllib.parse.urlencode({"chat_id": env["OPS_GROUP_CHAT_ID"], "message_thread_id": THREAD_DIGESTS, "text": text, "parse_mode": "HTML", "disable_web_page_preview": "true"}).encode()
     req = urllib.request.Request(f"https://api.telegram.org/bot{env['TELEGRAM_BOT_TOKEN']}/sendMessage", data=data)
     with urllib.request.urlopen(req, timeout=20) as r:
         return r.status
