@@ -101,6 +101,8 @@ def period_stats(start, end, nets):
     for r in rows:
         k = r.get("kind"); bot = r.get("bot") or ""; path = r.get("path") or "/"
         if k == "ai-user":
+            if path in ("/robots.txt", "/sitemap.xml", "/llms.txt", "/favicon.ico"):
+                continue  # служебные файлы, не чтение контента
             g = genuine(r.get("ip", ""), bot, nets)
             if g is False:
                 fake[bot] += 1; continue
