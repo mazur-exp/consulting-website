@@ -273,11 +273,35 @@ ChatGPT, Perplexity/Gemini/Claude 0), из Google 23 и 30, подлинных �
 187 и 195 в месяц, кликов по кнопкам с меткой ai 4 из 23, контактов диагностики из
 ИИ 1. Порог для решения о продолжении проекта (Алекс, 01.11): смотреть к концу января.
 
-## Bing Webmaster Tools (план, ждёт входа Алекса)
+## Bing Webmaster Tools (подключено 02.11.2026)
 
-Поиск ChatGPT работает на индексе Bing; Bing Webmaster показывает запросы, по которым
-страницы показывались в Bing. Это ближайший к реальным вопросам пользователей источник.
-Для подключения нужен вход в аккаунт Microsoft или Google в окне Chrome DevTools
-(bing.com/webmasters), дальше: добавить `booster.delivery`, подтверждение meta-тегом
-в `client/index.html` (деплой) или CNAME, отправить sitemap. После подключения в
-сводку добавляется блок «запросы Bing за неделю» через Bing Webmaster API.
+Поиск ChatGPT работает на индексе Bing. Сайт `https://booster.delivery/` добавлен
+(аккаунт Алекса, вход через расширение Chrome), подтверждён файлом
+`client/public/BingSiteAuth.xml` плюс мета-тег `msvalidate.01` в `client/index.html`
+(не удалять, иначе подтверждение слетит), sitemap отправлен 01.11. Данные появляются
+через 48 часов.
+
+Главное там: раздел **AI Performance (beta)**, «Citation sources: Microsoft Copilots and
+Partners». Показывает Grounding Queries (запросы, под которые ИИ цитировал наши
+страницы), Intent, Topic, Citations и Citation Share, плюс цитируемые страницы. Это
+единственный источник реальных формулировок пользователей, который у нас есть; с ним
+сводка «ИИ и сайт» получит блок «запросы недели» (Bing Webmaster API, ключ в
+Settings → API access, добавить в `.secrets/aivis.env` как BING_WMT_KEY).
+
+## Что показал Search Console 02.11 (3 месяца, 31.07-30.10)
+
+56 кликов, 2 210 показов, 76 запросов. Клики почти все брендовые: «delivery booster» 13,
+«booster delivery» 2. Небрендовые показы без кликов: «zaytun ubud» 196 (страница кейса),
+«monthly revenua grabfood» 68, «delivery management agency for restaurants in bali» 32,
+«klikit alternatives» 21. Индексация: 94 страницы в индексе, 27 нет (12 «просканирована,
+не проиндексирована»: варианты `?lang=`, поддомены balistats/phuketstats/diagnostic;
+8 копий без канонического; 4 редиректа; 2 404; 1 закрыта robots). Критичного нет.
+
+**Важная оговорка про наши замеры.** В списке запросов GSC стоят дословно наши промпты
+из audit («who can manage my grabfood and gofood account for me in bali?» 28 показов,
+«delivery booster bali reviews - is it a legit agency…» 14, «what is delivery booster
+(booster.delivery)?» 12, русские промпты по 5-8): это Gemini с google_search во время
+прогонов, Google засчитывает их как показы. Отчёт «Функции на основе генеративного ИИ»
+(AI Overviews / AI Mode) показывает 415 показов за 3 месяца с пиками ровно в дни прогонов
+(08.10 ≈ 45, 18.10 ≈ 70, 01.11), фон в обычные дни 0-10. То есть GSC-показы в ИИ-функциях
+Google на две трети наши собственные; читать этот отчёт только по дням без прогонов.
