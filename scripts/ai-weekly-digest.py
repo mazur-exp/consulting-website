@@ -84,12 +84,12 @@ def read_log(start, end):
 
 def umami(sql):
     cmd = ["docker", "exec", "-i", "umami-db", "sh", "-c",
-           'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -At -F "|" -v ON_ERROR_STOP=1']
+           'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -At -F "~~" -v ON_ERROR_STOP=1']
     out = subprocess.run(cmd, input=sql, capture_output=True, text=True, timeout=120)
     if out.returncode != 0:
         print("umami error:", out.stderr[:500], file=sys.stderr)
         return []
-    return [l.split("|") for l in out.stdout.strip().split("\n") if l.strip()]
+    return [l.split("~~") for l in out.stdout.strip().split("\n") if l.strip()]
 
 
 def period_stats(start, end, nets):
@@ -140,7 +140,7 @@ SELECT 'D', e.event_name || '|' || coalesce(d.string_value,''), count(*), 0 FROM
     for parts in umami(sql):
         tag = parts[0]
         if tag == "S": sessions[parts[1]] = (int(parts[2]), parts[3])
-        elif tag == "A": ai_sessions.append(parts[1:])
+        elif tag == "A": ai_sessions.append(parts[1].split("|") + [parts[2]])
         elif tag == "C": cta[parts[1]] = int(parts[2])
         elif tag == "D": diag[parts[1]] = int(parts[2])
     s["sessions"] = sessions; s["ai_sessions"] = ai_sessions; s["cta"] = cta; s["diag"] = diag
