@@ -1,4 +1,6 @@
+import { Link } from 'wouter';
 import { useLanguage } from '../hooks/useLanguage';
+import { COMPANY } from '../pages/pricing';
 
 const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/delivery.booster/' },
@@ -44,6 +46,15 @@ export const Footer = () => {
               "© Delivery Booster. Bali & Thailand."
             , '© Delivery Booster บาหลีและประเทศไทย')}
           </p>
+        </div>
+        {/* Реквизиты юрлица: требование платёжного провайдера (06.11.2026). Те же данные на /pricing и в схеме. */}
+        <div className="mt-6 pt-6 border-t border-white/10 text-sm text-brand-muted text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-2" data-testid="footer-legal">
+          <span>
+            {COMPANY.legalName} · {COMPANY.address} · <a href={COMPANY.phoneHref} className="hover:text-white transition-colors">{COMPANY.phone}</a>
+          </span>
+          <Link href="/pricing" className="hover:text-white transition-colors whitespace-nowrap">
+            {t('Цены и оплата', 'Pricing and payment', 'Harga dan pembayaran', 'ราคาและการชำระเงิน')}
+          </Link>
         </div>
       </div>
     </footer>

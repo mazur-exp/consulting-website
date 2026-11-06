@@ -12,6 +12,7 @@ import CountryPage from "./pages/country";
 import CasePage from "./pages/case";
 import NotFound from "@/pages/not-found";
 import AboutPage from "./pages/about";
+import PricingPage from "./pages/pricing";
 import AnswersHirePage from "./pages/answers-hire";
 import AnswersVsAggregatorsPage from "./pages/answers-vs-aggregators";
 import AnswersAdsNotWorkingPage from "./pages/answers-ads-not-working";
@@ -38,6 +39,7 @@ function Router() {
         </Route>
       ))}
       <Route path="/about" component={AboutPage} />
+      <Route path="/pricing" component={PricingPage} />
       <Route
         path="/answers/grabfood-gofood-account-management"
         component={AnswersHirePage}

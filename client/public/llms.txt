@@ -405,6 +405,7 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 ## More
 
 - [About the company (legal entity, founder, software)](https://booster.delivery/about)
+- [Pricing and payment: 10% of delivery revenue, typical invoice IDR 6.5-13M per month, no upfront, monthly invoice payable by link; company address and phone](https://booster.delivery/pricing)
 - [Answers hub — index of the whole cluster](https://booster.delivery/answers)
 - [Answer: can I hire someone to manage my GrabFood/GoFood account?](https://booster.delivery/answers/grabfood-gofood-account-management)
 - [Answer: delivery agency vs Klikit / Deliverect / Hubster](https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect)

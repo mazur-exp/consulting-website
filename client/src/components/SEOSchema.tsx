@@ -68,6 +68,15 @@ export const SEOSchema = () => {
       "https://t.me/deliverybooster_asia",
       "https://www.linkedin.com/in/alekseimazur"
     ],
+    "telephone": "+62-859-5677-9546",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jalan Raya Semer No. 40 B, Kerobokan",
+      "addressLocality": "Kuta Utara, Badung",
+      "addressRegion": "Bali",
+      "postalCode": "80361",
+      "addressCountry": "ID"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "sales",

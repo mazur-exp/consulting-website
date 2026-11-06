@@ -66,6 +66,7 @@ const pages = [
     src: [`${P}/country.tsx`, `${C}/faqs.ts`],
   })),
   { path: '/about', priority: '0.8', changefreq: 'monthly', src: [`${P}/about.tsx`] },
+  { path: '/pricing', priority: '0.7', changefreq: 'monthly', src: [`${P}/pricing.tsx`] },
   { path: '/method', priority: '0.8', changefreq: 'monthly', src: [`${P}/method.tsx`] },
   { path: '/benchmark', priority: '0.8', changefreq: 'monthly', src: [`${P}/benchmark.tsx`] },
   { path: '/answers', priority: '0.8', changefreq: 'weekly', src: [`${P}/answers-hub.tsx`] },
