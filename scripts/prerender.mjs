@@ -38,6 +38,9 @@ const routes = [
   { url: '/', out: 'index.html', pickCountry: null }, // gate with the 8-country picker
   { url: '/about', out: 'about.html', pickCountry: 'id' },
   { url: '/pricing', out: 'pricing.html', pickCountry: 'id' },
+  // Юридические страницы только на английском: ?lang=-снимков нет, сервер отдаёт английский.
+  { url: '/terms', out: 'terms.html', pickCountry: 'id', langs: ['en'] },
+  { url: '/refund', out: 'refund.html', pickCountry: 'id', langs: ['en'] },
   { url: '/method', out: 'method.html', pickCountry: 'id' },
   { url: '/benchmark', out: 'benchmark.html', pickCountry: 'id' },
   // Answer pages for the "delegation" query cluster (AI-visibility gap, see ai_docs/ai-visibility)
@@ -93,6 +96,7 @@ try {
 
   for (const lang of LANGS)
   for (const route of routes) {
+    if (route.langs && !route.langs.includes(lang)) continue;
     const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const page = await ctx.newPage();
     // Deterministic snapshots: no geo redirects, no saved prefs
@@ -151,7 +155,7 @@ try {
   }
 
   await browser.close();
-  console.log(`prerender: ${count} snapshots done (${routes.length} routes x ${LANGS.length} languages)`);
+  console.log(`prerender: ${count} snapshots done (${routes.length} routes, ${LANGS.length} languages; English-only routes rendered once)`);
 } finally {
   server.kill();
 }

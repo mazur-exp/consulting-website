@@ -91,7 +91,7 @@ export default function AboutPage() {
     [t('Ресторанов прошло через нас с 2023', 'Restaurants served since 2023', 'Restoran yang kami tangani sejak 2023', 'ร้านที่ให้บริการแล้วตั้งแต่ปี 2023'), '200+'],
     [t('Основные рынки', 'Core markets', 'Pasar utama', 'ตลาดหลัก'), t('Бали (Индонезия), Пхукет (Таиланд)', 'Bali (Indonesia), Phuket (Thailand)', 'Bali (Indonesia), Phuket (Thailand)', 'บาหลี (อินโดนีเซีย) และภูเก็ต (ประเทศไทย)')],
     [t('Платформы', 'Platforms', 'Platform', 'แพลตฟอร์ม'), 'GrabFood, GoFood (GoJek), LINE MAN'],
-    [t('Модель оплаты', 'Pricing model', 'Model pembayaran', 'รูปแบบค่าบริการ'), t('10% от выручки доставки, без предоплаты', '10% of delivery revenue, no upfront payment', '10% dari omzet delivery, tanpa pembayaran di muka', '10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า')],
+    [t('Модель оплаты', 'Pricing model', 'Model pembayaran', 'รูปแบบค่าบริการ'), t('10% от чистой выплаты после комиссий площадок и рекламы, без предоплаты', '10% of net payout after platform commissions and ad costs, no upfront payment', '10% dari pencairan bersih setelah komisi platform dan biaya iklan, tanpa pembayaran di muka', '10% ของยอดเงินโอนสุทธิหลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา ไม่มีค่าใช้จ่ายล่วงหน้า')],
   ];
 
   return (

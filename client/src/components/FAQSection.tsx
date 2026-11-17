@@ -29,25 +29,25 @@ export const FAQSection = () => {
         ru: (
           <>
             Условно бесплатно - узнай в <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">чате</a> как.
-            {'\n'}10% от выручки {platforms}. Среднее $400-800/мес. Нет рисков, нет предоплаты.
+            {'\n'}10% от чистой выплаты {platforms} (после комиссий площадок и рекламы). Среднее $400-800/мес. Нет рисков, нет предоплаты.
           </>
         ),
         en: (
           <>
             Conditionally free - find out how in the <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
-            {'\n'}10% of {platforms} revenue. Average $400-800/month. No risk, no upfront payment.
+            {'\n'}10% of net payout from {platforms} (after platform commissions and ad costs). Average $400-800/month. No risk, no upfront payment.
           </>
         ),
         id: (
           <>
             Praktis gratis - cari tahu caranya di <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
-            {'\n'}10% dari omzet {platforms}. Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.
+            {'\n'}10% dari pencairan bersih {platforms} (setelah komisi platform dan biaya iklan). Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.
           </>
         ),
         th: (
           <>
             แทบจะฟรี — ถามวิธีได้ใน<a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">แชท</a>
-            {'\n'}10% ของรายได้จาก {platforms} เฉลี่ย $400-800/เดือน ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า
+            {'\n'}10% ของยอดเงินโอนสุทธิจาก {platforms} (หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา) เฉลี่ย $400-800/เดือน ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า
           </>
         )
       }
@@ -64,10 +64,10 @@ export const FAQSection = () => {
     {
       q: { ru: "Есть гарантия?", en: "Is there a guarantee?", id: "Ada garansi?", th: "มีการรับประกันไหม?" },
       a: {
-        ru: "Да. Целевые продажи за 6 месяцев или возврат комиссии.",
-        en: "Yes. Target sales in 6 months or commission refund.",
-        id: "Ya. Target penjualan dalam 6 bulan atau komisi dikembalikan.",
-        th: "ใช่ ทำยอดขายไม่ถึงเป้าใน 6 เดือน เราคืนค่าคอมมิชชัน"
+        ru: "Да. В договоре фиксируется цель по чистому доходу на первые 6 месяцев. Если она не достигнута, вы можете расторгнуть договор без штрафа.",
+        en: "Yes. The agreement sets a net income target for the first 6 months. If it is not reached, you can terminate the agreement without penalty.",
+        id: "Ya. Perjanjian menetapkan target pendapatan bersih untuk 6 bulan pertama. Jika tidak tercapai, Anda dapat mengakhiri perjanjian tanpa penalti.",
+        th: "มี ในสัญญาจะกำหนดเป้ารายได้สุทธิสำหรับ 6 เดือนแรก หากไม่ถึงเป้า คุณยกเลิกสัญญาได้โดยไม่มีค่าปรับ"
       }
     },
     {

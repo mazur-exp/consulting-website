@@ -13,6 +13,8 @@ import CasePage from "./pages/case";
 import NotFound from "@/pages/not-found";
 import AboutPage from "./pages/about";
 import PricingPage from "./pages/pricing";
+import TermsPage from "./pages/terms";
+import RefundPage from "./pages/refund";
 import AnswersHirePage from "./pages/answers-hire";
 import AnswersVsAggregatorsPage from "./pages/answers-vs-aggregators";
 import AnswersAdsNotWorkingPage from "./pages/answers-ads-not-working";
@@ -40,6 +42,8 @@ function Router() {
       ))}
       <Route path="/about" component={AboutPage} />
       <Route path="/pricing" component={PricingPage} />
+      <Route path="/terms" component={TermsPage} />
+      <Route path="/refund" component={RefundPage} />
       <Route
         path="/answers/grabfood-gofood-account-management"
         component={AnswersHirePage}

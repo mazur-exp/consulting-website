@@ -67,6 +67,9 @@ const pages = [
   })),
   { path: '/about', priority: '0.8', changefreq: 'monthly', src: [`${P}/about.tsx`] },
   { path: '/pricing', priority: '0.7', changefreq: 'monthly', src: [`${P}/pricing.tsx`] },
+  // Только английский: без hreflang-альтернатов (см. EN_ONLY_PATHS в client/src/config/company.ts).
+  { path: '/terms', priority: '0.3', changefreq: 'yearly', src: [`${P}/terms.tsx`], enOnly: true },
+  { path: '/refund', priority: '0.3', changefreq: 'yearly', src: [`${P}/refund.tsx`], enOnly: true },
   { path: '/method', priority: '0.8', changefreq: 'monthly', src: [`${P}/method.tsx`] },
   { path: '/benchmark', priority: '0.8', changefreq: 'monthly', src: [`${P}/benchmark.tsx`] },
   { path: '/answers', priority: '0.8', changefreq: 'weekly', src: [`${P}/answers-hub.tsx`] },
@@ -121,8 +124,7 @@ const alternates = (path) => {
 const body = pages
   .map((p) => `  <url>
     <loc>${ORIGIN}${p.path}</loc>
-${alternates(p.path)}
-    <lastmod>${lastmodFor(p)}</lastmod>
+${p.enOnly ? '' : alternates(p.path) + '\n'}    <lastmod>${lastmodFor(p)}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`)

@@ -1,6 +1,6 @@
 import { Link } from 'wouter';
 import { useLanguage } from '../hooks/useLanguage';
-import { COMPANY } from '../pages/pricing';
+import { COMPANY } from '../config/company';
 
 const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/delivery.booster/' },
@@ -47,14 +47,18 @@ export const Footer = () => {
             , '© Delivery Booster บาหลีและประเทศไทย')}
           </p>
         </div>
-        {/* Реквизиты юрлица: требование платёжного провайдера (06.11.2026). Те же данные на /pricing и в схеме. */}
+        {/* Реквизиты юрлица, email и ссылки на /terms и /refund: требование платёжного провайдера (06.11 и 16.11.2026). Данные из config/company.ts. */}
         <div className="mt-6 pt-6 border-t border-white/10 text-sm text-brand-muted text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-2" data-testid="footer-legal">
           <span>
-            {COMPANY.legalName} · {COMPANY.address} · <a href={COMPANY.phoneHref} className="hover:text-white transition-colors">{COMPANY.phone}</a>
+            {COMPANY.legalName} · {COMPANY.address} · <a href={COMPANY.phoneHref} className="hover:text-white transition-colors">{COMPANY.phone}</a> · <a href={COMPANY.emailHref} className="hover:text-white transition-colors">{COMPANY.email}</a>
           </span>
-          <Link href="/pricing" className="hover:text-white transition-colors whitespace-nowrap">
-            {t('Цены и оплата', 'Pricing and payment', 'Harga dan pembayaran', 'ราคาและการชำระเงิน')}
-          </Link>
+          <nav className="flex flex-wrap items-center justify-center md:justify-end gap-x-4 gap-y-1" aria-label="Legal" data-testid="footer-legal-links">
+            <Link href="/pricing" className="hover:text-white transition-colors whitespace-nowrap">
+              {t('Цены и оплата', 'Pricing and payment', 'Harga dan pembayaran', 'ราคาและการชำระเงิน')}
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors whitespace-nowrap">Terms &amp; Conditions</Link>
+            <Link href="/refund" className="hover:text-white transition-colors whitespace-nowrap">Refund Policy</Link>
+          </nav>
         </div>
       </div>
     </footer>

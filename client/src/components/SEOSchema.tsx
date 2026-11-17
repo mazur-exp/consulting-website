@@ -177,10 +177,10 @@ export const SEOSchema = () => {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": pick(
-            `10% от выручки ${platforms}. Среднее $400-800/мес. Нет рисков, нет предоплаты.`,
-            `10% of ${platforms} revenue. Average $400-800/month. No risk, no upfront payment.`,
-            `10% dari omzet ${platforms}. Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.`,
-            `10% ของรายได้จาก ${platforms} เฉลี่ย $400-800/เดือน ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า`
+            `10% от чистой выплаты ${platforms} (после комиссий площадок и рекламы). Среднее $400-800/мес. Нет рисков, нет предоплаты.`,
+            `10% of net payout from ${platforms} (after platform commissions and ad costs). Average $400-800/month. No risk, no upfront payment.`,
+            `10% dari pencairan bersih ${platforms} (setelah komisi platform dan biaya iklan). Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.`,
+            `10% ของยอดเงินโอนสุทธิจาก ${platforms} (หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา) เฉลี่ย $400-800/เดือน ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า`
           )
         }
       },
@@ -203,10 +203,10 @@ export const SEOSchema = () => {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": pick(
-            "Да. Целевые продажи за 6 месяцев или возврат комиссии.",
-            "Yes. Target sales in 6 months or commission refund.",
-            "Ya. Target penjualan tercapai dalam 6 bulan atau komisi dikembalikan.",
-            "มี ทำยอดขายไม่ถึงเป้าภายใน 6 เดือน เราคืนค่าคอมมิชชัน"
+            "Да. В договоре фиксируется цель по чистому доходу на первые 6 месяцев. Если она не достигнута, вы можете расторгнуть договор без штрафа.",
+            "Yes. The agreement sets a net income target for the first 6 months. If it is not reached, you can terminate the agreement without penalty.",
+            "Ya. Perjanjian menetapkan target pendapatan bersih untuk 6 bulan pertama. Jika tidak tercapai, Anda dapat mengakhiri perjanjian tanpa penalti.",
+            "มี ในสัญญาจะกำหนดเป้ารายได้สุทธิสำหรับ 6 เดือนแรก หากไม่ถึงเป้า คุณยกเลิกสัญญาได้โดยไม่มีค่าปรับ"
           )
         }
       },

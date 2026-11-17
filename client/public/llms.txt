@@ -23,8 +23,10 @@ growth agency. Not to be confused with the in-app "booster" advertising tool
 inside Grab/GrabAds, with Arvida "Software Delivery Booster" (a CI/CD product),
 or with parcel-logistics software of similar names.
 
-Pricing: 10% of delivery platform revenue (average $400–800/month), no upfront
-payment, results guarantee. Contact: WhatsApp +62 851 2693 9952
+Pricing: 10% of the restaurant's net payout after platform commissions and advertising
+costs (average $400–800/month), no upfront payment. The individual agreement sets a net
+income target for the first 6 months; if it is not reached, the client may terminate the
+agreement without penalty (there is no commission refund). Contact: WhatsApp +62 851 2693 9952
 (https://wa.me/6285126939952) or Telegram https://t.me/delivery_booster.
 
 ## Free diagnostic (start here)
@@ -108,7 +110,7 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   (GrabMerchant/GoBiz operations, menu SEO, GrabAds with ROAS control, rating to 4.8+,
   offline-hours and cancellation control, weekly analytics), how an agency differs from
   aggregator software (Klikit, Deliverect, Hubster: they merge orders and sync menus,
-  they do not manage sales), pricing (10% of delivery revenue, no upfront fee) and
+  they do not manage sales), pricing (10% of net payout after platform commissions and ad costs, no upfront fee) and
   whether it is within Grab's rules (yes - work happens inside the official merchant
   tools on the restaurant's behalf).
 
@@ -141,7 +143,7 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   to a team that already runs this".
 
 - [In-house delivery manager or an agency: what actually gets compared](https://booster.delivery/answers/in-house-manager-vs-agency):
-  comparing a manager's salary with 10% of delivery revenue misses the point - these are not
+  comparing a manager's salary with 10% of net payout misses the point - these are not
   two prices for the same thing. Specialists able to run GrabFood and GoFood at this level are
   not available on the hiring market: the profession does not exist, the platforms neither
   train nor certify anyone, and the knowledge only accumulates across a volume of accounts over
@@ -405,7 +407,9 @@ Russian: подключение ресторана к GrabFood и GoJek под �
 ## More
 
 - [About the company (legal entity, founder, software)](https://booster.delivery/about)
-- [Pricing and payment: 10% of delivery revenue, typical invoice IDR 6.5-13M per month, no upfront, monthly invoice payable by link; company address and phone](https://booster.delivery/pricing)
+- [Pricing and payment: 10% of net payout after platform commissions and ad costs, typical invoice IDR 6.5-13M per month, no upfront, monthly invoice payable by link, due within 5 business days; company address, phone and email](https://booster.delivery/pricing)
+- [Terms & Conditions (English): services, fees, invoicing and payment, early termination, six-month target, liability, confidentiality, governing law](https://booster.delivery/terms)
+- [Return & Refund Policy (English): fees for services rendered are non-refundable; erroneous and duplicate payments are refunded in full within 14 business days](https://booster.delivery/refund)
 - [Answers hub — index of the whole cluster](https://booster.delivery/answers)
 - [Answer: can I hire someone to manage my GrabFood/GoFood account?](https://booster.delivery/answers/grabfood-gofood-account-management)
 - [Answer: delivery agency vs Klikit / Deliverect / Hubster](https://booster.delivery/answers/delivery-agency-vs-klikit-deliverect)

@@ -9,6 +9,7 @@ import { syncOpenGraph } from '../components/AnswerLayout';
 import { CountryProvider } from '../hooks/useCountry';
 import { useLanguage } from '../hooks/useLanguage';
 import { messengerUrl, WHATSAPP_DISPLAY } from '../lib/cta';
+import { COMPANY } from '../config/company';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -17,19 +18,13 @@ const fadeIn = {
   viewport: { once: true },
 };
 
-/** Реквизиты компании: одно место, откуда они берутся на /pricing, в футере и в схеме.
- *  Адрес и телефон те же, что в анкете платёжного провайдера (Xendit, 06.11.2026). */
-export const COMPANY = {
-  legalName: 'PT Delivery Booster Group',
-  address: 'Jalan Raya Semer No. 40 B, Kerobokan, Kuta Utara, Badung, Bali 80361, Indonesia',
-  phone: '+62 859 5677 9546',
-  phoneHref: 'tel:+6285956779546',
-};
-
 /**
  * /pricing: услуги, цена, как платить, реквизиты. Требование платёжного провайдера
  * (Xendit, 06.11.2026): на сайте должны быть услуги, тарифы, раздел «как оплатить»,
- * адрес, телефон и полное название юрлица. Цифры только те, что уже есть на сайте.
+ * адрес, телефон и полное название юрлица.
+ * 17.11.2026: база комиссии и гарантия приведены к договору (10% от чистой выплаты после
+ * комиссий площадок и рекламы; возврата комиссии нет, есть право расторгнуть без штрафа).
+ * Формулировки здесь, на /terms и /refund должны совпадать с Consulting Services Agreement.
  */
 export default function PricingPage() {
   const { t, language } = useLanguage();
@@ -46,10 +41,10 @@ export default function PricingPage() {
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (description)
       description.content = t(
-        'Услуги, цена и порядок оплаты Delivery Booster: ведение аккаунтов GrabFood, GoFood и LINE MAN за 10% от выручки доставки, без предоплаты. Инвойс раз в месяц, оплата по ссылке. PT Delivery Booster Group, Бали.',
-        'Delivery Booster services, pricing and payment: GrabFood, GoFood and LINE MAN account management for 10% of delivery revenue, no upfront payment. Monthly invoice, pay by link. PT Delivery Booster Group, Bali.',
-        'Layanan, harga, dan cara pembayaran Delivery Booster: pengelolaan akun GrabFood, GoFood, dan LINE MAN dengan biaya 10% dari omzet delivery, tanpa uang muka. Invoice bulanan, bayar lewat tautan. PT Delivery Booster Group, Bali.',
-        'บริการ ราคา และวิธีชำระเงินของ Delivery Booster: ดูแลบัญชี GrabFood, GoFood และ LINE MAN ค่าบริการ 10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า ออกใบแจ้งหนี้รายเดือน ชำระผ่านลิงก์ PT Delivery Booster Group บาหลี'
+        'Услуги, цена и порядок оплаты Delivery Booster: ведение аккаунтов GrabFood, GoFood и LINE MAN за 10% от чистой выплаты после комиссий площадок и рекламы, без предоплаты. Инвойс раз в месяц, оплата по ссылке. PT Delivery Booster Group, Бали.',
+        'Delivery Booster services, pricing and payment: GrabFood, GoFood and LINE MAN account management for 10% of net payout after platform commissions and advertising costs, no upfront payment. Monthly invoice, pay by link. PT Delivery Booster Group, Bali.',
+        'Layanan, harga, dan cara pembayaran Delivery Booster: pengelolaan akun GrabFood, GoFood, dan LINE MAN dengan biaya 10% dari pencairan bersih setelah komisi platform dan biaya iklan, tanpa uang muka. Invoice bulanan, bayar lewat tautan. PT Delivery Booster Group, Bali.',
+        'บริการ ราคา และวิธีชำระเงินของ Delivery Booster: ดูแลบัญชี GrabFood, GoFood และ LINE MAN ค่าบริการ 10% ของยอดเงินโอนสุทธิหลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา ไม่มีค่าใช้จ่ายล่วงหน้า ออกใบแจ้งหนี้รายเดือน ชำระผ่านลิงก์ PT Delivery Booster Group บาหลี'
       );
     syncOpenGraph();
   }, [language]);
@@ -90,10 +85,10 @@ export default function PricingPage() {
   ];
 
   const payment: string[] = [
-    t('Предоплаты нет. Счёт выставляется раз в месяц по факту: 10% от выручки доставки за прошедший месяц по цифрам GrabMerchant, GoBiz и LINE MAN Wongnai Merchant.',
-      'No upfront payment. One invoice per month, after the fact: 10% of the previous month’s delivery revenue as shown in GrabMerchant, GoBiz and LINE MAN Wongnai Merchant.',
-      'Tidak ada uang muka. Satu invoice per bulan setelah periode berjalan: 10% dari omzet delivery bulan sebelumnya sesuai angka di GrabMerchant, GoBiz, dan LINE MAN Wongnai Merchant.',
-      'ไม่มีค่าใช้จ่ายล่วงหน้า ออกใบแจ้งหนี้เดือนละครั้งตามจริง: 10% ของยอดขายเดลิเวอรีเดือนที่ผ่านมา ตามตัวเลขใน GrabMerchant, GoBiz และ LINE MAN Wongnai Merchant'),
+    t('Предоплаты нет. Счёт выставляется раз в месяц по факту: 10% от чистой выплаты ресторану за прошедший месяц, после комиссий площадок и расходов на рекламу, по цифрам GrabMerchant, GoBiz и LINE MAN Wongnai Merchant. Срок оплаты: 5 рабочих дней с даты получения инвойса.',
+      'No upfront payment. One invoice per month, after the fact: 10% of the restaurant’s net payout for the previous month, after platform commissions and advertising costs, based on the figures in GrabMerchant, GoBiz and LINE MAN Wongnai Merchant. Payment is due within 5 business days of receiving the invoice.',
+      'Tidak ada uang muka. Satu invoice per bulan setelah periode berjalan: 10% dari pencairan bersih restoran bulan sebelumnya, setelah komisi platform dan biaya iklan, sesuai angka di GrabMerchant, GoBiz, dan LINE MAN Wongnai Merchant. Pembayaran paling lambat 5 hari kerja sejak invoice diterima.',
+      'ไม่มีค่าใช้จ่ายล่วงหน้า ออกใบแจ้งหนี้เดือนละครั้งตามจริง: 10% ของยอดเงินโอนสุทธิที่ร้านได้รับในเดือนที่ผ่านมา หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา ตามตัวเลขใน GrabMerchant, GoBiz และ LINE MAN Wongnai Merchant กำหนดชำระภายใน 5 วันทำการนับจากวันที่ได้รับใบแจ้งหนี้'),
     t('Инвойс от PT Delivery Booster Group приходит на email и в WhatsApp со ссылкой на оплату.',
       'The invoice from PT Delivery Booster Group arrives by email and WhatsApp with a payment link.',
       'Invoice dari PT Delivery Booster Group dikirim lewat email dan WhatsApp beserta tautan pembayaran.',
@@ -122,6 +117,7 @@ export default function PricingPage() {
       legalName: COMPANY.legalName,
       url: 'https://booster.delivery',
       telephone: COMPANY.phone,
+      email: COMPANY.email,
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Jalan Raya Semer No. 40 B, Kerobokan',
@@ -139,8 +135,8 @@ export default function PricingPage() {
         '@type': 'UnitPriceSpecification',
         price: '10',
         priceCurrency: 'IDR',
-        unitText: 'percent of monthly delivery platform revenue',
-        description: '10% of monthly GrabFood, GoFood and LINE MAN revenue; typical invoice IDR 6,500,000 to 13,000,000 per month (USD 400 to 800). No upfront payment, no setup fee. Invoiced monthly, payable by link.',
+        unitText: 'percent of monthly net payout after platform commissions and advertising costs',
+        description: '10% of the restaurant’s monthly net payout from GrabFood, GoFood and LINE MAN after platform commissions and advertising costs; typical invoice IDR 6,500,000 to 13,000,000 per month (USD 400 to 800). No upfront payment, no setup fee. Invoiced monthly, payable by link.',
       },
     },
   };
@@ -166,10 +162,10 @@ export default function PricingPage() {
                 </h1>
                 <p className="text-lg text-brand-muted max-w-3xl">
                   {t(
-                    'Delivery Booster ведёт аккаунты ресторанов на GrabFood, GoFood и LINE MAN под ключ. Одна услуга, одна цена: 10% от выручки доставки, без предоплаты. Ниже: что входит, сколько это стоит в месяц, как выставляется счёт и как его оплатить.',
-                    'Delivery Booster runs restaurant accounts on GrabFood, GoFood and LINE MAN end to end. One service, one price: 10% of delivery revenue, no upfront payment. Below: what is included, what it costs per month, how we invoice and how to pay.',
-                    'Delivery Booster mengelola akun restoran di GrabFood, GoFood, dan LINE MAN secara menyeluruh. Satu layanan, satu harga: 10% dari omzet delivery, tanpa uang muka. Di bawah ini: apa yang termasuk, berapa biayanya per bulan, bagaimana invoice dibuat, dan cara membayarnya.',
-                    'Delivery Booster ดูแลบัญชีร้านอาหารบน GrabFood, GoFood และ LINE MAN แบบครบวงจร บริการเดียว ราคาเดียว: 10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า ด้านล่างนี้คือสิ่งที่รวมอยู่ ค่าใช้จ่ายต่อเดือน วิธีออกใบแจ้งหนี้ และวิธีชำระเงิน'
+                    'Delivery Booster ведёт аккаунты ресторанов на GrabFood, GoFood и LINE MAN под ключ. Одна услуга, одна цена: 10% от чистой выплаты ресторану после комиссий площадок и расходов на рекламу, без предоплаты. Ниже: что входит, сколько это стоит в месяц, как выставляется счёт и как его оплатить.',
+                    'Delivery Booster runs restaurant accounts on GrabFood, GoFood and LINE MAN end to end. One service, one price: 10% of the restaurant’s net payout after platform commissions and advertising costs, no upfront payment. Below: what is included, what it costs per month, how we invoice and how to pay.',
+                    'Delivery Booster mengelola akun restoran di GrabFood, GoFood, dan LINE MAN secara menyeluruh. Satu layanan, satu harga: 10% dari pencairan bersih restoran setelah komisi platform dan biaya iklan, tanpa uang muka. Di bawah ini: apa yang termasuk, berapa biayanya per bulan, bagaimana invoice dibuat, dan cara membayarnya.',
+                    'Delivery Booster ดูแลบัญชีร้านอาหารบน GrabFood, GoFood และ LINE MAN แบบครบวงจร บริการเดียว ราคาเดียว: 10% ของยอดเงินโอนสุทธิที่ร้านได้รับหลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา ไม่มีค่าใช้จ่ายล่วงหน้า ด้านล่างนี้คือสิ่งที่รวมอยู่ ค่าใช้จ่ายต่อเดือน วิธีออกใบแจ้งหนี้ และวิธีชำระเงิน'
                   )}
                 </p>
               </motion.div>
@@ -191,7 +187,15 @@ export default function PricingPage() {
               <motion.div {...fadeIn} className="glass-card p-6 sm:p-8 rounded-2xl mt-12" id="price">
                 <h2 className="text-2xl font-bold mb-4">{t('Цена', 'Price', 'Harga', 'ราคา')}</h2>
                 <p className="text-3xl sm:text-4xl font-bold mb-2">
-                  {t('10% от выручки доставки', '10% of delivery revenue', '10% dari omzet delivery', '10% ของยอดขายเดลิเวอรี')}
+                  {t('10% от чистой выплаты', '10% of net payout', '10% dari pencairan bersih', '10% ของยอดเงินโอนสุทธิ')}
+                </p>
+                <p className="text-lg mb-3">
+                  {t(
+                    '10% от чистой выплаты ресторану после комиссий площадок и расходов на рекламу.',
+                    '10% of the restaurant’s net payout after platform commissions and advertising costs.',
+                    '10% dari pencairan bersih restoran setelah komisi platform dan biaya iklan.',
+                    '10% ของยอดเงินโอนสุทธิที่ร้านได้รับ หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา'
+                  )}
                 </p>
                 <p className="text-brand-muted mb-6">
                   {t(
@@ -205,7 +209,7 @@ export default function PricingPage() {
                   {[
                     [t('Предоплата', 'Upfront payment', 'Uang muka', 'ค่าใช้จ่ายล่วงหน้า'), t('нет', 'none', 'tidak ada', 'ไม่มี')],
                     [t('Плата за подключение', 'Setup fee', 'Biaya pemasangan', 'ค่าติดตั้ง'), t('нет', 'none', 'tidak ada', 'ไม่มี')],
-                    [t('Гарантия', 'Guarantee', 'Garansi', 'การรับประกัน'), t('целевые продажи за 6 месяцев или возврат комиссии', 'target sales in 6 months or commission refund', 'target penjualan dalam 6 bulan atau komisi dikembalikan', 'ทำยอดขายไม่ถึงเป้าใน 6 เดือน คืนค่าคอมมิชชัน')],
+                    [t('Гарантия', 'Guarantee', 'Garansi', 'การรับประกัน'), t('если за первые 6 месяцев не достигнута цель по чистому доходу из индивидуального договора, вы вправе расторгнуть договор без штрафа', 'if the net income target set in the individual agreement is not reached within the first 6 months, you may terminate the agreement without penalty', 'jika target pendapatan bersih dalam perjanjian individual tidak tercapai dalam 6 bulan pertama, Anda berhak mengakhiri perjanjian tanpa penalti', 'หากไม่ถึงเป้ารายได้สุทธิที่กำหนดในสัญญารายบุคคลภายใน 6 เดือนแรก คุณมีสิทธิ์ยกเลิกสัญญาโดยไม่มีค่าปรับ')],
                   ].map(([k, v]) => (
                     <div key={k} className="border border-white/10 rounded-xl p-4">
                       <div className="text-brand-muted mb-1">{k}</div>
@@ -236,6 +240,11 @@ export default function PricingPage() {
                 >
                   {t('Получить инвойс или задать вопрос', 'Request an invoice or ask a question', 'Minta invoice atau tanya', 'ขอใบแจ้งหนี้หรือสอบถาม')}
                 </a>
+                <p className="text-sm text-brand-muted mt-4">
+                  <Link href="/terms" className="underline hover:text-white transition-colors">Terms &amp; Conditions</Link>
+                  {' · '}
+                  <Link href="/refund" className="underline hover:text-white transition-colors">Refund Policy</Link>
+                </p>
               </motion.div>
 
               {/* Company details */}
@@ -246,6 +255,7 @@ export default function PricingPage() {
                     [t('Юридическое лицо', 'Legal entity', 'Badan hukum', 'นิติบุคคล'), COMPANY.legalName],
                     [t('Адрес', 'Address', 'Alamat', 'ที่อยู่'), COMPANY.address],
                     [t('Телефон', 'Phone', 'Telepon', 'โทรศัพท์'), COMPANY.phone],
+                    ['Email', COMPANY.email],
                     ['WhatsApp', WHATSAPP_DISPLAY],
                     [t('Сайт', 'Website', 'Situs web', 'เว็บไซต์'), 'https://booster.delivery'],
                   ].map(([k, v]) => (

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { isEnOnlyPath } from '../config/company';
 
 type Language = 'ru' | 'en' | 'id' | 'th';
 
@@ -48,6 +49,12 @@ const syncCanonicalAndAlternates = (language: Language) => {
   const link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!link) return;
   const base = link.href.split('?')[0];
+  // Юридические страницы (/terms, /refund) только на английском: без ?lang= и без hreflang.
+  if (isEnOnlyPath(window.location.pathname)) {
+    link.href = base;
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+    return;
+  }
   link.href = language === 'en' ? base : `${base}?lang=${language}`;
 
   const alternates: Array<[string, string]> = [
@@ -82,7 +89,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   // AFTER its children's effects, so setting the title here silently overwrote
   // every per-page title — including in the prerendered snapshots bots read.
   useEffect(() => {
-    document.documentElement.lang = language;
+    document.documentElement.lang = isEnOnlyPath(window.location.pathname) ? 'en' : language;
     syncCanonicalAndAlternates(language);
   }, [language]);
 

@@ -23,10 +23,10 @@ export const PricingSection = () => {
 
           <p className="text-xl text-brand-text mb-4" data-testid="text-pricing-main">
             {t(
-              `10% от выручки ${country.platformsShort} (среднее $400-800/мес).`,
-              `10% of ${country.platformsShort} revenue (average $400-800/month).`,
-              `10% dari omzet ${country.platformsShort} (rata-rata $400-800/bulan).`,
-              `10% ของรายได้จาก ${country.platformsShort} (เฉลี่ย $400-800/เดือน)`
+              `10% от чистой выплаты ${country.platformsShort} после комиссий площадок и рекламы (среднее $400-800/мес).`,
+              `10% of net payout from ${country.platformsShort} after platform commissions and ad costs (average $400-800/month).`,
+              `10% dari pencairan bersih ${country.platformsShort} setelah komisi platform dan biaya iklan (rata-rata $400-800/bulan).`,
+              `10% ของยอดเงินโอนสุทธิจาก ${country.platformsShort} หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา (เฉลี่ย $400-800/เดือน)`
             )}
           </p>
 

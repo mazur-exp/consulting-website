@@ -51,7 +51,7 @@ export default function CountryPage({ code }: { code: CountryCode }) {
           : language === 'id'
             ? `Delivery Booster menumbuhkan omzet restoran ${inCountryId} di ${platformsId}. Omzet naik 2-6 kali: ketersediaan, menu dan harga, rating, serta iklan dikelola dalam satu akun.`
             : language === 'th'
-              ? `Delivery Booster คือเอเจนซีที่รับดูแลบัญชี ${platformsTh} ให้ร้านอาหาร${inCountryTh} แทนเจ้าของร้าน ยอดขายโต 2-6 เท่า: ความพร้อมขาย เมนูและราคา เรตติ้ง และโฆษณา ดูแลรวมอยู่ในบัญชีเดียว คิดค่าบริการเป็นเปอร์เซ็นต์ของยอดขายเดลิเวอรี่`
+              ? `Delivery Booster คือเอเจนซีที่รับดูแลบัญชี ${platformsTh} ให้ร้านอาหาร${inCountryTh} แทนเจ้าของร้าน ยอดขายโต 2-6 เท่า: ความพร้อมขาย เมนูและราคา เรตติ้ง และโฆษณา ดูแลรวมอยู่ในบัญชีเดียว คิดค่าบริการเป็นเปอร์เซ็นต์ของยอดเงินโอนสุทธิ`
               : `Delivery Booster grows restaurant sales ${country.inCountryEn} on ${country.platformsEn}. 2-6x revenue growth: availability, menu and pricing, rating and ads managed in one account.`;
 
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');

@@ -74,10 +74,10 @@ const messengerText = (
       });
     case 'pricing':
       return pick(language, {
-        ru: 'Здравствуйте! Хочу узнать условия сотрудничества и стоимость (10% от выручки с доставки) для моего ресторана.',
-        en: 'Hello! I would like to know the terms and the cost (10% of delivery revenue) for my restaurant.',
-        id: 'Halo! Saya ingin tahu detail paket kerja sama dan biaya (10% dari omzet delivery) untuk restoran saya.',
-        th: 'สวัสดีค่ะ/ครับ! อยากทราบรายละเอียดเงื่อนไขและค่าบริการ (10% ของยอดขายเดลิเวอรี่) สำหรับร้านของฉัน',
+        ru: 'Здравствуйте! Хочу узнать условия сотрудничества и стоимость (10% от чистой выплаты) для моего ресторана.',
+        en: 'Hello! I would like to know the terms and the cost (10% of net payout) for my restaurant.',
+        id: 'Halo! Saya ingin tahu detail paket kerja sama dan biaya (10% dari pencairan bersih) untuk restoran saya.',
+        th: 'สวัสดีค่ะ/ครับ! อยากทราบรายละเอียดเงื่อนไขและค่าบริการ (10% ของยอดเงินโอนสุทธิ) สำหรับร้านของฉัน',
       });
     case 'faq-price':
       return pick(language, {

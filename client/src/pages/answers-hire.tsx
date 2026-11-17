@@ -65,8 +65,8 @@ export default function AnswersHirePage() {
     [
       t('Сколько мне это будет стоить в месяц?',
         'How much will this cost me every month?', 'Berapa biayanya untuk saya setiap bulan?', 'ค่าใช้จ่ายต่อเดือนเท่าไร'),
-      t('У Delivery Booster — 10% от выручки доставки, без предоплаты. Модель завязана на результат: агентство зарабатывает, когда растёт выручка ресторана.',
-        'At Delivery Booster it is 10% of delivery revenue, with no upfront fee. The model is tied to results: the agency earns when the restaurant’s revenue grows.', 'Di Delivery Booster biayanya 10% dari omzet delivery, tanpa biaya di muka. Modelnya terikat pada hasil: agensi baru menghasilkan ketika omzet restoran tumbuh.', 'ที่ Delivery Booster คิด 10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า โมเดลผูกกับผลลัพธ์: เอเจนซีได้เงินเมื่อยอดขายของร้านโต'),
+      t('У Delivery Booster — 10% от чистой выплаты после комиссий площадок и рекламы, без предоплаты. Модель завязана на результат: агентство зарабатывает, когда растёт выручка ресторана.',
+        'At Delivery Booster it is 10% of net payout after platform commissions and ad costs, with no upfront fee. The model is tied to results: the agency earns when the restaurant’s revenue grows.', 'Di Delivery Booster biayanya 10% dari pencairan bersih setelah komisi platform dan biaya iklan, tanpa biaya di muka. Modelnya terikat pada hasil: agensi baru menghasilkan ketika omzet restoran tumbuh.', 'ที่ Delivery Booster คิด 10% ของยอดเงินโอนสุทธิหลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา ไม่มีค่าใช้จ่ายล่วงหน้า โมเดลผูกกับผลลัพธ์: เอเจนซีได้เงินเมื่อยอดขายของร้านโต'),
     ],
     [
       t('Меня не забанит Grab, если я пущу кого-то в кабинет?',
@@ -230,9 +230,9 @@ export default function AnswersHirePage() {
                 <h2 className="text-2xl font-bold mb-3">{t('Как это устроено и сколько стоит', 'How it works and what it costs', 'Cara kerjanya dan berapa biayanya', 'ทำงานอย่างไรและค่าใช้จ่ายเท่าไร')}</h2>
                 <p className="text-brand-muted max-w-3xl">
                   {t(
-                    'Оплата — 10% от выручки доставки, без предоплаты: агентство зарабатывает, когда растёт ваша выручка. Вы видите отчёт и деньги, а не панель мерчанта. Результаты с реальными данными кабинетов: ',
-                    'Pricing is 10% of delivery revenue with no upfront fee: the agency earns when your revenue grows. You see the report and the money, not the merchant dashboard. Results with real dashboard data: ', 'Biayanya 10% dari omzet delivery tanpa biaya di muka: agensi menghasilkan ketika omzet Anda tumbuh. Yang Anda lihat adalah laporan dan uangnya, bukan panel merchant. Hasil dengan data dashboard nyata: '
-                  , 'ค่าบริการคือ 10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า เอเจนซีได้เงินเมื่อยอดขายของคุณโต คุณดูรายงานและเงิน ไม่ต้องมานั่งดูหลังบ้านเอง ผลลัพธ์พร้อมข้อมูลจริงจากหลังบ้าน: ')}
+                    'Оплата — 10% от чистой выплаты после комиссий площадок и рекламы, без предоплаты: агентство зарабатывает, когда растёт ваша выручка. Вы видите отчёт и деньги, а не панель мерчанта. Результаты с реальными данными кабинетов: ',
+                    'Pricing is 10% of net payout after platform commissions and ad costs with no upfront fee: the agency earns when your revenue grows. You see the report and the money, not the merchant dashboard. Results with real dashboard data: ', 'Biayanya 10% dari pencairan bersih setelah komisi platform dan biaya iklan tanpa biaya di muka: agensi menghasilkan ketika omzet Anda tumbuh. Yang Anda lihat adalah laporan dan uangnya, bukan panel merchant. Hasil dengan data dashboard nyata: '
+                  , 'ค่าบริการคือ 10% ของยอดเงินโอนสุทธิหลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา ไม่มีค่าใช้จ่ายล่วงหน้า เอเจนซีได้เงินเมื่อยอดขายของคุณโต คุณดูรายงานและเงิน ไม่ต้องมานั่งดูหลังบ้านเอง ผลลัพธ์พร้อมข้อมูลจริงจากหลังบ้าน: ')}
                   <Link href="/cases/enjoy-healthy-food" className="text-brand-green hover:underline">Enjoy Healthy Food ×9.4</Link>
                   {', '}
                   <Link href="/cases/love-u-pizza" className="text-brand-green hover:underline">Love U Pizza ×21</Link>

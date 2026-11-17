@@ -157,7 +157,7 @@ export default function AnswersVsAggregatorsPage() {
      t('Сравниваем с медианами по 96 ресторанам и 270 568 заказам — они опубликованы', 'We compare against medians from 96 restaurants and 270,568 orders — published openly', 'Kami membandingkan dengan median 96 restoran dan 270.568 pesanan — diterbitkan terbuka', 'เราเทียบกับค่ามัธยฐานจากร้าน 96 แห่งและ 270,568 ออร์เดอร์ ซึ่งเผยแพร่ไว้แล้ว')],
     [t('Ответственность', 'Accountability', 'Tanggung jawab', 'ความรับผิดชอบ'),
      t('Аптайм интеграции', 'Integration uptime', 'Uptime integrasi', 'ความเสถียรของการเชื่อมต่อ'),
-     t('Выручка. 10% от неё, без предоплаты', 'Revenue. 10% of it, no upfront payment', 'Omzet. 10% darinya, tanpa uang muka', 'ยอดขาย คิด 10% ของมัน ไม่มีค่าใช้จ่ายล่วงหน้า')],
+     t('Выручка. Оплата 10% от чистой выплаты, без предоплаты', 'Revenue. We are paid 10% of net payout, no upfront payment', 'Omzet. Biaya 10% dari pencairan bersih, tanpa uang muka', 'ยอดขาย คิด 10% ของยอดเงินโอนสุทธิ ไม่มีค่าใช้จ่ายล่วงหน้า')],
   ];
 
   /** Чек-лист покупателя. Не аргумент против софта — им пользуемся сами. */
@@ -206,15 +206,15 @@ export default function AnswersVsAggregatorsPage() {
       t('Отвечает за результат', 'Owns the outcome', 'Bertanggung jawab atas hasil', 'ใครรับผิดชอบผลลัพธ์'),
       t('За аптайм интеграции. Выручка — вне зоны ответственности.',
         'Integration uptime. Revenue is out of scope.', 'Uptime integrasi. Omzet di luar tanggung jawabnya.', 'ความเสถียรของการเชื่อมต่อ ยอดขายไม่อยู่ในขอบเขต'),
-      t('За выручку. У нас оплата 10% от выручки доставки — растёт она, растём мы.',
-        'Revenue. We are paid 10% of delivery revenue — it grows, we grow.', 'Omzet. Kami dibayar 10% dari omzet delivery — omzet naik, kami ikut naik.', 'ยอดขาย เราได้ค่าตอบแทน 10% ของยอดขายเดลิเวอรี ยอดโต เราก็โตด้วย'),
+      t('За выручку. У нас оплата 10% от чистой выплаты после комиссий площадок и рекламы — растёт она, растём мы.',
+        'Revenue. We are paid 10% of net payout after platform commissions and ad costs — it grows, we grow.', 'Omzet. Kami dibayar 10% dari pencairan bersih setelah komisi platform dan biaya iklan — omzet naik, kami ikut naik.', 'ยอดขาย เราได้ค่าตอบแทน 10% ของยอดเงินโอนสุทธิหลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา ยอดโต เราก็โตด้วย'),
     ],
     [
       t('Стоимость', 'Pricing', 'Biaya', 'ค่าบริการ'),
       t('Фиксированная подписка, платится независимо от результата.',
         'A fixed subscription, paid regardless of results.', 'Langganan tetap, dibayar terlepas dari hasilnya.', 'ค่าสมาชิกคงที่ จ่ายเท่ากันไม่ว่าผลจะเป็นอย่างไร'),
-      t('10% от выручки доставки, без предоплаты.',
-        '10% of delivery revenue, no upfront fee.', '10% dari omzet delivery, tanpa biaya di muka.', '10% ของยอดขายเดลิเวอรี ไม่มีค่าใช้จ่ายล่วงหน้า'),
+      t('10% от чистой выплаты после комиссий площадок и рекламы, без предоплаты.',
+        '10% of net payout after platform commissions and ad costs, no upfront fee.', '10% dari pencairan bersih setelah komisi platform dan biaya iklan, tanpa biaya di muka.', '10% ของยอดเงินโอนสุทธิหลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา ไม่มีค่าใช้จ่ายล่วงหน้า'),
     ],
   ];
 
