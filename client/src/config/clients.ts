@@ -3,6 +3,8 @@
  * "DB — ссылки и логотипы клиентов (для сайта).xlsx" + logos_klientov_DB.html.
  * Source of truth for names, districts, links and status lives in that sheet;
  * regenerate this file rather than editing by hand.
+ * 24.11.2026: тайский блок правился руками по финальному ТЗ маркетолога (новые точки Lume, Sassy Go,
+ * Unit33, поле tile, убраны Enjoy Your Meal и дубль Enjoy). При перегенерации из таблицы это учесть.
  *
  * market: 'ID' = Bali page (/id), 'TH' = Phuket page (/th).
  * active: currently under management; false = worked with us before (shown as a text chip).
@@ -14,6 +16,8 @@ export type ClientMarket = 'ID' | 'TH';
 export interface Client {
   slug: string;
   name: string;
+  /** Подпись плитки в ленте логотипов, если отличается от name (у сетей: точка отдельно). */
+  tile?: string;
   market: ClientMarket;
   district?: string;
   active: boolean;
@@ -187,22 +191,25 @@ export const CLIENTS: Client[] = [
   { slug: "zaytun-uluwatu", name: "Zaytun", market: "ID", district: "Uluwatu", active: false, grab: "https://food.grab.com/id/en/restaurant/online-delivery/6-C643R3CZMBWDNJ", gofood: "https://gofood.link/a/P1CcvNL", logo: "/clients/zaytun-uluwatu.webp" },
   { slug: "enjoy-healthy-food", name: "Enjoy Healthy Food", market: "TH", active: true, grab: "https://r.grab.com/g/6-20260910_155532_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C6VWFCN3JXU2WA", logo: "/clients/enjoy-healthy-food.webp" },
   { slug: "etna-bang-tao", name: "Etna", market: "TH", district: "Bang Tao", active: true, grab: "https://r.grab.com/g/6-20260910_155608_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7JDVPJTHF61LX", logo: "/clients/etna-bang-tao.webp" },
-  { slug: "island-bang-tao", name: "Island", market: "TH", district: "Bang Tao", active: true, grab: "https://r.grab.com/g/6-20260910_155701_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C8BXVYUDT6XVTE", logo: "/clients/island-bang-tao.webp" },
-  { slug: "island-kids", name: "Island KIDS", market: "TH", active: true, grab: "https://r.grab.com/g/6-20260910_155634_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C75KERAWSFBGWA", logo: "/clients/island-kids.webp" },
-  { slug: "lavash-grill-karon", name: "Lavash & Grill", market: "TH", district: "Karon", active: true, grab: "https://r.grab.com/g/6-20260910_155722_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7VYGKECVFJBAJ" },
+  { slug: "island-bang-tao", name: "Island", tile: ".island Bang Tao", market: "TH", district: "Bang Tao", active: true, grab: "https://r.grab.com/g/6-20260910_155701_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C8BXVYUDT6XVTE", logo: "/clients/island-bang-tao.webp" },
+  { slug: "island-kids", name: "Island KIDS", tile: ".island KIDS Chalong", market: "TH", active: true, grab: "https://r.grab.com/g/6-20260910_155634_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C75KERAWSFBGWA", logo: "/clients/island-kids.webp" },
+  { slug: "lavash-grill-karon", name: "Lavash & Grill", tile: "Lavash & Grill Karon", market: "TH", district: "Karon", active: true, grab: "https://r.grab.com/g/6-20260910_155722_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7VYGKECVFJBAJ", logo: "/clients/lavash-grill-karon.webp" },
   { slug: "meat-point-rawai", name: "Meat Point", market: "TH", district: "Rawai", active: true, grab: "https://r.grab.com/g/6-20260910_155740_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C6AEL36XNALFPA", logo: "/clients/meat-point-rawai.webp" },
   { slug: "sensorica-karon", name: "Sensorica", market: "TH", district: "Karon", active: true, grab: "https://r.grab.com/g/6-20260910_155759_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7EWVAE3CKKBSE", logo: "/clients/sensorica-karon.webp" },
   { slug: "swag-food", name: "Swag Food", market: "TH", active: true, grab: "https://r.grab.com/g/6-20260910_155856_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7TUUCDVEKB1EA", logo: "/clients/swag-food.webp" },
-  { slug: "ussr-patong", name: "USSR Phuket", market: "TH", district: "Patong", active: true, grab: "https://r.grab.com/g/6-20260910_155913_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C66DCTUVLTWYJX" },
-  { slug: "ab-house-burger-steak-old-town", name: "Ab House Burger & Steak", market: "TH", district: "Old Town", active: true, grab: "https://r.grab.com/g/6-20260910_161015_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7DUV74AERAXLJ", logo: "/clients/ab-house-burger-steak-old-town.webp" },
+  { slug: "ussr-patong", name: "USSR Phuket", market: "TH", district: "Patong", active: true, grab: "https://r.grab.com/g/6-20260910_155913_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C66DCTUVLTWYJX", logo: "/clients/ussr-patong.webp" },
+  { slug: "ab-house-burger-steak-old-town", name: "Ab House Burger & Steak", tile: "Ab House", market: "TH", district: "Old Town", active: true, grab: "https://r.grab.com/g/6-20260910_161015_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7DUV74AERAXLJ", logo: "/clients/ab-house-burger-steak-old-town.webp" },
   { slug: "alma-ata-reastaurant-chalong", name: "Alma-Ata", market: "TH", district: "Chalong", active: true, grab: "https://r.grab.com/g/6-20260910_161035_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C6LZLN3ERLJCET", logo: "/clients/alma-ata-reastaurant-chalong.webp" },
-  { slug: "enjoy-healthy-food-boat-avenue", name: "Enjoy healthy food", market: "TH", district: "Boat Avenue", active: true, logo: "/clients/enjoy-healthy-food-boat-avenue.webp" },
-  { slug: "enjoy-your-meal-phuket", name: "Enjoy Your Meal", market: "TH", district: "Phuket", active: true, logo: "/clients/enjoy-your-meal-phuket.webp" },
   { slug: "gorilla-sushi-phuket", name: "Gorilla sushi", market: "TH", district: "Phuket", active: false },
   { slug: "legourmet", name: "LeGourmet", market: "TH", active: true, logo: "/clients/legourmet.webp" },
   { slug: "shawerma-king-phuket", name: "Shawerma King", market: "TH", district: "Phuket", active: false },
   { slug: "surf-point", name: "Surf Point", market: "TH", active: true, grab: "https://r.grab.com/g/6-20260910_160129_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C6NKL2JJNXBFCA", logo: "/clients/surf-point.webp" },
   { slug: "yuuhi-bang-tao", name: "Yuuhi", market: "TH", district: "Bang Tao", active: true, grab: "https://r.grab.com/g/6-20260910_161058_496D63F046A64B21B3EE7535B315308A_MEXMPS-3-C7DBAVKGSFEJTT", logo: "/clients/yuuhi-bang-tao.webp" },
+  { slug: "lume-boat-avenue", name: "Lume", tile: "Lume Boat Avenue", market: "TH", district: "Bang Tao", active: true, logo: "/clients/lume-boat-avenue.webp" },
+  { slug: "lume-royal-marina", name: "Lume", tile: "Lume Royal Marina", market: "TH", district: "Royal Phuket Marina", active: true, grab: "https://r.grab.com/g/6-20261119_100359_DCC9A9F51A4C48C7B47623C05A83A00E_MEXMPS-3-C7JDAUKXHADFNE", logo: "/clients/lume-royal-marina.webp" },
+  { slug: "sassy-go-bang-po-beach", name: "Sassy Go", tile: "Sassy Go Bang Po Beach", market: "TH", district: "Bang Po, Koh Samui", active: true, logo: "/clients/sassy-go-bang-po-beach.webp" },
+  { slug: "sassy-go-chaweng", name: "Sassy Go", tile: "Sassy Go Chaweng", market: "TH", district: "Chaweng, Koh Samui", active: true, logo: "/clients/sassy-go-chaweng.webp" },
+  { slug: "unit33-kata", name: "Unit33", market: "TH", district: "Kata", active: true, grab: "https://r.grab.com/g/6-20261119_102141_DCC9A9F51A4C48C7B47623C05A83A00E_MEXMPS-3-C6TBTJNJME6ERE", logo: "/clients/unit33-kata.webp" },
 ];
 
 /** District labels used in the section subtitle, in display order. */

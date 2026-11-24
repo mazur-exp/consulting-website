@@ -1,18 +1,10 @@
 import { syncOpenGraph } from '../components/AnswerLayout';
 import { useEffect } from 'react';
-import { AnimatedBackground } from '../components/AnimatedBackground';
 import { Header } from '../components/Header';
-import { HeroSection } from '../components/HeroSection';
-import { TargetAudienceSection } from '../components/TargetAudienceSection';
-import { ServicesSection } from '../components/ServicesSection';
-import { WorkProcessSection } from '../components/WorkProcessSection';
-import { PricingSection } from '../components/PricingSection';
-import { CaseStudiesSection } from '../components/CaseStudiesSection';
+import { AudienceV2, CasesV2, FinalCtaV2, HeroV2, LogosStrip, PriceV2, ProcessV2, ReviewsV2, ServicesV2 } from '../components/HomeV2';
 import { ClientsSection } from '../components/ClientsSection';
-import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FounderSection } from '../components/FounderSection';
 import { FAQSection } from '../components/FAQSection';
-import { CTASection } from '../components/CTASection';
 import { VideoSection } from '../components/VideoSection';
 import { Footer } from '../components/Footer';
 import { SEOSchema } from '../components/SEOSchema';
@@ -22,7 +14,10 @@ import { COUNTRIES, CountryCode } from '../config/countries';
 
 /**
  * One page shape for every market. What differs between countries lives in
- * config/countries.ts, not here — so all pages stay structurally identical.
+ * config/countries.ts and config/cases.ts, not here.
+ * Порядок блоков по финальному ТЗ маркетолога (24.11.2026): первый экран,
+ * логотипы, кейсы, кому, что делаем, как работаем, цена, отзывы, основатель,
+ * вопросы и статьи, финальный призыв.
  */
 export default function CountryPage({ code }: { code: CountryCode }) {
   const { language } = useLanguage();
@@ -61,26 +56,23 @@ export default function CountryPage({ code }: { code: CountryCode }) {
 
   return (
     <CountryProvider country={code}>
-      <div className="min-h-screen bg-brand-bg text-brand-text overflow-x-hidden">
+      <div className="v v-hpad" style={{ overflowX: 'hidden' }}>
         <SEOSchema />
-        <AnimatedBackground />
         <Header />
-
-        <main className="relative pt-16 z-10">
-          <HeroSection />
-          <TargetAudienceSection />
-          <ServicesSection />
-          <WorkProcessSection />
-          <PricingSection />
-          <CaseStudiesSection />
-          <ClientsSection />
-          {country.showTestimonials && <TestimonialsSection />}
+        <main>
+          <HeroV2 />
+          {code === 'id' ? <ClientsSection /> : <LogosStrip />}
+          <CasesV2 />
+          <AudienceV2 />
+          <ServicesV2 />
+          <ProcessV2 />
+          <PriceV2 />
+          <ReviewsV2 />
           <FounderSection />
           <FAQSection />
-          <CTASection />
+          <FinalCtaV2 />
           {country.showVideo && <VideoSection />}
         </main>
-
         <Footer />
       </div>
     </CountryProvider>

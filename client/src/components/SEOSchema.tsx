@@ -1,6 +1,7 @@
 import { useLanguage } from '../hooks/useLanguage';
 import { useCountry } from '../hooks/useCountry';
 import { getCountryFaqs } from '../config/faqs';
+import { avgPrice } from '../config/price';
 
 export const SEOSchema = () => {
   const { language } = useLanguage();
@@ -9,6 +10,7 @@ export const SEOSchema = () => {
   const isTh = language === 'th';
   const country = useCountry();
   const platforms = country.platformsShort;
+  const avg = avgPrice(country.code);
   const regionRu = country.inCountryRu;
   const regionEn = country.inCountryEn;
   const regionId = country.inCountryId ?? country.inCountryEn;
@@ -177,10 +179,10 @@ export const SEOSchema = () => {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": pick(
-            `10% от чистой выплаты ${platforms} (после комиссий площадок и рекламы). Среднее $400-800/мес. Нет рисков, нет предоплаты.`,
-            `10% of net payout from ${platforms} (after platform commissions and ad costs). Average $400-800/month. No risk, no upfront payment.`,
-            `10% dari pencairan bersih ${platforms} (setelah komisi platform dan biaya iklan). Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.`,
-            `10% ของยอดเงินโอนสุทธิจาก ${platforms} (หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา) เฉลี่ย $400-800/เดือน ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า`
+            `10% от чистой выплаты ${platforms} (после комиссий площадок и рекламы).${avg.ru} Нет рисков, нет предоплаты.`,
+            `10% of net payout from ${platforms} (after platform commissions and ad costs).${avg.en} No risk, no upfront payment.`,
+            `10% dari pencairan bersih ${platforms} (setelah komisi platform dan biaya iklan).${avg.id} Tanpa risiko, tanpa pembayaran di muka.`,
+            `10% ของยอดเงินโอนสุทธิจาก ${platforms} (หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา)${avg.th} ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า`
           )
         }
       },

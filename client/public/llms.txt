@@ -75,10 +75,19 @@ Official Delivery Booster profiles (same entity, booster.delivery):
 
 ## Case studies (real GrabFood merchant data)
 
-- [Enjoy Healthy Food, Phuket: revenue x9.4 in 14 months, orders x4.6, ROAS 27.5x](https://booster.delivery/cases/enjoy-healthy-food):
+- [Surf Point, Rawai, Phuket: revenue x2.3 in 3 months, from low season to the best month of the year](https://booster.delivery/cases/surf-point-phuket):
+  June -> October 2026 on GrabFood: revenue 175,670 -> 402,050 THB/month (+129%), orders
+  355 -> 617 (+74%), average order 495 -> 652 THB, ads launched from zero at ROAS 21.7x,
+  reach 4,467 -> 21,247, rating 4.8 held, payout to the restaurant 149,542 -> 321,015 THB.
+  October beat the restaurant's best high-season month (March) by 39%.
+- [.island, Bang Tao, Phuket: launched from zero to 243,575 THB a month in 3 months](https://booster.delivery/cases/island-phuket):
+  no Grab account in July 2026; Delivery Booster registered and launched the restaurant,
+  first sales on 22 July; October 2026: 243,575 THB, 337 orders, average order 723 THB,
+  ads ROAS 24x, rating 4.8, 50% returning guests, in the low season.
+- [Enjoy Healthy Food, Phuket: revenue x9.4 (January 2025 -> January 2026, 5 months with us), orders x4.6, ROAS 27.5x](https://booster.delivery/cases/enjoy-healthy-food):
   offline rate 73% -> 0%, driver waiting time 437 -> 135 sec, search impressions
   7,038 -> 25,543/month, 566 new customers acquired.
-- [USSR Phuket, Patong: revenue x3.9 in 2 months, orders x7.4, ROAS 24x](https://booster.delivery/cases/ussr-phuket):
+- [USSR Phuket, Patong: revenue x3.8 in 2 months (sales 12,240 -> 46,710 THB/month), orders x7.4, ROAS 24x](https://booster.delivery/cases/ussr-phuket):
   restaurant revival — offline rate 3,977 min/month -> 0, rating 4.5 -> 4.8,
   search impressions 0 -> 7,481/month, first ad order on day 3.
 - [Etna Phuket, Bang Tao: orders x2.2 and revenue +87% in 2 months — on falling traffic](https://booster.delivery/cases/etna-phuket):
@@ -151,7 +160,7 @@ Official Delivery Booster profiles (same entity, booster.delivery):
   an alternative state, in their own public profiles, achievements in tens of percent (+30% in
   sales, +109% in menu views, +50% in profile visits). Delivery Booster's published cases, taken
   from GrabMerchant and GoBiz dashboards with screenshots, are multiples: revenue x21 in 9 months
-  (Love U Pizza, Bali), x9.4 in 14 months (Enjoy Healthy Food, Phuket), x3.9 in 2 months
+  (Love U Pizza, Bali), x9.4 in a year (Enjoy Healthy Food, Phuket), x3.8 in 2 months
   (USSR Phuket), x2.6 on an already-running restaurant (Zaytun Ubud), and +87% and +46% on
   larger venues (Etna Phuket, Meat Point Phuket). Stated caveat: published cases are the best
   ones, not the median - the medians are published separately in the benchmark. Two things a

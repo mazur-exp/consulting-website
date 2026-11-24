@@ -32,7 +32,7 @@ const ANSWERS = [
   'grabfood-phuket-thailand',
   'ai-assistant-grabfood-check',
 ];
-const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
+const CASES = ['surf-point-phuket', 'island-phuket', 'ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
 const routes = [
   { url: '/', out: 'index.html', pickCountry: null }, // gate with the 8-country picker

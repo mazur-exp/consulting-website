@@ -29,7 +29,7 @@ import AnswersHubPage from "./pages/answers-hub";
 import MethodPage from "./pages/method";
 import BenchmarkPage from "./pages/benchmark";
 import { COUNTRY_ORDER, pathForCountry } from "./config/countries";
-import { getCaseBySlug } from "./config/case-studies";
+import "./v2.css";
 
 function Router() {
   return (
@@ -64,7 +64,7 @@ function Router() {
       <Route path="/method" component={MethodPage} />
       <Route path="/benchmark" component={BenchmarkPage} />
       <Route path="/cases/:slug">
-        {(params) => <CasePage caseStudy={getCaseBySlug(params.slug)} />}
+        {(params) => <CasePage slug={params.slug} />}
       </Route>
       <Route component={NotFound} />
     </Switch>
@@ -97,6 +97,30 @@ function Analytics() {
   return null;
 }
 
+/**
+ * Прокрутка при переходах внутри сайта (ТЗ 24.11.2026, раздел 9): новая страница
+ * открывается сверху, а ссылка с #якорем («Все кейсы» → /th#cases) ведёт к блоку.
+ * Без этого страница кейса открывалась на той высоте, где стояла предыдущая.
+ */
+function ScrollManager() {
+  const [location] = useLocation();
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    let tries = 0;
+    const go = () => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView();
+      else if (tries++ < 20) setTimeout(go, 100);
+    };
+    go();
+  }, [location]);
+  return null;
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
@@ -104,6 +128,7 @@ function App() {
         <LanguageProvider>
           <Toaster />
           <Analytics />
+          <ScrollManager />
           <Router />
           <ConsentBanner />
         </LanguageProvider>

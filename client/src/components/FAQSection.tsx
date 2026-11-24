@@ -1,8 +1,9 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import { useCountry } from '../hooks/useCountry';
 import { getCountryFaqs } from '../config/faqs';
 import { messengerUrl } from '../lib/cta';
+import { avgPrice } from '../config/price';
 import { ANSWER_MATERIALS, ASSET_MATERIALS, MaterialCard } from './AnswersIndex';
 import {
   Accordion,
@@ -16,6 +17,9 @@ export const FAQSection = () => {
   const country = useCountry();
   const platforms = country.platformsShort;
   const faqChat = messengerUrl(language, 'faq-price');
+  const avg = avgPrice(country.code);
+  const [allFaq, setAllFaq] = useState(false);
+  const [allMat, setAllMat] = useState(false);
 
   const extendedFaqs = getCountryFaqs(country).map((f) => ({
     q: { ru: f.qRu, en: f.qEn, id: f.qId ?? f.qEn, th: f.qTh ?? f.qEn },
@@ -29,25 +33,25 @@ export const FAQSection = () => {
         ru: (
           <>
             Условно бесплатно - узнай в <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">чате</a> как.
-            {'\n'}10% от чистой выплаты {platforms} (после комиссий площадок и рекламы). Среднее $400-800/мес. Нет рисков, нет предоплаты.
+            {'\n'}10% от чистой выплаты {platforms} (после комиссий площадок и рекламы).{avg.ru} Нет рисков, нет предоплаты.
           </>
         ),
         en: (
           <>
             Conditionally free - find out how in the <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
-            {'\n'}10% of net payout from {platforms} (after platform commissions and ad costs). Average $400-800/month. No risk, no upfront payment.
+            {'\n'}10% of net payout from {platforms} (after platform commissions and ad costs).{avg.en} No risk, no upfront payment.
           </>
         ),
         id: (
           <>
             Praktis gratis - cari tahu caranya di <a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">chat</a>.
-            {'\n'}10% dari pencairan bersih {platforms} (setelah komisi platform dan biaya iklan). Rata-rata $400-800/bulan. Tanpa risiko, tanpa pembayaran di muka.
+            {'\n'}10% dari pencairan bersih {platforms} (setelah komisi platform dan biaya iklan).{avg.id} Tanpa risiko, tanpa pembayaran di muka.
           </>
         ),
         th: (
           <>
-            แทบจะฟรี — ถามวิธีได้ใน<a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">แชท</a>
-            {'\n'}10% ของยอดเงินโอนสุทธิจาก {platforms} (หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา) เฉลี่ย $400-800/เดือน ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า
+            แทบจะฟรี - ถามวิธีได้ใน<a href={faqChat} target="_blank" rel="noopener noreferrer" data-slot="faq-price" className="text-brand-green hover:text-brand-green-light underline transition-colors">แชท</a>
+            {'\n'}10% ของยอดเงินโอนสุทธิจาก {platforms} (หลังหักค่าคอมมิชชันแพลตฟอร์มและค่าโฆษณา){avg.th} ไม่มีความเสี่ยง ไม่ต้องจ่ายล่วงหน้า
           </>
         )
       }
@@ -91,88 +95,100 @@ export const FAQSection = () => {
     ...extendedFaqs
   ];
 
+  // По ТЗ маркетолога (24.11.2026): видны первые 7 вопросов и 6 материалов, остальное
+  // раскрывается кнопкой. Скрытое остаётся в HTML (display: none), его читают ИИ-краулеры.
+  const VISIBLE_FAQ = 7;
+  const VISIBLE_MAT = 6;
+  const materials = [...ANSWER_MATERIALS.slice(0, 4), ...ASSET_MATERIALS, ...ANSWER_MATERIALS.slice(4)];
+  const moreFaq = faqs.length - VISIBLE_FAQ;
+  const moreMat = materials.length - VISIBLE_MAT;
+
   return (
-    <section className="py-16 border-t border-white/10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          data-testid="text-faq-title"
-        >
-          {t("Вопросы", "Questions", "Pertanyaan", 'คำถามที่พบบ่อย')}
-        </motion.h2>
+    <>
+      <section className="v-sec" id="faq">
+        <div className="v-wrap">
+          <div className="v-head">
+            <span className="v-eye">{t('Вопросы', 'Questions', 'Pertanyaan', 'คำถาม')}</span>
+            <h2 className="v-h2" data-testid="text-faq-title">
+              {t('Частые вопросы', 'Frequently asked questions', 'Pertanyaan umum', 'คำถามที่พบบ่อย')}
+            </h2>
+          </div>
+          <div style={{ maxWidth: 880, width: '100%' }}>
+            <Accordion type="multiple" className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className={`border-b border-white/10 ${index >= VISIBLE_FAQ && !allFaq ? 'hidden' : ''}`}
+                  data-testid={`faq-item-${index}`}
+                >
+                  <AccordionTrigger className="text-left text-lg font-semibold hover:text-brand-green transition-colors">
+                    {typeof faq.q === 'string'
+                      ? t(faq.q, faq.q, faq.q)
+                      : language === 'ru'
+                        ? faq.q.ru
+                        : language === 'id'
+                          ? faq.q.id
+                          : language === 'th'
+                            ? faq.q.th
+                            : faq.q.en}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-brand-muted text-base pt-2 whitespace-pre-line">
+                    {typeof faq.a === 'object' && 'ru' in faq.a
+                      ? language === 'ru'
+                        ? faq.a.ru
+                        : language === 'id'
+                          ? faq.a.id
+                          : language === 'th'
+                            ? faq.a.th
+                            : faq.a.en
+                      : faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+          {moreFaq > 0 && (
+            <button type="button" className="v-more" onClick={() => setAllFaq((v) => !v)} data-testid="button-faq-more">
+              {allFaq
+                ? t('Свернуть', 'Show less', 'Sembunyikan', 'ย่อ')
+                : t(`Показать ещё ${moreFaq} вопросов`, `Show ${moreFaq} more questions`, `Tampilkan ${moreFaq} pertanyaan lagi`, `แสดงอีก ${moreFaq} คำถาม`)}
+            </button>
+          )}
+        </div>
+      </section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <Accordion type="multiple" className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="border-b border-white/10"
-                data-testid={`faq-item-${index}`}
-              >
-                <AccordionTrigger className="text-left text-lg font-semibold hover:text-brand-green transition-colors">
-                  {typeof faq.q === 'string'
-                    ? t(faq.q, faq.q, faq.q)
-                    : language === 'ru'
-                      ? faq.q.ru
-                      : language === 'id'
-                        ? faq.q.id
-                        : language === 'th'
-                          ? faq.q.th
-                          : faq.q.en}
-                </AccordionTrigger>
-                <AccordionContent className="text-brand-muted text-base pt-2 whitespace-pre-line">
-                  {typeof faq.a === 'object' && 'ru' in faq.a
-                    ? language === 'ru'
-                      ? faq.a.ru
-                      : language === 'id'
-                        ? faq.a.id
-                        : language === 'th'
-                          ? faq.a.th
-                          : faq.a.en
-                    : faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
-
-        {/* Real <a href> in every card so crawlers have a path from every market
-            page into the answer cluster (see ai_docs/development/DEPLOYMENT.md).
-            The one-line gist is not decoration: it gives a person a reason to
-            click and puts a second short question/answer pair in plain text on
-            the most-cited page of the site. */}
-        <div className="mt-14">
-          <div className="flex items-end justify-between gap-4 mb-6">
-            <h3 className="text-xl sm:text-2xl font-bold">
+      {/* Real <a href> in every card so crawlers have a path from every market
+          page into the answer cluster (see ai_docs/development/DEPLOYMENT.md).
+          The one-line gist is not decoration: it gives a person a reason to
+          click and puts a second short question/answer pair in plain text on
+          the most-cited page of the site. */}
+      <section className="v-sec" id="answers">
+        <div className="v-wrap">
+          <div className="flex items-end justify-between gap-4">
+            <h2 className="v-h2">
               {t('Разбираем подробно', 'Worked through in full', 'Dibahas sampai tuntas', 'อธิบายแบบละเอียด')}
-            </h3>
-            <a href="/answers" className="text-brand-green hover:underline text-sm whitespace-nowrap">
+            </h2>
+            <a href="/answers" className="v-link whitespace-nowrap">
               {t('Все ответы', 'All answers', 'Semua jawaban', 'คำตอบทั้งหมด')} →
             </a>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {ANSWER_MATERIALS.map((m) => (
-              <MaterialCard key={m.href} m={m} />
+            {materials.map((m, i) => (
+              <div key={m.href} className={i >= VISIBLE_MAT && !allMat ? 'hidden' : 'contents'}>
+                <MaterialCard m={m} large={ASSET_MATERIALS.includes(m)} />
+              </div>
             ))}
           </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 mt-4">
-            {ASSET_MATERIALS.map((m) => (
-              <MaterialCard key={m.href} m={m} large />
-            ))}
-          </div>
+          {moreMat > 0 && (
+            <button type="button" className="v-more" style={{ alignSelf: 'center' }} onClick={() => setAllMat((v) => !v)} data-testid="button-answers-more">
+              {allMat
+                ? t('Свернуть', 'Show less', 'Sembunyikan', 'ย่อ')
+                : t(`Показать ещё ${moreMat} материалов`, `Show ${moreMat} more articles`, `Tampilkan ${moreMat} artikel lagi`, `แสดงอีก ${moreMat} บทความ`)}
+            </button>
+          )}
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };

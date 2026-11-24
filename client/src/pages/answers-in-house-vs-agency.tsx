@@ -50,9 +50,9 @@ export default function AnswersInHouseVsAgencyPage() {
   const cases: Array<[string, string, string, string]> = [
     ['x21', t('выручка за 9 месяцев', 'revenue in 9 months', 'omzet dalam 9 bulan', 'ยอดขายใน 9 เดือน'),
       'Rp 42,2M → 888,2M / ' + t('мес', 'mo', 'bln', 'เดือน'), '/cases/love-u-pizza'],
-    ['x9.4', t('выручка за 14 месяцев', 'revenue in 14 months', 'omzet dalam 14 bulan', 'ยอดขายใน 14 เดือน'),
+    ['x9.4', t('выручка, 5 месяцев с нами', 'revenue, 5 months with us', 'omzet, 5 bulan bersama kami', 'ยอดขาย 5 เดือนกับเรา'),
       '20 270 → 190 263 THB / ' + t('мес', 'mo', 'bln', 'เดือน'), '/cases/enjoy-healthy-food'],
-    ['x3.9', t('выручка за 2 месяца', 'revenue in 2 months', 'omzet dalam 2 bulan', 'ยอดขายใน 2 เดือน'),
+    ['x3.8', t('выручка за 2 месяца', 'revenue in 2 months', 'omzet dalam 2 bulan', 'ยอดขายใน 2 เดือน'),
       '9 440 → 36 810 THB / ' + t('мес', 'mo', 'bln', 'เดือน'), '/cases/ussr-phuket'],
     ['x2.6', t('выручка, работающий ресторан', 'revenue, an already-running venue', 'omzet, restoran yang sudah berjalan', 'ยอดขาย ร้านที่เปิดอยู่แล้ว'),
       t('реклама GoJek окупалась x62', 'GoJek ads paid back 62x', 'iklan GoJek balik modal 62x', 'โฆษณา GoJek คุ้มทุน 62 เท่า'), '/cases/zaytun-ubud'],

@@ -136,7 +136,7 @@ export default function PricingPage() {
         price: '10',
         priceCurrency: 'IDR',
         unitText: 'percent of monthly net payout after platform commissions and advertising costs',
-        description: '10% of the restaurant’s monthly net payout from GrabFood, GoFood and LINE MAN after platform commissions and advertising costs; typical invoice IDR 6,500,000 to 13,000,000 per month (USD 400 to 800). No upfront payment, no setup fee. Invoiced monthly, payable by link.',
+        description: '10% of the restaurant’s monthly net payout from GrabFood, GoFood and LINE MAN after platform commissions and advertising costs; average invoice about IDR 4-4.5 million a month in Indonesia and about THB 7,000 a month in Thailand. No upfront payment, no setup fee. Invoiced monthly, payable by link.',
       },
     },
   };
@@ -199,10 +199,10 @@ export default function PricingPage() {
                 </p>
                 <p className="text-brand-muted mb-6">
                   {t(
-                    'Типичный счёт: от 6 500 000 до 13 000 000 IDR в месяц (400-800 USD). Без предоплаты и без платы за подключение. Платите больше только тогда, когда выросла выручка.',
-                    'Typical invoice: from IDR 6,500,000 to 13,000,000 per month (USD 400-800). No upfront payment, no setup fee. You pay more only when revenue has grown.',
-                    'Invoice umumnya: mulai Rp6.500.000 hingga Rp13.000.000 per bulan (USD 400-800). Tanpa uang muka, tanpa biaya pemasangan. Anda membayar lebih hanya ketika omzet sudah naik.',
-                    'ใบแจ้งหนี้โดยทั่วไป: ตั้งแต่ 6,500,000 ถึง 13,000,000 IDR ต่อเดือน (400-800 USD) ไม่มีค่าใช้จ่ายล่วงหน้า ไม่มีค่าติดตั้ง จ่ายเพิ่มก็ต่อเมื่อยอดขายโตขึ้นเท่านั้น'
+                    'Средний счёт: около 4-4,5 млн IDR в месяц в Индонезии и около 7 000 THB в месяц в Таиланде. Без предоплаты и без платы за подключение. Платите больше только тогда, когда выросла выручка.',
+                    'Average invoice: about IDR 4-4.5 million a month in Indonesia and about THB 7,000 a month in Thailand. No upfront payment, no setup fee. You pay more only when revenue has grown.',
+                    'Invoice rata-rata: sekitar Rp4-4,5 juta per bulan di Indonesia dan sekitar THB 7.000 per bulan di Thailand. Tanpa uang muka, tanpa biaya pemasangan. Anda membayar lebih hanya ketika omzet sudah naik.',
+                    'ใบแจ้งหนี้เฉลี่ย: ประมาณ 4-4.5 ล้านรูเปียห์ต่อเดือนในอินโดนีเซีย และประมาณ 7,000 THB ต่อเดือนในประเทศไทย ไม่มีค่าใช้จ่ายล่วงหน้า ไม่มีค่าติดตั้ง จ่ายเพิ่มก็ต่อเมื่อยอดขายโตขึ้นเท่านั้น'
                   )}
                 </p>
                 <div className="grid sm:grid-cols-3 gap-4 text-sm">

@@ -149,7 +149,7 @@ export default function AboutPage() {
                   </Link>
                   {' · '}
                   <Link href="/cases/ussr-phuket" className="text-brand-green hover:underline">
-                    USSR Phuket ×3.9
+                    USSR Phuket ×3.8
                   </Link>
                 </p>
               </motion.div>

@@ -167,9 +167,11 @@ export default function Gate() {
           , 'เคสจริงพร้อมตัวเลขจากหลังบ้านของแพลตฟอร์ม')}
         </h2>
         <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-brand-muted">
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/surf-point-phuket">Surf Point (Phuket) - x2.3</a></li>
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/island-phuket">.island (Phuket) - 0 → 243 575 THB</a></li>
           <li><a className="hover:text-brand-green transition-colors" href="/cases/love-u-pizza">Love U Pizza (Bali) — x21</a></li>
           <li><a className="hover:text-brand-green transition-colors" href="/cases/enjoy-healthy-food">Enjoy Healthy Food (Phuket) — x9.4</a></li>
-          <li><a className="hover:text-brand-green transition-colors" href="/cases/ussr-phuket">USSR Phuket — x3.9</a></li>
+          <li><a className="hover:text-brand-green transition-colors" href="/cases/ussr-phuket">USSR Phuket — x3.8</a></li>
           <li><a className="hover:text-brand-green transition-colors" href="/cases/zaytun-ubud">Zaytun (Ubud) — x2.6</a></li>
           <li><a className="hover:text-brand-green transition-colors" href="/cases/etna-phuket">Etna (Phuket) — +87%</a></li>
           <li><a className="hover:text-brand-green transition-colors" href="/cases/meat-point-phuket">Meat Point (Phuket) — +46%</a></li>

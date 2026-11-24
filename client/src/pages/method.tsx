@@ -269,11 +269,15 @@ export default function MethodPage() {
 
       <Block card title={t('Полные кейсы', 'Full case studies', 'Studi kasus lengkap', 'เคสฉบับเต็ม')}>
         <p className="text-brand-muted">
+          <Link href="/cases/surf-point-phuket" className="text-brand-green hover:underline">Surf Point - x2.3</Link>
+          {' · '}
+          <Link href="/cases/island-phuket" className="text-brand-green hover:underline">.island - 0 → 243 575 THB</Link>
+          {' · '}
           <Link href="/cases/love-u-pizza" className="text-brand-green hover:underline">Love U Pizza — x21</Link>
           {' · '}
           <Link href="/cases/enjoy-healthy-food" className="text-brand-green hover:underline">Enjoy Healthy Food — x9.4</Link>
           {' · '}
-          <Link href="/cases/ussr-phuket" className="text-brand-green hover:underline">USSR Phuket — x3.9</Link>
+          <Link href="/cases/ussr-phuket" className="text-brand-green hover:underline">USSR Phuket — x3.8</Link>
           {' · '}
           <Link href="/cases/zaytun-ubud" className="text-brand-green hover:underline">Zaytun Ubud — x2.6</Link>
           {' · '}

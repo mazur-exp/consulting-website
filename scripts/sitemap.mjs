@@ -35,7 +35,7 @@ const ANSWERS = [
   'grabfood-phuket-thailand',
   'ai-assistant-grabfood-check',
 ];
-const CASES = ['ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
+const CASES = ['surf-point-phuket', 'island-phuket', 'ussr-phuket', 'enjoy-healthy-food', 'meat-point-phuket', 'etna-phuket', 'love-u-pizza', 'zaytun-ubud'];
 
 const P = 'client/src/pages';
 const C = 'client/src/config';
@@ -63,7 +63,7 @@ const pages = [
   { path: '/', priority: '1.0', changefreq: 'weekly', src: [`${P}/gate.tsx`, `${P}/country.tsx`, `${C}/faqs.ts`] },
   ...COUNTRIES.map((c) => ({
     path: `/${c}`, priority: '0.9', changefreq: 'weekly',
-    src: [`${P}/country.tsx`, `${C}/faqs.ts`],
+    src: [`${P}/country.tsx`, `${C}/faqs.ts`, `${C}/cases.ts`],
   })),
   { path: '/about', priority: '0.8', changefreq: 'monthly', src: [`${P}/about.tsx`] },
   { path: '/pricing', priority: '0.7', changefreq: 'monthly', src: [`${P}/pricing.tsx`] },
@@ -77,7 +77,7 @@ const pages = [
     path: `/answers/${a}`, priority: '0.8', changefreq: 'monthly', src: [ANSWER_SRC[a]],
   })),
   ...CASES.map((s) => ({
-    path: `/cases/${s}`, priority: '0.7', changefreq: 'monthly', src: [`${P}/case.tsx`, `${C}/case-studies.ts`],
+    path: `/cases/${s}`, priority: '0.7', changefreq: 'monthly', src: [`${P}/case.tsx`, `${C}/cases.ts`, `${C}/case-studies.ts`],
   })),
 ];
 

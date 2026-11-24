@@ -167,7 +167,7 @@ PAGE_NAMES = {
     "/answers/few-orders-grabfood-gofood": "мало заказов", "/answers/grabfood-ads-not-working": "реклама не работает",
     "/answers/grabfood-gofood-account-management": "ведение аккаунта", "/answers/in-house-manager-vs-agency": "свой человек или агентство",
     "/answers/delivery-agency-vs-klikit-deliverect": "софт или агентство", "/answers/managing-grabfood-yourself": "вести самому",
-    "/answers/ai-assistant-grabfood-check": "проверка через ИИ", "/cases/love-u-pizza": "кейс Love U Pizza",
+    "/answers/ai-assistant-grabfood-check": "проверка через ИИ", "/cases/love-u-pizza": "кейс Love U Pizza", "/cases/surf-point-phuket": "кейс Surf Point", "/cases/island-phuket": "кейс .island",
     "/cases/meat-point-phuket": "кейс Meat Point", "/cases/zaytun-ubud": "кейс Zaytun", "/cases/enjoy-healthy-food": "кейс Enjoy",
 }
 

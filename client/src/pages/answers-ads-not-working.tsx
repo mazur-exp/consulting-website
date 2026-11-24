@@ -266,9 +266,9 @@ export default function AnswersAdsNotWorkingPage() {
           <Link href="/cases/enjoy-healthy-food" className="text-brand-green hover:underline">
             Enjoy Healthy Food
           </Link>
-          {t(' — выручка x9.4 за 14 месяцев, доля офлайна 73% → 0%.',
-             ' — revenue x9.4 in 14 months, offline rate 73% → 0%.',
-             ' — omzet x9.4 dalam 14 bulan, porsi offline 73% → 0%.', ' — ยอดขาย x9.4 ใน 14 เดือน ชั่วโมงปิดในระบบ 73% → 0%')}
+          {t(' — выручка x9.4 (январь 2025 → январь 2026, из них 5 месяцев с нами), доля офлайна 73% → 0%.',
+             ' — revenue x9.4 (January 2025 → January 2026, 5 of those months with us), offline rate 73% → 0%.',
+             ' — omzet x9.4 (Januari 2025 → Januari 2026, 5 bulan di antaranya bersama kami), porsi offline 73% → 0%.', ' — ยอดขาย x9.4 (มกราคม 2025 → มกราคม 2026 โดย 5 เดือนทำงานกับเรา) ชั่วโมงปิดในระบบ 73% → 0%')}
         </p>
       </Block>
 

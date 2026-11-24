@@ -43,7 +43,7 @@ export const WHATSAPP_DISPLAY = '+62 851 2693 9952';
 export const TELEGRAM_HANDLE = 'delivery_booster';
 
 /** Слоты, откуда на сайте можно написать в мессенджер. */
-export type MessengerSlot = 'header' | 'pricing' | 'faq-price' | 'answer-cta';
+export type MessengerSlot = 'header' | 'hero' | 'landing-bottom' | 'case' | 'pricing' | 'faq-price' | 'answer-cta';
 
 type Lang = 'ru' | 'en' | 'id' | 'th';
 
@@ -66,6 +66,9 @@ const messengerText = (
   const title = opts.title ? `"${opts.title}"` : '';
   switch (slot) {
     case 'header':
+    case 'hero':
+    case 'landing-bottom':
+    case 'case':
       return pick(language, {
         ru: `Здравствуйте, Delivery Booster! У меня ресторан, хочу узнать подробнее о ведении аккаунтов ${p} вашей командой.`,
         en: `Hello Delivery Booster! I run a restaurant and would like to learn more about your team managing our ${p} accounts.`,

@@ -71,7 +71,7 @@ export interface CountryConfig {
 
 const THAI_CASES: CaseCard[] = [
   {
-    value: 'x3.9',
+    value: 'x3.8',
     labelRu: 'выручки на Grab',
     labelEn: 'Grab revenue',
     labelId: 'omzet di Grab',
@@ -96,10 +96,10 @@ const THAI_CASES: CaseCard[] = [
     nameEn: 'Enjoy Healthy Food (Phuket)',
     nameId: 'Enjoy Healthy Food (Phuket)',
     nameTh: 'Enjoy Healthy Food (ภูเก็ต)',
-    detailRu: 'заказы x4.6 · ROAS 27.5x · за 14 месяцев',
-    detailEn: 'orders x4.6 · ROAS 27.5x · in 14 months',
-    detailId: 'pesanan x4.6 · ROAS 27.5x · dalam 14 bulan',
-    detailTh: 'ออร์เดอร์ x4.6 · ROAS 27.5 เท่า · ภายใน 14 เดือน',
+    detailRu: 'заказы x4.6 · ROAS 27.5x · за 5 месяцев с нами',
+    detailEn: 'orders x4.6 · ROAS 27.5x · in 5 months with us',
+    detailId: 'pesanan x4.6 · ROAS 27.5x · dalam 5 bulan bersama kami',
+    detailTh: 'ออร์เดอร์ x4.6 · ROAS 27.5 เท่า · ใน 5 เดือนกับเรา',
     caseSlug: 'enjoy-healthy-food',
   },
   {
