@@ -87,7 +87,10 @@
 |---|---|
 | Контент по странам: платформы, кейсы-карточки, клиенты, соцдоказательство | `client/src/config/countries.ts` |
 | FAQ по странам (18 вопросов, RU+EN+ID, зеркалятся в FAQPage-схему) | `client/src/config/faqs.ts` |
-| Полные страницы кейсов /cases/* | `client/src/config/case-studies.ts` |
+| Кейсы: карточки, страницы /cases/*, графики, таблицы (новый шаблон, с 24.11.2026) | `client/src/config/cases.ts` |
+| Старый длинный текст кейсов (свёрнутый блок «Подробнее о работе» на странице кейса) | `client/src/config/case-studies.ts` |
+| Средний платёж по странам (блок цены, FAQ, схема, /pricing) | `client/src/config/price.ts` |
+| Блоки главной страны и общие стили нового макета | `client/src/components/HomeV2.tsx`, `client/src/v2.css` |
 | **Реестр материалов** (страницы-ответы, бенчмарк, метод) — один на весь сайт | `client/src/components/AnswersIndex.tsx` |
 | Языки, определение, `t(ru, en, id?)`, canonical и hreflang | `client/src/hooks/useLanguage.tsx` |
 | Общая оболочка страниц-ответов, `syncOpenGraph()` | `client/src/components/AnswerLayout.tsx` |

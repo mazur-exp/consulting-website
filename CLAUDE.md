@@ -289,17 +289,19 @@ const { t } = useLanguage();
   не использовать (ИИ ещё тянет их из кэша; не переиспользовать в контенте/схемах).
 - YouTube video embed for social proof
 
-### Page Structure (client/src/pages/home.tsx)
-9 main sections in order:
-1. HeroSection (title + 4-image gallery + 3 CTAs)
-2. TargetAudienceSection
-3. ServicesSection (6 service cards)
-4. WorkProcessSection
-5. CaseStudiesSection (4 cases with lightbox)
-6. TestimonialsSection (3 testimonials with Embla carousel)
+### Page Structure (client/src/pages/country.tsx, с 24.11.2026)
+Блоки страницы страны по порядку (вёрстка: `client/src/components/HomeV2.tsx` + `client/src/v2.css`):
+1. HeroV2 (заголовок, две кнопки, 110+/200+/0, два телефона с карточками клиентов и кейсами)
+2. LogosStrip (Таиланд и страны без клиентов) или ClientsSection (Индонезия)
+3. CasesV2 (карусель кейсов из `config/cases.ts`)
+4. AudienceV2, ServicesV2, ProcessV2
+5. PriceV2 (средний платёж из `config/price.ts`)
+6. ReviewsV2 (два отзыва тайских клиентов, на всех версиях)
 7. FounderSection
-8. CTASection
-9. VideoSection (YouTube embed)
+8. FAQSection (7 вопросов + «Показать ещё», затем «Разбираем подробно»; скрытое остаётся в HTML)
+9. FinalCtaV2, VideoSection (только Индонезия)
+Страница кейса: `client/src/pages/case.tsx`, данные `config/cases.ts`; старый текст кейсов
+(`config/case-studies.ts`) показывается в свёрнутом блоке «Подробнее о работе».
 
 ### Key Components
 
