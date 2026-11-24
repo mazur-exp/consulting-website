@@ -367,7 +367,8 @@ const Star = () => (
 );
 export const ReviewsV2 = () => {
   const { t } = useLanguage();
-  const reviews = [
+  const country = useCountry();
+  const thaiReviews = [
     {
       text: t(
         'За время работы с командой Delivery Booster продажи с доставки растут в геометрической прогрессии. Команда всегда на связи, стоит на страже нашего рейтинга и помогает эффективно работать с доставкой.',
@@ -389,6 +390,41 @@ export const ReviewsV2 = () => {
       role: t('Владелица USSR Restaurant, Патонг', 'Owner of USSR Restaurant, Patong', 'Pemilik USSR Restaurant, Patong', 'เจ้าของ USSR Restaurant ป่าตอง'),
     },
   ];
+  // Индонезия: три прежних отзыва балийских клиентов (решение Алекса 24.11.2026, тексты без изменений,
+  // длинное тире заменено дефисом). Остальные страны: два отзыва из Таиланда по ТЗ маркетолога.
+  const baliReviews = [
+    {
+      text: t(
+        'За первый месяц работы количество заказов выросло на 40%. Особенно впечатлила работа с меню и позиционированием.',
+        'Orders increased by 40% in the first month. Menu optimization and positioning were especially impressive.',
+        'Dalam bulan pertama kerja sama, jumlah pesanan naik 40%. Yang paling berkesan adalah penataan menu dan positioning.',
+        'เดือนแรกที่ร่วมงานกัน ออร์เดอร์เพิ่มขึ้น 40% สิ่งที่ประทับใจที่สุดคือการจัดโครงสร้างเมนูและการวางตำแหน่งร้าน',
+      ),
+      name: t('Арина', 'Arina', 'Arina', 'Arina'),
+      role: 'Only Eggs',
+    },
+    {
+      text: t(
+        'Профессиональный подход и быстрые результаты. Теперь понимаем, как правильно работать с Gojek и Grab и увеличивать прибыль. Сняли большую головную боль по работе с платформами - наконец появилось время заниматься развитием бизнеса.',
+        'Professional approach and quick results. Now we understand how to work with Gojek and Grab properly and increase profits. Removed a huge headache from working with platforms - finally have time to focus on business development.',
+        'Pendekatan yang profesional dan hasil yang cepat. Sekarang kami paham cara bekerja dengan Gojek dan Grab dengan benar dan menaikkan laba. Beban besar dalam mengurus platform sudah diambil alih - akhirnya kami punya waktu untuk mengembangkan bisnis.',
+        'ทำงานเป็นมืออาชีพและเห็นผลเร็ว ตอนนี้เราเข้าใจแล้วว่าต้องทำงานกับ Gojek และ Grab อย่างไรให้ถูกต้องและเพิ่มกำไร ภาระหนักในการดูแลแพลตฟอร์มถูกยกไป เราจึงมีเวลาไปพัฒนาธุรกิจจริง ๆ',
+      ),
+      name: t('Алексей', 'Aleksei', 'Aleksei', 'Aleksei'),
+      role: 'Prana Kitchen',
+    },
+    {
+      text: t(
+        'Аудит показал неочевидные проблемы, которые мы не замечали. После внедрения рекомендаций средний чек вырос на 25%.',
+        "The audit revealed non-obvious problems we hadn't noticed. After implementing recommendations, the average check increased by 25%.",
+        'Audit menunjukkan masalah yang tidak kami sadari sebelumnya. Setelah rekomendasinya diterapkan, rata-rata nilai pesanan naik 25%.',
+        'การวิเคราะห์ชี้ปัญหาที่เราไม่เคยรู้มาก่อน พอทำตามคำแนะนำ ยอดต่อบิลก็เพิ่มขึ้น 25%',
+      ),
+      name: t('Дмитрий П.', 'Dmitry P.', 'Dmitry P.', 'Dmitry P.'),
+      role: t('Пиццерия', 'Pizzeria', 'Pizzeria', 'ร้านพิซซ่า'),
+    },
+  ];
+  const reviews = country.code === 'id' ? baliReviews : thaiReviews;
   return (
     <section className="v-sec" id="reviews">
       <div className="v-wrap">
