@@ -31,7 +31,7 @@ GA4 — надстройка ради Search Console и привычных от�
 | Сайт | Umami website_id | GA4 |
 |---|---|---|
 | booster.delivery | `a3060360-a401-4885-af8c-e0ecf802cd14` | `G-GYK9V931F2` |
-| diagnostic.booster.delivery | `a3060360-...` (общий с сайтом, с 20.09; свой `2fa78088-8a97-4dbf-af0f-dae89091be50` заведён, но не используется) | нет (см. «Цепочка лида») |
+| diagnostic.booster.delivery | `2fa78088-8a97-4dbf-af0f-dae89091be50`, свой раздел «GrabFood Diagnostic» (с 24.11.2026; с 20.09 по 24.11 писала в общий `a3060360`, эта история перенесена в свой раздел) | нет (см. «Цепочка лида») |
 | app.booster.delivery (только лендинг) | `94f4ca24-10ad-4f98-8a8e-e76063af20cc` | тот же |
 | balistats.booster.delivery | `f49238d5-7a96-4327-b025-33a585644e66` | нет |
 
@@ -159,16 +159,25 @@ node scripts/traffic-digest.mjs 30     # за 30
    теперь +62 851 2693 9952 (EN/ID/TH), RU идёт в Telegram @delivery_booster.
 3. Диагностика (партиал `app/views/diagnostics/_analytics.html.erb` в
    delivery-monitor) читает `utm_term`, кладёт в свой `sessionStorage` и шлёт в
-   ТОТ ЖЕ website Umami события `diagnostic-landing {slot, origin}`,
+   СВОЙ раздел Umami «GrabFood Diagnostic» (с 24.11.2026) события `diagnostic-landing {slot, origin}`,
    `diagnostic-report {platform, score, origin}`,
    `diagnostic-contact {kind, origin}`. В PDF-режиме партиал не подключён.
 4. База диагностики: `utm_term` в таблицу и в Telegram-уведомление о лиде
    добавляет разработчик, ТЗ в `ai_docs/development/DEV_BRIEF_DIAGNOSTIC_ORIGIN.md`.
 
-Где смотреть: Umami, сайт booster.delivery, вкладка Events. Событие
-`diagnostic-contact`, свойство `origin` отвечает на вопрос «откуда лиды»,
-`cta-click` по `slot` отвечает на «какая кнопка работает». Хосты различаются
-фильтром по host.
+Где смотреть (с 24.11.2026 разделы раздельные):
+- раздел **Delivery Booster** (сайт): событие `cta-click`, по `slot` видно, какая кнопка работает;
+- раздел **GrabFood Diagnostic**: просмотры формы и отчётов, события `diagnostic-landing`
+  (`slot` = кнопка сайта, `origin` = первое касание), `diagnostic-report`, `diagnostic-contact`
+  (`origin` отвечает на «откуда лиды»). Метки `utm_content` и `utm_term` видны и в отчёте UTM.
+
+Поправка 24.11.2026 к сказанному выше про сессии. Эта версия Umami считает сессию как
+website + ip + браузер (хост в неё НЕ входит), поэтому при общем id заход «сайт → диагностика»
+был одной сессией: так было у 40 из 94 сессий диагностики. Алекс решил, что сайты разные и
+разделы должны быть разные; теперь это две сессии в двух разделах, связь держится на метках.
+Заодно починены `diagnostic-landing` и `diagnostic-report`: с 20.09 по 24.11 они не уходили ни
+разу (скрипт в `<head>` искал элемент до разбора `<body>`), delivery-monitor PΔ.592.
+Резервная копия перенесённых строк: схема `backup_20261124` в базе Umami.
 
 Почему диагностика без GA и без полосы согласия: это инструмент на два экрана,
 полоса согласия там съест половину экрана ради куки, которая цепочку всё равно
