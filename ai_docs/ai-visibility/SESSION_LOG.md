@@ -4,6 +4,45 @@
 
 ---
 
+## 2026-11-24 (53) - Диагностика Grab включена для MY, VN, SG, PH, KH, MM (выложено); Таиланд остаётся без чтения
+
+Алекс: «супер, сделай правки и напиши объяснение команде и задание, как проверить».
+
+Что сделано (PΔ.593, оба репозитория трекера, выложено `bin/deploy` через `caffeinate`):
+- delivery-parser-api `95cf8d2`: страна запроса к веб-API Grab берётся из префикса id (заголовки
+  `X-Country-Code`, `X-GFC-Country`, кука `gfc_country`), веб-маршрут для всех стран с сайтом
+  (`WEB_REGIONS`), двузначный префикс Камбоджи `10-`, одна точка на страну, делитель цены из
+  `currency.exponent` (VND больше не делится на 100). Спеки 492 зелёные. Канон:
+  `delivery-parser-api/ai_docs/grab-web-route-indonesia-2026-10-18.md` § PΔ.593.
+- delivery-monitor `5affb65`: страны в `RegionConfig` (MY, PH, SG, MM, KH: путь, валюта, часовой
+  пояс), префикс `10-`, курсы и округление потерь для новых валют (`config/diagnostic.yml`
+  `idr_per_unit`, курс open.er-api.com на 24.11.2026), знаки валют (`Diagnostics::Config::CURRENCY_SYMBOLS`).
+
+Проверка на проде, сквозные прогоны (метка `utm_content=test-claude`, D27-D32):
+| Страна | Ресторан | Балл | Потери | Отчёт |
+|---|---|---|---|---|
+| MY | Uncle's Chicken Rice (ссылка сегодняшнего посетителя, через форму) | 1 | RM 3 460 | https://diagnostic.booster.delivery/report/k-zOk4_58sLR-IbP-FXOItRK |
+| VN | RIONI GEORGIAN RESTAURANT (через форму) | 94 | 0 | https://diagnostic.booster.delivery/report/OKmrProCAcSi6ld2-izBo-82 |
+| SG | The Daily Cut - Raffles Place | 42 | S$ 570 | https://diagnostic.booster.delivery/report/H8f8AlsnP6JVL9m_tqXANq78 |
+| PH | 24 Chicken - Mendiola | 52 | ₱ 21 600 | https://diagnostic.booster.delivery/report/n2J_tkeplv07A2kjM9cS306P |
+| KH | KFC - Boeng Kengkang (ссылка «поделиться» с `10-`) | 37 | ៛ 1 940 000 | https://diagnostic.booster.delivery/report/Wv0Gt6T2tApZN5yM2-M-DwJc |
+| MM | Lotteria - Junction Square | 24 | K 1 360 000 | https://diagnostic.booster.delivery/report/Habgo8dqbugaTaTc5znmCJMx |
+Отзывы по всем шести читаются (через единственный живой аккаунт, роль reviews). Индонезия после
+выкладки читается как раньше, `grab.web_failed` 0.
+
+Известные слабые места (в задании команде): потери считаются по балийским ориентирам (средний чек,
+поток), переведённым по курсу; цены MYR/SGD/PHP округляются до целых; в макете карточки зашита
+индонезийская плашка «Discount Rp10rb»; тексты отчёта про «Grab и GoFood»; Таиланд не читается
+(нужны аккаунты приложения) и человеку показывается «площадка не отвечает».
+
+Не сделано, ждёт решения Алекса: честное сообщение для Таиланда (текст на утверждение), отказ на
+обрезанную ссылку, журнал отказов в админке. Лид RIONI (Дананг): отчёт готов, можно отправить.
+
+Попутно замечено: `/parse/gofood` отдаёт 502 `gofood.upstream_error` десятками (152 за 12 минут до
+выкладки, 67 после), это было до правок; парсер снаружи сканируют (`GET /.env`), отвечает 404.
+
+---
+
 ## 2026-11-24 (52) - Исследование: веб-вход Grab читает все страны, кроме Таиланда; «пропуск» не привязан к стране
 
 Алекс: «попробуй получить пропуски Малайзии и Вьетнама; никаких правок, мы исследуем». Код, прод
